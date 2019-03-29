@@ -11,11 +11,7 @@ These are practises we encourage
 
 ### Use `#!/usr/bin/env`
 
-This makes  the shell more portable, not everyone has their bash shell under
-
-```bash
-#!/bin/bash
-```
+This makes the shell more portable, not everyone has their bash shell under `bin/bash`.
 
 Allowing env to control this is preferred.
 
@@ -36,7 +32,7 @@ These are syntax or stlye recommendations to *avoid*
 
 The use of `-x` makes output, espeically in CI unreadable. It is only recommended for use when debugging.
 
-## Set on the shebang
+### Set on the shebang
 
 The following isn't as readable, and purely for stlye.
 
