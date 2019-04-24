@@ -12,11 +12,11 @@ Serve OPG allows the Court of Protection to serve OPG deputyship orders directly
 
 Currently we respond to incidents within the hours outlined below:
 
-    9am-5pm, Monday to Friday, excluing bank holidays
+    9am-5pm, Monday to Friday, excluding bank holidays
 
 ## Incident contact details
 
-If you need to contact us to raise an incident or discuss issues that will imminently have an impact on our service you should contact them via PagerDuty. This will ensure members of the team are immediately notifed.
+If you need to contact us to raise an incident or discuss issues that will imminently have an impact on our service you should contact us via PagerDuty. This will ensure members of the team are immediately notifed.
 
     serve-opg@moj-digital-tools.pagerduty.com
 

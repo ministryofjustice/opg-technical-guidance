@@ -9,7 +9,7 @@ which covers service design more broadly, and the [Ministry of Justice Technical
 
 ## Runbooks
 {% assign runbook_groups = site.pages
-  | where: "runbooks", true %}
+  | where: "runbook", true %}
 
 {% for runbook in runbook_groups %}
 - [{{ runbook.title }}]({{ runbook.url | relative_url }})
