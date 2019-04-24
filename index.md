@@ -6,6 +6,15 @@ This site documents some of the technical decisions that the
 It complements the [Service Manual](https://www.gov.uk/service-manual),
 which covers service design more broadly, and the [Ministry of Justice Technical Guidance](https://ministryofjustice.github.io/technical-guidance/#moj-technical-guidance)
 
+
+## Runbooks
+{% assign runbook_groups = site.pages
+  | where: "runbooks", true %}
+
+{% for runbook in runbook_groups %}
+- [{{ runbook.title }}]({{ runbook.url | relative_url }})
+{% endfor %}
+
 ## Guides
 
 {% assign guides = site.pages

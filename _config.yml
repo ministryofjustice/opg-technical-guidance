@@ -5,6 +5,11 @@ permalink: pretty
 defaults:
   -
     scope:
+      path: "runbooks"
+    values:
+      standard: true
+  -
+    scope:
       path: "standards"
     values:
       standard: true
