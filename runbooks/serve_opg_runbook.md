@@ -16,7 +16,7 @@ Currently we respond to incidents within the hours outlined below:
 
 ## Incident contact details
 
-If you need to contact us to raise an incident or discuss issues that will imminently have an impact on our service you should contact us via PagerDuty. This will ensure members of the team are immediately notifed.
+Incidents and issues can be raised through the following address:
 
     serve-opg@moj-digital-tools.pagerduty.com
 
