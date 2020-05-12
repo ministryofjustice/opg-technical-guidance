@@ -3,23 +3,23 @@ title: OPG technical guidance
 permalink: pretty
 
 defaults:
-  -
-    scope:
+  - scope:
       path: "runbooks"
     values:
       runbook: true
-  -
-    scope:
+  - scope:
       path: "standards"
     values:
       standard: true
-  -
-    scope:
+  - scope:
       path: "guides"
     values:
       guide: true
-  -
-    scope:
+  - scope:
       path: "principles"
+    values:
+      principle: true
+  - scope:
+      path: "adrs"
     values:
       principle: true
