@@ -11,7 +11,7 @@ Accepted
 
 ## Context
 
-As we build mroe products with Javascript front-ends, we need to have a way of sharing common code across products to prevent duplication of code and encourage cross team collaboration.
+As we build more products with Javascript front-ends, we need to have a way of sharing common code across products to prevent duplication of code and encourage cross team collaboration.
 
 We have this issue currently with a few features we use over many products. This can be seen in places such as the PDF Viewer in Sirius, Cookie Consent Banners in our public facing sites and custom GDS styled components across all platforms.
 
