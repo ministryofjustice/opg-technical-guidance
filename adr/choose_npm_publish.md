@@ -3,7 +3,7 @@ category: adrs
 expires: 2020-11-05
 ---
 
-# Choose NPM Publish
+# Choose NPM Repository Publish
 
 ## Status
 
@@ -11,15 +11,17 @@ Accepted
 
 ## Context
 
-As we split our code in microservices on the front-end, we need to have a way of sharing common code across products.
+As we build mroe products with Javascript front-ends, we need to have a way of sharing common code across products to prevent duplication of code and encourage cross team collaboration.
 
-We have this issue currently with a few features we use over many products. This will give developers an option to share these features with others.
+We have this issue currently with a few features we use over many products. This can be seen in places such as the PDF Viewer in Sirius, Cookie Consent Banners in our public facing sites and custom GDS styled components across all platforms.
+
+This will give developers an option to share these features with others.
 
 ## Decision
 
-Where possible, we should use NPM to publish any reusable code in our projects and consume them.
+Where possible, we should publish any reusable code in our projects to a NPM Repository and consume them in our products.
 
-We already use NPM repositories for all our products. Integration isn't an issue when consuming the packages.
+We already use NPM repositories within our products for dependencies. For this we predominately use Yarn with a few instances of NPM to manage them.
 
 There will be a learning curve to setting up the repositories. This has been investigated already and can built upon.
 
@@ -39,4 +41,9 @@ This brings the following benefits
 - Get feedback from the wider community in making us better developers
 - Modularised code for cleaner codebases and easier testing
 
-The downside of this approach means development cycles may take longer. This is due to the extra work to build and publish the package. Long term the benefits you gain outweigh this initial cost.
+The downsides of this approach are
+
+- Development cycles will be longer initially due to the extra work to create the module
+- There will be more repositories to maintain
+- Potential loss of ownership if the code moves out of control of the product team
+- Learning curve for those unfamiliar with the NPM and Javascript ecosystem
