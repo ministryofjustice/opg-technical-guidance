@@ -18,7 +18,8 @@ We need to implement the recommendations by circleci to add authentication - see
 
 As this will significantly hamper our ability to run builds in CircleCI, this needs to be implemented.
 
-Fortunately, we have access to a DockerHub organisation in the MoJ. the steps below show you how to go about creating and using a service user for OPG repos.
+Fortunately, we have access to a DockerHub organisation in the MoJ.
+The steps below show you how to go about creating and using a service user for OPG repos.
 
 ## Principles
 
