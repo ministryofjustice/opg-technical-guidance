@@ -1,7 +1,6 @@
-
 ---  
-category : circleci
-expires  : 2021-11-20
+category: circleci
+expires: 2021-11-20
 ---
 
 # Adding org dockerhub service users to support circleci builds
