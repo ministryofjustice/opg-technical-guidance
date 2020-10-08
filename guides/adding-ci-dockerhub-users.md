@@ -23,7 +23,7 @@ The steps below show you how to go about creating and using a service user for O
 
 ## Principles
 
-We need to ensure that each of the circleci builds has an account and token associated to reduce blast radius should any of these DockerIDs become compomised.
+We need to ensure that each of the circleci builds has an account and token associated to reduce blast radius should any of these DockerIDs become compromised.
 
 ## Tools
 
