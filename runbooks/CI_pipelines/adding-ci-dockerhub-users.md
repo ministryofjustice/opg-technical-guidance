@@ -3,9 +3,9 @@ category: circleci
 expires: 2021-11-20
 ---
 
-# Adding org dockerhub service users to support circleci builds
+# Adding Service DockerIDs to support circleci builds
 
-This guide will set out how to setup and use dockerhub "service" users to service circleci builds.  
+This guide will set out how to setup and use "service" DockerIDs to service circleci builds.  
 
 ## User Needs
 
@@ -16,7 +16,7 @@ as of 1st november 2020, anonymous pulls for docker images will be rate limited 
 
 We need to implement the recommendations by circleci to add authentication - see [using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/)
 
-As this will significantly hamper our ability to run builds in CircleCI, this needs to be implemented.
+This will significantly hamper our ability to run builds in CircleCI without action.
 
 Fortunately, we have access to a DockerHub organisation in the MoJ.
 The steps below show you how to go about creating and using a service user for OPG repos.
