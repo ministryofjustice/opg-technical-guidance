@@ -52,7 +52,7 @@ there are 3 main steps:
 1. On hub.docker.com create a Docker ID, using:
    - A strong randomised password
    - A name that makes sense for the pipeline.
-   - The email associated with OPG webops group, using a an `+` email alias to associate with the new Docker ID.
+   - The email associated with OPG Webops Google Group, using a `+` email alias to associate with the new Docker ID.
 2. Take note of the above credentials and store in the webops secure vault for safekeeping.
 3. Log out of hub.docker.com.
 4. This will send a validation email to the opg team google group, but look out for one with the correct alias.  
