@@ -72,7 +72,7 @@ there are 3 main steps:
 3. Enter the DockerID of the new service user and select `opgdockerhubusers` from the dropdown
 4. Click `Add`.
 
-This user will have Member permissions, which will be enough to pull images.
+This user will have Member permissions, which will be enough to pull images. No higher permission level should be set.
 
 ### 3. Add dockerhub credentials to CircleCI
 
