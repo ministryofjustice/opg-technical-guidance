@@ -1,11 +1,11 @@
 ---  
-category: circleci
+category: runbooks
 expires: 2021-11-20
 ---
 
-# Adding service DockerIDs to support CircleCI builds
+# Adding a service DockerID to CircleCI build
 
-This guide will set out how to setup and use "service" DockerIDs to service CircleCI builds.  
+This runbook will set out how to setup and use "service" DockerIDs to service CircleCI builds.  
 
 ## Context
 
@@ -22,17 +22,15 @@ Fortunately, we have access to a DockerHub organisation in the Ministry of Justi
 
 ## Security
 
-We need to ensure that each of the circleci builds has an individual account and token associated to reduce blast radius should any of these DockerIDs become compromised.
+We need to ensure that each of the circleci builds has an individual DockerID and token associated, reducing blast radius should it become compromised.
 
 ## Prerequisites
-
-The steps below show you how to go about creating and using a service user for OPG repos.
 
 You will need:
 
 - Your own Docker ID, which has been:
-  - Added to `ministryofjustice` dockerhub organisation as an owner.
-  - Inside the `opgdockerhubusers` team.
+  - Added to the `ministryofjustice` dockerhub organisation as an owner.
+  - added to the `opgdockerhubusers` team.
 - Access to the OPG webops team google group email.
 - Access to the project settings on the CircleCI project you are working on.
 
