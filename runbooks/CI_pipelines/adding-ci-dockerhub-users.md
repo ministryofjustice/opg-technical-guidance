@@ -62,7 +62,7 @@ there are 3 main steps:
 8. In the Access Tokens click `New Access Token`.
 9. Give the token a useful name e.g. `CircleCI access token` and click `Create`
 10. On the next dialog, copy the access token provided.
-11. paste into the relevant secure vault entry for safekeeping.
+11. Paste into the relevant secure vault entry for safekeeping.
 12. Click `Copy and Close`.
 
 ### 2. Add the service account to organisation and team
