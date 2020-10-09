@@ -21,11 +21,9 @@ As this will significantly hamper our ability to run builds in CircleCI, this ne
 Fortunately, we have access to a DockerHub organisation in the MoJ.
 The steps below show you how to go about creating and using a service user for OPG repos.
 
-## Principles
-
 We need to ensure that each of the circleci builds has an account and token associated to reduce blast radius should any of these DockerIDs become compromised.
 
-## Tools
+## Prerequisites
 
 you will need:
 
@@ -37,35 +35,35 @@ you will need:
 
 Ask one of your webops colleagues to help if you don't have details of either of these.
 
-## Steps 
+## Steps
 
 there are 3 main steps:
 
-1. Create a service user
+1. Create a service Docker ID
 2. Add service user to docker organisation and team
 3. Add docker hub credentials to CircleCI
 
-### 1. Create a service docker user
+### 1. Create a service Docker ID
 
-1. On hub.docker.com create an account, using:
+1. On hub.docker.com create a Docker ID, using:
    - A strong randomised password
    - A name that makes sense for the pipeline.
-   - The email associated with OPG webops group, using a an `+` email alias to associate with your new docker ID.
-2. Take note of the above credentials and store in the webops lastpass account.
+   - The email associated with OPG webops group, using a an `+` email alias to associate with the new Docker ID.
+2. Take note of the above credentials and store in the webops secure vault.
 3. This will send a validation email to the opg team google group, look out for one with the correct alias.  
 4. Log out of hub.docker.com.
 5. Validate the email, making sure you select the correct one delivered to the group.
-6. Once validated successfully, log back in with your new credentials
+6. Once validated successfully, log back in with the new credentials
 7. Go to the profile name, drop down to `Account Settings` and select `Security` on the screen.
 8. In the Access Tokens click `New Access Token`, which will open a new dialog.
 9. Give the token a useful name e.g. `CircleCI access token` and click `Create`
 10. on the next Dialog, Copy the access token shown using the copy button.
-11. paste into the relevant lastpass entry for safekeeping.
+11. paste into the relevant secure vault entry for safekeeping.
 12. Click `Copy and Close`.
 
 ### 2. Add the service account to organisation and team
 
-1. Log in to your own dockerhub account
+1. Log in to your own DockerHub account
 2. under Organisations click `ministryofjustice` and then click `Add Member`
 3. Enter the DockerID of the new service user and select `opgdockerhubusers` from the dropdown
 4. Click `Add`.
