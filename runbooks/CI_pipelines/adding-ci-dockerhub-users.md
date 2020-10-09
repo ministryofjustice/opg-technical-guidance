@@ -14,7 +14,7 @@ as of 1st november 2020, anonymous pulls for docker images will be rate limited 
 - [Scaling Docker to Serve Millions More Developers: Network Egress](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/)
 - [Authenticate with Docker to avoid impact of Nov. 1st rate limits](https://discuss.circleci.com/t/authenticate-with-docker-to-avoid-impact-of-nov-1st-rate-limits/37567)
 
-This will significantly hamper our ability to run builds in CircleCI without action. in order to resolve this,CircleCI recommends to add docker hub authentication.
+This will significantly hamper our ability to run builds in CircleCI without action. in order to resolve this, CircleCI recommends adding docker hub authentication.
 
 - see [Using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/)
 
