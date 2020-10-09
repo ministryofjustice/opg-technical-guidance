@@ -21,8 +21,8 @@ This will significantly hamper our ability to run builds in CircleCI without act
 Fortunately, we have access to a DockerHub organisation in the Ministry of Justice, which will allow us to gain access to free unlimited pulls of images.
 
 ## Security
-
-We need to ensure that each of the circleci builds has an individual DockerID and token associated, reducing blast radius should it become compromised.
+We are not using [CircleCI contexts](https://circleci.com/docs/2.0/contexts/) as this is a shared organisational level construct, that any pipeline could use, and we're not set up with context restrictions at this time.
+We need to ensure that each of the circleci projects has an individual DockerID and token added in [environment variables](https://circleci.com/docs/2.0/env-vars/), reducing blast radius should it become compromised.
 
 ## Prerequisites
 
@@ -78,4 +78,4 @@ This user will have member permissions, which will be enough to pull images.
 3. Add an environment variable for the service DockerID e.g. `$DOCKER_USER`
 4. Add an environment variable for the docker access token e.g. `$DOCKER_ACCESS_TOKEN`.
 5. You should now be able to reference these inside of the `config.yaml` for CircleCI.
-6. Follow the advice given in [using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/) to set up you pipeline with these credentials, when using environment variables. We are not using contexts at this time.
+6. Follow the advice given in [using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/) to set up you pipeline with these credentials, when using environment variables.
