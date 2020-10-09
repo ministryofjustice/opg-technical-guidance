@@ -22,7 +22,9 @@ Fortunately, we have access to a DockerHub organisation in the Ministry of Justi
 
 ## Security
 
-We are not using [CircleCI contexts](https://circleci.com/docs/2.0/contexts/) as this is a shared organisational level construct, that any pipeline could use, and we're not set up with context restrictions at this time.
+We are not using [CircleCI contexts](https://circleci.com/docs/2.0/contexts/) as this is a shared organisational level construct, that any pipeline could use.
+We're not set up with context restrictions or groups in CircleCI at time of writing.
+
 We need to ensure that each of the circleci projects has an individual DockerID and token added in [project level environment variables](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project), reducing blast radius should it become compromised.
 
 ## Prerequisites
