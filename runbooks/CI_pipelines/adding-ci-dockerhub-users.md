@@ -5,7 +5,7 @@ expires: 2021-11-20
 
 # Adding a service DockerID to CircleCI build
 
-This runbook will set out how to setup and use "service" DockerIDs to service CircleCI builds.  
+This runbook shows how to setup and use "service" DockerIDs to service CircleCI builds.  
 
 ## Context
 
@@ -14,13 +14,12 @@ as of 1st november 2020, anonymous pulls for docker images will be rate limited 
 - [Scaling Docker to Serve Millions More Developers: Network Egress](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/)
 - [Authenticate with Docker to avoid impact of Nov. 1st rate limits](https://discuss.circleci.com/t/authenticate-with-docker-to-avoid-impact-of-nov-1st-rate-limits/37567)
 
-We need to implement the recommendations by circleci to add authentication - see [using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/)
-
-This will significantly hamper our ability to run builds in CircleCI without action.
+This will significantly hamper our ability to run builds in CircleCI without action. in order to resolve this,CircleCI recommends to add docker hub authentication - see [Using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/)
 
 Fortunately, we have access to a DockerHub organisation in the Ministry of Justice, which will allow us to gain access to free unlimited pulls of images.
 
 ## Security
+
 We are not using [CircleCI contexts](https://circleci.com/docs/2.0/contexts/) as this is a shared organisational level construct, that any pipeline could use, and we're not set up with context restrictions at this time.
 We need to ensure that each of the circleci projects has an individual DockerID and token added in [environment variables](https://circleci.com/docs/2.0/env-vars/), reducing blast radius should it become compromised.
 
