@@ -109,15 +109,16 @@ This user will have Member permissions, which will be enough to pull images. No 
         DOCKER_ACCESS_TOKEN   = data.aws_secretsmanager_secret_version.product_dockerhub_token.secret_string
     ```
 
-3. Log into the AWS console and assume a role into the opg-management account with permissions to modify AWS Secrets Manager secret values.
-4. Select the secret for your product's Docker ID
-5. Click on `Retreive Secret`
-6. Click on `Set Secret Value` (if you are editing an existing value, this will say `Edit Secret`)
-7. Return to the list of secrets
-8. Select the secret for your product's Docker Access Token
-9. Click on `Retreive Secret`
-10. Click on `Set Secret Value` (if you are editing an existing value, this will say `Edit Secret`)
-11. Once these are set, rerun the build workflow on opg-org-infra's master branch in CircleCI to update your project settings.
+3. You can set the value of the secret from the command line with the following
+
+    ```bash
+    aws-vault exec management -- aws secretsmanager put-secret-value --secret-id product_prefix-dockerhub_id --secret-string 'somesecretstringvalue'
+    aws-vault exec management -- aws secretsmanager put-secret-value --secret-id product_prefix-dockerhub_token --secret-string 'somesecretstringvalue'
+    ```
+
+    Alternatively, these values can be set in Secrets Manager in the AWS console.
+
+4. Once these are set, rerun the build workflow on opg-org-infra's master branch in CircleCI to update your project settings.
 
 ### 4. Adding Docker Authenticated Pulls to CircleCI jobs
 
