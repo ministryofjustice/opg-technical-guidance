@@ -92,7 +92,7 @@ This user will have Member permissions, which will be enough to pull images. No 
     }
     ```
 
-2. Use the aws_secretsmanager_secret_version data source to provide the secret string as an environment variable to CircleCI. You can use the opg-org-infra repository module to create environment variables for CircleCI
+2. Use the aws_secretsmanager_secret_version data source to provide the secret string as an environment variable to CircleCI. You can use the opg-org-infra repository module to create environment variables for CircleCI. Applying this module will set a value of `default` for each secret, to be replaced later.
 
     ```hcl
     data "aws_secretsmanager_secret_version" "product_dockerhub_id" {
@@ -109,7 +109,7 @@ This user will have Member permissions, which will be enough to pull images. No 
         DOCKER_ACCESS_TOKEN   = data.aws_secretsmanager_secret_version.product_dockerhub_token.secret_string
     ```
 
-3. You can set the value of the secret from the command line with the following
+3. When the secrets have been created, the value of each can be set from the command line with `aws-cli`
 
     ```bash
     aws-vault exec management -- aws secretsmanager put-secret-value --secret-id product_prefix-dockerhub_id --secret-string 'somesecretstringvalue'
