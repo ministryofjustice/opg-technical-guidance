@@ -81,7 +81,7 @@ This user will have Member permissions, which will be enough to pull images. No 
     ```hcl
     module "ci_dockerhub_secrets" {
       source         = "../modules/ci_dockerhub_secrets"
-      product_prefix = local.product_prefix
+      product_prefix = "the_name_of_the_product_to_namespace_secrets"
       providers      = { aws = aws.management }
     }
     output "aws_secretsmanager_secret_dockerhub_id" {
@@ -97,6 +97,11 @@ This user will have Member permissions, which will be enough to pull images. No 
     ```hcl
     data "aws_secretsmanager_secret_version" "product_dockerhub_id" {
       secret_id = module.product.aws_secretsmanager_secret_dockerhub_id.id
+      provider  = aws.management
+    }
+
+    data "aws_secretsmanager_secret_version" "product_dockerhub_token" {
+      secret_id = module.product.aws_secretsmanager_secret_dockerhub_token.id
       provider  = aws.management
     }
 
