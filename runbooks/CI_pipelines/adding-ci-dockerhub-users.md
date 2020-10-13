@@ -1,11 +1,11 @@
----  
+---
 category: runbooks
 expires: 2021-11-20
 ---
 
 # Adding a service DockerID to CircleCI build
 
-This runbook shows how to setup and use "service" DockerIDs to service CircleCI builds.  
+This runbook shows how to setup and use "service" DockerIDs to service CircleCI builds.
 
 ## Context
 
@@ -55,7 +55,7 @@ there are 3 main steps:
    - The email associated with OPG Webops Google Group, using a `+` email alias to associate with the new Docker ID.
 2. Take note of the above credentials and store in the webops secure vault for safekeeping.
 3. Log out of hub.docker.com.
-4. This will send a validation email to the opg team google group, but look out for one with the correct alias.  
+4. This will send a validation email to the opg team google group, but look out for one with the correct alias.
 5. Validate the email.
 6. Once validated successfully, log back in with the new credentials
 7. Go to the profile name, drop down to `Account Settings` and select `Security` on the screen.
@@ -74,11 +74,102 @@ there are 3 main steps:
 
 This user will have Member permissions, which will be enough to pull images. No higher permission level should be set.
 
-### 3. Add dockerhub credentials to CircleCI
+### 3. Add dockerhub credentials to a CircleCI Project
 
-1. go to the project settings of the circleci build pipeline
-2. go to environment variables
-3. Add an environment variable for the service DockerID e.g. `$DOCKER_USER`
-4. Add an environment variable for the docker access token e.g. `$DOCKER_ACCESS_TOKEN`.
-5. You should now be able to reference these inside of the `config.yaml` for CircleCI.
-6. Follow the advice given in [using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/) to set up you pipeline with these credentials, when using environment variables.
+1. Create AWS Secrets Manager secrets for the DockerID and access token in your product's module in opg-org-infra. Our intention is to create these secrets in the opg-management AWS account.
+
+    ```hcl
+    module "ci_dockerhub_secrets" {
+      source         = "../modules/ci_dockerhub_secrets"
+      product_prefix = "the_name_of_the_product_to_namespace_secrets"
+      providers      = { aws = aws.management }
+    }
+    output "aws_secretsmanager_secret_dockerhub_id" {
+      value = module.ci_dockerhub_secrets.aws_secretsmanager_secret_dockerhub_id
+    }
+    output "aws_secretsmanager_secret_dockerhub_token" {
+      value = module.ci_dockerhub_secrets.aws_secretsmanager_secret_dockerhub_token
+    }
+    ```
+
+2. Use the aws_secretsmanager_secret_version data source to provide the secret string as an environment variable to CircleCI. You can use the opg-org-infra repository module to create environment variables for CircleCI. Applying this module will set a value of `default` for each secret, to be replaced later.
+
+    ```hcl
+    data "aws_secretsmanager_secret_version" "product_dockerhub_id" {
+      secret_id = module.product.aws_secretsmanager_secret_dockerhub_id.id
+      provider  = aws.management
+    }
+
+    data "aws_secretsmanager_secret_version" "product_dockerhub_token" {
+      secret_id = module.product.aws_secretsmanager_secret_dockerhub_token.id
+      provider  = aws.management
+    }
+
+    module "product" {
+      source         = "./modules/repository"
+      name           = "product"
+      ...
+      circleci_env_vars = {
+        DOCKER_USER           = data.aws_secretsmanager_secret_version.product_dockerhub_id.secret_string
+        DOCKER_ACCESS_TOKEN   = data.aws_secretsmanager_secret_version.product_dockerhub_token.secret_string
+    ```
+
+3. When the secrets have been created, the value of each can be set from the command line with `aws-cli`
+
+    ```bash
+    aws-vault exec management -- aws secretsmanager put-secret-value --secret-id product_prefix-dockerhub_id --secret-string 'somesecretstringvalue'
+    aws-vault exec management -- aws secretsmanager put-secret-value --secret-id product_prefix-dockerhub_token --secret-string 'somesecretstringvalue'
+    ```
+
+    Alternatively, these values can be set in Secrets Manager in the AWS console.
+
+4. Once these are set, rerun the build workflow on opg-org-infra's master branch in CircleCI to update your project settings.
+
+### 4. Adding Docker Authenticated Pulls to CircleCI jobs
+
+1. CircleCI pulls for executors should be updated to include auth details.
+
+    ```yaml
+    executors:
+      puppeteer:
+        docker:
+          - image: buildkite/puppeteer
+            auth:
+              username: $DOCKER_USER
+              password: $DOCKER_ACCESS_TOKEN
+        resource_class: small
+    ```
+
+2. Use the docker orb to create a command that installs the credential helper and completes a docker login.
+
+    ```yaml
+    orbs:
+      path-to-live:
+        orbs:
+          docker: circleci/docker@1.4.0
+        commands:
+          dockerhub_login:
+            steps:
+              - docker/install-docker-credential-helper
+              - docker/check:
+                  docker-password: DOCKER_ACCESS_TOKEN
+                  docker-username: DOCKER_USER
+    ```
+
+3. Docker pulls inside your jobs can then be authorised just prior to any step that will attempt a docker pull. For example,
+
+    ```yaml
+    docker_build_front_app:
+      executor: python
+      steps:
+        - checkout
+        - setup_remote_docker:
+            version: 19.03.12
+            docker_layer_caching: false
+        - dockerhub_login
+        - run:
+            name: Build
+            command: docker build --file ./docker/app/Dockerfile --tag front-app:latest .
+    ```
+
+More information available at [using Docker Authenticated Pulls](https://circleci.com/docs/2.0/private-images/) and [circleci/docker orb](https://circleci.com/developer/orbs/orb/circleci/docker)
