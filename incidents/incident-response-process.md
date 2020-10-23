@@ -3,7 +3,7 @@ category: incidents
 expires: 2021-01-01
 ---
 
-# OPG Incident Response Process
+# Incident Response Process
 
 This document describes our incident handling process (inspired by work elsewhere in MOJ like the Cloud Platform).
 

@@ -23,7 +23,7 @@ Incidents and issues can be raised through the following address:
 ## URLs
 
 ### Service URLs
-    
+
     https://development.serve.opg.service.justice.gov.uk
     https://preproduction.serve.opg.service.justice.gov.uk
     https://serve.opg.service.justice.gov.uk
@@ -31,9 +31,9 @@ Incidents and issues can be raised through the following address:
 ### Other URLs
 
 #### Github
-    
-    https://github.com/ministryofjustice/serve-opg  
-    https://github.com/ministryofjustice/serve-opg-infrastructure  
+
+    https://github.com/ministryofjustice/serve-opg
+    https://github.com/ministryofjustice/serve-opg-infrastructure
 
 ## Hosting environment
 
