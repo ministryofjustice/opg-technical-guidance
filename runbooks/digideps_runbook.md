@@ -13,8 +13,8 @@
 **Service team contact:** [digideps@digital.justice.gov.uk](digideps@digital.justice.gov.uk)
 
 **Hosting environment:** 
-- AWS - We can log an emergency call with [here](https://console.aws.amazon.com/support/home#/) and will get an immediate call back.	
-- OPG Infra Account Details: [https://ministryofjustice.github.io/opg-new-starter/amazon.html#digideps]
+- AWS - We can log an emergency call with [aws support](https://console.aws.amazon.com/support/home#/) and will get an immediate call back.	
+- OPG Infra Account Details can be found [here](https://ministryofjustice.github.io/opg-new-starter/amazon.html#digideps)
 
 **Other Web Addresses:**
 
