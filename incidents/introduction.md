@@ -61,18 +61,6 @@ Currently we respond to incidents within the hours outlined below:
 
 ## Incident contact details
 
-* Product Manager:
-* Delivery Manager:
-* Service Owner:
-* Technical Architect:
-* Team:
-
-### For Incidents involving data:
-
-* OPG IA:
-* MOJ IA:
-* MOJ Cyber Security:
-
 ## URLs
 
 ### Service URLs
