@@ -22,14 +22,16 @@ Deputies will not be able to edit or submit their reports. OPG case management s
 
 ### Incident contact details
 
-    Slack: [https://mojdt.slack.com/messages/C7YH87C3A](https://mojdt.slack.com/messages/C7YH87C3A)
-    email: [digideps@digital.justice.gov.uk](digideps@digital.justice.gov.uk)
+Slack: [https://mojdt.slack.com/messages/C7YH87C3A](https://mojdt.slack.com/messages/C7YH87C3A)
+
+email: [digideps@digital.justice.gov.uk](digideps@digital.justice.gov.uk)
 
 ## URLs
 
 ### Service URLs:
 
 [https://complete-deputy-report.service.gov.uk/](https://complete-deputy-report.service.gov.uk/)
+
 [https://admin.complete-deputy-report.service.gov.uk/](https://admin.complete-deputy-report.service.gov.uk/)
 
 ### Other URLs
@@ -71,19 +73,19 @@ We operate a CI/CD model, releases will be continuously deployed as and when req
 | 5xx errors in app   | Cloudwatch | Front and Admin | Alerts on when we have a status code of 5xx appear in the application logs                 |
 | 5xx from ALB        | Cloudwatch | Front and Admin | Alerts where the application load balancer receives a 5XX response                         |
 
-## Consumers of this service
+### Consumers of this service
 
 Sirius Supervision
 
-## Services consumed by this
+### Services consumed by this
 
 GOV.UK Notify (call can be logged [here](https://www.notifications.service.gov.uk/support))
 
-## Restrictions on access
+### Restrictions on access
 
 None for production, other environments and admin restricted to users on VPN, DOM1, OPG Wifi
 
-## How to resolve specific issues
+### How to resolve specific issues
 
 Specific re-occurring issues will be fixed as bug fixes. However in the event that we are alerted to an issue,
 then we should first check the cloudwatch logs for our production log group thoroughly to identify the extent of the issue.
