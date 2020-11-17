@@ -24,16 +24,18 @@ These are the things we should be thinking about apart from actually fixing the 
 * Getting the right people involved
 * Tracking what's happened
 
+## Incident Priority
+
+Assign a priority level to incidents based on their complexity, urgency and resolution time. Incident severity also determines response times and support level.
 
 ### Incident priority table
 
 |Classification|Type|Example|Response time|Update frequency|
 |---|---|---|---|---|
-|P1|Critical|Complete outage, or ongoing unauthorised access|20 minutes|1 hour|
-|P2|Major|Substantial degradation of service|60 minutes|2 hours|
+|P1|Critical|Complete outage, or ongoing unauthorised access|20 minutes|30 Minutes|
+|P2|Major|Substantial degradation of service|60 minutes|1 hours|
 |P3|Significant|Users experiencing intermittent or degraded service due to platform issue|2 hours |Once after 2 business days|
 |P4|Minor|Component failure that does not immediately impact a service, or an unsuccessful DoS attempt|1 business day |Once after 5 business days|
-
 
 ## Guidance for products
 ------
@@ -45,41 +47,49 @@ you should create a link to this runbook from your repository in the `README.md`
 Runbook Template:
 
 ```
----
-category: runbooks
-expires: 2019-12-01
----
-# Service Name Runbook
+# SERVICE_NAME Runbook
+
+**Last review date:** 25th Oct 2020
 
 ## Description
 
-## Incident Response Hours
+## Incident Response
 
-Currently we respond to incidents within the hours outlined below:
+### Incident response hours
 
-    9am-5pm, Monday to Friday, excluding bank holidays
+    9am to 5pm Monday to Friday, excluding bank holidays, public holidays.
 
-## Incident contact details
+
+For notifications recived outside this window we have no obligation to respond until the hours above.
+
+### Impact of an outage
+
+
+### Incident contact details
+
+Slack:
+
+Email:
 
 ## URLs
 
-### Service URLs
-
-    https://development.example.gov.uk
-    https://preproduction.example.gov.uk
-    https://example.gov.uk
+### Service URLs:
 
 ### Other URLs
 
-#### Github
+|Name                           |Address                                               |
+|-------------------------------|------------------------------------------------------|
+|                               |                                                      |
 
-    https://github.com/ministryofjustice/example
-    https://github.com/ministryofjustice/example
 
-## Docs
 
-You can find links to our technical documentation below:
+## Hosting environment
 
-## Service Team (non-urgent issues)
+## Service team contact
+
+
+## Other Information
+
+### Other small titles
 
 ```

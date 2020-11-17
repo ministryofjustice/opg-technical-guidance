@@ -82,9 +82,9 @@ The incident reporter should call in a designated incident lead, typically a Tec
 
 Once appointed, the incident lead should update the following information using the slack bot in the deidcated communitcations channel.
 
-* incident summary `@opg-incident summary <describe the incident>`
-* incident severity `@opg-incident sev <Critical, Major, Trivial>`
-* incident impact `@opg-incident impact <describe the impact>`
+* incident summary `@opg-incident-response summary <describe the incident>`
+* incident severity `@opg-incident-response sev <Critical, Major, Trivial>`
+* incident impact `@opg-incident-response impact <describe the impact>`
 
 ### Incident Scribe
 
@@ -105,7 +105,7 @@ Once appointed, the scribe should update the incident header at the top of the c
 `https://incident.opg.service.justice.gov.uk`
 
 The scribe can pin important message in the incident channel and the slack tool will automatically add those into the timeline summary. They can also add
-actions to the incdent log using the following command `@opg-incident action <action_description>`
+actions to the incdent log using the following command `@opg-incident-response action <action_description>`
 
 Scribe takes notes during any shared calls and summarises in the incident channel.
 
@@ -124,6 +124,10 @@ It is usually best if this is a member of the product profession to help with bu
 
 Comms lead can summarise technical details and ongoing actions from the dedicated incident channel back to the main incident channel to
 keep interested parties up to date.
+
+You can update the Statuspage via the following command in the dedicated incident channel
+
+* `@opg-incident-response statuspage`
 
 ### Transferring roles
 
@@ -152,7 +156,7 @@ Things you may want to consider:
 When work on the problem has ceased, either because the problem has been resolved or because resolution is blocked until a later date,
 the **incident lead** should update the slack tool to close the incident.
 
-`@opg-incident close`
+`@opg-incident-response close`
 
 This marks the official end of the incident. If users were notified of the incident, an appropriate message should go out via the same channels
 to tell them it's over.
