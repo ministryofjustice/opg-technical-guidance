@@ -1,0 +1,63 @@
+---
+title: "Get started"
+weight: 30
+last_reviewed_on: 2020-11-12
+review_in: 4 weeks
+---
+
+# Get started
+
+## Installing & Setting up Sirius
+
+1. Clone <https://github.com/ministryofjustice/opg-sirius>
+2. Run Setup command within the cloned repository
+
+``` bash
+git clone git@github.com:ministryofjustice/opg-sirius.git
+cd opg-sirius
+make dev-setup
+```
+
+If you are running Ubuntu 18.04 or later you can follow the [detailed Ubuntu set-up guide](ubuntu-setup.md).
+
+For support please ask questions in [#opg-sirius-develop](https://mojdt.slack.com/messages/opg-sirius-develop).
+
+## Development Workflow
+
+### Scrum
+
+We use mostly a [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)#Workflow) workflow with a two-week sprint cycle. Sprint planning happens on Tuesdays, with the sprint retrospective happening on the same day (to minimise travel and make sure everyone is in the same place for these ceremonies). Once planning finishes the sprint is officially started and we track progress using this [sprint board](https://opgtransform.atlassian.net/secure/RapidBoard.jspa?rapidView=123&projectKey=SW).
+
+Daily stand-up happens at 10:00 and all team members are invited. For those attending remotely, we use the [#opg-sirius-develop](https://mojdt.slack.com/messages/opg-sirius-develop) channel in Slack.
+
+Backlog grooming or refinement usually happens on Thursdays every week. In these sessions we look at the [product backlog](https://opgtransform.atlassian.net/secure/RapidBoard.jspa?projectKey=SW&rapidView=123&view=planning). Make sure you discuss and clarify the acceptance criteria in the presented stories and raise your concerns before committing to these stories in planning.
+
+Product backlog items may be broken into multiple smaller ones; acceptance criteria may be clarified; and dependencies, investigation, and preparatory work may be identified and agreed as technical spikes.
+{: .notice--info}
+
+Code-cutoff happens on Mondays (close of business) before planning. If accepted by the business the last commit will be tagged and promoted to be a release candidate (RC). All going well, this RC will then be deployed to production one week later. Rejoice, thats your code live!
+
+NOTE: Stand-ups, Refinement, Planning, Retros. If you are missing invitations to these sessions please inform the Delivery Manager.
+{: .notice--warning}
+
+### Version Control
+
+Sirius uses [Git](https://git-scm.com/) for version control and code is hosted on [GitHub](https://github.com). Access to the [Sirius repo](https://github.com/ministryofjustice/opg-sirius) should have been sorted as part of the [Onboarding](https://github.com/ministryofjustice/opg-sirius/wiki/Onboarding) process but if that's not the case please follow these steps:
+
+1. If you haven't got one yet please create a GitHub account at [https://github.com/](https://github.com/). 2FA must be enabled.
+2. Then email the Service Desk with your Digital Justice account and Github info and ask to be added to the [Ministry of Justice](https://github.com/ministryofjustice) GitHub organisation with write-access to Sirius repositories.
+
+### Merging to master
+
+The main branch in Sirius is `master`. To merge code to `master` you need to:
+
+1. Create a feature branch (prefixed with your JIRA ticket number, e.g. `SH-133-technical-guidelines`). To update your branch do `git rebase master` and **not** `git merge`. We want all feature commits grouped on top of `master` `HEAD` commit, `git merge` messes up this.
+2. Open a [Pull Request](https://github.com/ministryofjustice/opg-sirius/pulls) (PR). Please do this as soon as possible.
+3. Get PR approval from at least one peer.
+4. Get a green build from [Jenkins](https://jenkins-shared-prod.service.opg.digital/blue/organizations/jenkins/sirius%2Fci_pipeline/pr).
+5. Get a thumbs-up from the QAs if your branch requires local testing prior to merging (that's usually the case for feature stories).
+
+We don't merge on broken builds unless if it's a fix for a broken build. "_You break it, you fix it_" so please keep an eye on [CI](https://jenkins-shared-prod.service.opg.digital/blue/organizations/jenkins/sirius%2Fci_pipeline/branches) after your PR is merged.
+{: .notice--info}
+
+### Code Reviews
