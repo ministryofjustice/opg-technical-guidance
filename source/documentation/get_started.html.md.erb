@@ -1,13 +1,98 @@
 ---
 title: "Get started"
 weight: 30
-last_reviewed_on: 2020-11-12
-review_in: 4 weeks
+last_reviewed_on: 2020-12-11
+review_in: 1 weeks
 ---
 
 # Get started
 
-This is the guide for new technical staff working in OPG. If you just joined, 👋 welcome!
+This is the guide for new technical staff working in OPG.
+If you just joined, 👋 welcome!
 
-If you're having trouble with this guide, you can ask your colleagues or the #opg-developers channel in Slack.
+If you're having trouble with this guide, you can ask your colleagues or
+the #opg-developers channel in Slack.
+
+## 1. Install the [Homebrew package manager](https://brew.sh) (on macOS or Linux)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+## 2. Set up your GitHub account
+
+1. Set up a [GitHub] account. Existing personal accounts are fine to use.
+1. Ask #digitalservicedesk to add you to the [ministryofjustice organisation][ministryofjustice]. You will have to be added to the [OPG team][opg-team] to get access to repos. Remember to click accept in the GitHub email invitation.
+1. [Generate and register an SSH key pair][register-ssh-key] for your laptop for your GitHub account. You should use a `4096` bit key.
+1. While you're here, associate your name and email to your git commits:
+
+    ```
+    $ git config --global user.email "friendly.giraffe@digital.justice.gov.uk"
+    $ git config --global user.name "Friendly Giraffe"
+    ```
+
+[ministryofjustice]: https://github.com/ministryofjustice
+[GitHub]: https://www.github.com/
+[opg-team]: https://github.com/orgs/ministryofjustice/teams/opg/members
+[register-ssh-key]: https://help.github.com/articles/connecting-to-github-with-ssh/
+
+
+## 3. Get AWS access
+
+To work with products and services at OPG, you will require an account in AWS.
+
+### Request an accout
+
+AWS accounts are all managed in code using [terraform][terraform].
+They are defined in the [opg-org-infa repository][opg-org-infa], If you have been
+put into the [OPG][opg-team] team on GitHub, Your AWS account would have been created at the same time.
+
+Ask your teams DevOps engineer to set your password.
+
+[terraform]: https://terraform.io
+[opg-org-infa]: https://github.com/ministryofjustice/opg-org-infa
+[opg-team]: https://github.com/orgs/ministryofjustice/teams/opg/members
+
+### Sign in to AWS
+
+To sign in, go to [the OPG AWS Sign page][opg-aws-signin], and use the following credentials:
+
+- "Account ID or alias": `opg-identity`
+- Username: firstname.lastname
+- Password: your password
+
+### Set up your MFA
+
+You have to set up [Multi-Factor Authentication (MFA)][MFA].
+
+1. [Sign in to AWS account][opg-aws-signin]
+1. Select or go to IAM service.
+1. Click on "Users" in the menu bar on the left hand side
+1. Enter your name
+1. Click on the link for your name
+1. Click on the security credentials tab
+1. Click on the "Manage" link next to "Assigned MFA device"
+1. Follow the steps to set up your MFA device
+1. Log out and log back into your AWS account
+
+[opg-aws-signin]: https://opg-identity.signin.aws.amazon.com/console
+[MFA]: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#multi-factor-authentication
+[iam]: https://console.aws.amazon.com/iam/home?region=eu-west-1#/users
+
+### Get the appropriate access
+
+An account in AWS doesn't give you access to anything, you'll need to be given rights.
+
+Ask your teams DevOps engineer to pair with you on getting the appropriate access.
+
+### Install AWS Vault
+
+AWS Vault stores IAM credentials in your operating system's secure keystore
+and then generates temporary credentials from those to expose to your shell
+and applications.
+
+```
+brew install --cask aws-vault
+```
+
 
