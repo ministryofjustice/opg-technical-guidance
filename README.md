@@ -1,67 +1,28 @@
-# Technical guidance
+# OPG Technical Guidance
 
-How we build and operate products at Office of the Public Guardian Digital. This repo
-is inspired by, and borrows from, [GDS's technical guidance][gds-way]
-site.
+👉 https://docs.opg.service.justice.gov.uk
 
-It's built using [Jekyll][], and hosted using [GitHub Pages][]. It
-incorporates HTML, SCSS, JavaScript, and images from [GDS's Tech Docs
-Template][tech-docs-template], and reworks them to work with Jekyll
-instead of [Middleman][].
+## Technical documentation
 
-[gds-way]: https://github.com/alphagov/gds-way
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages]: https://pages.github.com
-[tech-docs-template]: https://github.com/alphagov/tech-docs-template
-[Middleman]: https://middlemanapp.com
+This is a static site generated with Middleman. You can preview your changes with:
 
-## Getting started
-
-To preview the site locally, we need to use the terminal.
-
-Install Ruby and [Bundler][bundler], preferably with a [Ruby version
-manager][rvm].
-
-[rvm]: https://www.ruby-lang.org/en/documentation/installation/#managers
-[bundler]: http://bundler.io/
-
-Once you have Ruby and Bundler set up, you can install this project's
-dependencies by running the following in this directory:
-
-```bash
-bundle install
+```
+make preview
 ```
 
-## Making changes
+## Tech docs template
 
-To make changes, edit the appropriate Markdown files in this project.
-Jekyll (and therefore this site) uses [kramdown][] for its Markdown
-processing.
+This project uses [alphagov/tech-docs-template](https://github.com/alphagov/tech-docs-template).
 
-Make sure to make changes in a branch, and issue a pull request when
-you want them to be reviewed and published.
+This means that some of the files (like the CSS, javascripts and layouts) are
+managed in the template and are not supposed to be modified here.
 
-[kramdown]: https://kramdown.gettalong.org/syntax.html
+### Deployment
 
-## Previewing
+This project is hosted on GitHub Pages. It is [redeployed whenever a PR is merged][actions].
 
-We can preview our changes locally by running this command:
+## Licence
 
-```bash
-bundle exec jekyll serve --watch
-```
+[MIT License](LICENCE.md)
 
-This will create a local web server, probably at http://127.0.0.1:4000
-(look for the `Server address:` line). This is only accessible on our
-own computer, and won't be accessible to anyone else. It's also set up
-to automatically update (thanks to `--watch`) when we make changes to
-the working Markdown files.
-
-## Publishing changes
-
-Because we're using GitHub Pages, any changes merged into the `master`
-branch will be published automatically. Every change should be reviewed
-in a pull request, no matter how minor, and we've enabled [branch
-protection][] to enforce this.
-
-[branch protection]: https://help.github.com/articles/about-protected-branches/
+[actions]: https://github.com/ministryofjustice/opg-technical-guidance/blob/main/.github/workflows/publish.yml
