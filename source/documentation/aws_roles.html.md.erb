@@ -1,0 +1,248 @@
+---
+title: "OPG AWS Roles"
+last_reviewed_on: 2020-12-11
+review_in: 1 weeks
+---
+
+# <%= current_page.data.title %>
+
+## Serve OPG
+
+Viewer Roles
+
+```bash
+[profile serve-opg-development-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::705467933182:role/viewer
+
+[profile serve-opg-preproduction-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::540070264006:role/viewer
+
+[profile serve-opg-production-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::933639921819:role/viewer
+```
+
+Operator Roles
+
+```bash
+[profile serve-opg-development-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::705467933182:role/operator
+
+[profile serve-opg-preproduction-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::540070264006:role/operator
+
+[profile serve-opg-production-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::933639921819:role/operator
+```
+
+## Digideps
+
+Viewer Roles
+
+```bash
+[profile digideps-development-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::248804316466:role/viewer
+
+[profile digideps-preproduction-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::454262938596:role/viewer
+
+[profile digideps-production-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::515688267891:role/viewer
+```
+
+Operator Roles
+
+```bash
+[profile digideps-development-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::248804316466:role/operator
+
+[profile digideps-preproduction-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::454262938596:role/operator
+
+[profile digideps-production-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::515688267891:role/operator
+```
+
+## LPA
+
+Viewer Roles
+
+```bash
+[profile moj-lpa-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::050256574573:role/viewer
+
+[profile moj-lpa-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::987830934591:role/viewer
+
+[profile moj-lpa-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::980242665824:role/viewer
+
+```
+
+Operator Roles
+
+```bash
+[profile moj-lpa-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::050256574573:role/operator
+
+[profile moj-lpa-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::987830934591:role/operator
+
+[profile moj-lpa-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::980242665824:role/operator
+
+```
+
+## Refunds
+
+Viewer Roles
+
+```bash
+[profile moj-refunds-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::936779158973:role/viewer
+
+[profile moj-refunds-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::764856231715:role/viewer
+
+[profile moj-refunds-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::805626386523:role/viewer
+
+```
+
+Operator Roles
+
+```bash
+[profile moj-refunds-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::936779158973:role/operator
+
+[profile moj-refunds-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::764856231715:role/operator
+
+[profile moj-refunds-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::805626386523:role/operator
+```
+
+## Use an LPA
+
+Viewer Roles
+
+```bash
+[profile uml-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::367815980639:role/viewer
+
+[profile uml-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::888228022356:role/viewer
+
+[profile uml-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::690083044361:role/viewer
+```
+
+Operator Roles
+
+```bash
+[profile uml-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::367815980639:role/operator
+
+[profile uml-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::888228022356:role/operator
+
+[profile uml-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::690083044361:role/operator
+```
+
+## Sirius
+
+Viewer Roles
+
+```bash
+[profile sirius-dev-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::288342028542:role/viewer
+
+[profile sirius-preprod-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::492687888235:role/viewer
+
+[profile sirius-prod-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::649098267436:role/viewer
+```
+
+Operator roles
+
+```bash
+[profile sirius-dev-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::288342028542:role/operator
+
+[profile sirius-preprod-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::492687888235:role/operator
+
+[profile sirius-prod-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::649098267436:role/operator
+```
+
+## Other Roles
+
+### Management
+
+```bash
+[profile management-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::311462405659:role/viewer
+
+[profile management-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::311462405659:role/operator
+```
+
+### Shared
+
+```bash
+[profile shared-development]
+region=eu-west-1
+role_arn=arn:aws:iam::679638075911:role/account-write
+
+[profile shared-production]
+region=eu-west-1
+role_arn=arn:aws:iam::997462338508:role/account-write
+```
+
+### Sandbox
+
+```bash
+[profile sandbox-operator]
+region=eu-west-1
+role_arn = arn:aws:iam::995199299616:role/operator
+```
