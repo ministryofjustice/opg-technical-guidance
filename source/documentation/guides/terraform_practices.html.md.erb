@@ -36,6 +36,13 @@ for each account or enviroment which increases maintainability and ease of promo
 Workspaces allow for environments to be consistent by default, but allow features
 and resources to be toggled to enable specificfunctionality.
 
+### Usage in Pipelines
+
+Whenever running terraform in a CI/CD pipeline always run a terraform plan stage, even
+if applying with an auto-approve.  This allows you to understand exactly what terraform
+changed and why should there ever be an issue, and allows traceability of when specific
+changes were applied to an environment.
+
 ### Use .editorconfig in all repos for consistent whitespace
 
 Every mainstream IDE supports plugins for the .editorconfig standard to make
