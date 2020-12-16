@@ -31,6 +31,10 @@ sources, and should be stored in vpc.tf within the environment directory.
 
 ### Use Terraform Workspaces
 
+We use terraform workspaces to stop the duplication and customisation of code
+for each account or enviroment which increases maintainability and ease of promotion.
+Workspaces allow for environments to be consistent by default, but allow features
+and resources to be toggled to enable specificfunctionality.
 
 ### Use .editorconfig in all repos for consistent whitespace
 
@@ -248,4 +252,3 @@ We believe that modules should do one thing very well. But in order to do that,
 it requires being opinionated on the design. Simply wrapping terraform
 resources for the purposes of modularizing code is not that helpful.
 Implementing a specific use-case of those resource is more helpful.
-
