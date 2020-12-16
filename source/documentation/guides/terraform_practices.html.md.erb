@@ -10,6 +10,7 @@ review_in: 4 weeks
 ## General Principals
 
 ### Repo Organisation
+
 As a general practice across OPG we have a separation of accounts for
 development, preproduction, and production; with a goal of multiple environments
 in development, with preproduction and production being identical and isolated
@@ -27,6 +28,9 @@ sources, and should be stored in vpc.tf within the environment directory.
 /environment/modules
 /environment/vpc.tf
 ```
+
+### Use Terraform Workspaces
+
 
 ### Use .editorconfig in all repos for consistent whitespace
 
@@ -123,9 +127,54 @@ document usage.
 * Use string for freeform text
 * Use object sparingly as it makes it harder to document and validate
 
+### Use locals to baptize opaque resource IDs
+
+Using `locals` makes code more descriptive and maintainable.
+Rather than using complex expressions as parameters to some terraform resource,
+instead move that expression to a `local` and reference the `local` in the resource.
+
 ## Variables
 
+### Use upstream module or provider variable names where applicable
 
+When writing a module that accepts variable inputs, make sure to use the same
+names as the upstream to avoid confusion and ambiguity.
+
+### Use all lower-case with underscores as separators
+
+Avoid introducing any other syntaxes commonly found in other languages such
+as CamelCase or pascalCase. For consistency we want all variables to look uniform.
+This is also inline with the [HashiCorp naming conventions][hashi-naming].
+
+[hashi-naming]: https://www.terraform.io/docs/extend/best-practices/naming.html
+
+### Use positive variable names to avoid double negatives
+
+All variable inputs that enable/disable a setting should be formatted
+`...._enabled` (e.g. `encryption_enabled`).
+
+It is acceptable for default values to be either `false` or `true`.
+
+### Use feature flags to enable/disable functionality
+All modules should incorporate feature flags to enable or disable functionality.
+All feature flags should end in `_enabled` and should be of type `bool`.
+
+### Use description field for all inputs
+
+All `variable` inputs need a `description` field. When the field is provided by an
+upstream provider (e.g. `terraform-aws-provider`), use same wording as the upstream docs.
+
+### Use sane defaults where applicable
+
+Modules should be as turnkey as possible. The `default` value should ensure
+the most secure configuration (E.g. with encryption enabled).
+
+### Use variables for all secrets with no default value
+
+All `variable` inputs for secrets must never define a `default` value.
+This ensures that `terraform` is able to validate user input. The exception to
+this is if the secret is optional and will be generated for the user
+automatically when left `null` or `""` (empty).
 
 ## Outputs
 
@@ -189,4 +238,14 @@ of all outputs.
 .terraform.tfstate.lock.info
 *.tfstate
 *.tfstate.backup
-``
+```
+
+## Module Design
+
+### Small Opinionated Modules
+
+We believe that modules should do one thing very well. But in order to do that,
+it requires being opinionated on the design. Simply wrapping terraform
+resources for the purposes of modularizing code is not that helpful.
+Implementing a specific use-case of those resource is more helpful.
+
