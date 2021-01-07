@@ -1,0 +1,29 @@
+---
+title: "CLI and Dot Files"
+weight: 30
+last_reviewed_on: 2020-12-11
+review_in: 4 weeks
+---
+
+# <%= current_page.data.title %>
+
+This section provides details on commonly used CLI and dot file usage within the team.
+
+## Shell & Framework
+
+Most of the WebOps community utilise [zsh](https://en.wikipedia.org/wiki/Z_shell) based shell which is now the default on Mac OS with [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh).
+
+
+## Aliases
+
+A `~/.aliases` file used for common short cuts, mostly related to `aws-vault` and `terraform`
+
+```bash
+alias ave='aws-vault exec'
+alias avei='aws-vault exec identity'
+alias avkeys='aws-vault rotate identity'
+alias avend='aws-vault remove identity -s'
+alias tf='ave identity -- terraform'
+alias tfenv='avei -- env | grep TF_'
+alias tfv='terraform --version'
+```
