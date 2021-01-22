@@ -1,0 +1,91 @@
+---
+title: Live LPA Service Runbook
+last_reviewed_on: 2021-01-22
+review_in: 4 weeks
+---
+
+# <%= current_page.data.title %>
+
+## Description
+
+A service for users to create Lasting Power of Attorney, this service also track the processing of these documents.
+
+## Incident Response
+
+### Incident response hours
+
+    9am to 5pm Monday to Friday, excluding bank holidays, public holidays.
+
+
+For notifications recived outside this window we have no obligation to respond until the hours above.
+
+### Impact of an outage
+
+Users will not be able to create, access or download their LPA documents.
+
+### Incident contact details
+
+Slack: [#opg-lpa-live](https://mojdt.slack.com/archives/C01BDM8T67J)
+
+email: [opg-lpa-live@digital.justice.gov.uk](mailto:opg-lpa-live@digital.justice.gov.uk)
+
+## URLs
+
+### Service URLs:
+
+[https://www.lastingpowerofattorney.service.gov.uk/](https://www.lastingpowerofattorney.service.gov.uk/)
+
+[https://admin.lpa.opg.service.justice.gov.uk/](https://admin.lpa.opg.service.justice.gov.uk/)
+
+### Other URLs
+
+|Name                           |Address                                                                                |
+|-------------------------------|---------------------------------------------------------------------------------------|
+| Healthcheck ELB               |     https://www.lastingpowerofattorney.service.gov.uk/ping/elb                        |
+| Healthcheck Availability      |     https://www.lastingpowerofattorney.service.gov.uk/ping/                           |
+| Healthcheck Pingdom           |     https://www.lastingpowerofattorney.service.gov.uk/ping/pingdom                    |
+| Healthcheck Json              |     https://www.lastingpowerofattorney.service.gov.uk/ping/json                       |
+| GitHub Repository             |     https://github.com/ministryofjustice/opg-lpa                                      |
+
+## Hosting environment
+- AWS - We can log an emergency call with [aws support](https://console.aws.amazon.com/support/home#/) and will get an immediate call back.
+- AWS Account IAM Roles can be found [here](https://ministryofjustice.github.io/opg-new-starter/amazon.html#lpa)
+
+## Service team contact
+
+[opg-lpa-live@digital.justice.gov.uk](opg-lpa-live@digital.justice.gov.uk)
+
+## Other Information
+
+### Releases
+
+We operate a CI/CD model, releases will be continuously deployed as and when required.
+
+### Automatic alerts
+
+| Alert               | Source     | Application     | Description                                                                                |
+|---------------------|------------|-----------------|--------------------------------------------------------------------------------------------|
+| 5xx errors in app   | Cloudwatch | Front           | Alerts on when we have a status code of 5xx appear in the application logs                 |
+| 5xx from ALB        | Cloudwatch | Front           | Alerts where the application load balancer receives a 5XX response                         |
+
+### Consumers of this service
+
+N/A
+
+### Services consumed by this
+
+- SendGrid
+- Sirius LPA integrations service
+
+### Restrictions on access
+
+None for production, other environments and admin restricted to users on VPN, DOM1, OPG Wifi
+
+### How to resolve specific issues
+
+Specific re-occurring issues will be fixed as bug fixes. However in the event that we are alerted to an issue,
+then we should first check the cloudwatch logs for our production log group thoroughly to identify the extent of the issue.
+
+In the event that the issue is service affecting then we should follow the Incident process which can be found in this [repo](https://ministryofjustice.github.io/opg-technical-guidance/incidents/incident-response-process/#opg-incident-response-process).
+
+As part of this process we may identify that we need to roll back to a previous version of the application in which case, use the redeploying services procedures in this [folder](https://github.com/ministryofjustice/opg-lpa/tree/master/docs/runbooks).
