@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "rename-faulty-file"
     paths-ignore:
       - "docs/**"
 
