@@ -16,7 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: bundle exec middleman build --build-dir docs --relative-links
+      run: gem install opal
+    - run: bundle exec middleman build --build-dir docs --relative-links
     - run: touch docs/.nojekyll
     - run: cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
     - run: git config --global user.email "tools@digital.justice.gov.uk"
