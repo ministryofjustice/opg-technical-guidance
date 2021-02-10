@@ -1,0 +1,45 @@
+---
+title: OPG Pre-Commit
+weight: 10
+last_reviewed_on: 2021-02-10
+review_in: 8 weeks
+---
+
+# <%= current_page.data.title %>
+
+Project teams utilise `pre-commit` functionality to handle tasks like linting - where possible we use well established open source versions of these.
+
+Where there is a more bespoke need, we do create a repository within MoJ org on github for that purpose.
+
+## Current OPG Hooks
+
+- [OPG Pre Commit Hooks](https://github.com/ministryofjustice/opg-pre-commit-hooks/)*
+
+
+## Installation
+
+For mac, install via homebrew:
+
+```bash
+brew install pre-commit
+```
+
+For other platforms check the [project website guide](https://pre-commit.com/#install)
+
+## Conventions
+
+We publish hooks in their own repository by default, but if you are working on multiple, functionally-related, hooks we do combine those. These can be judgement calls, so please discuss with the community if its not clear.
+
+Naming of the repository should be descriptive enough to understand its function easily. For example, a hook which trims whitespace from twig files should be a named along the lines of `opg-pre-commit-twig-trim-whitespace`.
+
+If you then wanted to add another hook which converted tabs in twig files to whitespace, then the repository name should be updated to match the functional scope.
+
+Please ensure your repository contains a [readme based on our principles](https://docs.google.com/document/d/1sKFwuunO1qUtS7_sVKnD_3MuyvdmjTOum-C_C3c8HlI/view), appropriate license file (MIT for open source) and contribution guide.
+
+
+## Ownership
+
+We do need to ensure that our code is maintained and relevant -  ownership is a cruical part of that process.
+
+
+\* Requires renaming based on communitty conventions determined after creation
