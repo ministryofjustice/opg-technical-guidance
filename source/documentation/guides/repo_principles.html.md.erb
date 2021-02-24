@@ -1,0 +1,96 @@
+---
+title: Repo Readme Principles
+weight: 10
+last_reviewed_on: 2020-11-10
+review_in: 4 weeks
+---
+
+# <%= current_page.data.title %>
+
+We want our code repositories to be as user-friendly as possible. This document is an attempt to document the idealised contents of a good repo README.md file as a set of principles that we can apply as a yardstick for all our code repos. Feel free to comment or add new ideas. This will go through multiple iterations and eventually get added to the technical-guidance repo.
+
+## General Principles
+
+Links are free. Use the README as a jumping off point to a documentation site or further markdown in the /docs/ folder. Different products and services require different detail levels, so choose what is appropriate.
+Every new starter should be asked for feedback on the repo readme to help improve it.
+Keep the initial repo README short and helpful. If you go beyond 2 paragraphs in a section, consider moving the content into /docs/ and adding a link.
+
+## Explain what
+
+Include an intro to the service that the repo is used to build and who made it. Summarise the high level intent of the service.
+1 paragraph, with links to further documentation if needed.
+Badges for currently passing build and linting/code coverage results.
+Summary of technologies used, with links to the external documentation for those tools.
+Screenshot of a working install
+Clear signposting of any OpenAPI specifications for this service and for services it makes use of.
+
+If a larger product:
+
+Link to a high level architecture overview 
+
+## Explain How
+
+Prerequisites for building the service locally. This should be Docker for most services, but also any assumed technologies used to build and develop the app (i.e. pre-commit hooks or aws-cli)
+Should contain a basic summary of how to get the service up and running for local development. 1 Paragraph, with links to more detail if needed.
+
+* A summary of how to deploy the service, 
+* 1 Paragraph, with links to more detail if needed.
+* Links to info on how to debug and test 
+* Links to general development process and how you expect people to contribute.
+* Link to runbooks for the service, in case a non-team member needs to provide support.
+* A brief FAQ or Troubleshooting guide, preemptively answer common new developer questions.
+
+## Legal info
+
+A note on copyright and software license. By default this should be MIT as this is the MOJ standard.
+
+## Things to Avoid
+Our repos are open and open source, avoid putting any personally identifiable info in the README or /docs/ folder. You can link to closed sources like confluence or google docs if needs be.
+
+Putting too much info on the initial README.md and not linking out.
+
+## Your /docs/ folder
+
+Not everything needs to be in the README.md. You should move more detailed documentation into either a docs folder or for larger products a dedicated docs repo. 
+
+/docs/
+	/architecture/
+			/decisions
+			/diagrams
+			README.md
+	/runbooks/
+			DB_UPGRADE.md
+	/conventions/
+			LANGUAGE_STANDARDS.md
+			DEVELOPMENT_PROCESS.md
+	/openapi/
+			
+	README.md 
+	CONTRIBUTING.md 
+
+Remember that lots of build tools can auto-generate documentation based on method comments and other sources such as PHPDOC, . 
+
+## Useful Links
+https://www.contributor-covenant.org/
+
+https://github.com/ministryofjustice/opg-digideps/blob/main/docs/CONTRIBUTING.md
+
+###Inclusivity
+
+https://github.com/marketplace/actions/inclusivelint-github-action
+https://github.com/christopher-haueter/pre-commit-alex
+https://github.com/marketplace/actions/alex-recommends
+https://github.com/tlahmann/vscode-alex
+https://joblint.org/
+
+### PHP
+https://www.phpdoc.org/
+
+### Open API
+
+https://api-tools.getlaminas.org/ 
+https://github.com/Legion2/swagger-ui-action
+https://github.com/ministryofjustice/opg-metrics/blob/main/.github/workflows/openapi_ui.yaml
+
+
+
