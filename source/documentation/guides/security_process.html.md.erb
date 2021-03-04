@@ -1,0 +1,44 @@
+---
+title: Security in our Process
+last_reviewed_on: 2021-03-03
+review_in: 12 weeks
+---
+
+# <%= current_page.data.title %>
+
+Our aim is to make our products as secure as possible while maintaining usability for end users. This is in line with the [GDS service standard](https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service). You should be aware of the [MOJ Security Guidance](https://ministryofjustice.github.io/security-guidance/#cyber-and-technical-security-guidance), which will help with specific policy issues at an MOJ level and follow the [National Cyber Security Centre](https://www.ncsc.gov.uk/) for updates at a government level. 
+
+As part of our local development culture all our products should aim to have the following as a minimum in their process, build pipelines and GitHub setup:
+
+* Security to be considered as part of ticket prep and refinement, with reference to [OWASP Top 10](https://owasp.org/www-project-top-ten/).
+* Write automated tests to verify code and infrastructure security
+* Do Threat Modelling of your product every 6 months
+* Have an ITHC or Pen Test once a year or after a major change
+* Enable dependabot on all repositories
+* Enable container vulnerability scanning (either ECS container scan or a tool like Trivi)
+* Require pull requests to be reviewed before changes are merged to the main branch
+* Enable [Pre-commit](https://pre-commit.com/) hooks to prevent secrets being added to version control
+* Maintain Architectural Decision Records of security related decisions
+
+You may also want to look at:
+
+* Adding a pull request template with expectations for checks specific to your product
+
+## responsibilities
+
+### As a Developer or WebOps Engineer you should
+
+* Be aware of common vulnerabilities and how to code to prevent them
+* Pair with colleagues to be a 2nd pair of eyes for potential security issues
+* Raise security concerns and risks if you identify an issue
+* Use the incident process for urgent issues
+* Actively build an understanding of the security posture of your product over time
+* Actively monitor your product for security issues
+
+### As a Technical Architect you should
+
+* Organise regular threat modelling for your teams
+* Ensure security tickets are prioritised in backlogs
+* Coordinate incidents if they occur
+* Liase with stakeholders and security around security issues
+* Highlight potential risks on product and OPG Digital Risk registers
