@@ -9,8 +9,6 @@ on:
 
 jobs:
   repository_reports:
-    outputs:
-      ownership_report: ${{ steps.ownership_report_content.outputs.content }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -68,10 +66,10 @@ jobs:
         cd opg-repository-reports
         cat head.md ownership_report.md tail.md > repository_ownership.html.md.erb
     - name: Capture the output of the report
-      id: ownership_report_content
-      run: |
-        cd opg-repository-reports
-        echo "::set-output name=content::$(cat repository_ownership.html.md.erb)"
+      uses: actions/upload-artifact@v2
+      with:
+        name: repository_ownership
+        path: opg-repository-reports/repository_ownership.html.md.erb
 
   build_and_publish:
     needs: repository_reports
@@ -80,8 +78,14 @@ jobs:
       image: ministryofjustice/cloud-platform-tech-docs-publisher:1.1
     steps:
     - uses: actions/checkout@v2
-    - name: Output ownership report
-      run: cd source/documentation && echo '${{needs.job1.outputs.output1}}' > repository_ownership.html.md.erb
+    - name: Download repository ownership report
+      uses: actions/download-artifact@v2
+      with:
+        name: repository_ownership
+    - name: List files
+      run: ls -lart
+    - name: Move ownership report to correct location
+      run: mv -f repository_ownership.html.md.erb ./source/documentation/
     - name: Build
       run: bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
     - run: touch docs/.nojekyll
