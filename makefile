@@ -13,7 +13,7 @@ build:
 		-v $$(pwd)/source:/app/source \
 		-v $$(pwd)/docs:/app/docs \
 		ministryofjustice/cloud-platform-tech-docs-publisher:1.1 \
-		bundle exec middleman build --build-dir docs --relative-links
+		bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
 	touch docs/.nojekyll
 
 # Use this to run a local instance of the documentation site, while editing
@@ -25,4 +25,4 @@ preview:
 		-v $$(pwd)/source:/app/source \
 		-p 4567:4567 \
 		ministryofjustice/cloud-platform-tech-docs-publisher:1.1 \
-		bundle exec middleman serve
+		bundle exec middleman serve 2>/dev/null
