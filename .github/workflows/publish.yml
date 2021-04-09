@@ -58,6 +58,8 @@ jobs:
 
         " > tail.md
     - name: Run ownership report
+      env:
+        GITHUB_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
       run: |
         cd opg-repository-reports
         python ./ownership_report.py --type md --filename ownership_report
