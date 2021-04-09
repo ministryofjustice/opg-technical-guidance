@@ -60,7 +60,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
       run: |
         cd opg-repository-reports
-        python ./ownership_report.py --type md --filename ownership_report
+        python ./ownership_report.py --type md --filename ownership_report --exclude opg-webops
     - name: Merge report and front matter files
       run: |
         cd opg-repository-reports
