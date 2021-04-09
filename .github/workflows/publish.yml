@@ -83,7 +83,7 @@ jobs:
     - name: Output ownership report
       run: cd source/documentation && echo '${{needs.job1.outputs.output1}}' > repository_ownership.html.md.erb
     - name: Build
-      run: bundle exec middleman build --build-dir docs --relative-links
+      run: bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
     - run: touch docs/.nojekyll
     - run: cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
     - run: git config --global user.email "tools@digital.justice.gov.uk"
