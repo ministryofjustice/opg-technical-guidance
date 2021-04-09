@@ -12,8 +12,8 @@ build:
 		-v $$(pwd)/config:/app/config \
 		-v $$(pwd)/source:/app/source \
 		-v $$(pwd)/docs:/app/docs \
-		ministryofjustice/cloud-platform-tech-docs-publisher:1.1 \
-		bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
+		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
+		bundle exec middleman build --build-dir docs --relative-links
 	touch docs/.nojekyll
 
 # Use this to run a local instance of the documentation site, while editing
@@ -24,5 +24,5 @@ preview:
 		-v $$(pwd)/config:/app/config \
 		-v $$(pwd)/source:/app/source \
 		-p 4567:4567 \
-		ministryofjustice/cloud-platform-tech-docs-publisher:1.1 \
-		bundle exec middleman serve 2>/dev/null
+		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
+		bundle exec middleman serve
