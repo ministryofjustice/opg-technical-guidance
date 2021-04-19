@@ -11,21 +11,19 @@ on:
     - cron: '15 9 * * 2'
 
 jobs:
-  build_and_publish:
+  upload_external_artifacts:
     runs-on: ubuntu-latest
-    container:
-      image: ministryofjustice/tech-docs-github-pages-publisher:1.3
     steps:
     - name: Get artifacts directly from the API
-      shell: sh
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
       run: |
         repo="${{ github.repository }}"
         token="${{ env.GITHUB_TOKEN }}"
-        artifacts="repository_ownership repository_tooling"
+        declare -a artifacts=("repository_ownership" "repository_tooling")
         mkdir -p ./artifacts/zip ./artifacts/erb
-        for artifact in ${artifacts}; do
+        for artifact in "${artifacts[@]}"; do
             echo "Getting all artifacts for this repo & looking for ${artifact}"
             query="[ .artifacts[] | select(.name == \"${artifact}\").archive_download_url][0]"
             # fetch the first url, trim " and add access token
@@ -35,7 +33,7 @@ jobs:
                             | tr -d \" )
             len=${#artifact_url}
             # download the zip, extract it and move
-            if [ "${len}" -gt "5" ]; then
+            if [[ "${len}" -gt "5" ]]; then
                 echo "Artifact url: ${artifact_url}"
                 artifact_url="$(echo ${artifact_url} | sed s#api.#${token}@api.#g)"
                 echo "Downloading to local zip"
@@ -45,6 +43,18 @@ jobs:
                 echo "No artifact found for ${artifact}"
             fi
         done
+    - name: Upload all artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: reports
+        path: artifacts/erb/*.erb
+
+  build_and_publish:
+    needs: upload_external_artifacts
+    runs-on: ubuntu-latest
+    container:
+      image: ministryofjustice/tech-docs-github-pages-publisher:1.3
+    steps:
     - name: checkout
       uses: actions/checkout@v2
     - name: Download reports from artifacts
