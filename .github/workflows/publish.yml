@@ -17,6 +17,7 @@ jobs:
       image: ministryofjustice/tech-docs-github-pages-publisher:1.3
     steps:
     - name: Get artifacts directly from the API
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
       run: |
