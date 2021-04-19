@@ -22,10 +22,13 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         path: artifacts
-    - name: List artifacts directory
-      run: ls -lart ./artifacts
-    - name: Move artifacts to source documents
-      run: mv -f artifacts/*.html.md.erb ./source/documentation/
+    - name: List and move artifacts if they exist
+      run: |
+        ls -lart
+        if [ -d artifacts ]; then
+          ls -lart artifacts*
+          find ./artifacts -type f -name "*.html.md.erb" -exec mv {} ./source/documentation \;
+        fi
     - name: Build
       run: bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
     - run: touch docs/.nojekyll
