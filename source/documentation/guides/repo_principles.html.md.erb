@@ -1,19 +1,19 @@
 ---
 title: Repo Readme Principles
 weight: 10
-last_reviewed_on: 2020-11-10
-review_in: 4 weeks
+last_reviewed_on: 2021-04-26
+review_in: 6 months
 ---
 
 # <%= current_page.data.title %>
 
-We want our code repositories to be as user-friendly as possible. This document is an attempt to document the idealised contents of a good repo README.md file as a set of principles that we can apply as a yardstick for all our code repos. Feel free to comment or add new ideas. This will go through multiple iterations and eventually get added to the technical-guidance repo.
+We want our code repositories to be as user-friendly as possible. This document is an attempt to document the idealised contents of a good repo `README.md` file as a set of principles that we can apply as a yardstick for all our code repos. Feel free to add pull requests with new ideas. 
 
 ## General Principles
 
-Links are free. Use the README as a jumping off point to a documentation site or further markdown in the /docs/ folder. Different products and services require different detail levels, so choose what is appropriate.
+Links are free. Use the README as a jumping off point to a documentation site or further markdown in the `/docs/` folder. Different products and services require different detail levels, so choose what is appropriate.
 Every new starter should be asked for feedback on the repo readme to help improve it.
-Keep the initial repo README short and helpful. If you go beyond 2 paragraphs in a section, consider moving the content into /docs/ and adding a link.
+Keep the initial repo README short and helpful. If you go beyond 2 paragraphs in a section, consider moving the content into `/docs/` and adding a link.
 
 ## Explain what
 
@@ -41,19 +41,19 @@ Should contain a basic summary of how to get the service up and running for loca
 
 ## Legal info
 
-A note on copyright and software license. By default this should be MIT as this is the MOJ standard.
+A note on copyright and software license. By default this should be MIT as this is the MoJ standard.
 
 ## Things to Avoid
 
-Our repos are open and open source, avoid putting any personally identifiable info in the README or /docs/ folder. You can link to closed sources like confluence or google docs if needs be.
+Our repos are open and open source, avoid putting any personally identifiable info in the `README.md` or `/docs/` folder. You can link to closed sources like confluence or google docs if needs be.
 
-Putting too much info on the initial README.md and not linking out.
+Putting too much info on the initial `README.md` and not linking out.
 
 ## Your /docs/ folder
 
-Not everything needs to be in the README.md. You should move more detailed documentation into either a docs folder or for larger products a dedicated docs repo. 
+Not everything needs to be in the `README.md`. You should move more detailed documentation into either a `/docs/` folder or for larger products a dedicated docs repo. 
 
-/docs/
+```/docs/
 	/architecture/
 			/decisions
 			/diagrams
@@ -66,32 +66,33 @@ Not everything needs to be in the README.md. You should move more detailed docum
 	/openapi/
 			
 	README.md 
-	CONTRIBUTING.md 
+	CONTRIBUTING.md
+``` 
 
-Remember that lots of build tools can auto-generate documentation based on method comments and other sources such as PHPDOC, . 
+Remember that lots of build tools can auto-generate documentation based on method comments and other sources such as PHPDOC. 
 
 ## Useful Links
-https://www.contributor-covenant.org/
+[https://www.contributor-covenant.org/](https://www.contributor-covenant.org/)
 
-https://github.com/ministryofjustice/opg-digideps/blob/main/docs/CONTRIBUTING.md
+[https://github.com/ministryofjustice/opg-digideps/blob/main/docs/CONTRIBUTING.md](https://github.com/ministryofjustice/opg-digideps/blob/main/docs/CONTRIBUTING.md)
 
 ### Inclusivity
 
-https://github.com/marketplace/actions/inclusivelint-github-action
-https://github.com/christopher-haueter/pre-commit-alex
-https://github.com/marketplace/actions/alex-recommends
-https://github.com/tlahmann/vscode-alex
-https://joblint.org/
+[https://github.com/marketplace/actions/inclusivelint-github-action](https://github.com/marketplace/actions/inclusivelint-github-action)
+[https://github.com/christopher-haueter/pre-commit-alex](https://github.com/christopher-haueter/pre-commit-alex)
+[https://github.com/marketplace/actions/alex-recommends](https://github.com/marketplace/actions/alex-recommends)
+[https://github.com/tlahmann/vscode-alex](https://github.com/tlahmann/vscode-alex)
+[https://joblint.org/](https://joblint.org/)
 
 ### PHP
 
-https://www.phpdoc.org/
+[https://www.phpdoc.org/](https://www.phpdoc.org/)
 
 ### Open API
 
-https://api-tools.getlaminas.org/ 
-https://github.com/Legion2/swagger-ui-action
-https://github.com/ministryofjustice/opg-metrics/blob/main/.github/workflows/openapi_ui.yaml
+[https://api-tools.getlaminas.org](https://api-tools.getlaminas.org/)
+[https://github.com/Legion2/swagger-ui-action](https://github.com/Legion2/swagger-ui-action)
+[https://github.com/ministryofjustice/opg-metrics/blob/main/.github/workflows/openapi_ui.yaml](https://github.com/ministryofjustice/opg-metrics/blob/main/.github/workflows/openapi_ui.yaml)
 
 
 
