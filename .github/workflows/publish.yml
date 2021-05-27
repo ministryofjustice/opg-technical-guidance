@@ -21,7 +21,7 @@ jobs:
       run: |
         repo="${{ github.repository }}"
         token="${{ env.GITHUB_TOKEN }}"
-        declare -a artifacts=("repository_ownership" "repository_tooling" "repository_releases")
+        declare -a artifacts=("repository_ownership" "repository_releases")
         mkdir -p ./artifacts/zip ./artifacts/erb
         for artifact in "${artifacts[@]}"; do
             echo "Getting all artifacts for this repo & looking for ${artifact}"
