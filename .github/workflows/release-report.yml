@@ -1,6 +1,10 @@
 name: Generate Merge / Release Artifact
 
 on:
+  pull_requests:
+  push:
+    branches:
+      - main
   schedule:
     # Every Tuesday, at 4pm
     - cron: '00 16 * * 2'
