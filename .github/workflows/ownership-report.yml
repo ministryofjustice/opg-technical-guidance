@@ -1,4 +1,4 @@
-name: Generate Repository Ownership Artifact
+name: Repository Ownership Report
 
 on:
   schedule:
@@ -37,8 +37,11 @@ jobs:
         python ./ownership_report.py --type md --filename repository_ownership --exclude opg-webops
     - name: Merge report and stubs
       run: |
-        report=$(cat ./opg-repository-reports/repository_ownership.md)
-        python -c "print(open('./stubs/repository_ownership').read().replace('{{report}}', '${report}').replace('{{date}}','${{ steps.date.outputs.date }}'))" > opg-repository-reports/repository_ownership.html.md.erb
+        stub='./stubs/repository_ownership'
+        report='./opg-repository-reports/repository_ownership.md'
+        dest='./opg-repository-reports/repository_ownership.html.md.erb'
+        d="${{ steps.date.outputs.date }}"
+        python -c "stub = open('${stub}').read().replace('{{date}}','${d}'); report = open('${report}').read(); content = stub.replace('{{report}}', report); open('${dest}', 'w').write(content);"
     - name: Capture the output of the report
       uses: actions/upload-artifact@v2
       with:
