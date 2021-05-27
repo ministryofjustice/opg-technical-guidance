@@ -1,0 +1,17 @@
+---
+title: Repository Ownership
+last_reviewed_on: {{date}}
+review_in: 3 months
+---
+
+# <%= current_page.data.title %>
+
+Listing of all our repositorys, team that owns them and their current status.
+
+
+{{report}}
+
+
+### Notes
+
+This was generated via [this script](https://github.com/ministryofjustice/opg-repository-reporting/blob/main/ownership_report.py).

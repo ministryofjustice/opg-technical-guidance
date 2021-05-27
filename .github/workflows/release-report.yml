@@ -1,9 +1,13 @@
 name: Generate Merge / Release Artifact
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Every Tuesday, at 4pm
     - cron: '00 16 * * 2'
+
 
 jobs:
   release_report:
@@ -29,42 +33,16 @@ jobs:
         python -m pip install --upgrade pip
         cd opg-repository-reports
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Output skeleton head
-      run: |
-        cd opg-repository-reports
-        echo "---
-        title: Repository Merges / Releases
-        last_reviewed_on: ${{ steps.date.outputs.date }}
-        review_in: 3 months
-        ---
-
-        # <%= current_page.data.title %>
-
-        As we run CD/CI pipelines on our repositories for ease we class a merge to the default branch as a release.
-
-        The table below shows the last six months.
-
-        " > head.md
-    - name: Output skeleton tail
-      run: |
-        cd opg-repository-reports
-        echo "
-
-        ### Notes
-
-        This was generated via [this script](https://github.com/ministryofjustice/opg-repository-reporting/blob/main/merge_report.py).
-
-        " > tail.md
     - name: Run merge report
       env:
         GITHUB_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
       run: |
         cd opg-repository-reports
         python ./merge_report.py --type md --filename release_report
-    - name: Merge report and front matter files
+    - name: Merge report and stubs
       run: |
-        cd opg-repository-reports
-        cat head.md release_report.md tail.md > repository_releases.html.md.erb
+        report=$(cat ./opg-repository-reports/release_report.md)
+        python -c "print(open('./stubs/release_report').read().replace('{{report}}', '${report}').replace('{{date}}','${{ steps.date.outputs.date }}'))" > opg-repository-reports/repository_releases.html.md.erb
     - name: Capture the output of the report
       uses: actions/upload-artifact@v2
       with:
