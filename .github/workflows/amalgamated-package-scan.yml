@@ -13,3 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ministryofjustice/opg-repository-scanner-amalgamation@latest
+        with:
+          organisation_slug: "ministryofjustice"
+          organisation_token: ${{ secrets.ORG_ACCESS_TOKEN }}
+          team_slug: "opg"
