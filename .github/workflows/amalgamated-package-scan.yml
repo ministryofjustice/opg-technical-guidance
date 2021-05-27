@@ -1,0 +1,16 @@
+name: Generate amalgamated package scan report
+
+on:
+  push:
+    branches:
+      - "main"
+  schedule:
+    # Every Sunday, at 8pm UTC
+    - cron: '0 20 * * 7'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ministryofjustice/opg-repository-scanner-amalgamation@latest
