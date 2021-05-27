@@ -1,7 +1,6 @@
 name: Generate Merge / Release Artifact
 
 on:
-  pull_requests:
   push:
     branches:
       - main
