@@ -35,7 +35,6 @@ jobs:
       run: |
         cd opg-repository-reports
         python ./ownership_report.py --type md --filename repository_ownership --exclude opg-webops
-    # - run : echo "# testing!" > ./opg-repository-reports/repository_ownership.md
     - name: Merge report and stubs
       run: |
         report=$(cat ./opg-repository-reports/repository_ownership.md)
