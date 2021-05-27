@@ -41,7 +41,6 @@ jobs:
         python ./merge_report.py --type md --filename release_report
     - name: Merge report and stubs
       run: |
-        ls -la
         report=$(cat ./opg-repository-reports/release_report.md)
         python -c "print(open('./stubs/release_report').read().replace('{{report}}', '${report}').replace('{{date}}','${{ steps.date.outputs.date }}'))" > opg-repository-reports/repository_releases.html.md.erb
     - name: Capture the output of the report
