@@ -1,0 +1,17 @@
+---
+title: Repository Merges / Releases
+last_reviewed_on: {{date}}
+review_in: 3 months
+---
+# <%= current_page.data.title %>
+
+As we run CD/CI pipelines on our repositories for ease we class a merge to the default branch as a release.
+
+The table below shows the last six months.
+
+{{report}}
+
+
+### Notes
+
+This was generated via [this script](https://github.com/ministryofjustice/opg-repository-reporting/blob/main/merge_report.py).
