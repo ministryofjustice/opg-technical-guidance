@@ -11,24 +11,7 @@ on:
     - cron: '15 9 * * 2'
 
 jobs:
-  get_existing_artifacts:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Create artifact storage
-      run: mkdir -p ./artifacts/zip
-    - name: Download ownership report artifact
-      uses: dawidd6/action-download-artifact@v2.14.0
-      continue-on-error: true
-      with:
-        workflow: python-reports.yml
-        workflow_conclusion: success
-        branch: main
-        path: ./artifacts/zip
-    - name: List downloaded reports
-      run: |
-        ls -lart ./artifacts/zip/*/
-
-  build_and_publish:
+    build_and_publish:
     needs: get_existing_artifacts
     runs-on: ubuntu-latest
     container:
@@ -36,10 +19,23 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+    - name: Create artifact directory
+      run: mkdir -p ./artifacts/
+    - name: Download ownership report artifact
+      uses: dawidd6/action-download-artifact@v2.14.0
+      continue-on-error: true
+      with:
+        workflow: python-reports.yml
+        workflow_conclusion: success
+        branch: main
+        path: ./artifacts/
+    - name: List downloaded reports
+      run: |
+        ls -lart ./artifacts/*
     - name: List and move artifacts if they exist
       run: |
         if [ -d artifacts ]; then
-          ls -lart artifacts*
+
           find ./artifacts -type f -name "*.erb" -exec mv {} ./source/documentation \;
         fi
     - name: Build
