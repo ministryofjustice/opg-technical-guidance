@@ -1,20 +1,19 @@
-name: Release Report
+name: Run Reports for [ownership, merges]
 
 on:
   push:
     branches:
-      - main
+      - "main"
   schedule:
-    # Every Tuesday, at 4pm
-    - cron: '00 16 * * 2'
-
+    # Every Monday, at 12.15pm
+    - cron: '15 12 * * 1'
 
 jobs:
-  release_report:
+  ownership_report:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        report: ["ownership_report", "merge_report"]
     steps:
     - name: Get current date
       id: date
@@ -24,30 +23,34 @@ jobs:
       with:
         path: opg-repository-reports
         repository: ministryofjustice/opg-repository-reporting
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.8
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         cd opg-repository-reports
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run merge report
+    - name: Run ownership report
       env:
         GITHUB_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
       run: |
         cd opg-repository-reports
-        python ./merge_report.py --type md --filename release_report
+        python ./${{ matrix.report }}.py --type md --filename ${{ matrix.report }} --exclude opg-webops
+        cd -
     - name: Merge report and stubs
       run: |
-        stub='./stubs/release_report'
-        report='./opg-repository-reports/release_report.md'
-        dest='./opg-repository-reports/repository_releases.html.md.erb'
+        pwd
+        ls -lart
+        ls -lart ./stubs/
+        stub='./stubs/${{ matrix.report }}'
+        report='./opg-repository-reports/${{ matrix.report }}.md'
+        dest='./opg-repository-reports/${{ matrix.report }}.html.md.erb'
         d="${{ steps.date.outputs.date }}"
         python -c "stub = open('${stub}').read().replace('{{date}}','${d}'); report = open('${report}').read(); content = stub.replace('{{report}}', report); open('${dest}', 'w').write(content);"
     - name: Capture the output of the report
       uses: actions/upload-artifact@v2
       with:
-        name: repository_releases
-        path: opg-repository-reports/repository_releases.html.md.erb
+        name: ${{ matrix.report }}
+        path: opg-repository-reports/${{ matrix.report }}.html.md.erb
