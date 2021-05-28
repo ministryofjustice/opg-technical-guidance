@@ -5,4 +5,4 @@
 
 In order for data to show here, the repository must include a workflow for our [github action](https://github.com/ministryofjustice/opg-repository-scanner) such as [this](https://raw.githubusercontent.com/ministryofjustice/opg-repository-reporting/main/.github/workflows/report.yml).
 
-This [repository](https://github.com/ministryofjustice/opg-technical-guidance/) then includes a workflow to run the [amalgamated action(https://github.com/ministryofjustice/opg-technical-guidance/)] of the report and finally within the publishing workflow a stage to fetch that report and merge it to this page.
+This [repository](https://github.com/ministryofjustice/opg-technical-guidance/) then includes a workflow to run the [amalgamated action](https://github.com/ministryofjustice/opg-technical-guidance/) of the report and finally within the publishing workflow a stage to fetch that report and merge it to this page.
