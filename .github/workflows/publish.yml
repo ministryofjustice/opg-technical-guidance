@@ -20,15 +20,7 @@ jobs:
       uses: dawidd6/action-download-artifact@v2.14.0
       continue-on-error: true
       with:
-        workflow: ownership-report.yml
-        workflow_conclusion: success
-        branch: main
-        path: ./artifacts/zip
-    - name: Download release report artifact
-      uses: dawidd6/action-download-artifact@v2.14.0
-      continue-on-error: true
-      with:
-        workflow: release-report.yml
+        workflow: python-reports.yml
         workflow_conclusion: success
         branch: main
         path: ./artifacts/zip
