@@ -9,7 +9,7 @@ on:
     - cron: '15 12 * * 1'
 
 jobs:
-  ownership_report:
+  run_reports:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,10 +45,6 @@ jobs:
         path: opg-technical-guidance
     - name: Merge report and stubs
       run: |
-        pwd
-        ls -lart
-        ls -lart ./opg-technical-guidance
-        ls -lart ./opg-technical-guidance/stubs/
         stub='./opg-technical-guidance/stubs/${{ matrix.report }}'
         report='./opg-repository-reports/${{ matrix.report }}.md'
         dest='./opg-repository-reports/${{ matrix.report }}.html.md.erb'
