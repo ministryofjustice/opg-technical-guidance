@@ -28,21 +28,19 @@ jobs:
           workflow_conclusion: success
           branch: main
           path: ./artifacts/
-      - name: List downloaded reports
-        run: |
-          ls -lart ./artifacts/*
       - name: List and move artifacts if they exist
         run: |
-          if [ -d artifacts ]; then
+          ls -lart ./artifacts/*
+          if [ -d ./artifacts ]; then
             find ./artifacts -type f -name "*.erb" -exec mv {} ./source/documentation \;
           fi
+      - run: git checkout -b gh-pages
       - name: Build
         run: bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
       - run: touch docs/.nojekyll
       - run: cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
       - run: git config --global user.email "tools@digital.justice.gov.uk"
       - run: git config --global user.name "Github Action"
-      - run: git checkout -b gh-pages
       - run: git add source docs
       - run: git commit -m "Published at $(date)"
       - run: git push origin gh-pages --force
