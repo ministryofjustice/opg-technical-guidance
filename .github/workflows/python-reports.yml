@@ -1,9 +1,6 @@
 name: Run Reports for [ownership, merges]
 
 on:
-  push:
-    branches:
-      - "main"
   schedule:
     # Every Monday, at 12.15pm
     - cron: '15 12 * * 1'
