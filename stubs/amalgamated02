@@ -1,7 +1,7 @@
 review_in: 3 months
 ---
-<h1>Repository Package Scan Report/h1>
+# <%= current_page.data.title %>
 
-<p>This is the amalgated view of manifest and lock packages being used over our repositories, their licenses (where available), versions and location information.</p>
+This is the amalgated view of manifest and lock packages being used over our repositories, their licenses (where available), versions and location information.
 
-<p>This allows us to see a centralised view of what tooling we are using over the estate.</p>
+This allows us to see a centralised view of what tooling we are using over the estate.

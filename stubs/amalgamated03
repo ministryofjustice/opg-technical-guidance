@@ -1,16 +1,19 @@
 
 
 
-<h3>Notes</h3>
+### Notes
 
-<p>In order for data to show here, the repository must include a workflow for our <a href="https://github.com/ministryofjustice/opg-repository-scanner">github action</a> such as <a href="https://raw.githubusercontent.com/ministryofjustice/opg-repository-reporting/main/.github/workflows/report.yml">this</a>.</p>
+In order for data to show here, the repository must include a workflow for our [github action](https://github.com/ministryofjustice/opg-repository-scanner) such as [this](https://raw.githubusercontent.com/ministryofjustice/opg-repository-reporting/main/.github/workflows/report.yml).
 
-<p>This <a href="https://github.com/ministryofjustice/opg-technical-guidance/">repository</a> then includes a workflow to run the <a href="https://github.com/ministryofjustice/opg-repository-scanner-amalgamation">amalgamated action</a> of the report and finally within the publishing workflow a stage to fetch that report and merge it to this page.</p>
+This [repository](https://github.com/ministryofjustice/opg-technical-guidance/) then includes a workflow to run the [amalgamated action](https://github.com/ministryofjustice/opg-repository-scanner-amalgamation) of the report and finally within the publishing workflow a stage to fetch that report and merge it to this page.
+
+
 
 <script defer>
   let FUZZY = ""
 
-  const fuzzy = (table) => {
+
+  const fuzz = (table) => {
     let found = []
     Array.from(table.tBodies).forEach(tbody => {
       Array.from(tbody.rows).forEach((row, rowIndex) => {
@@ -25,7 +28,7 @@
   const filterDisplay = async (table) => {
     let found = []
     if (FUZZY.length > 0){
-      found.push(...fuzzy(table))
+      found.push(...fuzz(table))
     } else Array.from(table.querySelectorAll('tbody tr')).forEach( (r, i) => found.push(i) )
 
     Array.from(table.tBodies).forEach(tbody => {
@@ -54,6 +57,7 @@
   }
 
 
+
   const filters = async() => {
     const tables = Array.from( document.querySelectorAll('.filter') )
     tables.forEach((table, tableIndex) => {
@@ -61,6 +65,7 @@
 
     })
   }
+
 
   document.addEventListener("DOMContentLoaded", filters)
 
