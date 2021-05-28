@@ -1,4 +1,4 @@
-name: Generate Merge / Release Artifact
+name: Release Report
 
 on:
   push:
@@ -41,8 +41,11 @@ jobs:
         python ./merge_report.py --type md --filename release_report
     - name: Merge report and stubs
       run: |
-        report=$(cat ./opg-repository-reports/release_report.md)
-        python -c "print(open('./stubs/release_report').read().replace('{{report}}', '${report}').replace('{{date}}','${{ steps.date.outputs.date }}'))" > opg-repository-reports/repository_releases.html.md.erb
+        stub='./stubs/release_report'
+        report='./opg-repository-reports/release_report.md'
+        dest='./opg-repository-reports/repository_releases.html.md.erb'
+        d="${{ steps.date.outputs.date }}"
+        python -c "stub = open('${stub}').read().replace('{{date}}','${d}'); report = open('${report}').read(); content = stub.replace('{{report}}', report); open('${dest}', 'w').write(content);"
     - name: Capture the output of the report
       uses: actions/upload-artifact@v2
       with:

@@ -18,6 +18,7 @@ jobs:
       run: mkdir -p ./artifacts/zip
     - name: Download ownership report artifact
       uses: dawidd6/action-download-artifact@v2.14.0
+      continue-on-error: true
       with:
         workflow: ownership-report.yml
         workflow_conclusion: success
@@ -25,6 +26,7 @@ jobs:
         path: ./artifacts/zip
     - name: Download release report artifact
       uses: dawidd6/action-download-artifact@v2.14.0
+      continue-on-error: true
       with:
         workflow: release-report.yml
         workflow_conclusion: success
@@ -44,7 +46,6 @@ jobs:
       uses: actions/checkout@v2
     - name: List and move artifacts if they exist
       run: |
-        ls -lart ./artifacts/zip/*
         if [ -d artifacts ]; then
           ls -lart artifacts*
           find ./artifacts -type f -name "*.erb" -exec mv {} ./source/documentation \;
