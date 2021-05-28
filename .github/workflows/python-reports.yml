@@ -39,12 +39,17 @@ jobs:
         cd opg-repository-reports
         python ./${{ matrix.report }}.py --type md --filename ${{ matrix.report }} --exclude opg-webops
         cd -
+    - name: Checkout reporting repo
+      uses: actions/checkout@v2
+      with:
+        path: opg-technical-guidance
     - name: Merge report and stubs
       run: |
         pwd
         ls -lart
-        ls -lart ./stubs/
-        stub='./stubs/${{ matrix.report }}'
+        ls -lart ./opg-technical-guidance
+        ls -lart ./opg-technical-guidance/stubs/
+        stub='./opg-technical-guidance/stubs/${{ matrix.report }}'
         report='./opg-repository-reports/${{ matrix.report }}.md'
         dest='./opg-repository-reports/${{ matrix.report }}.html.md.erb'
         d="${{ steps.date.outputs.date }}"
