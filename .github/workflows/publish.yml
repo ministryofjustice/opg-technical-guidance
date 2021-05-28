@@ -45,7 +45,7 @@ jobs:
           ls -lart ./artifacts/*
           echo " ${{ steps.date.outputs.date }}" > ./stubs/date
           report='./artifacts/amalgamated_package_scan_report/report.v1.0.0.html'
-          dest='./artifacts/amalgamated_package_scan_report/repository_package_report.html.md.erb'
+          dest='./artifacts/amalgamated_package_scan_report/repository_package_report.html.erb'
           cat ./stubs/amalgamated01 ./stubs/date ./stubs/amalgamated02 ${report} ./stubs/amalgamated03 > ${dest}
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
