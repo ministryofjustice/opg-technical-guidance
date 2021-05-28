@@ -28,9 +28,26 @@ jobs:
           workflow_conclusion: success
           branch: main
           path: ./artifacts/
+      - name: Download amalgamated repository scan report artifacts
+        uses: dawidd6/action-download-artifact@v2.14.0
+        continue-on-error: true
+        with:
+          workflow: amalgamated-package-scan.yml
+          workflow_conclusion: success
+          branch: main
+          path: ./artifacts/
+      - name: Create erb file for repo scan report
+        run: |
+          ls -lart ./stubs/
+          ls -lart ./artifacts/*
+          stub='./stubs/amalgamated_package_scan_report'
+          report='./artifacts/amalgamated_package_scan_report/report.v1.0.0.md'
+          dest='./artifacts/amalgamated_package_scan_report/repository_package_report.html.md.erb'
+          d="${{ steps.date.outputs.date }}"
+          python -c "stub = open('${stub}').read().replace('{{date}}','${d}'); report = open('${report}').read(); content = stub.replace('{{report}}', report); open('${dest}', 'w').write(content);"
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
-      - name: List and move artifacts if they exist
+      - name: List and move *.erb artifacts if they exist
         run: |
           ls -lart ./artifacts/*
           if [ -d ./artifacts ]; then
