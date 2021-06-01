@@ -64,7 +64,6 @@ jobs:
       - name: Build
         run: bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
       - run: touch docs/.nojekyll
-      - run: mv ./artifacts/amalgamated_package_scan_report/repository_package_report.html ./docs/documentation/
       - run: echo "${GITHUB_SHA}" > docs/version.txt
       - run: cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
       - run: git config --global user.email "tools@digital.justice.gov.uk"
