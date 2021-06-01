@@ -1,0 +1,22 @@
+---
+title: Repository Package Scan Report
+last_reviewed_on: 2021-02-24
+review_in: 3 months
+---
+# <%= current_page.data.title %>
+
+This is the amalgated view of manifest and lock packages being used over our repositories, their licenses (where available), versions and location information.
+
+This allows us to see a centralised view of what tooling we are using over the estate.
+
+### Notes
+
+In order for data to show here, the repository must include a workflow for our github action such as this.
+
+This repository then includes a workflow to run the amalgamated action of the report and finally within the publishing workflow a stage to fetch that report and merge it to this page.
+
+
+
+
+
+{{report}}

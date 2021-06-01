@@ -41,12 +41,12 @@ jobs:
           path: ./artifacts/
       - name: Create erb file for repo scan report
         run: |
-          ls -lart ./stubs/
           ls -lart ./artifacts/*
-          echo " ${{ steps.date.outputs.date }}" > ./stubs/date
+          d="${{ steps.date.outputs.date }}"
+          source='./source/documentation/repository_package_report.html.md.erb'
           report='./artifacts/amalgamated_package_scan_report/report.v1.0.0.html'
-          dest='./artifacts/amalgamated_package_scan_report/repository_package_report.html'
-          cat ./stubs/amalgamated01 ${report} ./stubs/amalgamated03 > ${dest}
+          dest='./source/documentation/repository_package_report.html.md.erb'
+          python -c "src = open('${source}').read(); report = open('${report}').read().strip(); content = src.replace('{{report}}', report).replace('last_reviewed_on: 2021-02-24', 'last_reviewed_on: ${d}'); open('${dest}', 'w').write(content);"
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
       - name: List and move *.erb artifacts if they exist
