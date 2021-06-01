@@ -13,7 +13,7 @@ build:
 		-v $$(pwd)/source:/app/source \
 		-v $$(pwd)/docs:/app/docs \
 		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
-		bundle exec middleman build --build-dir docs --relative-links
+		bundle exec middleman build --build-dir docs --relative-links --verbose
 	touch docs/.nojekyll
 
 # Use this to run a local instance of the documentation site, while editing
