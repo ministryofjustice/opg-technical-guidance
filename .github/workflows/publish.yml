@@ -39,13 +39,14 @@ jobs:
           workflow_conclusion: success
           branch: main
           path: ./artifacts/
+      - name: "List artifacts"
+        run: ls -lart ./artifacts/*
       - name: Use erb template and merge report data
-        run: |
-          ls -lart ./artifacts/*
           d="${{ steps.date.outputs.date }}"
           source='./source/documentation/repository_package_report.html.md.erb'
-          report='$(./artifacts/amalgamated_package_scan_report/report.v1.0.0.html)'
+          report='./artifacts/amalgamated_package_scan_report/report.v1.0.0.html'
           dest='./source/documentation/repository_package_report.html.md.erb.tmp'
+          echo "date [${d}]"
           echo "</div>" > ./end
           cat ${source} ${report} ./end > ${dest}
           awk "{sub(/last_reviewed_on: 1970-01-01/,\"last_reviewed_on: ${d}\")}1" ${dest} > ${source}
