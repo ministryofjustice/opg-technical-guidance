@@ -44,19 +44,13 @@ jobs:
           ls -lart ./artifacts/*
           d="${{ steps.date.outputs.date }}"
           source='./source/documentation/repository_package_report.html.md.erb'
-          report='./artifacts/amalgamated_package_scan_report/report.v1.0.0.html'
-          dest='./source/documentation/repository_package_report.html.md.erb'
+          report='$(./artifacts/amalgamated_package_scan_report/report.v1.0.0.html)'
+          dest='./source/documentation/repository_package_report.html.md.erb.tmp'
           echo "date: [${d}]\nsource: [${source}]\nreport: [${report}]\ndestination: [${dest}]"
-          python -c "
-          src = open('${source}').read();
-          print('Loaded source.')
-          report = open('${report}').read().strip();
-          print('Loaded report.')
-          content = src.replace('{{report}}', report);
-          print('Replaced report in source.')
-          content = content.replace('last_reviewed_on: 2021-02-24', 'last_reviewed_on: ${d}')
-          print('Replaced date in content.')
-          open('${dest}', 'w').write(content);"
+          echo "</div>" > ./end
+          cat ${source} ${report} ./end > ${dest}
+          awk "{sub(/last_reviewed_on: 1970-01-01/,\"last_reviewed_on: ${d}\")}1" ${dest} > ${source}
+
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
       - name: List and move *.erb artifacts if they exist
