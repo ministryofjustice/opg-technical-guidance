@@ -42,6 +42,7 @@ jobs:
       - name: "List artifacts"
         run: ls -lart ./artifacts/*
       - name: Use erb template and merge report data
+        run: |
           d="${{ steps.date.outputs.date }}"
           source='./source/documentation/repository_package_report.html.md.erb'
           report='./artifacts/amalgamated_package_scan_report/report.v1.0.0.html'
@@ -49,7 +50,7 @@ jobs:
           echo "date [${d}]"
           echo "</div>" > ./end
           cat ${source} ${report} ./end > ${dest}
-          awk "{sub(/last_reviewed_on: 1970-01-01/,\"last_reviewed_on: ${d}\")}1" ${dest} > ${source}
+          sed "s/last_reviewed_on: 1970-01-01/last_reviewed_on: ${d}/" ${dest} > ${source}
           rm -f ${dest}
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
