@@ -50,7 +50,7 @@ jobs:
           echo "</div>" > ./end
           cat ${source} ${report} ./end > ${dest}
           awk "{sub(/last_reviewed_on: 1970-01-01/,\"last_reviewed_on: ${d}\")}1" ${dest} > ${source}
-
+          rm -f ${dest}
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
       - name: List and move *.erb artifacts if they exist
