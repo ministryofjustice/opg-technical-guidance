@@ -6,67 +6,6 @@
 <h3 id="notes">Notes</h3><p>In order for data to show here, the repository must include a workflow for our <a href="https://github.com/ministryofjustice/opg-repository-scanner">github action</a> such as <a href="https://raw.githubusercontent.com/ministryofjustice/opg-repository-reporting/main/.github/workflows/report.yml">this</a>.</p>
 <p>This <a href="https://github.com/ministryofjustice/opg-technical-guidance/">repository</a> then includes a workflow to run the <a href="https://github.com/ministryofjustice/opg-repository-scanner-amalgamation">amalgamated action</a> of the report and finally within the publishing workflow a stage to fetch that report and merge it to this page.</p>
 
-<script defer>
-  let FUZZY = ""
-
-
-  const fuzz = (table) => {
-    let found = []
-    Array.from(table.tBodies).forEach(tbody => {
-      Array.from(tbody.rows).forEach((row, rowIndex) => {
-        const text = row.textContent.toLowerCase()
-        if (text.indexOf(FUZZY) > -1) found.push(rowIndex)
-      })
-    })
-    return found
-  }
-
-
-  const filterDisplay = async (table) => {
-    let found = []
-    if (FUZZY.length > 0){
-      found.push(...fuzz(table))
-    } else Array.from(table.querySelectorAll('tbody tr')).forEach( (r, i) => found.push(i) )
-
-    Array.from(table.tBodies).forEach(tbody => {
-      Array.from(tbody.rows).forEach((r, i) => {
-        const enable = found.includes(i)
-        r.style.display = enable ? 'table-row' : 'none'
-      })
-    })
-
-  }
-  /**
-   * Inject a form at the start of the table
-   * with acts as a free hand text search
-   */
-  const search = async (table, tableIndex) => {
-    table.insertAdjacentHTML('beforebegin', `
-    <form class="filter-${tableIndex} filter-search filter-search-${tableIndex}">
-      <label>Search: <input type='text'></label>
-    </form>`)
-    let ele = document.querySelector(`.filter-search-${tableIndex} input`)
-
-    ele.addEventListener("input", (e) => {
-      FUZZY = ele.value.toLowerCase()
-      filterDisplay(table)
-    })
-  }
-
-
-
-  const filters = async() => {
-    const tables = Array.from( document.querySelectorAll('.filter') )
-    tables.forEach((table, tableIndex) => {
-      search(table, tableIndex)
-
-    })
-  }
-
-
-  document.addEventListener("DOMContentLoaded", filters)
-
-</script>
 
 
           </main>
