@@ -18,20 +18,35 @@ Establish a pattern for naming domains, currently we have a few variations acros
 
 ## Decision
 
-### One Hosted Zone
+### Multiple Hosted Zones
 
-All services will have a delegated hosted zone that lives inside of the management AWS Account.
+Having multiple hosted zones is necessary if you have multiple stacks in an environment due a limitaion with
+Amazon Certificate Manager. [See Wildcard Names](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html)
+
+You should have a delegated hosted zone for each AWS Account, which becomes the domain for the primary environment
+in that account. Production will not have a account prefix and live at the root level of the services domain
+
+Production example:
 
 `[service_name].opg.service.justice.gov.uk`
 
-### No Abbreivations
+Non-Production example:
 
-Dont use abbreivations in domains names where possible
-
-Examples
-
-A products preproduction environment should be
 `preproduction.[service_name].opg.service.justice.gov.uk`
+`development.[service_name].opg.service.justice.gov.uk`
+
+### Ephemeral Environments
+
+ephemeral environments will live within the hosted zone of the account where the environment is created.
+
+`[environment_name].development.[service_name].opg.service.justice.gov.uk`
+
+### No Abbreviations
+
+Dont use abbreviations in domains names where possible, A products preproduction environment
+should be:
+
+`preproduction.[service_name].opg.service.justice.gov.uk` not 'pre.[service_name].opg.service.justice.gov.uk'
 
 ## Consequences
 
