@@ -1,0 +1,38 @@
+---
+title: ADR-002 Application DNS Names
+last_reviewed_on: 2020-12-01
+review_in: 12 months
+---
+
+# <%= current_page.data.title %>
+
+### Date: 2020-06-02
+
+## Status
+
+🤔 Proposed
+
+## Context
+
+Establish a pattern for naming domains, currently we have a few variations across products and we should aim to be consistent where possible.
+
+## Decision
+
+### One Hosted Zone
+
+All services will have a delegated hosted zone that lives inside of the management AWS Account.
+
+`[service_name].opg.service.justice.gov.uk`
+
+### No Abbreivations
+
+Dont use abbreivations in domains names where possible
+
+Examples
+
+A products preproduction environment should be
+preproduction.[service_name].opg.service.justice.gov.uk`
+
+## Consequences
+
+Some products might have to do some slight refactoring work, however this shouldnt effect any production domains.
