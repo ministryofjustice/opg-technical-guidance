@@ -3,7 +3,7 @@ name: "[Python] Run repository reports"
 on:
   schedule:
     # Every Monday, at 12.15pm
-    - cron: '15 12 * * 1'
+    - cron: '0 12 * * 1,4'
 
 jobs:
   run_reports:
