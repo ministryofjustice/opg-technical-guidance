@@ -32,12 +32,26 @@ jobs:
         run: ls -lart ./artifacts/*
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
-      - name: List and move *.erb artifacts if they exist
+      - name: Move owners artifact
         run: |
-          ls -lart ./artifacts/*
-          if [ -d ./artifacts ]; then
-            echo "Artifact directory found."
-            find ./artifacts -type f -name "*.erb" -exec mv {} ./source/documentation/reports \;
+          ls -lart ./artifacts/owners*
+          if [ -f ./artifacts/owners/report.html.md.erb ]; then
+            echo "Artifact found."
+            mv ./artifacts/owners/report.html.md.erb ./source/documentation/reports/owners.html.md.erb;
+          fi
+      - name: Move releases artifact
+        run: |
+          ls -lart ./artifacts/releases*
+          if [ -f ./artifacts/releases/report.html.md.erb ]; then
+            echo "Artifact found."
+            mv ./artifacts/releases/report.html.md.erb ./source/documentation/reports/releases.html.md.erb;
+          fi
+      - name: Move dependencies artifact
+        run: |
+          ls -lart ./artifacts/dependencies*
+          if [ -f ./artifacts/dependencies/report.html.md.erb ]; then
+            echo "Artifact found."
+            mv ./artifacts/dependencies/report.html.md.erb ./source/documentation/reports/dependencies.html.md.erb;
           fi
       - name: Build
         run: bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
