@@ -1,8 +1,12 @@
 name: "[Python] Run repository reports"
 
 on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   schedule:
-    # Every Monday, at 12.15pm
+    # Every Monday,Thursday at 12pm
     - cron: '0 12 * * 1,4'
 
 jobs:
