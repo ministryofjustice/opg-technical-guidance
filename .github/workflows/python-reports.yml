@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    # Every Monday,Thursday at 12pm
     - cron: '0 12 * * 1,4'
 
 jobs:
