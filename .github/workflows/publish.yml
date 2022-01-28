@@ -32,10 +32,9 @@ jobs:
       - name: Checkout to pages branch
         run: git checkout -b gh-pages
       - name: Move report artifacts
-        shell: bash
         run: |
-          declare -a REPORT_LIST=(owners releases dependencies meta)
-          for REPORT in "${REPORT_LIST[@]}"
+          REPORTS="owners releases dependencies meta"
+          for REPORT in "${REPORTS}"
           do
             echo "Moving report: ${REPORT}"
             ls -lart ./artifacts/${REPORT}*
