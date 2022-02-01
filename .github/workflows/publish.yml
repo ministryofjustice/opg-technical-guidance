@@ -33,7 +33,7 @@ jobs:
         run: git checkout -b gh-pages
       - name: Move report artifacts
         run: |
-          for REPORT in releases dependencies meta
+          for REPORT in releases software_packages meta
           do
             echo "Moving report: ${REPORT}"
             ls -lart ./artifacts/${REPORT}*
