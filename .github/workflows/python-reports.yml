@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        report: ["releases", "dependencies", "meta"]
+        report: ["releases", "software_packages", "meta"]
     steps:
     - name: Checkout reporting repo
       uses: actions/checkout@v2
