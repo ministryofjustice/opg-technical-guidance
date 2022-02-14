@@ -1,0 +1,30 @@
+---
+title: ADR-005 Put prototypes on the MOJ Cloud Platform
+last_reviewed_on: 2022-02-09
+review_in: 12 months
+---
+
+# <%= current_page.data.title %>
+
+### Date: 26-11-2021
+
+## Status
+
+✅ Accepted
+
+## Context
+
+We have various prototypes of none-live services stored in GitHub that need to be shared with internal and external stakeholders in a usable form.
+
+Previously we had prototypes scattered on various un-manmaged Heroku instances, sitting in either personal or organisation accounts of without clear control. This has made tracking ownership and deployment harder as time went on, particularly where projects have paused or had time between prototype work and new people needed access.
+
+Given that the MOJ Cloud PLatform can host things easily and provides tooling to enable it easily, it makes sense to use it to host any prototypes produced for OPG Digital.
+
+## Decision
+
+Host any prototypes for new services on MOJ Cloud PLatform.
+
+## Consequences
+
+Any existing prototypes should be moved off Heroku and redirects put in place to their new location. The [Heroku redirect repo](https://github.com/ministryofjustice/heroku-redirect) provides code for this. Cost of using this hosting will need to be recharged. 
+
