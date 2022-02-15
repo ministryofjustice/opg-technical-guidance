@@ -1,1 +1,28 @@
 @import "govuk_tech_docs";
+
+
+
+.opg-warning{
+    padding:0.5rem;
+    border: 5px solid #d4351c
+}
+.opg-tag{
+    margin-bottom:0.5rem;
+    margin-right:0.5rem;
+    font-size:0.8rem;
+}
+
+.opg-tag.opg-tag--not-owned::before{
+    content: "\2718";
+    color: #d4351c;
+}
+
+
+.opg-tag-list a.opg-tag--owner:visited{
+    color:white;
+}
+
+.opg-team{
+    padding-bottom: 0.5rem;
+    border-bottom:3px solid;
+}
