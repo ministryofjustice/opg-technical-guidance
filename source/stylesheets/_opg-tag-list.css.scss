@@ -1,0 +1,37 @@
+@mixin whitelink {
+  &:visited,
+  &:link {
+    color: #ffffff;
+  }
+}
+@mixin bluelink {
+  &:visited,
+  &:link {
+    color: #4c2c92;
+  }
+}
+.opg-tag-list {
+  .opg-tag {
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+
+    &--not-owned {
+      @include whitelink;
+      &:before {
+        content: "\2718";
+        color: #d4351c;
+      }
+    }
+
+    &--owner {
+      @include whitelink;
+    }
+  }
+
+  .govuk-tag {
+    &--grey {
+      @include bluelink;
+    }
+  }
+}
