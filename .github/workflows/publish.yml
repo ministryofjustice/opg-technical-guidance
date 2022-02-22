@@ -8,6 +8,7 @@ on:
       - "docs/**"
   schedule:
     - cron: '15 7 * * 2,5'
+  workflow_dispatch:
 
 jobs:
     build_and_publish:

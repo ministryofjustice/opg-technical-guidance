@@ -7,7 +7,8 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: '0 12 * * 1,4'
-
+  workflow_dispatch:
+  
 jobs:
   run_reports:
     runs-on: ubuntu-latest
