@@ -10,3 +10,11 @@
   padding-bottom: 0.5rem;
   border-bottom: 3px solid;
 }
+
+
+table.dataframe thead th{
+  position: sticky;
+  top: 0;
+  background: white;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
