@@ -1,0 +1,19 @@
+---
+title: AWS Root Account Access
+weight: 10
+last_reviewed_on: 2022-03-01
+review_in: 6 months
+---
+
+# <%= current_page.data.title %>
+
+All of our AWS accounts have a root user, but this user is protected and should not be used for daily operations - instead we utilise a `breakglass` role that selected staff can assume.
+
+However, certain functionality is only available to the root - such as changing the primary contact details on the account. In these rare cases we do have the ability to login as the root user to make the change, but please make people aware first as this will trigger alerts at product and organisational level.
+
+## Details
+
+In order to login as the root account, you will also need access to our shared password manager - these contain the instructions for MFA.
+
+You will also need to contact the operations engineering team to remove the account from the service control policy that currently blocks the root user access.
+
