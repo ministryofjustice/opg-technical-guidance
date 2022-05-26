@@ -21,9 +21,11 @@ This guidance is to formalise the rules of thumb used to choose externally provi
 
 We need to balance not-reinventing the wheel with taking on a support and security burden. "Would it take longer than a day to write the thing yourself?" is a good question to ask. It's worth taking the time to research how difficult that would be. You have the chance to do some learning and development in an area, which you can share and builds the whole team's experience. Maybe that's better than outsourcing the knowledge and approach to a 3rd party? 
 
-Equally, it could be an area that's complex and requires detailed knowledge to work in, such as security or iteropability with closed source code or detailed standards. In these cases letting somebody else do the work is advisable as time, effort and specialist knowledge take time to aquire, 
+Equally, it could be an area that's complex and requires detailed knowledge to work in, such as security or iteropability with closed source code or detailed standards. In these cases letting somebody else do the work is advisable as time, effort and specialist knowledge take time to aquire.
 
-The tradeoff here is essentially how much time does it save you now, versus how much time will it cost you later. 
+The tradeoff here is essentially how much time does a 3rd party dependency save you now, versus how much time will it cost you later.
+
+Another question to ask before writing your own code is "will it take longer than a day to maintain?" Just because you understand it now doesn't mean you'll understand it in a year. If you write it yourself who handles ongoing support and who else understands it? Consider if it's really a shared library within OPG for a very specific need we all share. 
 
 [This article](https://www.jamesshore.com/v2/blog/2022/javascript-colors-and-the-corruption-of-buy-vs-build) written following the incident with the colors.js library is a good explanation on reuse vs build.
 
@@ -70,3 +72,13 @@ This is particularly an issue with frontend dependencies, don't add 1 library wi
 ### 8. Check what the library's own dependencies look like
 
 Sometimes it's not the direct dependency itself that's the risk, but the dependencies of the dependency. It's worth checking for further downstream projects with the same set of issues.
+
+### 9. Pin to a specific version
+
+It's always best to pin a given dependency to a specific version. So using 1.0.4 rather than a less specific ^1.0. 
+
+While lock files will pin to known good vertsions, you might inadvertantly pull in a malicious version 1.0.5 as it becomes available as part of development changes when updating packages if you aren't pinned. 
+
+We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems it is best to wait a 3 days before mergign PRs for non-security related updates to allow time for malicious activity to be detected.
+
+
