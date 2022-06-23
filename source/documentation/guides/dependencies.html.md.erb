@@ -9,7 +9,7 @@ review_in: 6 months
 
 Dependencies provided by external sources are a normal part of software development. We use many open source libraries written by 3rd parties to provide functionality in our apps. In PHP we use composer to install these external libraries and we have similar tools for node, python and golang.
 
-The last few years have seen an uptick in security attacks using trusted dependencies and weak security in the management of  package ecosystems to compromise applications. Node, PHP and Python have all had high profile compromises, we've been very fortuante to not be using the packages affected. 
+The last few years have seen an uptick in security attacks using trusted dependencies and weak security in the management of package ecosystems to compromise applications. Node, PHP and Python have all had high profile compromises, we've been very fortuante to not be using the packages affected. 
 
 Security is not the only issue though, some languages lean more into the working practice of grabbing any dependency rather than fully assessing if you need it. This can lead to long term maintenence churn on packages providing very simple functionality or bringing in a massive node package download to the frontend to achieve something simple provided by in-browser functionality. Both of which can create work we don't need.
 
@@ -21,7 +21,7 @@ This guidance is to formalise the rules of thumb used to choose externally provi
 
 We need to balance not-reinventing the wheel with taking on a support and security burden. "Would it take longer than a day to write the thing yourself?" is a good question to ask. It's worth taking the time to research how difficult that would be. You have the chance to do some learning and development in an area, which you can share and builds the whole team's experience. Maybe that's better than outsourcing the knowledge and approach to a 3rd party? 
 
-Equally, it could be an area that's complex and requires detailed knowledge to work in, such as security or iteropability with closed source code or detailed standards. In these cases letting somebody else do the work is advisable as time, effort and specialist knowledge take time to aquire.
+Equally, it could be an area that's complex and requires detailed specialist knowledge to work in, such as security or iteroperability with closed source code or detailed understanding of standards. In these cases letting somebody else do the work is advisable as time, effort and specialist knowledge take time to aquire.
 
 The tradeoff here is essentially how much time does a 3rd party dependency save you now, versus how much time will it cost you later.
 
@@ -35,7 +35,7 @@ You want a library that is getting regular patches and security updates.
 
 You also want a library that doesn't change its external API every 6 months, forcing you to rework large portions of your app to accomodate it. Reading around about the library can assist you in getting a feel for this as can looking at which major version it is, be suspicious of anything lower than 1.0.0 or with flags for "not yet production ready" or "proof of concept"
 
-You want a library that is compatible with the main framework you are using and any coding standards your team have in place. You also need to consider if it's maintaining compatibility with upcoming language and framework versions. We've seen this with Laminas and PHP 8.1 compatibilities, for example.
+You want a library that is compatible with the main framework you are using and any coding standards your team have in place. You also need to consider if it's maintaining compatibility with upcoming language and framework versions. We've seen this with Laminas and PHP 8.1 compatibilities, for example, where there was a lag in language compatibility updates.
 
 ### 3. Check that the dependency is managed by a community
 
@@ -67,7 +67,7 @@ This can be a downside too: what checks do you need to pass to get code added? I
 
 Smaller libraries are prefered to larger frameworks to avoid bringing in large amounts of code you don't need for one class or method you do. The attack surface of a bigger project means there's more potential for you to get an exploit in unrelated code you end up shipping anyway.
 
-This is particularly an issue with frontend dependencies, don't add 1 library with 40 sub dependencies just to do soemthing browsers can do anyway with CS or native APIs. The performance and usability impact of 25mb of JS just to add a hover effect should not be underestimated. Check out tools like tree-shaking in builds that can reduce this by not deploying unused codepaths.
+This is particularly an issue with frontend dependencies, don't add 1 library with 40 sub dependencies just to do something browsers can do anyway with CSS or native APIs. The performance and usability impact of 25mb of JS just to add a hover effect should not be underestimated. Check out tools like tree-shaking in builds that can reduce this by not deploying unused codepaths.
 
 ### 8. Check what the library's own dependencies look like
 
@@ -77,8 +77,8 @@ Sometimes it's not the direct dependency itself that's the risk, but the depende
 
 It's always best to pin a given dependency to a specific version. So using 1.0.4 rather than a less specific ^1.0. 
 
-While lock files will pin to known good vertsions, you might inadvertantly pull in a malicious version 1.0.5 as it becomes available as part of development changes when updating packages if you aren't pinned. 
+While lock files will pin to known good versions, you might inadvertantly pull in a malicious version 1.0.5 as it becomes available as part of development changes when updating packages if you aren't pinned. 
 
-We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems it is best to wait a 3 days before mergign PRs for non-security related updates to allow time for malicious activity to be detected.
+We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems it is best to wait a 3 days before merging PRs for non-security related updates to allow time for malicious activity to be detected.
 
 
