@@ -21,11 +21,11 @@ This guidance is to formalise the rules of thumb used to choose externally provi
 
 We need to balance not-reinventing the wheel with taking on a support and security burden. "Would it take longer than a day to write the thing yourself?" is a good question to ask. It's worth taking the time to research how difficult that would be. You have the chance to do some learning and development in an area, which you can share and builds the whole team's experience. Maybe that's better than outsourcing the knowledge and approach to a 3rd party? 
 
-Equally, it could be an area that's complex and requires detailed specialist knowledge to work in, such as security or iteroperability with closed source code or detailed understanding of standards. In these cases letting somebody else do the work is advisable as time, effort and specialist knowledge take time to aquire.
+Equally, it could be an area that's complex and requires detailed specialist knowledge to work in, such as security, interoperability with closed source code or detailed understanding of standards. In these cases letting somebody else do the work is advisable as time, effort and specialist knowledge take time to acquire.
+
+Another question to ask before writing your own code is "will it take longer than a day to maintain?" Just because you understand it now doesn't mean you'll understand it in a year. If you write it yourself who handles ongoing support and who else understands it? Consider if it's not application code, but really a shared library within OPG for a specific need we all share so we don't end up copy-pasting code about. 
 
 The tradeoff here is essentially how much time does a 3rd party dependency save you now, versus how much time will it cost you later.
-
-Another question to ask before writing your own code is "will it take longer than a day to maintain?" Just because you understand it now doesn't mean you'll understand it in a year. If you write it yourself who handles ongoing support and who else understands it? Consider if it's really a shared library within OPG for a very specific need we all share. 
 
 [This article](https://www.jamesshore.com/v2/blog/2022/javascript-colors-and-the-corruption-of-buy-vs-build) written following the incident with the colors.js library is a good explanation on reuse vs build.
 
@@ -59,7 +59,7 @@ Transparency and quick reaction to any previous security issues are a good sign 
 
 ### 6. See how easy contributing is
 
-We like to give back if we use things, hopefully that's not a painful process. How easy is it for a new contributor to get a PR merged on the library? 
+We like to give back if we use things, hopefully that's not a painful process. How easy is it for a new contributor to get a PR merged on the library? This will help if we do need to patch something upstream to gain compatibility with recent language versions.
 
 This can be a downside too: what checks do you need to pass to get code added? Is it too easy? Could somebody manipulate that process?
 
