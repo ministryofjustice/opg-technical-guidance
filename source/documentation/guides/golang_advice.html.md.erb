@@ -21,89 +21,56 @@ We chose to adopt golang as a secondary language within OPG Digital because:
 
 ## Prefered Tools & Libraries
 
-Core Tools
-https://github.com/golangci/golangci-lint
+[golangci-lint](https://github.com/golangci/golangci-lint) - Fast golang linter for checking code style in CI or locally. This bundles lots of the other linters in the golang ecosystem including gosec to check for potential security issues. Install it to your local machine with brew install golangci-lint
 
-Fast golang linter for checking code style in CI or locally. This bundles lots of the other linters in the golang ecosystem including gosec to check for potential security issues. Install it to your local machine with brew install golangci-lint
+[testify](https://github.com/stretchr/testify) - Testing tools, including more readable assertions and mocking tools.
 
-https://github.com/stretchr/testify 
-Testing tools, including more readable assertions and mocking tools.
+[opg-go-healthcheck](https://github.com/ministryofjustice/opg-go-healthcheck) - Adds a healthcheck to your go service for use with ECS and other container orchestration systems.
 
-https://github.com/ministryofjustice/opg-go-healthcheck 
-Adds a healthcheck to your go service for use with ECS and other container orchestration systems.
+[aws-sdk-go](https://github.com/aws/aws-sdk-go) - AWS SDK for golang. Because we use lots of AWS.
 
-https://github.com/aws/aws-sdk-go
-AWS SDK for golang. Because we use lots of AWS.
+[air](https://github.com/cosmtrek/air) - Allows hot reloading during development so you don’t need to manually recompile on changes.
 
-https://github.com/cosmtrek/air
-Allows hot reloading during development so you don’t need to manually recompile on changes.
+## Tools useful in services
 
-##Tools useful in services##
+[aws-secretsmanager-caching-go](https://github.com/aws/aws-secretsmanager-caching-go) - Caching secrets in memory and calling for new ones if they fail rather than using environment vars.
 
-https://github.com/aws/aws-secretsmanager-caching-go
-Caching secrets in memory and calling for new ones if they fail rather than using environment vars.
+[jwt-go](https://github.com/dgrijalva/jwt-go) - JWT implementation for go, useful for talking to Sirius APIs.
 
-https://github.com/dgrijalva/jwt-go 
-JWT implementation for go, useful for talking to Sirius APIs.
+[mux](https://github.com/gorilla/mux) - Adds additional http handling middleware over the default router. Useful for authentication middleware. You may not need it in all cases.
 
-https://github.com/gorilla/mux 
-Adds additional http handling middleware over the default router. Useful for authentication middleware. You may not need it in all cases.
+[objx](https://github.com/stretchr/objx) - Useful tools for dealing with JSON and maps.
 
-https://github.com/stretchr/objx
-Useful tools for dealing with JSON and maps.
-
-https://github.com/davecgh/go-spew
-A nicer pretty printer for development/debugging.
+[go-spew](https://github.com/davecgh/go-spew) - A nicer pretty printer for development/debugging.
 
 ## Preferred Patterns
 
-Uber-go - https://github.com/uber-go/guide/blob/master/style.md
-Go has a very good built-in formatter for writing correct Go. This Uber style README.md covers extra stylistic concerns not covered by Go's standard practices.
-For example the Verifying Interface Compliance
+[Uber-go](https://github.com/uber-go/guide/blob/master/style.md) - Go has a very good built-in formatter for writing correct Go. This Uber style README.md covers extra stylistic concerns not covered by Go's standard practices. For example the Verifying Interface Compliance
 
-Generally our golang services are microservices and micro-frontends. This allows us to build small, isolated components focused on a particular domain that can be deployed independently. One repo per service. 
+Generally our golang services are microservices and micro-frontends. This allows us to build small, isolated components focused on a particular domain that can be deployed independently. One repo per service.
 
 Our normal coding standards and repo principles still apply.
 
-go:embed annotations are useful for bundling templates: https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/ 
+[go:embed](https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/) annotations are useful for bundling templates
 
-Our micro-frontends use https://www.cypress.io/ for end-to-end testing.
+Our micro-frontends use [cypress](https://www.cypress.io/) for end-to-end testing.
 
 We recommend you add in pre-commit hooks to your repo.
 
-## Learning Resources 
+## Learning Resources
 
-https://tour.golang.org/
-The official Golang tour for learning Go. Very informative
-
-https://gobyexample.com 
-Introductory site that explains with clear examples.
-
-Design Patterns - https://github.com/tmrts/go-patterns
-A whole GitHub repo full of READMEs on different design patterns you can use when building out a application
-
-https://lets-go.alexedwards.net/#packages
-Build a Go web application. Alex Edwards is a very well known Go engineer who’s written a very informative book on building a whole web application in Go. (Might have to ask line manager about getting the money to buy the book)
-His main blog also has some very good free resources on different topics in Go
-https://www.alexedwards.net/
-
-https://github.com/golang/go/wiki/CodeReviewComments
-Resources you can use when reviewing a PR to try and make sure the Go code is following Go's best practices.
-
-https://medium.com/wesionary-team/pointers-and-passby-value-reference-in-golang-a00c8c59b7f1 - understanding Pointers and Values
-
-https://github.com/dariubs/GoBooks
-GitHub repo with a list of a bunch of books which you may find useful
+- https://tour.golang.org/ - The official Golang tour for learning Go. Very informative
+- https://gobyexample.com - Introductory site that explains with clear examples.
+- Design Patterns - https://github.com/tmrts/go-patterns - A whole GitHub repo full of READMEs on different design patterns you can use when building out a application
+- https://lets-go.alexedwards.net/#packages - Build a Go web application. [Alex Edwards](https://www.alexedwards.net/) is a very well known Go engineer who’s written a very informative book on building a whole web application in Go. (Might have to ask line manager about getting the money to buy the book) His main blog also has some very good free resources on different topics in Go
+- https://github.com/golang/go/wiki/CodeReviewComments - Resources you can use when reviewing a PR to try and make sure the Go code is following Go's best practices.
+- https://medium.com/wesionary-team/pointers-and-passby-value-reference-in-golang-a00c8c59b7f1 - understanding Pointers and Values
+- https://github.com/dariubs/GoBooks - GitHub repo with a list of a bunch of books which you may find useful
 
 ## Video Courses
 
 Ask your line manager about a Pluralsight license.
 
-https://www.pluralsight.com/courses/creating-web-applications-go-update 
-Creating Web Applications with Go, quick and simple intro course focusing on web applications.
-
-https://app.pluralsight.com/library/courses/go-create-test-applications
-Testing Go Applications, look at golang test tools, including its benchmarking library
-
-https://app.pluralsight.com/library/courses/go-delve-debugging-applications
-A look at using the golang debugger with your code
+- https://www.pluralsight.com/courses/creating-web-applications-go-update - Creating Web Applications with Go, quick and simple intro course focusing on web applications.
+- https://app.pluralsight.com/library/courses/go-create-test-applications - Testing Go Applications, look at golang test tools, including its benchmarking library
+- https://app.pluralsight.com/library/courses/go-delve-debugging-applications - A look at using the golang debugger with your code
