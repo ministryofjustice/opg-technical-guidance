@@ -79,6 +79,12 @@ It's always best to pin a given dependency to a specific version. So using 1.0.4
 
 While lock files will pin to known good versions, you might inadvertantly pull in a malicious version 1.0.5 as it becomes available as part of development changes when updating packages if you aren't pinned. 
 
-We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems it is best to wait a 3 days before merging PRs for non-security related updates to allow time for malicious activity to be detected.
+We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems (NPM/Node) it is best to wait a 3 days before merging PRs for non-security related updates to allow time for malicious activity to be detected. 
 
+Some teams have experimented with automerging patch updates. If you do this it's worth automating the 3 day wait, particularly if your app is node based. Critical security updates are worth considering in isolation, as it may be that you are at greater risk leaving it unpatched for 3 days than the patch itself being bad. A check of the upstream commits for tampering can help make decisions on this.
 
+### 10. Look for opportunities to refactor out dependencies
+
+Not all our code bases are new (Sirius and Make at now 8 years old in places). As such it's always worth being on the lookout for dependencies that were good at time of implementation, but have since fallen behind or lost support. It's always good to reassess the value of a given dependency, in some cases the core language or framework will have moved on and now provide functionality natively. A good example of this is jQuery, where a decade ago you needed its selector engine, but now the web platform provides ```document.querySelectorAll()````. In general do this at least every 6 months.
+
+Pay particular attention for the warnings of "no longer supported" that package managers will provide. 
