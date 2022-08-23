@@ -2,7 +2,9 @@
 
 👉 https://docs.opg.service.justice.gov.uk
 
-## Technical documentation
+## OPG Digital Technical Guidanace
+
+This repository builds the documentation used by the OPG Digital team to track common patterns,approaches and guidelines.
 
 This is a static site generated with Middleman. You can preview your changes with:
 
@@ -10,7 +12,7 @@ This is a static site generated with Middleman. You can preview your changes wit
 make preview
 ```
 
-## Tech docs template
+## Technical documentation template
 
 This project uses [alphagov/tech-docs-template](https://github.com/alphagov/tech-docs-template).
 
