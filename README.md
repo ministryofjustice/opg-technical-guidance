@@ -6,7 +6,7 @@
 
 This is a static site generated with Middleman. You can preview your changes with:
 
-```
+```bash
 make preview
 ```
 
