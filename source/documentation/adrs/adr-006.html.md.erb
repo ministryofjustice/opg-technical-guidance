@@ -20,7 +20,7 @@ CircleCI exposes all environment variables within a workflow to every step in th
 
 CircleCI has no differential between standard environment variables (such as compile flags, build targets etc) and what should be privileged information.
 
-Github Actions provides first class support for passwords, masking them output and hiding them from logs. Access permissions to environment variables can be controlled per step, reducing data leakage to third parties. Actions can have access permissions scoped, reducing what features they can use.
+Github Actions provides first class support for passwords, masking them for output and redacting them from logs. Access permissions to environment variables can be controlled per step, reducing data leakage to third parties. Actions can have access permissions scoped, reducing what features they can use.
 
 ## Decision
 
