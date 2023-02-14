@@ -1,0 +1,35 @@
+---
+title: ADR-006 Migrate to Github Actions instead of CircleCI
+last_reviewed_on: 2022-02-09
+review_in: 12 months
+---
+
+# <%= current_page.data.title %>
+
+### Date: 14-02-2023
+
+## Status
+
+✅ Accepted
+
+## Context
+
+CircleCI had a [serious security breach](https://circleci.com/blog/jan-4-2023-incident-report/) exposing all environment variables and tokens within their platform.
+
+CircleCI exposes all environment variables within a workflow to every step in the workflow. This was also exploited historically with a [Codecov](https://about.codecov.io/security-update/) exploit to exfiltrate environment variables. 
+
+CircleCI has no differential between standard environment variables (such as compile flags, build targets etc) and what should be privileged information.
+
+Github Actions provides first class support for passwords, masking them output and hiding them from logs. Access permissions to environment variables can be controlled per step, reducing data leakage to third parties. Actions can have access permissions scoped, reducing what features they can use.
+
+## Decision
+
+All future projects to utilise Github Actions for pipelines.
+
+Migrate historical projects over as and when possible.
+
+Update terraform modules to remove CircleCI functionality in future versions to encourage this migration.
+
+## Consequences
+
+Any existing projects still on CircleCI will need to be migrated. While migrating, ensure correct split between secrets and environment variables. Reduce scope / access to both as much as possible with external workflows.
