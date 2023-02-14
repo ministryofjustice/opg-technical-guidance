@@ -18,7 +18,7 @@ CircleCI has been in use at OPG since 2018 and was our primary CI/CD tool for mu
 
 As GitHub Actions is an additional feature of GitHub - our primary code repository host - it is exceptionally well integrated with our code bases and offers a range of features that CircleCI does not support:
 
-- Differential between variable whose content should be privileged (via secrets) and when using a secret the information is masked and redacted from logs
+- Differential between a variable whose content should be seen as privileged or not (via secrets) and when using a secret the information is masked / redacted
 - More granular access control for secrets / environment variables. They can be scope to individual steps to reduce risk of exfiltration (such as [Codecov](https://about.codecov.io/security-update/) incident).
 - Workflow permissions to restrict what can happen within the pipeline (eg read only access)
 - Native [OIDC support](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) to further harden our infrastruture access
