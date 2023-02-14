@@ -1,0 +1,42 @@
+---
+title: ADR-006 Migrate to Github Actions instead of CircleCI
+last_reviewed_on: 2022-02-09
+review_in: 12 months
+---
+
+# <%= current_page.data.title %>
+
+### Date: 14-02-2023
+
+## Status
+
+✅ Accepted
+
+## Context
+
+CircleCI has been in use at OPG since 2018 and was our primary CI/CD tool for much of that time. It has been handling builds and deployments for all of our major services and code bases - including core items like `opg-org-infra`. However, after trailing GitHub Actions, which has organically grown to become our most widely used CI/CD tool, it is a suitable time to reassess our support and usage of CircleCI.
+
+As GitHub Actions is an additional feature of GitHub - our primary code repository host - it is exceptionally well integrated with our code bases and offers a range of features that CircleCI does not support:
+
+- Differential between a variable whose content should be seen as privileged or not (via secrets) and when using a secret the information is masked / redacted
+- More granular access control for secrets / environment variables. They can be scope to individual steps to reduce risk of exfiltration (such as [Codecov](https://about.codecov.io/security-update/) incident).
+- Workflow permissions to restrict what can happen within the pipeline (eg read only access)
+- Native [OIDC support](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) to further harden our infrastruture access
+- Easier sharing of common tasks via reusable workflows.
+
+CircleCI also had a concering security [breach](https://circleci.com/blog/jan-4-2023-incident-report/), which took a lot of effort to mitigate.
+
+
+## Decision
+
+All future projects, with the exception of Sirius related ones, will utilise GitHub Actions for CI/CD. Sirius projects will remain on Jenkins until the build overhead can be suitably reduced.
+
+Migrate historical projects over as and when possible. 
+
+Update terraform modules to remove CircleCI functionality in future versions to encourage this migration.
+
+## Consequences
+
+Any existing projects still on CircleCI will need to be migrated. While migrating, ensure correct secret usage. Reduce scope / access to both as much as possible with external workflows.
+
+Check all runbooks are up to date and reference usage of GitHub or CircleCI accurately. 
