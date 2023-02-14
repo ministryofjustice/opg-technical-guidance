@@ -14,17 +14,22 @@ review_in: 12 months
 
 ## Context
 
-CircleCI had a [serious security breach](https://circleci.com/blog/jan-4-2023-incident-report/) exposing all environment variables and tokens within their platform.
+CircleCI has been in use at OPG since 2018 and was our primary CI/CD tool for much of that time handling builds and deployments for all of our major services and code bases - including core items like `opg-org-infra`. However, after trailing GitHub Actions and that organically growing to become our most widely used CI/CD tool its suitable time to reassess our support and usage of CircleCI.
 
-CircleCI exposes all environment variables within a workflow to every step in the workflow. This was also exploited historically with a [Codecov](https://about.codecov.io/security-update/) exploit to exfiltrate environment variables. 
+As GitHub Actions is an additional feature of GitHub - our primary code repository host - it is exceptionally well integrated with our code bases and offers a range of features that CircleCI does not support:
 
-CircleCI has no differential between standard environment variables (such as compile flags, build targets etc) and what should be privileged information.
+- Differential between variable whose content should be privileged (via secrets) and when using a secret the information is masked and redacted from logs
+- More granular access control for secrets / environment variables. They can be scope to individual steps to reduce risk of exfiltration (such as [Codecov](https://about.codecov.io/security-update/) incident).
+- Workflow permissions to restrict what can happen within the pipeline (eg read only access)
+- Native [OIDC support](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) to further harden our infrastruture access
+- Easier sharing of common tasks via reusable workflows.
 
-Github Actions provides first class support for passwords, masking them for output and redacting them from logs. Access permissions to environment variables can be controlled per step, reducing data leakage to third parties. Actions can have access permissions scoped, reducing what features they can use.
+CircleCI also had a concering security [breach](https://circleci.com/blog/jan-4-2023-incident-report/), which took a lot of effort to mitigate.
+
 
 ## Decision
 
-All future projects to utilise Github Actions for pipelines.
+All future projects to utilise GitHub Actions for pipelines.
 
 Migrate historical projects over as and when possible.
 
@@ -32,4 +37,6 @@ Update terraform modules to remove CircleCI functionality in future versions to 
 
 ## Consequences
 
-Any existing projects still on CircleCI will need to be migrated. While migrating, ensure correct split between secrets and environment variables. Reduce scope / access to both as much as possible with external workflows.
+Any existing projects still on CircleCI will need to be migrated. While migrating, ensure correct secret usage. Reduce scope / access to both as much as possible with external workflows.
+
+Check all runbooks are up to date and reference usage of GitHub or CircleCI accurately. 
