@@ -26,3 +26,14 @@ preview:
 		-p 4567:4567 \
 		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
 		bundle exec middleman serve
+
+run-structurizr:
+	docker pull structurizr/lite
+ifdef dir
+	docker run -it --rm -p 8080:8080 -v $(PWD)/dsl/$(dir):/usr/local/structurizr structurizr/lite
+endif
+
+run-structurizr-export:
+ifdef dir
+	structurizr-cli export -workspace $(PWD)/dsl/$(dir)/workspace.json -format mermaid
+endif

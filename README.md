@@ -1,12 +1,16 @@
 # OPG Technical Guidance
 
-👉 https://docs.opg.service.justice.gov.uk
+👉 [https://docs.opg.service.justice.gov.uk](https://docs.opg.service.justice.gov.uk)
+
+## DSL Structurizr Diagrams
+
+You can find high level DSL Diagrams as Code in the [/dsl/poas](./dsl/poas/) directory.
 
 ## Technical documentation
 
 This is a static site generated with Middleman. You can preview your changes with:
 
-```
+``` make
 make preview
 ```
 
