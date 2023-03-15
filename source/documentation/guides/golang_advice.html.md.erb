@@ -24,16 +24,18 @@ We chose to adopt golang as a secondary language within OPG Digital because:
 - [golangci-lint](https://github.com/golangci/golangci-lint) - Fast golang linter for checking code style in CI or locally. This bundles lots of the other linters in the golang ecosystem including gosec to check for potential security issues. Install it to your local machine with brew install golangci-lint
 - [testify](https://github.com/stretchr/testify) - Testing tools, including more readable assertions and mocking tools.
 - [opg-go-healthcheck](https://github.com/ministryofjustice/opg-go-healthcheck) - Adds a healthcheck to your go service for use with ECS and other container orchestration systems.
-- [aws-sdk-go](https://github.com/aws/aws-sdk-go) - AWS SDK for golang. Because we use lots of AWS.
+- [aws-sdk-go-v2](https://github.com/aws/aws-sdk-go-v2) - AWS SDK for golang. Because we use lots of AWS. Make sure you move to v2.
 - [air](https://github.com/cosmtrek/air) - Allows hot reloading during development so you don’t need to manually recompile on changes.
+- [zap](go.uber.org/zap) - A nice structured logging library for JSON output
 
 ## Tools useful in services
 
 - [aws-secretsmanager-caching-go](https://github.com/aws/aws-secretsmanager-caching-go) - Caching secrets in memory and calling for new ones if they fail rather than using environment vars.
 - [jwt-go](https://github.com/dgrijalva/jwt-go) - JWT implementation for go, useful for talking to Sirius APIs.
-- [mux](https://github.com/gorilla/mux) - Adds additional http handling middleware over the default router. Useful for authentication middleware. You may not need it in all cases.
 - [objx](https://github.com/stretchr/objx) - Useful tools for dealing with JSON and maps.
 - [go-spew](https://github.com/davecgh/go-spew) - A nicer pretty printer for development/debugging.
+
+Note we previously recommended [gorilla/mux](https://github.com/gorilla/mux), but those libraries are no longer maintained.
 
 ## Preferred Patterns
 
