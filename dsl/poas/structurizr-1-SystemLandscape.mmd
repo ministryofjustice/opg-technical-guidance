@@ -1,37 +1,68 @@
 graph TB
   linkStyle default fill:#ffffff
 
-  subgraph diagram [System Landscape for Modernising Lasting Power of Attorney]
+  subgraph diagram [System Landscape]
     style diagram fill:#ffffff,stroke:#ffffff
 
-    subgraph enterprise [Modernising Lasting Power of Attorney]
-      style enterprise fill:#ffffff,stroke:#444444,color:#444444
-
-      3("<div style='font-weight: bold'>Modernising Lasting Power of Attorney</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Digital Lasting Power of<br />Attorney infrastructure</div>")
-      style 3 fill:#1168bd,stroke:#0b4884,color:#ffffff
-    end
-
-    1["<div style='font-weight: bold'>Actor</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Actor interacting with a<br />Lasting Power of Attorney.</div>"]
-    style 1 fill:#08427b,stroke:#052e56,color:#ffffff
-    2["<div style='font-weight: bold'>Solicitor Software</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Solicitor interacting with a<br />Lasting Power of Attorney.</div>"]
-    style 2 fill:#08427b,stroke:#052e56,color:#ffffff
-    32("<div style='font-weight: bold'>OPG Authentication Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>User facing central<br />Authentication service.<br />[Owner: UaLPA, Users:<br />Modernising]</div>")
+    1("<div style='font-weight: bold'>LPA ID Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Generates IDs and stores<br />donor details.</div>")
+    style 1 fill:#1168bd,stroke:#0b4884,color:#ffffff
+    11["<div style='font-weight: bold'>Third Party Software</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>External API software<br />interacting with a Lasting<br />Power of Attorney.</div>"]
+    style 11 fill:#08427b,stroke:#052e56,color:#ffffff
+    12["<div style='font-weight: bold'>Attorney</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Attorney interacting with a<br />Lasting Power of Attorney.</div>"]
+    style 12 fill:#08427b,stroke:#052e56,color:#ffffff
+    13["<div style='font-weight: bold'>Donor</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Donor drafting the Lasting<br />Power of Attorney.</div>"]
+    style 13 fill:#08427b,stroke:#052e56,color:#ffffff
+    14["<div style='font-weight: bold'>Certificate Provider</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Certificate Provider<br />interacting with a Lasting<br />Power of Attorney.</div>"]
+    style 14 fill:#08427b,stroke:#052e56,color:#ffffff
+    15["<div style='font-weight: bold'>Case Worker</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Case worker.</div>"]
+    style 15 fill:#08427b,stroke:#052e56,color:#ffffff
+    16["<div style='font-weight: bold'>Make a Lasting Power of Attorney Online</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows users to draft a<br />Lasting Power of Attorney<br />online. [Owner: Modernising,<br />Users: Vega]</div>"]
+    style 16 fill:#1168bd,stroke:#0b4884,color:#ffffff
+    26("<div style='font-weight: bold'>Case Management Public API</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Interaction point between<br />Case Management and other<br />services. [Owner: Vega,<br />Users: UaLPA, Modernising]</div>")
+    style 26 fill:#999999,stroke:#6b6b6b,color:#ffffff
+    27("<div style='font-weight: bold'>Registered LPA Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Highly available API for<br />reading and searching the LPA<br />Register. [Owner: Vega,<br />Users: UaLPA, Modernising]</div>")
+    style 27 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    32("<div style='font-weight: bold'>LPA Drafting Container</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Stores and manages data for<br />pre-registration. [Owner:<br />Modernising, Users: Vega]</div>")
     style 32 fill:#438dd5,stroke:#2e6295,color:#ffffff
-    33("<div style='font-weight: bold'>External Services</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>GOV.UK Notify, Pay, One<br />Login, Yoti, Ordanance Survey</div>")
-    style 33 fill:#999999,stroke:#6b6b6b,color:#ffffff
-    34("<div style='font-weight: bold'>OPG Services</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Court Ordered Severances</div>")
-    style 34 fill:#999999,stroke:#6b6b6b,color:#ffffff
-    35("<div style='font-weight: bold'>Scanning Software</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>TBC</div>")
-    style 35 fill:#999999,stroke:#6b6b6b,color:#ffffff
-    36["<div style='font-weight: bold'>Use an LPA</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Use/View an LPA Service.<br />[Owner: UaLPA]</div>"]
-    style 36 fill:#999999,stroke:#6b6b6b,color:#ffffff
+    49("<div style='font-weight: bold'>Registered LPA Data Store</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Stores immutable LPA data<br />with high availablility,<br />security and auditing.<br />[Owner: Modernising, Users:<br />Vega]</div>")
+    style 49 fill:#1168bd,stroke:#0b4884,color:#ffffff
+    52("<div style='font-weight: bold'>Public LPA Support API</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows external companies to<br />add submit LPAs. [Owner:<br />Vega, Users: Modernising]</div>")
+    style 52 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    56("<div style='font-weight: bold'>LPA Paper Ingestion Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Handles the ingestion of the<br />Paper Journey and exposes<br />APIs for non valid OCR data<br />for caseworker keying.<br />[Owner: Modernising, Users:<br />Vega]</div>")
+    style 56 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    60("<div style='font-weight: bold'>OPG Internal Payment Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Handles GOV.UK Pay and<br />Remissions and Exemptions<br />information between all<br />services and Sirius. [Owner:<br />Vega, Users: Modernising]</div>")
+    style 60 fill:#999999,stroke:#6b6b6b,color:#ffffff
+    61("<div style='font-weight: bold'>Case Management (Sirius)</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Case Management for case<br />working LPAs. [Owner: Vega,<br />Users: Modernising]</div>")
+    style 61 fill:#85bbf0,stroke:#5d82a8,color:#000000
+    68("<div style='font-weight: bold'>OPG Authentication Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>User facing central<br />Authentication service.<br />[Owner: UaLPA, Users:<br />Modernising]</div>")
+    style 68 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    69("<div style='font-weight: bold'>External Services</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>GOV.UK Notify, Pay, One<br />Login, Yoti, Ordanance Survey</div>")
+    style 69 fill:#999999,stroke:#6b6b6b,color:#ffffff
+    70("<div style='font-weight: bold'>Scanning Software</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>TBC</div>")
+    style 70 fill:#999999,stroke:#6b6b6b,color:#ffffff
+    71["<div style='font-weight: bold'>Use an LPA</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Use/View an LPA Service.<br />[Owner: UaLPA]</div>"]
+    style 71 fill:#999999,stroke:#6b6b6b,color:#ffffff
 
-    1-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->3
-    3-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->33
-    34-. "<div>sends data to</div><div style='font-size: 70%'></div>" .->3
-    35-. "<div>sends scanned LPA Data to</div><div style='font-size: 70%'></div>" .->3
-    2-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->3
-    3-. "<div>authenticates with</div><div style='font-size: 70%'></div>" .->32
-    36-. "<div>authenticates with</div><div style='font-size: 70%'></div>" .->32
-    36-. "<div>read data from</div><div style='font-size: 70%'></div>" .->3
+    16-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->13
+    16-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->12
+    16-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->14
+    32-. "<div>gets LPA Code from</div><div style='font-size: 70%'></div>" .->1
+    32-. "<div>writes validated registered<br />data to</div><div style='font-size: 70%'></div>" .->27
+    32-. "<div>writes final registered case<br />management data and triggers<br />case working events to</div><div style='font-size: 70%'></div>" .->26
+    52-. "<div>makes calls to</div><div style='font-size: 70%'></div>" .->32
+    52-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->11
+    56-. "<div>reads and writes data from</div><div style='font-size: 70%'></div>" .->26
+    56-. "<div>writes valid data to</div><div style='font-size: 70%'></div>" .->32
+    61-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->15
+    70-. "<div>sends scanned LPA Data to</div><div style='font-size: 70%'></div>" .->56
+    16-. "<div>makes calls to</div><div style='font-size: 70%'></div>" .->32
+    61-. "<div>gets LPA Code from</div><div style='font-size: 70%'></div>" .->1
+    16-. "<div>authenticates with</div><div style='font-size: 70%'></div>" .->68
+    71-. "<div>authenticates with</div><div style='font-size: 70%'></div>" .->68
+    71-. "<div>read data from</div><div style='font-size: 70%'></div>" .->26
+    71-. "<div>read data from</div><div style='font-size: 70%'></div>" .->27
+    27-. "<div>writes data to</div><div style='font-size: 70%'></div>" .->49
+    61-. "<div>writes and read data from</div><div style='font-size: 70%'></div>" .->60
+    26-. "<div>writes and read data from</div><div style='font-size: 70%'></div>" .->61
+    61-. "<div>reads data from</div><div style='font-size: 70%'></div>" .->27
   end
