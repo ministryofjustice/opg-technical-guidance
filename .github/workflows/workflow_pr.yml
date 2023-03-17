@@ -14,7 +14,7 @@ jobs:
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
-            image: structurizr/lite:latest
+            image: structurizr/cli:latest
             options: -v ${{ github.workspace }}/dsl/poas:/usr/local/structurizr
             run: |
-                export -workspace ${{ github.workspace }}/dsl/poas/workspace.json -format mermaid
+                export -workspace /usr/local/structurizr/workspace.json -format mermaid
