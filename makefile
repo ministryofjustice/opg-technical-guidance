@@ -29,7 +29,7 @@ preview:
 
 run-structurizr-cli:
 	docker pull structurizr/cli:latest
-	docker run -it --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
+	docker run --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
 	export -workspace /usr/local/structurizr/workspace.json -format mermaid
 
 run-structurizr:
