@@ -6,13 +6,23 @@ on:
       - main
 
 jobs:
+  # test_job:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v3
+  #     - name: Run the build process with Docker
+  #       uses: addnab/docker-run-action@v3
+  #       with:
+  #           image: structurizr/cli:latest
+  #           options: -v ${{ github.workspace }}/dsl/poas:/usr/local/structurizr \
+  #             export -workspace /usr/local/structurizr/workspace.json -format mermaid
+  #           run: |
+  #               export -workspace /usr/local/structurizr/workspace.json -format mermaid
   test_job:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: Run the build process with Docker
-        uses: addnab/docker-run-action@v3
-        with:
-            image: structurizr/cli:latest
-            options: -v ${{ github.workspace }}/dsl/poas:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.json -format mermaid
+        run: make run-structurizr-cli
