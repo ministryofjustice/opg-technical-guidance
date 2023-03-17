@@ -30,7 +30,7 @@ preview:
 run-structurizr-cli:
 	docker pull structurizr/cli:latest
 	docker run --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
-	export -workspace /home/runner/work/opg-technical-guidance/opg-technical-guidance/dsl/poas/workspace.json -format mermaid
+	export -workspace /usr/local/structurizr/workspace.dsl -format mermaid
 
 run-structurizr:
 	docker pull structurizr/lite
