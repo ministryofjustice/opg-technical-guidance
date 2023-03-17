@@ -15,5 +15,5 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
             image: structurizr/cli:latest
-            options: -v ${{ github.workspace }}/dsl/poas:/usr/local/structurizr \
+            options: -v ${{ github.workspace }}/dsl/poas:/usr/local/structurizr structurizr/cli \
               export -workspace /usr/local/structurizr/workspace.json -format mermaid
