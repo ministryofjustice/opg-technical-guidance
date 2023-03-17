@@ -27,6 +27,11 @@ preview:
 		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
 		bundle exec middleman serve
 
+run-structurizr-cli:
+	docker pull structurizr/cli:latest
+	docker run -it --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
+	export -workspace /usr/local/structurizr/workspace.json -format mermaid
+
 run-structurizr:
 	docker pull structurizr/lite
 ifdef dir
