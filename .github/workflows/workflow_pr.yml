@@ -14,9 +14,9 @@ jobs:
       - name: Run structurizr export
         run: make run-structurizr-export
       - name: Create branch
-        run: git checkout -b generate-structurizr-documents && /
-          git add dsl/poas/* && /
-          git commit -m 'Generate structurizr documents' && /
+        run: git checkout -b generate-structurizr-documents && \
+          git add dsl/poas/* && \
+          git commit -m 'Generate structurizr documents' && \
           git push
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
