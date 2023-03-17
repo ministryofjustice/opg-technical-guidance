@@ -11,5 +11,16 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: Run the build process with Docker
+      - name: Run structurizr export
         run: make run-structurizr-export
+      - name: Create branch
+        run: git checkout -b "Generate structurizr documents $(date)" && /
+          git add dsl/poas/* && /
+          git commit -m 'Generate structurizr documents' && /
+          git push
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create pull request
+        run: gh pr create --title "Generate structurizr documents $(date)"
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
