@@ -22,7 +22,7 @@ jobs:
           git config --global user.name "Github Action"
           git add dsl/poas/
           git checkout generate-structurizr-documentation 2>/dev/null || git checkout -b generate-structurizr-documentation
-          git commit -m 'Generate structurizr documents'
+          git commit -m 'Generate structurizr documents' || exit 0
           git push origin generate-structurizr-documentation -f
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
