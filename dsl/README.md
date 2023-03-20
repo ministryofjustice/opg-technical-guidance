@@ -12,13 +12,11 @@ Each sub folder contains Diagrams as Code that can be run with the following com
 
 ### To run in browser locally
 
-- Run `make run-structurizr dir=poas` where `dir` refers to the name of the folder you want to generate
+- Run `make run-structurizr`
 - Open a browser to [http://localhost:8080](http://localhost:8080)
 - Open the workspace.dsl file and edit
 - Every 2 seconds the website will check for updates and refresh if changes are detected
 
 ### To export Mermaid files
 
-- Ensure you have installed `brew install structurizr-cli`
-- Run `make run-structurizr-export dir=poas` where `dir` refers to the name of the folder you want to generate
-- Commit and save the exported `.mmd` files
+- Run `make run-structurizr-export`

@@ -1,0 +1,31 @@
+name: "PR"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Run structurizr export
+        run: make run-structurizr-export
+      - name: Create branch
+        run: |
+          git status -s >> $GITHUB_STEP_SUMMARY
+          git config --global user.email "tools@digital.justice.gov.uk"
+          git config --global user.name "Github Action"
+          git add dsl/poas/
+          git checkout generate-structurizr-documents 2>/dev/null || git checkout -b generate-structurizr-documents
+          git commit -m 'Generate structurizr documents'
+          git push origin generate-structurizr-documents -f
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create pull request
+        run: |
+          gh pr edit generate-structurizr-documents -b 'Please check the mermaid files are correctly rendered' -t 'Generate structurizr documents' && gh pr reopen generate-structurizr-documents || gh pr create -b 'Please check the mermaid files are correctly rendered' -t 'Generate structurizr documents' -B main -H generate-structurizr-documents
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
