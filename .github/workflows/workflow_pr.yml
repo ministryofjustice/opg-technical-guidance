@@ -14,13 +14,18 @@ jobs:
       - name: Run structurizr export
         run: make run-structurizr-export
       - name: Create branch
-        run: git checkout -b generate-structurizr-documents && \
-          git add dsl/poas/* && \
-          git commit -m 'Generate structurizr documents' && \
+        run: |
+          cd ./opg-technical-guidance
+          git status -s >> $GITHUB_STEP_SUMMARY
+          git config --global user.email "tools@digital.justice.gov.uk"
+          git config --global user.name "Github Action"
+          git add dsl/poas/
+          git checkout -b generate-structurizr-documents
+          git commit -m 'Generate structurizr documents'
           git push
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create pull request
-        run: gh pr create --title "Generate structurizr documents $(date)"
+        run: gh pr create --base main --title "Generate structurizr documents $(date)" --head generate-structurizr-documents
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
