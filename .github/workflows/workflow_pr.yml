@@ -26,6 +26,6 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create pull request
         run: |
-          gh pr edit generate-structurizr-documents -b 'Please check the mermaid files are correctly rendered' -t 'Generate structurizr documents' && gh pr reopen generate-structurizr-documents || gh pr create --fill -B main -H generate-structurizr-documents
+          gh pr edit generate-structurizr-documents -b 'Please check the mermaid files are correctly rendered' -t 'Generate structurizr documents' && gh pr reopen generate-structurizr-documents || gh pr create -b 'Please check the mermaid files are correctly rendered' -t 'Generate structurizr documents' -B main -H generate-structurizr-documents
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
