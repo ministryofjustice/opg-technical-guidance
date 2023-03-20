@@ -21,7 +21,7 @@ jobs:
           git add dsl/poas/
           git checkout generate-structurizr-documents 2>/dev/null || git checkout -b generate-structurizr-documents
           git commit -m 'Generate structurizr documents'
-          git push origin generate-structurizr-documents
+          git push origin generate-structurizr-documents -f
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create pull request
