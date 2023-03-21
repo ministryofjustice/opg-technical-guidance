@@ -1,0 +1,46 @@
+---
+title: ADR-007 Healthcheck Definitions
+last_reviewed_on: 2023-03-21
+review_in: 12 months
+---
+# <%= current_page.data.title %>
+
+### Date: 14-02-2023
+
+## Status
+
+✅ Accepted
+
+## Context
+
+Across our teams there are currently slight differences in how we use the various health checks within services. 
+
+This is mainly in the fidelity of the checks and what they connect to. For example one service might use a health check to just check if a service's containers are running. Another might check that in-app connectivity is working, such as front end to internal API to DB. Another might check that the service can connect out to related services it depends on, such as Notify or other API endpoints.
+
+This means that an engineer moving between products, either for temporary support or moving into a new role, could be confused at the intent of the healthcheck or make assumptions based on past experience that turn out not to be true. This is particularly tru if the healthcheck is used for multiple purposes which could be at odds, for example if a healthcheck connecting to an external service was used to cause containers to scale or cycle when they didn't need to. 
+
+## Decision
+
+We need to be clear on the purpose of each healthcheck within a service and be consistent across services in how we name, use and check them. Therefore we should categorise them as: container health checks, service health checks and dependency health checks so we are clear abotu what type we implement and how they are intended to be used.
+
+### Container Health Checks
+
+These are used to determine if an individual container is running as expected. Reports that the container has finished its startup and is ready to handle requests. Should start to fail if the container needs to be cycled out.
+
+/health-check
+
+### Service Health Checks
+
+These are used to determine if a service is "up" and working for the purposes of uptime calculation and proving that end to end within a service is functioning normally. That is the front end can talk to the api and the api can talk to the DB. Typically a front end service haelth check will talk to the api version fo the same health check.
+
+/service-health-check
+
+### Dependency Health Checks
+
+These are used to determine if a service's external dependencies (external APIs like Notify) are down and may cause service degredation. They should return details of each service status.
+
+/dependency-health-check
+
+## Consequences
+
+- Work will need to happen to normalise the various health checks across the estate.
