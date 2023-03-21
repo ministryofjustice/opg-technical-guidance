@@ -4,30 +4,8 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 12 * * 1,4'
 
 jobs:
-  test_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: Run structurizr export
-        run: make run-structurizr-export
-      - name: Create branch
-        run: |
-          git status -s >> $GITHUB_STEP_SUMMARY
-          git config --global user.email "tools@digital.justice.gov.uk"
-          git config --global user.name "Github Action"
-          git add dsl/poas/
-          git checkout generate-structurizr-documentation 2>/dev/null || git checkout -b generate-structurizr-documentation
-          git commit -m 'Generate structurizr documents' || exit 0
-          git push origin generate-structurizr-documentation -f
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create pull request
-        run: |
-          gh pr edit generate-structurizr-documentation -b 'Please check the mermaid files are correctly rendered' -t 'Generate structurizr documentation' && gh pr reopen generate-structurizr-documentation || gh pr create -b 'Please check the mermaid files are correctly rendered' -t 'Generate structurizr documentation' -B main -H generate-structurizr-documentation
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  structurizr:
+    name: Generate Mermaid files from Structurizr
+    uses: ./.github/workflows/structurizr_job.yml
