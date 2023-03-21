@@ -31,13 +31,13 @@ These are used to determine if an individual container is running as expected. R
 
 ### Service Health Checks
 
-These are used to ascertain if a service is "up" and working for the purposes of uptime calculation and proving that end to end within a service is functioning normally. That is the front end can talk to the api and the api can talk to the DB. Typically a front end service haelth check will talk to the api version fo the same health check.
+These are used to determine if a service is "up" and working for the purposes of uptime calculation and proving that end to end within a service is functioning normally. That is the front end can talk to the api and the api can talk to the DB. Typically a front end service haelth check will talk to the api version fo the same health check.
 
 /service-health-check
 
 ### Dependency Health Checks
 
-These are used to ascertain if a service's external dependencies (external APIs like Notify) are down and may cause service degredation. They should return details of each service status.
+These are used to determine if a service's external dependencies (external APIs like Notify) are down and may cause service degredation. They should return details of each service status.
 
 /dependency-health-check
 
