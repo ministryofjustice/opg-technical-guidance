@@ -1,0 +1,10 @@
+name: "Schedule"
+
+on:
+  schedule:
+    - cron: '0 12 * * 1,4'
+
+jobs:
+  structurizr:
+    name: Scheduled generation of Mermaid files from Structurizr
+    uses: ./.github/workflows/structurizr_job.yml

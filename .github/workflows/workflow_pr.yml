@@ -1,0 +1,11 @@
+name: "PR"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  structurizr:
+    name: Generate Mermaid files from Structurizr
+    uses: ./.github/workflows/structurizr_job.yml
