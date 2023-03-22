@@ -26,7 +26,7 @@ workspace {
             mlpaDraftingServiceDatabase = container "Draft LPA Database" "Stores Draft LPA data." "DynamoDB" "Database"
             mlpaDraftingServiceApp = container "App" "Manage events, data validation and business logic." "Go" "Component" {
                 -> mlpaDraftingServiceDatabase "Uses"
-                -> lpaIDService "gets LPA Code from"
+                -> lpaUIDService "gets LPA Code from"
                 -> mlpaOpgRegisterService_WriteAPIGateway "writes validated registered data to"
                 -> mlpaSiriusPublicAPI "writes final registered case management data and triggers case working events to"
             }
@@ -74,7 +74,7 @@ workspace {
         externalScanningSoftware -> mlpaPaperIngestionAPI "sends scanned LPA Data to"
 
         mlpaOnlineContainer -> mlpaDraftingServiceAPI "makes calls to"
-        mlpaSiriusCaseManagement -> lpaIDService "gets LPA Code from"
+        mlpaSiriusCaseManagement -> lpaUIDService "gets LPA Code from"
         
         mlpaOnlineContainer -> mlpaOPGAuthService "authenticates with"
         mlpaUaLPA -> mlpaOPGAuthService "authenticates with"
@@ -124,7 +124,7 @@ workspace {
             autoLayout
         }
 
-        container lpaIDService "lpaIDServiceContainers" {
+        container lpaUIDService "lpaIDServiceContainers" {
             include *
             autoLayout
         }
