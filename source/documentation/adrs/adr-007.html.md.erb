@@ -41,6 +41,12 @@ These are used to determine if a service's external dependencies (external APIs 
 
 ```/health-check/dependencies```
 
+## Monitoring Health Checks
+
+It is worth noting that for Route53 health checks AWS considers them unhealthy if they take longer than 4 seconds to connect and longer than 2 seconds to respond with a 200 or 3xx response. This means any health check connecting outside the service boundary (dependency health checks) are not recommended for these.
+
+Teams are encouraged to create other alerts consistent with the nature of their service to alert on broader service healthcheck failures. Some teams may want to use Pingdom, but this is not suitable for internal-only services behind an allowlist.
+
 ## Consequences
 
 - Work will need to happen to normalise the various health checks across the estate.
