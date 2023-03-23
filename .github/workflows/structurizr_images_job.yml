@@ -1,18 +1,8 @@
 on:
   workflow_call:
     inputs:
-      commit_message:
-        description: 'Branch name to use for committing changes too.'
-        required: false
-        type: string
-        default: 'Generate structurizr documents'
-      make_command_plantuml:
-        description: 'Make command that runs the structurizr export.'
-        required: false
-        type: string
-        default: run-structurizr-export-plantuml
       changes_detected:
-        description: 'Boolean value for changes detected in /app'
+        description: 'Boolean value for changes detected in /dsl/poas'
         required: true
         type: string
         default: 'false'
@@ -24,12 +14,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: Run structurizr export plantuml
-        run: make ${{ inputs.make_command_plantuml }}
       - name: plantuml
         id: plantuml
         uses: grassedge/generate-plantuml-action@v1.5
         with:
-          message: "Render PlantUML files"
+          message: "Render PlantUML files to SVG"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

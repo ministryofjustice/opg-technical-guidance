@@ -1,0 +1,104 @@
+@startuml
+set separator none
+title LPA Drafting Container - Containers
+
+top to bottom direction
+
+skinparam {
+  shadowing false
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<LPADraftingContainer.API>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  roundCorner 20
+}
+skinparam rectangle<<LPADraftingContainer.App>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  roundCorner 20
+}
+skinparam rectangle<<LPADraftingContainer.CaseManagementIntegrationAPI>> {
+  BackgroundColor #85bbf0
+  FontColor #000000
+  BorderColor #5d82a8
+  roundCorner 20
+}
+skinparam rectangle<<CaseManagementPublicAPI>> {
+  BackgroundColor #999999
+  FontColor #ffffff
+  BorderColor #6b6b6b
+  roundCorner 20
+}
+skinparam database<<LPADraftingContainer.DraftLPADatabase>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+}
+skinparam rectangle<<LPAPaperIngestionService>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  roundCorner 20
+}
+skinparam rectangle<<LPAUIDService>> {
+  BackgroundColor #1168bd
+  FontColor #ffffff
+  BorderColor #0b4884
+  roundCorner 20
+}
+skinparam rectangle<<MakeaLastingPowerofAttorneyOnline>> {
+  BackgroundColor #1168bd
+  FontColor #ffffff
+  BorderColor #0b4884
+}
+skinparam rectangle<<PublicLPASupportAPI>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  roundCorner 20
+}
+skinparam rectangle<<RegisteredLPAService>> {
+  BackgroundColor #438dd5
+  FontColor #ffffff
+  BorderColor #2e6295
+  roundCorner 20
+}
+
+rectangle "==LPA Paper Ingestion Service\n<size:10>[Software System]</size>\n\nHandles the ingestion of the Paper Journey and exposes APIs for non valid OCR data for caseworker keying. [Owner: Modernising, Users: Vega]" <<LPAPaperIngestionService>> as LPAPaperIngestionService
+rectangle "==LPA UID Service\n<size:10>[Software System]</size>\n\nGenerates IDs and stores donor details." <<LPAUIDService>> as LPAUIDService
+rectangle "==Case Management Public API\n<size:10>[Software System]</size>\n\nInteraction point between Case Management and other services. [Owner: Vega, Users: UaLPA, Modernising]" <<CaseManagementPublicAPI>> as CaseManagementPublicAPI
+rectangle "==Make a Lasting Power of Attorney Online\n<size:10>[Software System]</size>\n\nAllows users to draft a Lasting Power of Attorney online. [Owner: Modernising, Users: Vega]" <<MakeaLastingPowerofAttorneyOnline>> as MakeaLastingPowerofAttorneyOnline
+rectangle "==Registered LPA Service\n<size:10>[Software System]</size>\n\nHighly available API for reading and searching the LPA Register. [Owner: Vega, Users: UaLPA, Modernising]" <<RegisteredLPAService>> as RegisteredLPAService
+rectangle "==Public LPA Support API\n<size:10>[Software System]</size>\n\nAllows external companies to add submit LPAs. [Owner: Vega, Users: Modernising]" <<PublicLPASupportAPI>> as PublicLPASupportAPI
+
+rectangle "LPA Drafting Container\n<size:10>[Software System]</size>" <<LPADraftingContainer>> {
+  skinparam RectangleBorderColor<<LPADraftingContainer>> #2e6295
+  skinparam RectangleFontColor<<LPADraftingContainer>> #2e6295
+
+  database "==Draft LPA Database\n<size:10>[Container: DynamoDB]</size>\n\nStores Draft LPA data." <<LPADraftingContainer.DraftLPADatabase>> as LPADraftingContainer.DraftLPADatabase
+  rectangle "==App\n<size:10>[Container: Go]</size>\n\nManage events, data validation and business logic." <<LPADraftingContainer.App>> as LPADraftingContainer.App
+  rectangle "==API\n<size:10>[Container: API Gateway, Go]</size>\n\nManages LPA data validation and draft ingestion" <<LPADraftingContainer.API>> as LPADraftingContainer.API
+  rectangle "==Case Management Integration API\n<size:10>[Container: API Gateway, Go]</size>\n\nManages API access for Case Management tasks" <<LPADraftingContainer.CaseManagementIntegrationAPI>> as LPADraftingContainer.CaseManagementIntegrationAPI
+}
+
+LPADraftingContainer.App .[#707070,thickness=2].> LPADraftingContainer.DraftLPADatabase : "<color:#707070>Uses"
+LPADraftingContainer.App .[#707070,thickness=2].> LPAUIDService : "<color:#707070>gets LPA Code from"
+LPADraftingContainer.App .[#707070,thickness=2].> RegisteredLPAService : "<color:#707070>writes validated registered data to"
+LPADraftingContainer.App .[#707070,thickness=2].> CaseManagementPublicAPI : "<color:#707070>writes final registered case management data and triggers case working events to"
+LPADraftingContainer.API .[#707070,thickness=2].> LPADraftingContainer.App : "<color:#707070>Uses"
+LPADraftingContainer.CaseManagementIntegrationAPI .[#707070,thickness=2].> LPADraftingContainer.App : "<color:#707070>Uses"
+LPADraftingContainer.CaseManagementIntegrationAPI .[#707070,thickness=2].> CaseManagementPublicAPI : "<color:#707070>allows read access to draft data and write access to executed data"
+PublicLPASupportAPI .[#707070,thickness=2].> LPADraftingContainer.API : "<color:#707070>makes calls to"
+LPAPaperIngestionService .[#707070,thickness=2].> CaseManagementPublicAPI : "<color:#707070>reads and writes data from"
+LPAPaperIngestionService .[#707070,thickness=2].> LPADraftingContainer.API : "<color:#707070>writes valid data to"
+MakeaLastingPowerofAttorneyOnline .[#707070,thickness=2].> LPADraftingContainer.API : "<color:#707070>makes calls to"
+@enduml
