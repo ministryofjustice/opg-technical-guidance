@@ -44,7 +44,7 @@ workspace {
             mlpaOpgRegisterDatabase_databaseMonitoringTelemetry = container "Monitoring and Telemetery" "Cloudwatch logs and X-Ray" "AWS Cloudwatch" "Database"
         }
 
-        mlpaSupporterAPI = softwareSystem "Public LPA Support API" "Allows external companies to add submit LPAs. [Owner: Vega, Users: Modernising]" "Container, Modernising" {
+        mlpaSupporterAPI = softwareSystem "Publics LPA Support API" "Allows external companies to add submit LPAs. [Owner: Vega, Users: Modernising]" "Container, Modernising" {
             -> mlpaDraftingServiceAPI "makes calls to"
             -> thirdparty "interacts with"
         }
