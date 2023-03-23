@@ -12,5 +12,6 @@ jobs:
   structurizr:
     name:  Generate SVG files from Structurizr
     uses: ./.github/workflows/structurizr_images_job.yml
+    needs: detect_changes
     with:
       changes_detected: ${{ needs.detect_changes.outputs.changes_detected }}
