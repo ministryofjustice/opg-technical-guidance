@@ -1,0 +1,16 @@
+name: "PR"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  detect_changes:
+    name: Detect Changes
+    uses: ./.github/workflows/detect_changes_to_dsl_job.yml
+  structurizr:
+    name:  Generate SVG files from Structurizr
+    uses: ./.github/workflows/structurizr_images_job.yml
+    with:
+      changes_detected: ${{ needs.detect_changes.outputs.changes_detected }}
