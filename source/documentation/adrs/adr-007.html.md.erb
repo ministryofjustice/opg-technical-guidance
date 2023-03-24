@@ -27,19 +27,19 @@ We need to be clear on the purpose of each healthcheck within a service and be c
 
 These are used to determine if an individual container is running as expected. Reports that the container has finished its startup and is ready to handle requests. Should start to fail if the container needs to be cycled out.
 
-```/health-check```
+`/health-check`
 
 ### Service Health Checks
 
 These are used to determine if a service is "up" and working for the purposes of uptime calculation and proving that end to end within a service boundary is functioning normally. That is the front end can talk to the api and the api can talk to the DB. Typically a front end service health check will talk to the api version of the same health check.
 
-```/health-check/service```
+`/health-check/service`
 
 ### Dependency Health Checks
 
 These are used to determine if a service's external dependencies (external APIs like Notify or the Sirius integrations) are down and may cause service degredation. They should return details of each service status. A more developed version of this will also indicate what impact that service being down will have on the system. Teams shoudl take time to work out the likely impacts, for example Notify being down could just mean email is queued until it is working again.
 
-```/health-check/dependencies```
+`/health-check/dependencies`
 
 ## Monitoring Health Checks
 
