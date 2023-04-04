@@ -20,3 +20,4 @@ repos:
       name: "structurizr"
       entry: pre-commit-hooks/structurizr/pre-commit
       language: script
+      args: ['/dsl/poas']

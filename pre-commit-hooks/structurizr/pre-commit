@@ -1,5 +1,8 @@
 #!/bin/sh
 
+dslPath=$1
+echo "Looking for .dsl changes in $dslPath"
+
 # Get all .dsl files from the list of staged files
 staged=$(git diff-index --cached HEAD --name-only | grep '\.dsl$' | sed -e 's/^/"source\//' -e 's/$/" /' | tr -d '\n')
 
@@ -21,29 +24,29 @@ else
 	exec 1>&2
 
 	# Generate PlantUML files from structurizr. PlantUML is better supported with image generation tooling.
-	generatePlantUml="docker run --rm -v $(pwd)/dsl/poas:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format plantuml"
+	generatePlantUml="docker run --rm -v $(pwd)$dslPath:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format plantuml"
 	eval $generatePlantUml
 
 	# Generate Mermaid files for visibility in Github
-	generateMMD="docker run --rm -v $(pwd)/dsl/poas:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format mermaid"
+	generateMMD="docker run --rm -v $(pwd)$dslPath:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format mermaid"
 	eval $generateMMD
 
 	# Remove any resources created that have produced a key for the diagrams exported.
-	rm $(pwd)/dsl/poas/*-key*
+	rm $(pwd)$dslPath/*-key*
 
 	# Generate PNG files for each .puml file created
-	for filepath in $(pwd)/dsl/poas/*.puml; do
+	for filepath in $(pwd)$dslPath/*.puml; do
 		[ -f "$filepath" ] || break
 		# Generate diagrams for the staged .puml files
-		generatePNG="docker run -v $(pwd)/dsl/poas:/data --rm -i dstockhammer/plantuml $(basename "$filepath")"
+		generatePNG="docker run -v $(pwd)$dslPath:/data --rm -i dstockhammer/plantuml $(basename "$filepath")"
 		eval $generatePNG
 	done
 
 	# Remove the generate puml files as we no longer need them once we have generated the images
-	rm $(pwd)/dsl/poas/*.puml
+	rm $(pwd)$dslPath/*.puml
 
 	# Add generated PNGs and Mermaid files to the commit
-	git add dsl/poas
+	git add $dslPath
 
 	exit 0
 fi
