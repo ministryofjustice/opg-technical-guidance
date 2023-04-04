@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dslPath=$1
-echo "Looking for .dsl changes in $dslPath"
+dslFullPath=$(pwd)$dslPath
 
 # Get all .dsl files from the list of staged files
 staged=$(git diff-index --cached HEAD --name-only | grep '\.dsl$' | sed -e 's/^/"source\//' -e 's/$/" /' | tr -d '\n')
@@ -24,29 +24,35 @@ else
 	exec 1>&2
 
 	# Generate PlantUML files from structurizr. PlantUML is better supported with image generation tooling.
-	generatePlantUml="docker run --rm -v $(pwd)$dslPath:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format plantuml"
+	echo "Generating PlantUML Files"
+	generatePlantUml="docker run --rm -v $dslFullPath:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format plantuml"
 	eval $generatePlantUml
 
 	# Generate Mermaid files for visibility in Github
-	generateMMD="docker run --rm -v $(pwd)$dslPath:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format mermaid"
+	echo "Generating Mermaid Files"
+	generateMMD="docker run --rm -v $dslFullPath:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format mermaid"
 	eval $generateMMD
 
 	# Remove any resources created that have produced a key for the diagrams exported.
-	rm $(pwd)$dslPath/*-key*
+	echo "Remove files with key in their name"
+	rm "$dslFullPath"/*-key*
 
 	# Generate PNG files for each .puml file created
-	for filepath in $(pwd)$dslPath/*.puml; do
+	echo "Generate PNG files"
+	for filepath in $dslFullPath/*.puml; do
 		[ -f "$filepath" ] || break
 		# Generate diagrams for the staged .puml files
-		generatePNG="docker run -v $(pwd)$dslPath:/data --rm -i dstockhammer/plantuml $(basename "$filepath")"
+		generatePNG="docker run -v $dslFullPath:/data --rm -i dstockhammer/plantuml $(basename "$filepath")"
 		eval $generatePNG
 	done
 
 	# Remove the generate puml files as we no longer need them once we have generated the images
-	rm $(pwd)$dslPath/*.puml
+	echo "Remove PlantUML Files"
+	rm "$dslFullPath"/*.puml
 
 	# Add generated PNGs and Mermaid files to the commit
-	git add $dslPath
+	echo "Add generated files to commit."
+	git add .
 
 	exit 0
 fi
