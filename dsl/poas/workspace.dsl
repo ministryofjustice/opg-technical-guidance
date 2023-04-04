@@ -38,13 +38,13 @@ workspace {
                 -> mlpaSiriusPublicAPI "allows read access to draft data and write access to executed data"
             }
         }
-        
+
         mlpaOpgRegisterDatabase = softwareSystem "Registered LPA Data Store" "Stores immutable LPA data with high availablility, security and auditing. [Owner: Modernising, Users: Vega]" "Modernising" {
             mlpaOpgRegisterDatabase_database = container "Database" "Stores final Register LPA Data." "AuroraDB" "Database"
             mlpaOpgRegisterDatabase_databaseMonitoringTelemetry = container "Monitoring and Telemetery" "Cloudwatch logs and X-Ray" "AWS Cloudwatch" "Database"
         }
 
-        mlpaSupporterAPI = softwareSystem "Publics LPA Support API" "Allows external companies to add submit LPAs. [Owner: Vega, Users: Modernising]" "Container, Modernising" {
+        mlpaSupporterAPI = softwareSystem "Public LPA Support API" "Allows external companies to add submit LPAs. [Owner: Vega, Users: Modernising]" "Container, Modernising" {
             -> mlpaDraftingServiceAPI "makes calls to"
             -> thirdparty "interacts with"
         }
@@ -75,13 +75,13 @@ workspace {
 
         mlpaOnlineContainer -> mlpaDraftingServiceAPI "makes calls to"
         mlpaSiriusCaseManagement -> lpaUIDService "gets LPA Code from"
-        
+
         mlpaOnlineContainer -> mlpaOPGAuthService "authenticates with"
         mlpaUaLPA -> mlpaOPGAuthService "authenticates with"
 
         mlpaUaLPA -> mlpaSiriusPublicAPI "read data from"
         mlpaUaLPA -> mlpaOpgRegisterService_ReadAPIGateway "read data from"
-        
+
         mlpaOpgRegisterService_WriteAPIGateway -> mlpaOpgRegisterDatabase_database "writes data to"
         mlpaOpgRegisterService_ReadAPIGateway -> mlpaOpgRegisterService_ReadReplicaDatabase "reads data from"
         mlpaOpgRegisterService_ReadReplicaDatabase -> mlpaOpgRegisterService_ReadReplicaMonitoringTelemetry "interacts with"
