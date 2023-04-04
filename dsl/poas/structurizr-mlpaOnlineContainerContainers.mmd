@@ -1,0 +1,30 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram [Make a Lasting Power of Attorney Online - Containers]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    12["<div style='font-weight: bold'>Attorney</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Attorney interacting with a<br />Lasting Power of Attorney.</div>"]
+    style 12 fill:#08427b,stroke:#052e56,color:#ffffff
+    13["<div style='font-weight: bold'>Donor</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Donor drafting the Lasting<br />Power of Attorney.</div>"]
+    style 13 fill:#08427b,stroke:#052e56,color:#ffffff
+    14["<div style='font-weight: bold'>Certificate Provider</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Certificate Provider<br />interacting with a Lasting<br />Power of Attorney.</div>"]
+    style 14 fill:#08427b,stroke:#052e56,color:#ffffff
+
+    subgraph 16 [Make a Lasting Power of Attorney Online]
+      style 16 fill:#ffffff,stroke:#0b4884,color:#0b4884
+
+      17["<div style='font-weight: bold'>App</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go, HTML, CSS, JS]</div><div style='font-size: 80%; margin-top:10px'>Provides and delivers static<br />content, business logic,<br />routing, third party access<br />and database access</div>"]
+      style 17 fill:#438dd5,stroke:#2e6295,color:#ffffff
+      24[("<div style='font-weight: bold'>Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: DynamoDB]</div><div style='font-size: 80%; margin-top:10px'>Stores actor information,<br />Draft LPA details, access<br />logs, etc.</div>")]
+      style 24 fill:#438dd5,stroke:#2e6295,color:#ffffff
+      25[("<div style='font-weight: bold'>Monitoring and Telemetery</div><div style='font-size: 70%; margin-top: 0px'>[Container: AWS Cloudwatch]</div><div style='font-size: 80%; margin-top:10px'>Cloudwatch logs, X-Ray and<br />RUM</div>")]
+      style 25 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    end
+
+    17-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->13
+    17-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->12
+    17-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->14
+    17-. "<div>reads and writes data to</div><div style='font-size: 70%'></div>" .->24
+    24-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->25
+  end
