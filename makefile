@@ -30,12 +30,14 @@ preview:
 run-structurizr-export:
 	docker pull structurizr/cli:latest
 	docker run --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
-	export -workspace /usr/local/structurizr/workspace.dsl -format mermaid 
+	export -workspace /usr/local/structurizr/workspace.dsl -format mermaid
+	rm $(PWD)/dsl/poas/*-key*
 
 run-structurizr-export-plantuml:
 	docker pull structurizr/cli:latest
 	docker run --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
 	export -workspace /usr/local/structurizr/workspace.dsl -format plantuml
+	rm $(PWD)/dsl/poas/*-key*
 
 run-structurizr:
 	docker pull structurizr/lite

@@ -12,14 +12,32 @@ exec 1>&2
 # Get all .dsl files from the list of staged files as a flattened, quoted string
 staged=$(git diff-index --cached HEAD --name-only | grep '\.dsl$' | sed -e 's/^/"source\//' -e 's/$/" /' | tr -d '\n')
 
-echo "Staged .dsl files:"
-echo $staged
+if [ -z "$staged" ];
+then
+	exit 0
+else
+	echo "Staged .dsl files:"
+	echo $staged
 
-# Generate diagrams for the staged .puml files
-#generate="docker run -v $(pwd):/source --rm -i robbell/plantuml-docker:1.1 -r -x \".git/**\" -o \"/source/docs/assets\" $staged"
-##eval $generate
+	generatePlantUml="docker run --rm -v $(pwd)/dsl/poas:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format plantuml"
+	eval $generatePlantUml
 
-# Add generated diagrams to the commit
-#git add docs/assets
+	generateMMD="docker run --rm -v $(pwd)/dsl/poas:/usr/local/structurizr structurizr/cli export -workspace /usr/local/structurizr/workspace.dsl -format mermaid"
+	eval $generateMMD
 
-exit 0
+	rm $(pwd)/dsl/poas/*-key*
+
+	for filepath in $(pwd)/dsl/poas/*.puml; do
+		[ -f "$filepath" ] || break
+		# Generate diagrams for the staged .puml files
+		generatePNG="docker run -v $(pwd)/dsl/poas:/data --rm -i dstockhammer/plantuml $(basename "$filepath")"
+		eval $generatePNG
+	done
+
+	rm $(pwd)/dsl/poas/*.puml
+
+	# Add generated diagrams to the commit
+	git add dsl/poas
+
+	exit 0
+fi
