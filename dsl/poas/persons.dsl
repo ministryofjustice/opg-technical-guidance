@@ -3,3 +3,4 @@ attorney = person "Attorney" "Attorney interacting with a Lasting Power of Attor
 donor = person "Donor" "Donor drafting the Lasting Power of Attorney."
 certificateProvider = person "Certificate Provider" "Certificate Provider interacting with a Lasting Power of Attorney."
 caseWorker = person "Case Worker" "Case worker."
+organisation = person "Organisation" "Organisation or charity."

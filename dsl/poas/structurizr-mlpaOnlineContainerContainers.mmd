@@ -11,20 +11,20 @@ graph TB
     14["<div style='font-weight: bold'>Certificate Provider</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Certificate Provider<br />interacting with a Lasting<br />Power of Attorney.</div>"]
     style 14 fill:#08427b,stroke:#052e56,color:#ffffff
 
-    subgraph 40 [Make a Lasting Power of Attorney Online]
-      style 40 fill:#ffffff,stroke:#0b4884,color:#0b4884
+    subgraph 41 [Make a Lasting Power of Attorney Online]
+      style 41 fill:#ffffff,stroke:#0b4884,color:#0b4884
 
-      41["<div style='font-weight: bold'>App</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go, HTML, CSS, JS]</div><div style='font-size: 80%; margin-top:10px'>Provides and delivers static<br />content, business logic,<br />routing, third party access<br />and database access</div>"]
-      style 41 fill:#438dd5,stroke:#2e6295,color:#ffffff
-      48[("<div style='font-weight: bold'>Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: DynamoDB]</div><div style='font-size: 80%; margin-top:10px'>Stores actor information,<br />Draft LPA details, access<br />logs, etc.</div>")]
-      style 48 fill:#438dd5,stroke:#2e6295,color:#ffffff
-      49[("<div style='font-weight: bold'>Monitoring and Telemetery</div><div style='font-size: 70%; margin-top: 0px'>[Container: AWS Cloudwatch]</div><div style='font-size: 80%; margin-top:10px'>Cloudwatch logs, X-Ray and<br />RUM</div>")]
+      42["<div style='font-weight: bold'>App</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go, HTML, CSS, JS]</div><div style='font-size: 80%; margin-top:10px'>Provides and delivers static<br />content, business logic,<br />routing, third party access<br />and database access</div>"]
+      style 42 fill:#438dd5,stroke:#2e6295,color:#ffffff
+      49[("<div style='font-weight: bold'>Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: DynamoDB]</div><div style='font-size: 80%; margin-top:10px'>Stores actor information,<br />Draft LPA details, access<br />logs, etc.</div>")]
       style 49 fill:#438dd5,stroke:#2e6295,color:#ffffff
+      50[("<div style='font-weight: bold'>Monitoring and Telemetery</div><div style='font-size: 70%; margin-top: 0px'>[Container: AWS Cloudwatch]</div><div style='font-size: 80%; margin-top:10px'>Cloudwatch logs, X-Ray and<br />RUM</div>")]
+      style 50 fill:#438dd5,stroke:#2e6295,color:#ffffff
     end
 
-    41-. "<div>reads and writes data to</div><div style='font-size: 70%'></div>" .->48
-    48-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->49
-    41-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->13
-    41-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->12
-    41-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->14
+    42-. "<div>reads and writes data to</div><div style='font-size: 70%'></div>" .->49
+    49-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->50
+    42-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->13
+    42-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->12
+    42-. "<div>interacts with</div><div style='font-size: 70%'></div>" .->14
   end

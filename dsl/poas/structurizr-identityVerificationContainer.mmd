@@ -4,18 +4,18 @@ graph TB
   subgraph diagram [OPG Identity Verification Service - Containers]
     style diagram fill:#ffffff,stroke:#ffffff
 
-    subgraph 16 [OPG Identity Verification Service]
-      style 16 fill:#ffffff,stroke:#0b4884,color:#0b4884
+    subgraph 17 [OPG Identity Verification Service]
+      style 17 fill:#ffffff,stroke:#0b4884,color:#0b4884
 
-      17("<div style='font-weight: bold'>Internal Identity Services</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>Custom built Identity<br />Services. e.g. UK Passport,<br />UK Driver Licence, Bank<br />Check, Open Banking, Vouching</div>")
-      style 17 fill:#85bbf0,stroke:#5d82a8,color:#000000
-      26("<div style='font-weight: bold'>External Identity Services.</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>These will redirect the user<br />to third party sites. e.g.<br />One Login, easyID</div>")
-      style 26 fill:#85bbf0,stroke:#5d82a8,color:#000000
-      28("<div style='font-weight: bold'>Identity Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>Responsible for verification<br />options on internal and<br />external services.</div>")
-      style 28 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      18("<div style='font-weight: bold'>Internal Identity Services</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>Custom built Identity<br />Services. e.g. UK Passport,<br />UK Driver Licence, Bank<br />Check, Open Banking, Vouching</div>")
+      style 18 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      27("<div style='font-weight: bold'>External Identity Services.</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>These will redirect the user<br />to third party sites. e.g.<br />One Login, easyID</div>")
+      style 27 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      29("<div style='font-weight: bold'>Identity Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>Responsible for verification<br />options on internal and<br />external services.</div>")
+      style 29 fill:#85bbf0,stroke:#5d82a8,color:#000000
     end
 
-    28-. "<div></div><div style='font-size: 70%'></div>" .->26
-    28-. "<div></div><div style='font-size: 70%'></div>" .->17
-    26-. "<div></div><div style='font-size: 70%'></div>" .->28
+    29-. "<div></div><div style='font-size: 70%'></div>" .->27
+    29-. "<div></div><div style='font-size: 70%'></div>" .->18
+    27-. "<div></div><div style='font-size: 70%'></div>" .->29
   end

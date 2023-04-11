@@ -4,25 +4,25 @@ graph TB
   subgraph diagram [OPG Identity Verification Service - Identity Service - Components]
     style diagram fill:#ffffff,stroke:#ffffff
 
-    26("<div style='font-weight: bold'>External Identity Services.</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>These will redirect the user<br />to third party sites. e.g.<br />One Login, easyID</div>")
-    style 26 fill:#85bbf0,stroke:#5d82a8,color:#000000
-    17("<div style='font-weight: bold'>Internal Identity Services</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>Custom built Identity<br />Services. e.g. UK Passport,<br />UK Driver Licence, Bank<br />Check, Open Banking, Vouching</div>")
-    style 17 fill:#85bbf0,stroke:#5d82a8,color:#000000
+    27("<div style='font-weight: bold'>External Identity Services.</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>These will redirect the user<br />to third party sites. e.g.<br />One Login, easyID</div>")
+    style 27 fill:#85bbf0,stroke:#5d82a8,color:#000000
+    18("<div style='font-weight: bold'>Internal Identity Services</div><div style='font-size: 70%; margin-top: 0px'>[Container: Go]</div><div style='font-size: 80%; margin-top:10px'>Custom built Identity<br />Services. e.g. UK Passport,<br />UK Driver Licence, Bank<br />Check, Open Banking, Vouching</div>")
+    style 18 fill:#85bbf0,stroke:#5d82a8,color:#000000
 
-    subgraph 28 [Identity Service]
-      style 28 fill:#ffffff,stroke:#5d82a8,color:#5d82a8
+    subgraph 29 [Identity Service]
+      style 29 fill:#ffffff,stroke:#5d82a8,color:#5d82a8
 
-      29["<div style='font-weight: bold'>Webapp entry point</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go]</div><div style='font-size: 80%; margin-top:10px'>Handles authentication and<br />redirects to internal or<br />external version of the<br />Identity Service asked for.</div>"]
-      style 29 fill:#85bbf0,stroke:#5d82a8,color:#000000
-      32("<div style='font-weight: bold'>Business Layer</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go]</div><div style='font-size: 80%; margin-top:10px'>Processes the data from each<br />Identity Service to a common<br />data model.</div>")
-      style 32 fill:#85bbf0,stroke:#5d82a8,color:#000000
-      35[("<div style='font-weight: bold'>Database</div><div style='font-size: 70%; margin-top: 0px'>[Component: DynamoDB]</div><div style='font-size: 80%; margin-top:10px'>Temporary store of data to<br />manage the process through<br />the service.</div>")]
-      style 35 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      30["<div style='font-weight: bold'>Webapp entry point</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go]</div><div style='font-size: 80%; margin-top:10px'>Handles authentication and<br />redirects to internal or<br />external version of the<br />Identity Service asked for.</div>"]
+      style 30 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      33("<div style='font-weight: bold'>Business Layer</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go]</div><div style='font-size: 80%; margin-top:10px'>Processes the data from each<br />Identity Service to a common<br />data model.</div>")
+      style 33 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      36[("<div style='font-weight: bold'>Database</div><div style='font-size: 70%; margin-top: 0px'>[Component: DynamoDB]</div><div style='font-size: 80%; margin-top:10px'>Temporary store of data to<br />manage the process through<br />the service.</div>")]
+      style 36 fill:#85bbf0,stroke:#5d82a8,color:#000000
     end
 
-    29-. "<div></div><div style='font-size: 70%'></div>" .->26
-    32-. "<div></div><div style='font-size: 70%'></div>" .->17
-    29-. "<div></div><div style='font-size: 70%'></div>" .->32
-    32-. "<div></div><div style='font-size: 70%'></div>" .->35
-    26-. "<div></div><div style='font-size: 70%'></div>" .->32
+    30-. "<div></div><div style='font-size: 70%'></div>" .->27
+    33-. "<div></div><div style='font-size: 70%'></div>" .->18
+    30-. "<div></div><div style='font-size: 70%'></div>" .->33
+    33-. "<div></div><div style='font-size: 70%'></div>" .->36
+    27-. "<div></div><div style='font-size: 70%'></div>" .->33
   end
