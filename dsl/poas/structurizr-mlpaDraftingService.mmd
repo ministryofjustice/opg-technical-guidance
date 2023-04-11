@@ -6,24 +6,24 @@ graph TB
 
     1("<div style='font-weight: bold'>LPA UID Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Generates UIDs and stores<br />donor details.</div>")
     style 1 fill:#1168bd,stroke:#0b4884,color:#ffffff
-    16["<div style='font-weight: bold'>Make a Lasting Power of Attorney Online</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows users to draft a<br />Lasting Power of Attorney<br />online. [Owner: Modernising,<br />Users: Vega]</div>"]
-    style 16 fill:#1168bd,stroke:#0b4884,color:#ffffff
-    26("<div style='font-weight: bold'>Case Management Public API</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Interaction point between<br />Case Management and other<br />services. [Owner: Vega,<br />Users: UaLPA, Modernising]</div>")
-    style 26 fill:#999999,stroke:#6b6b6b,color:#ffffff
-    27("<div style='font-weight: bold'>Registered LPA Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Highly available API for<br />reading and searching the LPA<br />Register. [Owner: Vega,<br />Users: UaLPA, Modernising]</div>")
-    style 27 fill:#438dd5,stroke:#2e6295,color:#ffffff
-    32("<div style='font-weight: bold'>LPA Drafting Container</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Stores and manages data for<br />pre-registration. [Owner:<br />Modernising, Users: Vega]</div>")
-    style 32 fill:#438dd5,stroke:#2e6295,color:#ffffff
-    52("<div style='font-weight: bold'>Public LPA Support API</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows external companies to<br />add submit LPAs. [Owner:<br />Vega, Users: Modernising]</div>")
-    style 52 fill:#438dd5,stroke:#2e6295,color:#ffffff
-    56("<div style='font-weight: bold'>LPA Paper Ingestion Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Handles the ingestion of the<br />Paper Journey and exposes<br />APIs for non valid OCR data<br />for caseworker keying.<br />[Owner: Modernising, Users:<br />Vega]</div>")
+    40["<div style='font-weight: bold'>Make a Lasting Power of Attorney Online</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows users to draft a<br />Lasting Power of Attorney<br />online. [Owner: Modernising,<br />Users: Vega]</div>"]
+    style 40 fill:#1168bd,stroke:#0b4884,color:#ffffff
+    50("<div style='font-weight: bold'>Case Management Public API</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Interaction point between<br />Case Management and other<br />services. [Owner: Vega,<br />Users: UaLPA, Modernising]</div>")
+    style 50 fill:#999999,stroke:#6b6b6b,color:#ffffff
+    51("<div style='font-weight: bold'>Registered LPA Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Highly available API for<br />reading and searching the LPA<br />Register. [Owner: Vega,<br />Users: UaLPA, Modernising]</div>")
+    style 51 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    56("<div style='font-weight: bold'>LPA Drafting Container</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Stores and manages data for<br />pre-registration. [Owner:<br />Modernising, Users: Vega]</div>")
     style 56 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    76("<div style='font-weight: bold'>Public LPA Support API</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows external companies to<br />add submit LPAs. [Owner:<br />Vega, Users: Modernising]</div>")
+    style 76 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    80("<div style='font-weight: bold'>LPA Paper Ingestion Service</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Handles the ingestion of the<br />Paper Journey and exposes<br />APIs for non valid OCR data<br />for caseworker keying.<br />[Owner: Modernising, Users:<br />Vega]</div>")
+    style 80 fill:#438dd5,stroke:#2e6295,color:#ffffff
 
-    32-. "<div>gets LPA Code from</div><div style='font-size: 70%'></div>" .->1
-    32-. "<div>writes validated registered<br />data to</div><div style='font-size: 70%'></div>" .->27
-    32-. "<div>writes final registered case<br />management data and triggers<br />case working events to</div><div style='font-size: 70%'></div>" .->26
-    52-. "<div>makes calls to</div><div style='font-size: 70%'></div>" .->32
-    56-. "<div>reads and writes data from</div><div style='font-size: 70%'></div>" .->26
-    56-. "<div>writes valid data to</div><div style='font-size: 70%'></div>" .->32
-    16-. "<div>makes calls to</div><div style='font-size: 70%'></div>" .->32
+    56-. "<div>gets LPA Code from</div><div style='font-size: 70%'></div>" .->1
+    56-. "<div>writes validated registered<br />data to</div><div style='font-size: 70%'></div>" .->51
+    56-. "<div>writes final registered case<br />management data and triggers<br />case working events to</div><div style='font-size: 70%'></div>" .->50
+    76-. "<div>makes calls to</div><div style='font-size: 70%'></div>" .->56
+    80-. "<div>reads and writes data from</div><div style='font-size: 70%'></div>" .->50
+    80-. "<div>writes valid data to</div><div style='font-size: 70%'></div>" .->56
+    40-. "<div>makes calls to</div><div style='font-size: 70%'></div>" .->56
   end

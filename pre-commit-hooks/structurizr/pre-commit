@@ -5,12 +5,12 @@ dslFullPath=$(pwd)$dslPath
 
 # Get all .dsl files from the list of staged files
 staged=$(git diff-index --cached HEAD --name-only | grep '\.dsl$' | sed -e 's/^/"source\//' -e 's/$/" /' | tr -d '\n')
+stagedProcessed=$(git diff-index --cached HEAD --name-only | grep '\.mmd$' | sed -e 's/^/"source\//' -e 's/$/" /' | tr -d '\n')
 
-if [ -z "$staged" ];
-then
+if [ -z "$staged" ]; then
 	# If no .dsl changes have occured, exit gracefully
 	exit 0
-else
+elif [ -z "$stagedProcessed" ]; then
 	echo "Staged .dsl files:"
 	echo $staged
 
@@ -49,10 +49,6 @@ else
 	# Remove the generate puml files as we no longer need them once we have generated the images
 	echo "Remove PlantUML Files"
 	rm "$dslFullPath"/*.puml
-
-	# Add generated PNGs and Mermaid files to the commit
-	echo "Add generated files to commit."
-	git add .
 
 	exit 0
 fi
