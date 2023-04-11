@@ -3,6 +3,7 @@ workspace {
     model {
         !include https://raw.githubusercontent.com/ministryofjustice/opg-data-lpa-id/main/docs/architecture/dsl/local/lpaidSoftwareSystem.dsl
         !include persons.dsl
+        !include identityVerification.dsl
         mlpaOnlineContainer = softwareSystem "Make a Lasting Power of Attorney Online" "Allows users to draft a Lasting Power of Attorney online. [Owner: Modernising, Users: Vega]" "Web Browser, Modernising" {
             mlpaOnlineContainer_webapp = container "App" "Provides and delivers static content, business logic, routing, third party access and database access" "Go, HTML, CSS, JS" "Web Browser" {
                 -> donor "interacts with"
@@ -96,6 +97,9 @@ workspace {
 
         mlpaOnlineContainer_webapp -> mlpaOnlineContainer_database "reads and writes data to"
         mlpaOnlineContainer_database -> mlpaOnlineContainer_databaseMonitoringTelemetry "interacts with"
+
+        mlpaOnlineContainer -> identityVerification "Uses"
+        mlpaSiriusCaseManagement -> identityVerification "Uses"
     }
 
     views {
@@ -109,12 +113,32 @@ workspace {
             autoLayout
         }
 
+        container identityVerification "identityVerificationContainer" {
+            include *
+            autoLayout
+        }
+
+        component identityVerification_service "identityVerificationService" {
+            include *
+            autoLayout
+        }
+
         systemContext mlpaDraftingService "mlpaDraftingService" {
             include *
             autoLayout
         }
 
         container mlpaDraftingService "Containers" {
+            include *
+            autoLayout
+        }
+
+        component identityVerification_internalServices "identityVerification_internalServicesContainer" {
+            include *
+            autoLayout
+        }
+
+        component identityVerification_externalServices "identityVerification_externalServicesContainer" {
             include *
             autoLayout
         }

@@ -1,0 +1,24 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram [OPG Identity Verification Service - Internal Identity Services - Components]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    subgraph 17 [Internal Identity Services]
+      style 17 fill:#ffffff,stroke:#5d82a8,color:#5d82a8
+
+      18("<div style='font-weight: bold'>Business Layer</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go]</div><div style='font-size: 80%; margin-top:10px'>Handles calls to external<br />APIs and appropriate logic<br />for verification module.</div>")
+      style 18 fill:#438dd5,stroke:#2e6295,color:#ffffff
+      19["<div style='font-weight: bold'>Case Management Web Interface</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go, HTML, CSS, JS]</div><div style='font-size: 80%; margin-top:10px'>Interface specifically for<br />case workers.</div>"]
+      style 19 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      21["<div style='font-weight: bold'>Self Management Web Interface</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go, HTML, CSS, JS]</div><div style='font-size: 80%; margin-top:10px'>Interface for public users.</div>"]
+      style 21 fill:#85bbf0,stroke:#5d82a8,color:#000000
+      23("<div style='font-weight: bold'>Router</div><div style='font-size: 70%; margin-top: 0px'>[Component: Go]</div><div style='font-size: 80%; margin-top:10px'>Routes incoming traffic to<br />the correct web application.</div>")
+      style 23 fill:#438dd5,stroke:#2e6295,color:#ffffff
+    end
+
+    19-. "<div></div><div style='font-size: 70%'></div>" .->18
+    21-. "<div></div><div style='font-size: 70%'></div>" .->18
+    23-. "<div></div><div style='font-size: 70%'></div>" .->21
+    23-. "<div></div><div style='font-size: 70%'></div>" .->19
+  end
