@@ -18,7 +18,9 @@ Adopt these standards if there is no reason not to, but you may break any of the
 ## Design
 
 1. **Use JSON** for request and response bodies
-1. **Use RFC3339** to format dates
+1. **Use lowerCamelCase** for keys
+1. **Prefer flat structure**, we don't have a standard response format and should keep things as minimal as possible (e.g. don't use something like JSON:API, or have all responses like `{"data": ...}`)
+1. **Use [RFC3339](https://www.rfc-editor.org/rfc/rfc3339)** to format dates
 
     Examples of RFC3339 formatted dates:
      - 2023-06-16
