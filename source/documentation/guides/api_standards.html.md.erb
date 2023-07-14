@@ -27,6 +27,17 @@ Adopt these standards if there is no reason not to, but you may break any of the
      - 2023-06-16T09:04:38Z
      - 09:04:46Z
 
+## Versioning
+
+1. **Avoid versioning until there is a definite requirement**
+1. Use SemVer to provide meaning and context to version changes
+1. Encode version in the header via Content Negotiation (`Accept` header) e.g. `Accept: application/vnd.opg-data.v1+json`
+1. Prefer additive changes over destructive ones
+1. Provide concrete deadlines and documentation to consumers
+1. Ensure APIs and nework traffic is well-monitored
+
+For further information, see the [OPG Data versioning strategy](https://github.com/ministryofjustice/opg-data/blob/main/docs/architecture/supporting-notes/versioning-strategy.md)
+
 ## Security
 
 ## Useful links
