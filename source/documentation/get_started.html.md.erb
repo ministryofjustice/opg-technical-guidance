@@ -10,7 +10,7 @@ review_in: 1 weeks
 This is the guide for new technical staff working in OPG.
 If you just joined, 👋 welcome!
 
-If you're having trouble with this guide, you can ask your colleagues or
+If you are having trouble with this guide, you can ask your colleagues or
 the #opg-developers channel in Slack.
 
 ## 1. Install the [Homebrew package manager](https://brew.sh) (on macOS or Linux)
@@ -26,7 +26,7 @@ Check out this [list of recommend tools to install][opg-brew-file]
 1. Set up a [GitHub] account. Existing personal accounts are fine to use.
 1. Ask #ask-operations-engineering to add you to the [ministryofjustice organisation][ministryofjustice]. You will have to be added to the [OPG team][opg-team] to get access to repos. Remember to click accept in the GitHub email invitation.
 1. [Generate and register an SSH key pair][register-ssh-key] for your laptop for your GitHub account. You should use a `4096` bit key.
-1. While you're here, associate your name and email to your git commits:
+1. While you are here, associate your name and email to your git commits:
 
     ```
     $ git config --global user.email "friendly.giraffe@digital.justice.gov.uk"
@@ -66,12 +66,14 @@ You have to set up [Multi-Factor Authentication (MFA)][MFA].
 1. Click on the security credentials tab
 1. Click on the "Manage" link next to "Assigned MFA device"
 1. Follow the steps to set up your MFA device
+NB: The "Device name" needed for the MFA will need to link to your identity.
+It should look something like firstname.surname-authy
 1. Log out and log back into your AWS account
 
 
 ### Get the appropriate access
 
-An account in AWS doesn't give you access to anything, you'll need to be given rights.
+An account in AWS does not give you access to anything, you'll need to be given rights.
 
 Ask your teams DevOps engineer to pair with you on getting the appropriate access.
 
@@ -79,10 +81,10 @@ Ask your teams DevOps engineer to pair with you on getting the appropriate acces
 ## 4. Set up AWS Roles
 
 Identity is the account where your user identity is stored, but there's no usable resources in this account.
-To perform useful work, you'll need to switch up to a role in another account.
+To perform useful work, you will need to switch up to a role in another account.
 See the [AWS docs for detailed information](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html) on how to do this.
 
-Here's a small diagram that explains what each role is for:
+Here is a small diagram that explains what each role is for:
 
 ![AWS Roles](/images/role-overview.png)
 
@@ -92,7 +94,7 @@ By default the AWS console only stores a limited number of roles in its history,
 for convenience you may want to try using the
 [aws-extend-switch-roles Chrome extension.][aws-extend-switch-roles]
 
-You'll be able to add the roles you require into the plugin. All the roles can
+You will be able to add the roles you require into the plugin. All the roles can
 be found [here][aws-roles-list]
 
 ## 5. Set up AWS Vault
@@ -113,10 +115,10 @@ You have to generate an AWS Access Key and Secret Key to be able to
 perform operations with AWS on the command-line.
 
 1. Sign in to the [AWS Console.][opg-aws-signin]
-1. Click on your email address in the top right.
-1. Click 'My Security Credentials'.
-1. Click 'Create access key'.
-1. The secret access key will only be show once, so download the access key or keep them on screen.
+2. Click on your email address in the top right.
+3. Click 'My Security Credentials'.
+4. Click 'Create access key'.
+5. The secret access key will only be show once, so download the access key or keep them on screen.
 
 ### Setup aws-vault with opg-identity
 
@@ -126,13 +128,16 @@ perform operations with AWS on the command-line.
 aws-vault add identity
 ```
 
-2. You'll be prompted for an Access Key ID which will be on you screen in the AWS Console.
-3. Hit Enter, Now you'll be prompted for secret access key.
-4. Next edit your profile to use your MFA mfa_serial edit `~/.aws/config` and add
+2. You will be prompted for an Access Key ID which will be on you screen in the AWS Console.
+3. Hit Enter, Now you will be prompted for secret access key.
+4. Next open your profile in a text editor and edit it to use your MFA mfa_serial. <br>
+ The file is `~/.aws/config` and add
 
 ```
 mfa_serial=arn:aws:iam::631181914621:mfa/<aws.username>
 ```
+NB: This <aws.username> the same as your MFA key, it will probably look like firstname.surname-authy.
+Make sure that when you are adding to this file you put all text underneath the "[profile identity]".
 
 5. You can run the following command to make sure everything works
 
