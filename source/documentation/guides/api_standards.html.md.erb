@@ -27,6 +27,21 @@ Adopt these standards if there is no reason not to, but you may break any of the
      - 2023-06-16T09:04:38Z
      - 09:04:46Z
 
+## Naming (REST)
+
+The primary data representation in REST is a resource, which is a mapping to a set of entities. This dictates how REST APIs should be designed and the following princples should guide how the resources are addressed:
+
+1. Resources are represented by nouns. Resource names can be "real" nouns or abstract collections e.g. `/users` or `/user-management`. 
+1. A resource can be a singleton or a collection. Collections are pluralised and singletons are addressed by ID. e.g. `/users/1`, where `users` is a collection and `1` is the singleton.
+1. Resources are hierarchical, with resources containing other resources. These relationships are denoted with forward slashes. e.g. `/teams/1/users/2`.
+1. A URI addresses the resource, not the action. HTTP methods should be used to indicate the action being performed. e.g. `HTTP POST /users`, not `/users/create`.
+  1. Where an action is required and doesn't fit the CRUD pattern, it should be supplied as a query parameter. e.g. `/scripts/1?action=execute`.
+1. Use query parameters to filter a resource collection instead of creating a new URI. e.g. `/users?role=admin`.
+1. Use hyphens to improve readability. Avoid underscores and other separators. e.g. `/device-management/os-versions`.
+1. Use lower case only. Case sensitivity is dependent on the browser, server, and host OS, so mixed-case should be avoided.
+1. Do not use file extensions in URIs. If this information needs to be communicated, use the `Content-Type` header.
+
+     
 ## Versioning
 
 1. **Avoid versioning until there is a definite requirement**
