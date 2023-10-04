@@ -46,7 +46,6 @@ For further information, see the [OPG Data versioning strategy](https://github.c
 ## Authentication
 
 1. **Use JSON Web Tokens** (JWTs) to authenticate requests between OPG services
-    1. JWTs should be asymmetrically signed
     1. Each JWT must contain the following claims:
         1. **sub:** Either an identifier of the user making the request (e.g. email address) or a service identifier if not user is involved
         1. **iat:** The timestamp of when the token was issued
