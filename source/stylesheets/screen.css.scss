@@ -18,3 +18,11 @@ table.dataframe thead th{
   background: white;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
+
+ol > li > ol {
+  list-style-type: lower-alpha;
+}
+
+ol > li > ol > li > ol {
+  list-style-type: lower-roman;
+}
