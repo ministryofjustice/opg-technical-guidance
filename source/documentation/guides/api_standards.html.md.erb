@@ -31,7 +31,7 @@ Adopt these standards if there is no reason not to, but you may break any of the
 
 **RE**presentational **S**tate **Transfer** (REST) is the defacto API architecture standard and the guidance below is on the assumption that REST will be used. The primary data representation in REST is a resource, which is a mapping to a set of entities. This dictates how REST APIs should be designed and the following princples should guide how the resources are addressed:
 
-1. Resources are represented by nouns. Resource names can be "real" nouns or abstract collections e.g. `/users` or `/user-management`. 
+1. Resources are represented by nouns. Resource names can be "real" nouns or abstract collections e.g. `/users` or `/user-management`.
 1. A resource can be a singleton or a collection. Collections are pluralised and singletons are addressed by ID. e.g. `/users/1`, where `users` is a collection and `1` is the singleton.
 1. Resources are hierarchical, with resources containing other resources. These relationships are denoted with forward slashes. e.g. `/teams/1/users/2`.
 1. A URI addresses the resource, not the action. HTTP methods should be used to indicate the action being performed. e.g. `HTTP POST /users`, not `/users/create`.
@@ -56,6 +56,7 @@ For further information, see the [OPG Data versioning strategy](https://github.c
 ## Documentation
 
 1. Use the [OpenAPI Specification](https://swagger.io/specification/) for documenting APIs
+  - This may be used by your API's consumers to automatically generate mocks using tools like [Prism](https://docs.stoplight.io/docs/prism/674b27b261c3c-prism-overview)
 1. Store in the repo at `/docs/openapi/openapi.yml`
 
 ## Authentication
@@ -68,6 +69,12 @@ For further information, see the [OPG Data versioning strategy](https://github.c
         1. **iss:** The service that issued the token
     1. APIs must validate "exp", "iat" and "iss" claims, and the "nbf" claim if provided
 1. Where APIs only have consumers inside OPG, use infrastructure tools (e.g. AWS IAM) to restrict access to those services
+
+## Performance
+
+1. We have no departmental performance requirements, but you should discuss as a team if you can set any for yourselves.
+1. **Monitor realtime performance** of your production services with the tools provided by AWS, such as [CloudWatch Metrics](https://aws.amazon.com/cloudwatch/) and [X-Ray](https://aws.amazon.com/xray/)
+1. Consider alternative techniques for slow-running transactions such as using asynchronous request/response patterns, or queuing onerous processes to execute after the response has been sent
 
 ## Useful links
 
