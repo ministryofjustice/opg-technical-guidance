@@ -38,13 +38,13 @@ This is what our users access and it contains our real data. It must is the only
 
 ### Preproduction environment
 
-This has identical infrastructure to the production environment and is the only environment in the preproduction account. It is only accessible from within the MOJ Digital VPN. It is deployed in the pipeline before production to test integration that the release can be deployed successfully.
+This has identical infrastructure to the production environment and is the only environment in the preproduction account. It is not accessible by the public. It is deployed in the pipeline before production to test integration that the release can be deployed successfully.
 
 It is be available at `preproduction.{production host}`.
 
 ### Demo environment
 
-This is used to test, demo and explore functionality against the currently deployed release. It is in the development account, does not contain production data and is only accessible from within the MOJ Digital VPN. It is deployed in the pipeline after production to ensure it reflects the latest releaase.
+This is used to test, demo and explore functionality against the currently deployed release. It is in the development account, does not contain production data and is not accessible by the public. It is deployed in the pipeline after production to ensure it reflects the latest releaase.
 
 It is connected to the demo environment of any dependencies, and is the target of the demo environemnt of any dependent services. This allows cross-service testing.
 
@@ -56,7 +56,7 @@ All services must be available to stand-up on departmental laptops in some form 
 
 ### Automatic PR environments
 
-These are created automatically when a pull request is raised to use for testing and demo of changes before they are merged. They are in the development account and are only accessible from within the MOJ Digital VPN.
+These are created automatically when a pull request is raised to use for testing and demo of changes before they are merged. They are in the development account and are not accessible by the public.
 
 These environments should be used to test against, rather than using local containerised environments on the CI runner, to provide a higher level of confidence.
 
@@ -77,10 +77,6 @@ In all other regards, they are the same as automatic PR environments.
 Some services may require other persistent environments. For example, for training or user research. These environments may be created automatically or manually, depending on the team's needs.
 
 These environments are in the development account and do not contain production data.
-
-## Known exceptions
-
-...
 
 ## Consequences
 
