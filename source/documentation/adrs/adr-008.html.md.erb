@@ -92,3 +92,5 @@ These environments are in the development account and do not contain production 
 Having more consistent environment practices will make developing and maintaining services across multiple teams more predictable and less prone to confusion. Having consistent demo environments will make cross-service testing easier and safer.
 
 This will be more challenging for services that make exceptions to this decision, as they might lead to incorrect assumptions. Service teams will need to clearly document their exceptions and explanations to avoid confusion.
+
+Where services connect to each other, teams must document which environments are connected and what type of data (production, pseudonymised etc.) each uses. This is essential to ensure that private data does not incorrectly cross tiers.
