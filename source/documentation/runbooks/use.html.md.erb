@@ -1,5 +1,5 @@
 ---
-title: Make an LPA Service Runbook
+title: Use a Lasting Power of Attorney (UAL) Service Runbook
 last_reviewed_on: 2023-12-08
 review_in: 4 weeks
 ---
@@ -8,13 +8,18 @@ review_in: 4 weeks
 
 ## Description
 
-A service for members of the public to make a Lasting Power of Attorney. Users fill out online forms, pay a fee and can download the completed forms as a PDF which they can then sign and post to the Office of the Public Guardian to be registered.
+UAL is a service for attorneys or donors (collectively known as _actors_) to allow 3rd party people and organisations to view a summary of an LPA online. The actors can also view the LPA summary themselves.
 
-When the user creates an LPA in Make an LPA, details of the LPA are only stored in the Make an LPA Postgres database. These details are not entered into Sirius until the printed form is received by OPG and the LPA is entered into Sirius by a caseworker.
+If an LPA has instructions and preferences, these are also available to view online. The [opg-data-lpa-instructions-preferences](https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences) service is responsible for storing and retrieving these.
+
+There are two user-facing components to the service:
+
+- View - this is the public facing part of the service where 3rd parties can view the LPA summary online
+- Use - this is the part of the service where actors can view the LPA summary online and share it with 3rd parties. This is also sometimes known as the "actor" component.
 
 ### Impact of an outage
 
-Users will not be able to create, access or download their LPA documents. Users will need to download the blank forms from GOV.UK, complete them by hand and post them to the Office of the Public Guardian if this service is down for a prolonged period of time.
+3rd parties will not be able to view the LPA summary online. Actors will not be able to view the LPA summary online or share it with 3rd parties. 3rd parties will need to be sent a paper copy of the LPA summary by the actor.
 
 ### Incident contact details
 
@@ -26,26 +31,23 @@ email: [opg-lpa-live@digital.justice.gov.uk](mailto:opg-lpa-live@digital.justice
 
 ### Service URLs:
 
-[https://www.lastingpowerofattorney.service.gov.uk/](https://www.lastingpowerofattorney.service.gov.uk/)
+[https://use-lasting-power-of-attorney.service.gov.uk](https://use-lasting-power-of-attorney.service.gov.uk)
+[https://view-lasting-power-of-attorney.service.gov.uk/](https://view-lasting-power-of-attorney.service.gov.uk)
 
-[https://admin.lpa.opg.service.justice.gov.uk/](https://admin.lpa.opg.service.justice.gov.uk/)
+[https://admin.lastingpowerofattorney.opg.service.justice.gov.uk/](https://admin.lastingpowerofattorney.opg.service.justice.gov.uk)
 
 ### Other URLs
 
 |Name                           |Address                                                                                |
 |-------------------------------|---------------------------------------------------------------------------------------|
-| Healthcheck ELB               |     https://www.lastingpowerofattorney.service.gov.uk/ping/elb                        |
-| Healthcheck Availability      |     https://www.lastingpowerofattorney.service.gov.uk/ping/                           |
-| Healthcheck Pingdom           |     https://www.lastingpowerofattorney.service.gov.uk/ping/pingdom                    |
-| Healthcheck Json              |     https://www.lastingpowerofattorney.service.gov.uk/ping/json                       |
-| GitHub Repository             |     https://github.com/ministryofjustice/opg-lpa                                      |
+| GitHub Repository             |     https://github.com/ministryofjustice/opg-use-an-lpa                               |
 
 ## Hosting environment
 - AWS - We can log an emergency call with [aws support](https://console.aws.amazon.com/support/home#/) and will get an immediate call back.
 
 ## Service team contact
 
-[opg-lpa-live@digital.justice.gov.uk](opg-lpa-live@digital.justice.gov.uk)
+[opgteam+use-an-lpa-prod@digital.justice.gov.uk](opgteam+use-an-lpa-prod@digital.justice.gov.uk)
 
 ## Other Information
 
@@ -69,7 +71,8 @@ N/A
 - [GOV.UK Notify](https://status.notifications.service.gov.uk/)
 - [GOV.UK Pay](https://payments.statuspage.io/)
 - [Sirius LPA](https://github.com/ministryofjustice/opg-sirius/)
-- [OS Places API](https://osdatahub.os.uk/serviceStatus/places)
+- [LPA Codes API](https://github.com/ministryofjustice/opg-data-lpa-codes)
+- [Instructions and Preferences](https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences)
 
 ### Restrictions on access
 
@@ -83,4 +86,4 @@ then we should first check the cloudwatch logs for our production log group thor
 
 In the event that the issue is service affecting then we should follow the Incident process which can be found in this [repo](https://ministryofjustice.github.io/opg-technical-guidance/incidents/incident-response-process/#opg-incident-response-process).
 
-As part of this process we may identify that we need to roll back to a previous version of the application in which case, use the redeploying services procedures in this [folder](https://github.com/ministryofjustice/opg-use-an-lpa/tree/main/docs/runbooks).
+As part of this process we may identify that we need to roll back to a previous version of the application in which case, use the redeploying services procedures in this [folder](https://github.com/ministryofjustice/opg-lpa/tree/main/docs/runbooks).
