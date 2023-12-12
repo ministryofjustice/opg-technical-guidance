@@ -212,8 +212,8 @@ remote_state to access those settings from across modules.
 
 ### Never output secrets
 
-Secrets should never be outputs of modules. Rather, they should be written to s
-ecure storage such as AWS Secrets Manager, AWS SSM Parameter Store with KMS
+Secrets should never be outputs of modules. Rather, they should be written to 
+secure storage such as AWS Secrets Manager, AWS SSM Parameter Store with KMS
 encryption, or S3 with KMS encryption at rest.
 
 Our preferred mechanism on AWS is using Secrets Manager.
