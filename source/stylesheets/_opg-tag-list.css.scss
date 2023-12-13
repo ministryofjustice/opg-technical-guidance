@@ -27,6 +27,11 @@
     &--owner {
       @include whitelink;
     }
+
+    &--co-owner {
+      @include whitelink;
+      background-color: #6f72af;
+    }
   }
 
   .govuk-tag {
