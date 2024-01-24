@@ -12,7 +12,7 @@ build:
 		-v $$(pwd)/config:/app/config \
 		-v $$(pwd)/source:/app/source \
 		-v $$(pwd)/docs:/app/docs \
-		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
+		ministryofjustice/tech-docs-github-pages-publisher:v3.0.1 \
 		bundle exec middleman build --build-dir docs --relative-links --verbose
 	touch docs/.nojekyll
 
@@ -24,7 +24,7 @@ preview:
 		-v $$(pwd)/config:/app/config \
 		-v $$(pwd)/source:/app/source \
 		-p 4567:4567 \
-		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
+		ministryofjustice/tech-docs-github-pages-publisher:v3.0.1 \
 		bundle exec middleman serve
 
 run-structurizr-export:
