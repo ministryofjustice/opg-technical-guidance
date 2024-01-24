@@ -13,8 +13,6 @@ on:
 jobs:
     build_and_publish:
       runs-on: ubuntu-latest
-      container:
-        image: ministryofjustice/tech-docs-github-pages-publisher:1.3
       steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -45,9 +43,9 @@ jobs:
             ls -lart ./source/documentation/reports/*
             echo "---"
           done
+          
       - name: Build
-        run: bundle exec middleman build --build-dir docs --relative-links 2>/dev/null
-      - run: touch docs/.nojekyll
+        run: make build
       - run: echo "${GITHUB_SHA}" > docs/version.txt
       - run: cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
       - run: git config --global user.email "tools@digital.justice.gov.uk"
