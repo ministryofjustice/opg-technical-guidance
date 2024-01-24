@@ -6,6 +6,7 @@
 # take care of publishing. see: .github/workflows/publish.yml
 .PHONY: build
 build:
+	mkdir -p -m 0777 docs
 	docker run --rm \
 		-e ROOT_DOCPATH=$${ROOT_DOCPATH} \
 		-v $$(pwd)/config.rb:/app/config.rb \
