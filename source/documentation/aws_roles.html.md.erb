@@ -115,14 +115,6 @@ role_arn=arn:aws:iam::980242665824:role/operator
 Viewer Roles
 
 ```bash
-[profile moj-refunds-dev]
-region=eu-west-1
-role_arn=arn:aws:iam::936779158973:role/viewer
-
-[profile moj-refunds-preprod]
-region=eu-west-1
-role_arn=arn:aws:iam::764856231715:role/viewer
-
 [profile moj-refunds-prod]
 region=eu-west-1
 role_arn=arn:aws:iam::805626386523:role/viewer
@@ -132,14 +124,6 @@ role_arn=arn:aws:iam::805626386523:role/viewer
 Operator Roles
 
 ```bash
-[profile moj-refunds-dev]
-region=eu-west-1
-role_arn=arn:aws:iam::936779158973:role/operator
-
-[profile moj-refunds-preprod]
-region=eu-west-1
-role_arn=arn:aws:iam::764856231715:role/operator
-
 [profile moj-refunds-prod]
 region=eu-west-1
 role_arn=arn:aws:iam::805626386523:role/operator
@@ -211,6 +195,24 @@ role_arn=arn:aws:iam::492687888235:role/operator
 [profile sirius-prod-operator]
 region=eu-west-1
 role_arn=arn:aws:iam::649098267436:role/operator
+```
+
+## LPA Store
+
+Viewer Roles
+
+```bash
+[profile lpa-store-dev-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::493907465011:role/viewer
+```
+
+Operator roles
+
+```bash
+[profile lpa-store-dev-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::493907465011:role/operator
 ```
 
 ## Other Roles

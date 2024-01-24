@@ -26,3 +26,19 @@ preview:
 		-p 4567:4567 \
 		ministryofjustice/tech-docs-github-pages-publisher:1.3 \
 		bundle exec middleman serve
+
+run-structurizr-export:
+	docker pull structurizr/cli:latest
+	docker run --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
+	export -workspace /usr/local/structurizr/workspace.dsl -format mermaid
+	rm $(PWD)/dsl/poas/*-key*
+
+run-structurizr-export-plantuml:
+	docker pull structurizr/cli:latest
+	docker run --rm -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/cli \
+	export -workspace /usr/local/structurizr/workspace.dsl -format plantuml
+	rm $(PWD)/dsl/poas/*-key*
+
+run-structurizr:
+	docker pull structurizr/lite
+	docker run -it --rm -p 8080:8080 -v $(PWD)/dsl/poas:/usr/local/structurizr structurizr/lite
