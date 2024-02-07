@@ -26,3 +26,11 @@ ol > li > ol {
 ol > li > ol > li > ol {
   list-style-type: lower-roman;
 }
+
+blockquote > p:first-child {
+  margin-top: 0;
+}
+
+blockquote > p:last-child {
+  margin-bottom: 0;
+}
