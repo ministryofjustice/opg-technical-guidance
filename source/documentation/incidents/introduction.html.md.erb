@@ -1,10 +1,12 @@
 ---
 title: Introduction to incidents
-last_reviewed_on: 2020-11-12
-review_in: 4 weeks
+last_reviewed_on: 2024-02-07
+review_in: 6 months
 ---
 
 # <%= current_page.data.title %>
+
+_See also: [Incident process](documentation/incidents/process)_
 
 Incidents sound scary, the term "incident" just means something is going wrong or
 not working as expected. Incidents can happen anywhere, and we face technology outages
@@ -14,7 +16,6 @@ We can't stop incidents from happening, but we can make sure we are ready to dea
 with them.
 
 ## What is incident response?
-------
 
 This is the broad term that refers to the processes we follow when something happens.
 These are the things we should be thinking about apart from actually fixing the issue:
@@ -39,51 +40,8 @@ Assign a priority level to incidents based on their complexity, urgency and reso
 |P4|Minor|Component failure that does not immediately impact a service, or an unsuccessful DoS attempt|1 business day |Once after 5 business days|
 
 ## Guidance for products
-------
 
 The main incident response process is stored here in the `opg-technical-guidance`
-respository. Each product should have product runbook also located in this repository,
+[respository](https://github.com/ministryofjustice/opg-technical-guidance/
+). Each product should have [a product runbook](/documentation/runbooks) also located in this repository,
 you should create a link to this runbook from your repository in the `README.md`.
-
-Runbook Template:
-
-```
-# SERVICE_NAME Runbook
-
-**Last review date:** 25th Oct 2020
-
-## Description
-
-## Incident Response
-
-### Impact of an outage
-
-
-### Incident contact details
-
-Slack:
-
-Email:
-
-## URLs
-
-### Service URLs:
-
-### Other URLs
-
-|Name                           |Address                                               |
-|-------------------------------|------------------------------------------------------|
-|                               |                                                      |
-
-
-
-## Hosting environment
-
-## Service team contact
-
-
-## Other Information
-
-### Other small titles
-
-```
