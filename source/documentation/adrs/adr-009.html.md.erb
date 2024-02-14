@@ -1,0 +1,60 @@
+---
+title: ADR-009 Log structure
+last_reviewed_on: 2024-02-09
+review_in: 12 months
+---
+# <%= current_page.data.title %>
+
+Date: 14-02-2024
+
+## Status
+
+🤔 Proposed
+
+## Context
+
+Regardless of platform or language, our services write logging information to the output stream. However, this logging information is inconsitently structured. This leads to a few problems:
+
+1. It is hard to interpret logs under standard operation, as logs from different containers with different structures are interspersed
+2. During an incident, it is hard to find related logs as the inconsistent structures require separate queries
+3. Our log-based alarms are complex to write and update as they have to query several different structures
+
+## Decision
+
+We will define a standard logging structure that all teams will use. Teams are welcome to expand on the structure by adding extra fields, but must include all required fields in each log message and must ensure not to use reserved fields for anything other than their defined usage.
+
+All logs must be formatted as JSON objects.
+
+An example of a minimal log message:
+
+```json
+{"timestamp": "2024-02-14T12:34:23Z", "service": "opg-refunds", "level": "CRITICAL", "msg": "Null pointer exception"}
+```
+
+An example of a more complex log message:
+
+```json
+{"timestamp": "2024-02-14T13:39:01Z", "service": "opg-refunds/front", "level": "INFO", "msg": "User authentication failed", "trace_id": "1-581cf771-a006649127e371903a2de979", "request": {"method": "GET", "path": "/auth/login"}}
+```
+
+### Required fields
+
+`timestamp` must be an RFC3339-formatted date/time.
+
+`service` must a string denoting the service where the log message originated.
+
+`level` must be an RFC5424-defined log level in uppercase: `EMERGENCY`, `ALERT`, `CRITICAL`, `ERROR`, `WARNING`, `NOTICE`, `INFO`, `DEBUG`. Services don't need to use every log level, but alarms and stored queries should account for them all.
+
+`msg` is the free form message.
+
+### Reserved fields
+
+`trace_id`, if provided, must be a string containing the AWS X-Ray trace ID of the orgininating request.
+
+`request`, if provided, must be an object containing a `method` property containing the request's HTTP method, and a `path` property containing the requested path
+
+## Consequences
+
+Reading logs interspersed between different services and containers will be easier as they all follow the same structure. We will be able to write common queries and alarms that work across all of our services.
+
+Each team will need to review their current logging instrumentation to ensure it matches this structure.
