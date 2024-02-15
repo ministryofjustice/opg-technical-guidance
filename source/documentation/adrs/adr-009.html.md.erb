@@ -28,20 +28,18 @@ All logs must be formatted as JSON objects.
 An example of a minimal log message:
 
 ```json
-{"timestamp": "2024-02-14T12:34:23Z", "service": "opg-refunds", "level": "CRITICAL", "msg": "Null pointer exception"}
+{"timestamp": "2024-02-14T12:34:23Z", "level": "CRITICAL", "msg": "Null pointer exception"}
 ```
 
 An example of a more complex log message:
 
 ```json
-{"timestamp": "2024-02-14T13:39:01Z", "service": "opg-refunds/front", "level": "INFO", "msg": "User authentication failed", "trace_id": "1-581cf771-a006649127e371903a2de979", "request": {"method": "GET", "path": "/auth/login"}}
+{"timestamp": "2024-02-14T13:39:01Z", "level": "INFO", "msg": "User authentication failed", "trace_id": "1-581cf771-a006649127e371903a2de979", "request": {"method": "GET", "path": "/auth/login"}}
 ```
 
 ### Required fields
 
 `timestamp` must be an RFC3339-formatted date/time.
-
-`service` must a string denoting the service where the log message originated.
 
 `level` must be an RFC5424-defined log level in uppercase: `EMERGENCY`, `ALERT`, `CRITICAL`, `ERROR`, `WARNING`, `NOTICE`, `INFO`, `DEBUG`. Services don't need to use every log level, but alarms and stored queries should account for them all.
 
@@ -49,9 +47,11 @@ An example of a more complex log message:
 
 ### Reserved fields
 
-`trace_id`, if provided, must be a string containing the AWS X-Ray trace ID of the orgininating request.
+`request`, if provided, must be an object containing a `method` property of the request's HTTP method, and a `path` property of the requested path. Additional properties are permitted.
 
-`request`, if provided, must be an object containing a `method` property containing the request's HTTP method, and a `path` property containing the requested path
+`source`, if provided, must be a string that differntiates which resource the log came from. It should be set consistently at the resource level (e.g. all logs from one ECS container should have the same source).
+
+`trace_id`, if provided, must be a string containing the AWS X-Ray trace ID of the orgininating request.
 
 ## Consequences
 
