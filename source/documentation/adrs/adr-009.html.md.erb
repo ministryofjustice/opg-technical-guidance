@@ -34,8 +34,18 @@ An example of a minimal log message:
 An example of a more complex log message:
 
 ```json
-{"timestamp": "2024-02-14T13:39:01Z", "level": "INFO", "msg": "User authentication failed", "trace_id": "1-581cf771-a006649127e371903a2de979", "request": {"method": "GET", "path": "/auth/login"}}
+{
+  "timestamp": "2024-02-14T13:39:01Z",
+  "level": "INFO",
+  "msg": "User permissions updated",
+  "trace_id": "1-581cf771-a006649127e371903a2de979",
+  "request": { "method": "PUT", "path": "/user/133/permissions" },
+  "location": { "file": "pages/user/edit_permission.go", "line": 156 },
+  "actor_id": 48
+}
 ```
+
+As well as the required and reserved fields below, log messages can include any other fields (such as "location" and "actor_id" above).
 
 ### Required fields
 
