@@ -59,8 +59,6 @@ As well as the required and reserved fields below, log messages can include any 
 
 `request`, if provided, must be an object containing a `method` property of the request's HTTP method, and a `path` property of the requested path. Additional properties are permitted.
 
-`source`, if provided, must be a string that differntiates which resource the log came from. It should be set consistently at the resource level (e.g. all logs from one ECS container should have the same source).
-
 `trace_id`, if provided, must be a string containing the AWS X-Ray trace ID of the orgininating request.
 
 ## Consequences
