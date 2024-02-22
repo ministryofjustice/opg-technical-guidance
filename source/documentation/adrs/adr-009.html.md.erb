@@ -38,6 +38,7 @@ An example of a more complex log message:
   "time": "2024-02-14T13:39:01Z",
   "level": "INFO",
   "msg": "User permissions updated",
+  "service_name": "",
   "trace_id": "1-581cf771-a006649127e371903a2de979",
   "request": { "method": "PUT", "path": "/user/133/permissions" },
   "location": { "file": "pages/user/edit_permission.go", "line": 156 },
@@ -51,9 +52,11 @@ As well as the required and reserved fields below, log messages can include any 
 
 `time` must be an RFC3339-formatted date/time.
 
-`level` must be an RFC5424-defined log level in uppercase: `EMERGENCY`, `ALERT`, `CRITICAL`, `ERROR`, `WARNING`, `NOTICE`, `INFO`, `DEBUG`. Services don't need to use every log level, but alarms and stored queries should account for them all.
+`level` must be an RFC5424-defined log level in uppercase: `EMERGENCY`, `ALERT`, `CRITICAL`, `ERROR`, `WARNING`, `NOTICE`, `INFO`, `DEBUG`. Services don't need to use every log level, but alarms and stored queries should account for them all. Whilst all log levels can be used in code, the minimum logging level should be `INFO` in non-dev environments.
 
 `msg` is the free form message.
+
+`service_name` is the name of the container or lambda outputting the log.
 
 ### Reserved fields
 
