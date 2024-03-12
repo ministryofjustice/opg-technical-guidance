@@ -28,7 +28,7 @@ All logs must be formatted as JSON objects.
 An example of a minimal log message:
 
 ```json
-{"time": "2024-02-14T12:34:23Z", "level": "CRITICAL", "msg": "Null pointer exception"}
+{"time": "2024-02-14T12:34:23Z", "level": "CRITICAL", "msg": "Null pointer exception", "service_name": "opg-example"}
 ```
 
 An example of a more complex log message:
@@ -38,7 +38,7 @@ An example of a more complex log message:
   "time": "2024-02-14T13:39:01Z",
   "level": "INFO",
   "msg": "User permissions updated",
-  "service_name": "",
+  "service_name": "opg-example",
   "trace_id": "1-581cf771-a006649127e371903a2de979",
   "request": { "method": "PUT", "path": "/user/133/permissions" },
   "location": { "file": "pages/user/edit_permission.go", "line": 156 },
