@@ -1,7 +1,7 @@
 ---
 title: Instructions and Preferences (I&P) Service Runbook
-last_reviewed_on: 2023-12-08
-review_in: 4 weeks
+last_reviewed_on: 2024-03-18
+review_in: 8 weeks
 ---
 
 # <%= current_page.data.title %>
@@ -51,6 +51,7 @@ We operate a CI/CD model, all commits to main are automatically deployed to prod
 
 | Alert               | Source     | Application     | Description                                                                                |
 |---------------------|------------|-----------------|--------------------------------------------------------------------------------------------|
+| Errors in app       | Cloudwatch | Image Processor | Alerts when >= 3 LPAs with Error within 5 minutes                                          |
 
 ### Consumers of this service
 
