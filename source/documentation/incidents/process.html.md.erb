@@ -1,6 +1,6 @@
 ---
 title: Incident Response Process
-last_reviewed_on: 2020-11-12
+last_reviewed_on: 2024-03-18
 review_in: 4 weeks
 ---
 
@@ -27,13 +27,13 @@ Examples:
 
 ## Declare an incident
 
-From your teams channel you can use the OPG incidents slack tool to declare an incident.
+From your teams channel you can use the OPG incidents Slack tool to declare an incident.
 
 `/opg-incident Something's happened`
 
 Slack will pop open a form to to fill in extra information. At this stage, you only need to select whether its a live incident or something that's already happened that you'd like to report. All the other information can be filled in later.
 
-The slack bot will automatically post a message into the `#opg-incident` channel and create an entry on [the incident response site][incident-response-site]. **This marks the offical start of an incident**
+The Slack bot will automatically post a message into the `#opg-incident` channel and create an entry on [the incident response site][incident-response-site]. **This marks the offical start of an incident**
 
 ### Immediate first steps
 
@@ -72,7 +72,7 @@ The incident lead is the lead coordination role and should be someone who has ex
 
 > NB: The incident lead needs to ensure that things **are being done**, they do not need to do them
 
-Once appointed, the incident lead should update the following information using the slack bot in the dedicated communications channel.
+Once appointed, the incident lead should update the following information using the Slack bot in the dedicated communications channel.
 
 * incident summary `@opg-incident-response summary <describe the incident>`
 * incident severity `@opg-incident-response sev <Critical, Major, Trivial>`
@@ -97,14 +97,14 @@ The scribe is responsible for keeping a log of the incident, including:
 
 Once appointed, the scribe should update the incident header at the top of the channel with a link to the living document on [the incident response site][incident-response-site].
 
-The scribe can pin important message in the incident channel and the slack tool will automatically add those into the timeline summary. They can also add
-actions to the incdent log using the command `@opg-incident-response action <action_description>`
+The scribe can pin important message in the incident channel and the Slack tool will automatically add those into the timeline summary. They can also add
+actions to the incident log using the command `@opg-incident-response action <action_description>`
 
 When conversation happens verbally, it is the scribe's responsibility to ensure anything that needs to be logged is written up in the incident channel.
 
 ### Communications Lead
 
-Depending on the impact/duration/panic-level of an incident, it *may* be desirable to appoint a communications lead.
+Depending on the impact/duration of an incident, it *may* be desirable to appoint a communications lead.
 
 It is usually best if this is a member of the product profession to facilitate clear communications with the business.
 
@@ -142,7 +142,7 @@ Things you may want to consider:
 ## End the incident
 
 When work on the problem has ceased, either because the problem has been resolved or because resolution is blocked until a later date,
-the **incident lead** should update the slack tool to close the incident.
+the **incident lead** should update the Slack tool to close the incident.
 
 `@opg-incident-response close`
 

@@ -1,10 +1,43 @@
 ---
 title: "OPG AWS Roles"
-last_reviewed_on: 2020-12-11
-review_in: 1 weeks
+last_reviewed_on: 2024-03-18
+review_in: 2 months
 ---
 
 # <%= current_page.data.title %>
+
+## Modernising LPA
+
+Viewer Roles
+
+```bash
+[profile modernising-lpa-development-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::653761790766:role/viewer
+
+[profile modernising-lpa-preproduction-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::792093328875:role/viewer
+
+[profile modernising-lpa-production-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::313879017102:role/viewer
+```
+
+Operator Roles
+```bash
+[profile modernising-lpa-development-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::653761790766:role/operator
+
+[profile modernising-lpa-preproduction-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::792093328875:role/operator
+
+[profile modernising-lpa-production-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::313879017102:role/operator
+```
 
 ## Serve OPG
 
@@ -262,5 +295,5 @@ role_arn=arn:aws:iam::997462338508:role/account-write
 ```bash
 [profile sandbox-operator]
 region=eu-west-1
-role_arn = arn:aws:iam::995199299616:role/operator
+role_arn=arn:aws:iam::995199299616:role/operator
 ```
