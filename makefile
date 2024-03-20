@@ -13,9 +13,8 @@ build:
 		-v $$(pwd)/config:/app/config \
 		-v $$(pwd)/source:/app/source \
 		-v $$(pwd)/docs:/app/docs \
-		ministryofjustice/tech-docs-github-pages-publisher:v3.0.1 \
-		bundle exec middleman build --build-dir docs --relative-links --verbose
-	touch docs/.nojekyll
+		ministryofjustice/tech-docs-github-pages-publisher:v4.0.0 \
+		/usr/local/bin/package
 
 # Use this to run a local instance of the documentation site, while editing
 .PHONY: preview
@@ -25,8 +24,8 @@ preview:
 		-v $$(pwd)/config:/app/config \
 		-v $$(pwd)/source:/app/source \
 		-p 4567:4567 \
-		ministryofjustice/tech-docs-github-pages-publisher:v3.0.1 \
-		bundle exec middleman serve
+		ministryofjustice/tech-docs-github-pages-publisher:v4.0.0 \
+		/usr/local/bin/preview
 
 run-structurizr-export:
 	docker pull structurizr/cli:latest

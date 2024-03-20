@@ -1,8 +1,8 @@
 ---
 title: OPG Terraform Practices
 weight: 10
-last_reviewed_on: 2020-11-10
-review_in: 4 weeks
+last_reviewed_on: 2024-03-20
+review_in: 3 months
 ---
 
 # <%= current_page.data.title %>
@@ -13,7 +13,7 @@ Simple is better than Complex - Code for readability and inheritability
 
 Layers of loops, dynamic blocks, and ternaries obscure what it is you’re actually
 doing, making it difficult to work with for junior engineers, you in 12 months time
-or people trying to get an understanding of terraform.
+or people trying to get an understanding of Terraform.
 
 [Code should be correct, clear and concise, in that order.](https://ministryofjustice.github.io/technical-guidance/documentation/principles/development-principles.html#2-code-should-be-correct-clear-concise-in-that-order)
 
@@ -39,15 +39,15 @@ sources, and should be stored in vpc.tf within the environment directory.
 
 ### Use Terraform Workspaces
 
-We use terraform workspaces to stop the duplication and customisation of code
+We use Terraform workspaces to stop the duplication and customisation of code
 for each account or enviroment which increases maintainability and ease of promotion.
 Workspaces allow for environments to be consistent by default, but allow features
 and resources to be toggled to enable specificfunctionality.
 
 ### Usage in Pipelines
 
-Whenever running terraform in a CI/CD pipeline always run a terraform plan stage, even
-if applying with an auto-approve.  This allows you to understand exactly what terraform
+Whenever running Terraform in a CI/CD pipeline always run a `terraform plan` stage, even
+if applying with an auto-approve.  This allows you to understand exactly what Terraform
 changed and why should there ever be an issue, and allows traceability of when specific
 changes were applied to an environment.
 
@@ -86,9 +86,9 @@ indent_style = space
 Resource names should be descriptive to allow the usage of the resource to be
 easily understood.
 
-Resources defined in terraform should be all lower case with underscores as
-separators for consistency with terraform resource object names, also known as
-`snake_case`. Filenames within the terraform project should also follow this
+Resources defined in Terraform should be all lowercase with underscores as
+separators for consistency with Terraform resource object names, also known as
+`snake_case`. Filenames within the Terraform project should also follow this
 convention.
 
 Example:
@@ -101,7 +101,7 @@ Resources that exist in AWS should be all lowercase separated by hyphens,
 they should all include the environment or account that they belong to in order
 to determine uniqueness and to be easily identifiable in the AWS Console. Using
 hyphens rather than underscores allows a resource to be easily identified as
-either a terraform definition of a resource, or a “real” AWS resource.
+either a Terraform definition of a resource, or a “real” AWS resource.
 
 Example:
 
@@ -127,7 +127,7 @@ Run `terraform fmt` before committing all code. Use a pre-commit hook to do this
 automatically.
 
 ### Do not use HEREDOC for JSON, YAML or IAM Policies
-There are better ways to achieve the same outcome using terraform interpolations
+There are better ways to achieve the same outcome using Terraform interpolations
 or resources
 
 For JSON, use a combination of a local and the `jsonencode` function.
@@ -138,7 +138,7 @@ For IAM Policy Documents, use the native `iam_policy_document` resource.
 
 ### Use proper datatype
 
-Using proper datatypes in terraform makes it easier to validate inputs and
+Using proper datatypes in Terraform makes it easier to validate inputs and
 document usage.
 
 * Use null instead of empty strings ("")
@@ -149,7 +149,7 @@ document usage.
 ### Use locals to baptize opaque resource IDs
 
 Using `locals` makes code more descriptive and maintainable.
-Rather than using complex expressions as parameters to some terraform resource,
+Rather than using complex expressions as parameters to some Terraform resource,
 instead move that expression to a `local` and reference the `local` in the resource.
 
 ## Variables
@@ -159,7 +159,7 @@ instead move that expression to a `local` and reference the `local` in the resou
 When writing a module that accepts variable inputs, make sure to use the same
 names as the upstream to avoid confusion and ambiguity.
 
-### Use all lower-case with underscores as separators
+### Use all lowercase with underscores as separators
 
 Avoid introducing any other syntaxes commonly found in other languages such
 as CamelCase or pascalCase. For consistency we want all variables to look uniform.
@@ -200,14 +200,14 @@ automatically when left `null` or `""` (empty).
 ### Use description field for all outputs
 
 All outputs must have a description set. The description should be based on
-(or adapted from) the upstream terraform provider where applicable.
+(or adapted from) the upstream Terraform provider where applicable.
 Avoid simply repeating the variable name as the output description.
 
 ### Use well-formatted snake case output names
 
 Avoid introducing any other syntaxes commonly found in other languages such
 as CamelCase or pascalCase. For consistency we want all variables to look uniform.
-It also makes code more consistent when using outputs together with terraform
+It also makes code more consistent when using outputs together with Terraform
 remote_state to access those settings from across modules.
 
 ### Never output secrets
@@ -220,7 +220,7 @@ Our preferred mechanism on AWS is using Secrets Manager.
 
 ### Use symmetrical names
 
-We prefer to keep terraform outputs symmetrical as much as possible with the
+We prefer to keep Terraform outputs symmetrical as much as possible with the
 upstream resource or module, with exception of prefixes. This reduces the amount
 of entropy in the code or possible ambiguity, while increasing consistency.
 Below is an example of what *not to do. The expected output name is `user_secret_access_key`.
@@ -236,7 +236,7 @@ Use Terraform to create state bucket
 
 This requires a two-phased approach, whereby you first provision the bucket
 without the remote state enabled. Then enable remote state (e.g. s3 {}) and import
-remote state by simply rerunning terraform init. We recommend this strategy
+remote state by simply rerunning `terraform init`. We recommend this strategy
 because it promotes using the best tool for the job and makes it easier to
 define requirements and use consistent tooling.
 
@@ -250,7 +250,7 @@ We recommend not commingling state in the same bucket. This could cause the
 state to get overridden or compromised. Note, the state contains cached values
 of all outputs.
 
-### Use .gitignore to exclude terraform state files, state directory backups and core dumps
+### Use .gitignore to exclude Terraform state files, state directory backups and core dumps
 
 ```
 .terraform
@@ -264,6 +264,6 @@ of all outputs.
 ### Small Opinionated Modules
 
 We believe that modules should do one thing very well. But in order to do that,
-it requires being opinionated on the design. Simply wrapping terraform
+it requires being opinionated on the design. Simply wrapping Terraform
 resources for the purposes of modularizing code is not that helpful.
 Implementing a specific use-case of those resource is more helpful.
