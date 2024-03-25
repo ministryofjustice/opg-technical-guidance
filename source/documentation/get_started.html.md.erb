@@ -1,7 +1,7 @@
 ---
 title: "Get started"
 weight: 30
-last_reviewed_on: 2024-03-14
+last_reviewed_on: 2024-03-25
 review_in: 24 weeks
 ---
 
@@ -134,9 +134,9 @@ aws-vault add identity
  The file is `~/.aws/config` and add
 
 ```
-mfa_serial=arn:aws:iam::631181914621:mfa/<aws.username>
+mfa_serial=arn:aws:iam::631181914621:mfa/<aws.mfa-device-name>
 ```
-NB: This <aws.username> the same as your MFA key, it will probably look like firstname.surname-authy.
+NB: This <aws.mfa-device-name> the same as your MFA key, it will probably look like firstname.surname-authy.
 Make sure that when you are adding to this file you put all text underneath the "[profile identity]".
 
 5. You can run the following command to make sure everything works
