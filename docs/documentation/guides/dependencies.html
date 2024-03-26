@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Dependencies in your code - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/dependencies.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="Dependencies in your code - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/dependencies.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="Dependencies in your code" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/dependencies.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#dependencies-in-your-code"><span>Dependencies in your code</span></a>
+    <ul>
+      <li>
+        <a href="#new-libraries-and-dependencies-guidance"><span>New Libraries and Dependencies Guidance</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="dependencies-in-your-code">Dependencies in your code</h1>
+<p>Dependencies provided by external sources are a normal part of software development. We use many open source libraries written by 3rd parties to provide functionality in our apps. In PHP we use composer to install these external libraries and we have similar tools for node, python and golang.</p>
+<p>The last few years have seen an uptick in security attacks using trusted dependencies and weak security in the management of package ecosystems to compromise applications. Node, PHP and Python have all had high profile compromises, we&rsquo;ve been very fortuante to not be using the packages affected.</p>
+<p>Security is not the only issue though, some languages lean more into the working practice of grabbing any dependency rather than fully assessing if you need it. This can lead to long term maintenence churn on packages providing very simple functionality or bringing in a massive node package download to the frontend to achieve something simple provided by in-browser functionality. Both of which can create work we don&rsquo;t need.</p>
+<p>This guidance is to formalise the rules of thumb used to choose externally provided libraries to ensure we reduce the risk of a compromised package and minimise our maintenence burden.</p>
+<h2 id="new-libraries-and-dependencies-guidance">New Libraries and Dependencies Guidance</h2>
+<h3 id="1-question-if-you-need-an-external-dependency">1. Question if you need an external dependency</h3>
+<p>We need to balance not-reinventing the wheel with taking on a support and security burden. &ldquo;Would it take longer than a day to write the thing yourself?&rdquo; is a good question to ask. It&rsquo;s worth taking the time to research how difficult that would be. You have the chance to do some learning and development in an area, which you can share and builds the whole team&rsquo;s experience. Maybe that&rsquo;s better than outsourcing the knowledge and approach to a 3rd party?</p>
+<p>Equally, it could be an area that&rsquo;s complex and requires detailed specialist knowledge to work in, such as security, interoperability with closed source code or detailed understanding of standards. In these cases letting somebody else do the work is advisable as time, effort and specialist knowledge take time to acquire.</p>
+<p>Another question to ask before writing your own code is &ldquo;will it take longer than a day to maintain?&rdquo; Just because you understand it now doesn&rsquo;t mean you&rsquo;ll understand it in a year. If you write it yourself who handles ongoing support and who else understands it? Consider if it&rsquo;s not application code, but really a shared library within OPG for a specific need we all share so we don&rsquo;t end up copy-pasting code about.</p>
+<p>The tradeoff here is essentially how much time does a 3rd party dependency save you now, versus how much time will it cost you later.</p>
+<p><a href="https://www.jamesshore.com/v2/blog/2022/javascript-colors-and-the-corruption-of-buy-vs-build">This article</a> written following the incident with the colors.js library is a good explanation on reuse vs build.</p>
+<h3 id="2-always-check-the-github-repo-for-recent-activity">2. Always check the GitHub repo for recent activity</h3>
+<p>You want a library that is getting regular patches and security updates.</p>
+<p>You also want a library that doesn&rsquo;t change its external API every 6 months, forcing you to rework large portions of your app to accomodate it. Reading around about the library can assist you in getting a feel for this as can looking at which major version it is, be suspicious of anything lower than 1.0.0 or with flags for &ldquo;not yet production ready&rdquo; or &ldquo;proof of concept&rdquo;</p>
+<p>You want a library that is compatible with the main framework you are using and any coding standards your team have in place. You also need to consider if it&rsquo;s maintaining compatibility with upcoming language and framework versions. We&rsquo;ve seen this with Laminas and PHP 8.1 compatibilities, for example, where there was a lag in language compatibility updates.</p>
+<h3 id="3-check-that-the-dependency-is-managed-by-a-community">3. Check that the dependency is managed by a community</h3>
+<p>Single contributor libraries have more chance of being compromised and nobody noticing. More eyes on changes means more chance of vandalism or malicious activity being caught earlier.</p>
+<p>Communities also enforce standards and tend to mean APIs are more stable as others need to use them too. Communities supported by charitable trust (JS foundation) or big organisations (Mozilla) tend to help with ensuring maintenence, stability and backward compatibility.</p>
+<p>Libraries with single maintainers, even well known ones, can be subject to issues not found in larger communities, like the creator rage quitting (see node left pad) or just vanishing and the package becoming abandoned.</p>
+<p>The number of open issues and how they are responded to can also be an indicator of community health. It&rsquo;s worth being wary of anything with a high number of &ldquo;won&rsquo;t fix&rdquo; type labels.</p>
+<h3 id="4-check-the-license-on-the-dependency">4. Check the license on the dependency</h3>
+<p>Not all software licenses are compatible. We use an MIT license for our open source code, so anything using that is 100% compatible.</p>
+<p>Some licenses may be incompatible with private storage of source code, for example due to forcing publication, which might not be appropriate to a service that requires some parts of its codebase to be private for operational reasons.</p>
+<h3 id="5-check-how-the-library-responded-to-any-previous-security-incidents">5. Check how the library responded to any previous security incidents</h3>
+<p>Transparency and quick reaction to any previous security issues are a good sign of how a library&rsquo;s maintainers will react next time. Particularly if they have defined incident processes, public lessons learned and risk mitigations already in place.</p>
+<h3 id="6-see-how-easy-contributing-is">6. See how easy contributing is</h3>
+<p>We like to give back if we use things, hopefully that&rsquo;s not a painful process. How easy is it for a new contributor to get a PR merged on the library? This will help if we do need to patch something upstream to gain compatibility with recent language versions.</p>
+<p>This can be a downside too: what checks do you need to pass to get code added? Is it too easy? Could somebody manipulate that process?</p>
+<h3 id="7-do-you-need-the-whole-thing">7. Do you need the whole thing?</h3>
+<p>Smaller libraries are prefered to larger frameworks to avoid bringing in large amounts of code you don&rsquo;t need for one class or method you do. The attack surface of a bigger project means there&rsquo;s more potential for you to get an exploit in unrelated code you end up shipping anyway.</p>
+<p>This is particularly an issue with frontend dependencies, don&rsquo;t add 1 library with 40 sub dependencies just to do something browsers can do anyway with CSS or native APIs. The performance and usability impact of 25mb of JS just to add a hover effect should not be underestimated. Check out tools like tree-shaking in builds that can reduce this by not deploying unused codepaths.</p>
+<h3 id="8-check-what-the-library-39-s-own-dependencies-look-like">8. Check what the library&rsquo;s own dependencies look like</h3>
+<p>Sometimes it&rsquo;s not the direct dependency itself that&rsquo;s the risk, but the dependencies of the dependency. It&rsquo;s worth checking for further downstream projects with the same set of issues.</p>
+<h3 id="9-pin-to-a-specific-version">9. Pin to a specific version</h3>
+<p>It&rsquo;s always best to pin a given dependency to a specific version. So using 1.0.4 rather than a less specific ^1.0.</p>
+<p>While lock files will pin to known good versions, you might inadvertantly pull in a malicious version 1.0.5 as it becomes available as part of development changes when updating packages if you aren&rsquo;t pinned.</p>
+<p>We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems (NPM/Node) it is best to wait a 3 days before merging PRs for non-security related updates to allow time for malicious activity to be detected.</p>
+<p>Some teams have experimented with automerging patch updates. If you do this it&rsquo;s worth automating the 3 day wait, particularly if your app is node based. Critical security updates are worth considering in isolation, as it may be that you are at greater risk leaving it unpatched for 3 days than the patch itself being bad. A check of the upstream commits for tampering can help make decisions on this.</p>
+<h3 id="10-look-for-opportunities-to-refactor-out-dependencies">10. Look for opportunities to refactor out dependencies</h3>
+<p>Not all our code bases are new (Sirius and Make at now 8 years old in places). As such it&rsquo;s always worth being on the lookout for dependencies that were good at time of implementation, but have since fallen behind or lost support. It&rsquo;s always good to reassess the value of a given dependency, in some cases the core language or framework will have moved on and now provide functionality natively. A good example of this is jQuery, where a decade ago you needed its selector engine, but now the web platform provides <code>document.querySelectorAll()</code>`. In general do this at least every 6 months.</p>
+<p>Pay particular attention for the warnings of &ldquo;no longer supported&rdquo; that package managers will provide.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-09-20">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 20 March 2024.
+
+        It needs to be reviewed again on 20 September 2024
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-developers">#opg-developers</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 20 September 2024
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-developers">#opg-developers</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/dependencies.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Dependencies+in+your+code%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fdependencies.html%29&amp;labels=bug&amp;title=Re%3A+%27Dependencies+in+your+code%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

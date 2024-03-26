@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>CircleCI Dockerhub Authentication - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/circleci_dockerhub.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="CircleCI Dockerhub Authentication - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/circleci_dockerhub.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="CircleCI Dockerhub Authentication" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/circleci_dockerhub.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#circleci-dockerhub-authentication"><span>CircleCI Dockerhub Authentication</span></a>
+    <ul>
+      <li>
+        <a href="#context"><span>Context</span></a>
+      </li>
+      <li>
+        <a href="#security"><span>Security</span></a>
+      </li>
+      <li>
+        <a href="#prerequisites"><span>Prerequisites</span></a>
+      </li>
+      <li>
+        <a href="#steps"><span>Steps</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="circleci-dockerhub-authentication">CircleCI Dockerhub Authentication</h1>
+<p>This runbook shows how to setup and use &ldquo;service&rdquo; DockerIDs to service CircleCI builds.</p>
+<p><strong><a href="../adrs/adr-006.html">Please use Github Actions instead of CircleCI</a></strong></p>
+<h2 id="context">Context</h2>
+<p>as of 1st november 2020, anonymous pulls for docker images will be rate limited to 100 per 6 hours. There are higher rates for personal accounts and unlimited pulls for organisational accounts. See:</p>
+
+<ul>
+<li><a href="https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/">Scaling Docker to Serve Millions More Developers: Network Egress</a></li>
+<li><a href="https://discuss.circleci.com/t/authenticate-with-docker-to-avoid-impact-of-nov-1st-rate-limits/37567">Authenticate with Docker to avoid impact of Nov. 1st rate limits</a></li>
+</ul>
+<p>This will significantly hamper our ability to run builds in CircleCI without action. in order to resolve this, CircleCI recommends adding docker hub authentication.</p>
+
+<ul>
+<li>see <a href="https://circleci.com/docs/2.0/private-images/">Using Docker Authenticated Pulls</a></li>
+</ul>
+<p>Fortunately, we have access to a DockerHub organisation in the Ministry of Justice, which has free unlimited pulls of images.</p>
+<h2 id="security">Security</h2>
+<p>We are not using <a href="https://circleci.com/docs/2.0/contexts/">CircleCI contexts</a> as this is a shared organisational level construct, that any pipeline could use.
+We&rsquo;re not set up with context restrictions or groups in CircleCI at time of writing.</p>
+<p>We need to ensure that each of the circleci projects has an individual DockerID and token added in <a href="https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project">project level environment variables</a>, reducing blast radius should it become compromised.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You will need:</p>
+
+<ul>
+<li>Your own Docker ID, which has been:
+
+<ul>
+<li>Added to the <code>ministryofjustice</code> dockerhub organisation as an owner.</li>
+<li>added to the <code>opgdockerhubusers</code> team.</li>
+</ul></li>
+<li>Access to the OPG webops team google group email.</li>
+<li>Access to the project settings on the CircleCI project you are working on.</li>
+</ul>
+<p>Ask one of your webops colleagues to help if you don&rsquo;t have details of these.</p>
+<h2 id="steps">Steps</h2>
+<p>there are 3 main steps:</p>
+
+<ol>
+<li>Create a service Docker ID</li>
+<li>Add service user to docker organisation and team</li>
+<li>Add docker hub credentials to CircleCI</li>
+</ol>
+<h3 id="1-create-a-service-docker-id">1. Create a service Docker ID</h3>
+
+<ol>
+<li>On hub.docker.com create a Docker ID, using:
+
+<ul>
+<li>A strong randomised password</li>
+<li>A name that makes sense for the pipeline.</li>
+<li>The email associated with OPG Webops Google Group, using a <code>+</code> email alias to associate with the new Docker ID.</li>
+</ul></li>
+<li>Take note of the above credentials and store in the webops secure vault for safekeeping.</li>
+<li>Log out of hub.docker.com.</li>
+<li>This will send a validation email to the opg team google group, but look out for one with the correct alias.</li>
+<li>Validate the email.</li>
+<li>Once validated successfully, log back in with the new credentials</li>
+<li>Go to the profile name, drop down to <code>Account Settings</code> and select <code>Security</code> on the screen.</li>
+<li>In the Access Tokens click <code>New Access Token</code>.</li>
+<li>Give the token a useful name e.g. <code>CircleCI access token</code> and click <code>Create</code></li>
+<li>On the next dialog, copy the access token provided.</li>
+<li>Paste into the relevant secure vault entry for safekeeping.</li>
+<li>Click <code>Copy and Close</code>.</li>
+</ol>
+<h3 id="2-add-the-service-account-to-organisation-and-team">2. Add the service account to organisation and team</h3>
+
+<ol>
+<li>Log in to your own DockerID on hub.docker.com.</li>
+<li>under Organisations click <code>ministryofjustice</code> and then click <code>Add Member</code></li>
+<li>Enter the DockerID of the new service user and select <code>opgdockerhubusers</code> from the dropdown</li>
+<li>Click <code>Add</code>.</li>
+</ol>
+<p>This user will have Member permissions, which will be enough to pull images. No higher permission level should be set.</p>
+<h3 id="3-add-dockerhub-credentials-to-a-circleci-project">3. Add dockerhub credentials to a CircleCI Project</h3>
+
+<ol>
+<li><p>Create AWS Secrets Manager secrets for the DockerID and access token in your product&rsquo;s module in opg-org-infra. Our intention is to create these secrets in the opg-management AWS account.</p>
+<div class="highlight"><pre class="highlight hcl" tabindex="0"><code><span class="nx">module</span> <span class="s2">"ci_dockerhub_secrets"</span> <span class="p">{</span>
+  <span class="nx">source</span>         <span class="p">=</span> <span class="s2">"../modules/ci_dockerhub_secrets"</span>
+  <span class="nx">product_prefix</span> <span class="p">=</span> <span class="s2">"the_name_of_the_product_to_namespace_secrets"</span>
+  <span class="nx">providers</span>      <span class="p">=</span> <span class="p">{</span> <span class="nx">aws</span> <span class="p">=</span> <span class="nx">aws</span><span class="err">.</span><span class="nx">management</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">output</span> <span class="s2">"aws_secretsmanager_secret_dockerhub_id"</span> <span class="p">{</span>
+  <span class="nx">value</span> <span class="p">=</span> <span class="nx">module</span><span class="err">.</span><span class="nx">ci_dockerhub_secrets</span><span class="err">.</span><span class="nx">aws_secretsmanager_secret_dockerhub_id</span>
+<span class="p">}</span>
+<span class="nx">output</span> <span class="s2">"aws_secretsmanager_secret_dockerhub_token"</span> <span class="p">{</span>
+  <span class="nx">value</span> <span class="p">=</span> <span class="nx">module</span><span class="err">.</span><span class="nx">ci_dockerhub_secrets</span><span class="err">.</span><span class="nx">aws_secretsmanager_secret_dockerhub_token</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><p>Use the aws_secretsmanager_secret_version data source to provide the secret string as an environment variable to CircleCI. You can use the opg-org-infra repository module to create environment variables for CircleCI. Applying this module will set a value of <code>default</code> for each secret, to be replaced later.</p>
+<div class="highlight"><pre class="highlight hcl" tabindex="0"><code><span class="nx">data</span> <span class="s2">"aws_secretsmanager_secret_version"</span> <span class="s2">"product_dockerhub_id"</span> <span class="p">{</span>
+  <span class="nx">secret_id</span> <span class="p">=</span> <span class="nx">module</span><span class="err">.</span><span class="nx">product</span><span class="err">.</span><span class="nx">aws_secretsmanager_secret_dockerhub_id</span><span class="err">.</span><span class="nx">id</span>
+  <span class="nx">provider</span>  <span class="p">=</span> <span class="nx">aws</span><span class="err">.</span><span class="nx">management</span>
+<span class="p">}</span>
+
+<span class="nx">data</span> <span class="s2">"aws_secretsmanager_secret_version"</span> <span class="s2">"product_dockerhub_token"</span> <span class="p">{</span>
+  <span class="nx">secret_id</span> <span class="p">=</span> <span class="nx">module</span><span class="err">.</span><span class="nx">product</span><span class="err">.</span><span class="nx">aws_secretsmanager_secret_dockerhub_token</span><span class="err">.</span><span class="nx">id</span>
+  <span class="nx">provider</span>  <span class="p">=</span> <span class="nx">aws</span><span class="err">.</span><span class="nx">management</span>
+<span class="p">}</span>
+
+<span class="nx">module</span> <span class="s2">"product"</span> <span class="p">{</span>
+  <span class="nx">source</span>         <span class="p">=</span> <span class="s2">"./modules/repository"</span>
+  <span class="nx">name</span>           <span class="p">=</span> <span class="s2">"product"</span>
+  <span class="err">...</span>
+  <span class="nx">circleci_env_vars</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="nx">DOCKER_USER</span>           <span class="p">=</span> <span class="nx">data</span><span class="err">.</span><span class="nx">aws_secretsmanager_secret_version</span><span class="err">.</span><span class="nx">product_dockerhub_id</span><span class="err">.</span><span class="nx">secret_string</span>
+    <span class="nx">DOCKER_ACCESS_TOKEN</span>   <span class="p">=</span> <span class="nx">data</span><span class="err">.</span><span class="nx">aws_secretsmanager_secret_version</span><span class="err">.</span><span class="nx">product_dockerhub_token</span><span class="err">.</span><span class="nx">secret_string</span>
+</code></pre></div></li>
+<li><p>When the secrets have been created, the value of each can be set from the command line with <code>aws-cli</code></p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code>aws-vault <span class="nb">exec </span>management <span class="nt">--</span> aws secretsmanager put-secret-value <span class="nt">--secret-id</span> product_prefix-dockerhub_id <span class="nt">--secret-string</span> <span class="s1">'somesecretstringvalue'</span>
+aws-vault <span class="nb">exec </span>management <span class="nt">--</span> aws secretsmanager put-secret-value <span class="nt">--secret-id</span> product_prefix-dockerhub_token <span class="nt">--secret-string</span> <span class="s1">'somesecretstringvalue'</span>
+</code></pre></div><p>Alternatively, these values can be set in Secrets Manager in the AWS console.</p></li>
+<li><p>Once these are set, rerun the build workflow on opg-org-infra&rsquo;s master branch in CircleCI to update your project settings.</p></li>
+</ol>
+<h3 id="4-adding-docker-authenticated-pulls-to-circleci-jobs">4. Adding Docker Authenticated Pulls to CircleCI jobs</h3>
+
+<ol>
+<li><p>CircleCI pulls for executors should be updated to include auth details.</p>
+<div class="highlight"><pre class="highlight yaml" tabindex="0"><code><span class="na">executors</span><span class="pi">:</span>
+  <span class="na">puppeteer</span><span class="pi">:</span>
+    <span class="na">docker</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">buildkite/puppeteer</span>
+        <span class="na">auth</span><span class="pi">:</span>
+          <span class="na">username</span><span class="pi">:</span> <span class="s">$DOCKER_USER</span>
+          <span class="na">password</span><span class="pi">:</span> <span class="s">$DOCKER_ACCESS_TOKEN</span>
+    <span class="na">resource_class</span><span class="pi">:</span> <span class="s">small</span>
+</code></pre></div></li>
+<li><p>Use the docker orb to create a command that installs the credential helper and completes a docker login.</p>
+<div class="highlight"><pre class="highlight yaml" tabindex="0"><code><span class="na">orbs</span><span class="pi">:</span>
+  <span class="na">path-to-live</span><span class="pi">:</span>
+    <span class="na">orbs</span><span class="pi">:</span>
+      <span class="na">docker</span><span class="pi">:</span> <span class="s">circleci/docker@1.4.0</span>
+    <span class="na">commands</span><span class="pi">:</span>
+      <span class="na">dockerhub_login</span><span class="pi">:</span>
+        <span class="na">steps</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">docker/install-docker-credential-helper</span>
+          <span class="pi">-</span> <span class="na">docker/check</span><span class="pi">:</span>
+              <span class="na">docker-password</span><span class="pi">:</span> <span class="s">DOCKER_ACCESS_TOKEN</span>
+              <span class="na">docker-username</span><span class="pi">:</span> <span class="s">DOCKER_USER</span>
+</code></pre></div></li>
+<li><p>Docker pulls inside your jobs can then be authorised just prior to any step that will attempt a docker pull. For example,</p>
+<div class="highlight"><pre class="highlight yaml" tabindex="0"><code><span class="na">docker_build_front_app</span><span class="pi">:</span>
+  <span class="na">executor</span><span class="pi">:</span> <span class="s">python</span>
+  <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">checkout</span>
+    <span class="pi">-</span> <span class="na">setup_remote_docker</span><span class="pi">:</span>
+        <span class="na">version</span><span class="pi">:</span> <span class="s">19.03.12</span>
+        <span class="na">docker_layer_caching</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="pi">-</span> <span class="s">dockerhub_login</span>
+    <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">Build</span>
+        <span class="na">command</span><span class="pi">:</span> <span class="s">docker build --file ./docker/app/Dockerfile --tag front-app:latest .</span>
+</code></pre></div></li>
+</ol>
+<p>More information available at <a href="https://circleci.com/docs/2.0/private-images/">using Docker Authenticated Pulls</a> and <a href="https://circleci.com/developer/orbs/orb/circleci/docker">circleci/docker orb</a></p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2020-12-10">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 12 November 2020.
+
+        It needs to be reviewed again on 10 December 2020
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 10 December 2020
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/circleci_dockerhub.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27CircleCI+Dockerhub+Authentication%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fcircleci_dockerhub.html%29&amp;labels=bug&amp;title=Re%3A+%27CircleCI+Dockerhub+Authentication%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

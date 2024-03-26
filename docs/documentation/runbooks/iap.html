@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Instructions and Preferences (I&P) Service Runbook - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/runbooks/iap.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="Instructions and Preferences (I&amp;P) Service Runbook - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/iap.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="Instructions and Preferences (I&amp;P) Service Runbook" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/iap.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#instructions-and-preferences-i-amp-p-service-runbook"><span>Instructions and Preferences (I&P) Service Runbook</span></a>
+    <ul>
+      <li>
+        <a href="#description"><span>Description</span></a>
+      </li>
+      <li>
+        <a href="#urls"><span>URLs</span></a>
+      </li>
+      <li>
+        <a href="#hosting-environment"><span>Hosting environment</span></a>
+      </li>
+      <li>
+        <a href="#service-team-contact"><span>Service team contact</span></a>
+      </li>
+      <li>
+        <a href="#other-information"><span>Other Information</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="instructions-and-preferences-i-amp-p-service-runbook">Instructions and Preferences (I&amp;P) Service Runbook</h1>
+<h2 id="description">Description</h2>
+<p>A service used for storing and retrieving instructions and preferences for Lasting Power of Attorney (LPA) documents. This service is used by the <a href="use.html">Use a Lasting Power of Attorney (UAL)</a> service to display the instructions and preferences for an LPA.</p>
+<p>At its core, it is a Lambda function that is triggered by a user viewing an LPA in the UAL service. The Lambda function retrieves the instructions and preferences PDF from the Sirius datastore S3 bucket and then extracts the instructions, preferences and any I&amp;P continuation sheets as seperate images. These images are then stored in the I&amp;P S3 bucket and a list of URLs is returned to the UAL service.</p>
+<h3 id="impact-of-an-outage">Impact of an outage</h3>
+<p>Users will not be able to view the instructions and preferences for an LPA in the UAL service. Users will need to be sent a paper copy of the instructions and preferences by the actor.</p>
+<h3 id="incident-contact-details">Incident contact details</h3>
+<p>Slack: <a href="https://mojdt.slack.com/archives/C9PNCT2KS">#opg-lpa</a></p>
+<p>email: <a href="mailto:opg-lpa-live@digital.justice.gov.uk">opg-lpa-live@digital.justice.gov.uk</a></p>
+<h2 id="urls">URLs</h2>
+<h3 id="service-urls">Service URLs:</h3>
+<p><a href="https://lpa-iap.api.opg.service.justice.gov.uk">https://lpa-iap.api.opg.service.justice.gov.uk</a></p>
+<h3 id="other-urls">Other URLs</h3>
+<div class="table-container">
+        <table>
+          <tr>
+<th>Name</th>
+<th>Address</th>
+</tr><tr>
+<td>GitHub Repository</td>
+<td>https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences</td>
+</tr>
+        </table>
+      </div><h2 id="hosting-environment">Hosting environment</h2>
+
+<ul>
+<li>AWS - We can log an emergency call with <a href="https://console.aws.amazon.com/support/home#/">aws support</a> and will get an immediate call back.</li>
+</ul>
+<h2 id="service-team-contact">Service team contact</h2>
+<p><a href="opg-lpa-live@digital.justice.gov.uk">opg-lpa-live@digital.justice.gov.uk</a></p>
+<h2 id="other-information">Other Information</h2>
+<h3 id="releases">Releases</h3>
+<p>We operate a CI/CD model, all commits to main are automatically deployed to production through Github Actions workflows.</p>
+<h3 id="automatic-alerts">Automatic alerts</h3>
+<div class="table-container">
+        <table>
+          <tr>
+<th>Alert</th>
+<th>Source</th>
+<th>Application</th>
+<th>Description</th>
+</tr><tr>
+<td>Errors in app</td>
+<td>Cloudwatch</td>
+<td>Image Processor</td>
+<td>Alerts when &gt;= 3 LPAs with Error within 5 minutes</td>
+</tr>
+        </table>
+      </div><h3 id="consumers-of-this-service">Consumers of this service</h3>
+
+<ul>
+<li><a href="use">Use a Lasting Power of Attorney (UAL)</a></li>
+</ul>
+<h3 id="services-consumed-by-this">Services consumed by this</h3>
+
+<ul>
+<li><a href="https://github.com/ministryofjustice/opg-sirius/">Sirius LPA</a></li>
+</ul>
+<h3 id="restrictions-on-access">Restrictions on access</h3>
+
+<ul>
+<li>The API can only be called by an authorised IAM role.</li>
+</ul>
+<h3 id="how-to-resolve-specific-issues">How to resolve specific issues</h3>
+<p>In the event that the issue is service affecting then we should follow the Incident process which can be found in this <a href="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html#incident-response-process">document</a>.</p>
+<p>As part of this process we may identify that we need to roll back to a previous version of the application in which case, use the redeploying services procedures in this <a href="https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences">folder</a>.</p>
+<h4 id="distorted-images-in-i-amp-p">Distorted images in I&amp;P</h4>
+<p>Sometimes, the images that are generated by the I&amp;P service are distorted. There are a number of reasons why this could happen:</p>
+
+<ul>
+<li>The PDF that is uploaded to Sirius is distorted</li>
+<li>Tesseract (the OCR library used by the I&amp;P service) is unable to process the PDF correctly</li>
+</ul>
+<p>To attempt to resolve this isssue, see the <a href="https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences/blob/main/docs/runbooks/delete-an-lpa-scan.md">Deleting I&amp;P images</a> section of the I&amp;P runbook.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-05-13">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 18 March 2024.
+
+        It needs to be reviewed again on 13 May 2024
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 13 May 2024
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/runbooks/iap.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Instructions+and+Preferences+%28I%26P%29+Service+Runbook%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Frunbooks%2Fiap.html%29&amp;labels=bug&amp;title=Re%3A+%27Instructions+and+Preferences+%28I%26P%29+Service+Runbook%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Repo Readme Principles - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/repo_principles.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="Repo Readme Principles - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/repo_principles.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="Repo Readme Principles" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/repo_principles.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#repo-readme-principles"><span>Repo Readme Principles</span></a>
+    <ul>
+      <li>
+        <a href="#general-principles"><span>General Principles</span></a>
+      </li>
+      <li>
+        <a href="#explain-what"><span>Explain what</span></a>
+      </li>
+      <li>
+        <a href="#explain-how"><span>Explain How</span></a>
+      </li>
+      <li>
+        <a href="#legal-info"><span>Legal info</span></a>
+      </li>
+      <li>
+        <a href="#things-to-avoid"><span>Things to Avoid</span></a>
+      </li>
+      <li>
+        <a href="#your-docs-folder"><span>Your /docs/ folder</span></a>
+      </li>
+      <li>
+        <a href="#useful-links"><span>Useful Links</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="repo-readme-principles">Repo Readme Principles</h1>
+<p>We want our code repositories to be as user-friendly as possible. This document is an attempt to document the idealised contents of a good repo <code>README.md</code> file as a set of principles that we can apply as a yardstick for all our code repos. Feel free to add pull requests with new ideas.</p>
+<h2 id="general-principles">General Principles</h2>
+<p>Links are free. Use the README as a jumping off point to a documentation site or further markdown in the <code>/docs/</code> folder. Different products and services require different detail levels, so choose what is appropriate.
+Every new starter should be asked for feedback on the repo readme to help improve it.
+Keep the initial repo README short and helpful. If you go beyond 2 paragraphs in a section, consider moving the content into <code>/docs/</code> and adding a link.</p>
+<h2 id="explain-what">Explain what</h2>
+
+<ul>
+<li>An intro to the service that the repo is used to build and who made it. Summarise the high level intent of the service.
+1 paragraph, with links to further documentation if needed.</li>
+<li>Badges for currently passing build and linting/code coverage results.</li>
+<li>Summary of technologies used, with links to the external documentation for those tools.</li>
+<li>Screenshot of a working install</li>
+<li>Clear signposting of any OpenAPI specifications for this service and for services it makes use of.</li>
+</ul>
+<p>If a larger product:</p>
+
+<ul>
+<li>Link to a high level architecture overview </li>
+</ul>
+<h2 id="explain-how">Explain How</h2>
+<p>Prerequisites for building the service locally. This should be Docker for most services, but also any assumed technologies used to build and develop the app (i.e. pre-commit hooks or aws-cli)
+Should contain a basic summary of how to get the service up and running for local development. 1 Paragraph, with links to more detail if needed.</p>
+
+<ul>
+<li>A summary of how to deploy the service, (1 Paragraph, with links to more detail if needed)</li>
+<li>Links to info on how to debug and test </li>
+<li>Links to general development process and how you expect people to contribute.</li>
+<li>Link to runbooks for the service, in case a non-team member needs to provide support.</li>
+<li>A brief FAQ or Troubleshooting guide, preemptively answer common new developer questions.</li>
+</ul>
+<h2 id="legal-info">Legal info</h2>
+<p>A note on copyright and software license. By default this should be MIT as this is the MoJ standard.</p>
+<h2 id="things-to-avoid">Things to Avoid</h2>
+<p>Our repos are open and open source, avoid putting any personally identifiable info in the <code>README.md</code> or <code>/docs/</code> folder. You can link to closed sources like confluence or google docs if needs be.</p>
+<p>Putting too much info on the initial <code>README.md</code> and not linking out.</p>
+<h2 id="your-docs-folder">Your /docs/ folder</h2>
+<p>Not everything needs to be in the <code>README.md</code>. You should move more detailed documentation into either a <code>/docs/</code> folder or for larger products a dedicated docs repo.</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>    /architecture/
+            /decisions
+            /diagrams
+            README.md
+    /runbooks/
+            DB_UPGRADE.md
+    /conventions/
+            LANGUAGE_STANDARDS.md
+            DEVELOPMENT_PROCESS.md
+    /openapi/
+
+    README.md 
+    CONTRIBUTING.md
+</code></pre></div><p>Remember that lots of build tools can auto-generate documentation based on method comments and other sources such as PHPDOC.</p>
+<h2 id="useful-links">Useful Links</h2>
+
+<ul>
+<li><a href="https://www.contributor-covenant.org/">https://www.contributor-covenant.org/</a></li>
+<li><a href="https://github.com/ministryofjustice/opg-digideps/blob/main/docs/CONTRIBUTING.md">https://github.com/ministryofjustice/opg-digideps/blob/main/docs/CONTRIBUTING.md</a></li>
+</ul>
+<h3 id="inclusivity">Inclusivity</h3>
+
+<ul>
+<li><a href="https://github.com/marketplace/actions/inclusivelint-github-action">https://github.com/marketplace/actions/inclusivelint-github-action</a></li>
+<li><a href="https://github.com/christopher-haueter/pre-commit-alex">https://github.com/christopher-haueter/pre-commit-alex</a></li>
+<li><a href="https://github.com/marketplace/actions/alex-recommends">https://github.com/marketplace/actions/alex-recommends</a></li>
+<li><a href="https://github.com/tlahmann/vscode-alex">https://github.com/tlahmann/vscode-alex</a></li>
+<li><a href="https://joblint.org/">https://joblint.org/</a></li>
+</ul>
+<h3 id="php">PHP</h3>
+
+<ul>
+<li><a href="https://www.phpdoc.org/">https://www.phpdoc.org/</a></li>
+</ul>
+<h3 id="open-api">Open API</h3>
+
+<ul>
+<li><a href="https://api-tools.getlaminas.org/">https://api-tools.getlaminas.org</a></li>
+<li><a href="https://github.com/Legion2/swagger-ui-action">https://github.com/Legion2/swagger-ui-action</a></li>
+<li><a href="https://github.com/ministryofjustice/opg-metrics/blob/main/.github/workflows/openapi_ui.yaml">https://github.com/ministryofjustice/opg-metrics/blob/main/.github/workflows/openapi_ui.yaml</a></li>
+</ul>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-09-18">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 18 March 2024.
+
+        It needs to be reviewed again on 18 September 2024
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 18 September 2024
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/repo_principles.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Repo+Readme+Principles%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Frepo_principles.html%29&amp;labels=bug&amp;title=Re%3A+%27Repo+Readme+Principles%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

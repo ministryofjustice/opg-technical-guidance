@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>ADR-008 Deployment environments - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-008.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="ADR-008 Deployment environments - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-008.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="ADR-008 Deployment environments" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-008.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#adr-008-deployment-environments"><span>ADR-008 Deployment environments</span></a>
+    <ul>
+      <li>
+      </li>
+      <li>
+        <a href="#status"><span>Status</span></a>
+      </li>
+      <li>
+        <a href="#context"><span>Context</span></a>
+      </li>
+      <li>
+        <a href="#decision"><span>Decision</span></a>
+      </li>
+      <li>
+        <a href="#consequences"><span>Consequences</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="adr-008-deployment-environments">ADR-008 Deployment environments</h1>
+<h3 id="date-27-11-2023">Date: 27-11-2023</h3>
+<h2 id="status">Status</h2>
+<p>✅ Accepted</p>
+<h2 id="context">Context</h2>
+<p>When working across multiple teams, or switching between teams, it can be hard to follow what each deployment environment is for and what practices it keeps. This can lead to data ending up in an improper environment, or tests being run with incorrect assumptions of the state of the environment.</p>
+<p>We sometimes need to test, demo or explore functionality between multiple connected services. To do so, we need persistent environments of each service that are connected together. Not all products have this, and those that do can be inconsistent, making it harder to perform these activities.</p>
+<h2 id="decision">Decision</h2>
+<p>All services must have the following essential environments, which should be deployed sequentially as part of the path to live:</p>
+
+<ul>
+<li>Local environment</li>
+<li>Deployment testing environment</li>
+<li>Production environment</li>
+<li>Demo environment</li>
+</ul>
+<p>Services may commonly have additional environments:</p>
+
+<ul>
+<li>Automatic PR environments</li>
+<li>Manual PR environments</li>
+<li>Preproduction environment</li>
+<li>Other persistent environments</li>
+</ul>
+<h3 id="production-environment">Production environment</h3>
+<p>This is what our users access and it contains our real data. It must be the only environment in the production account.</p>
+<h3 id="deployment-testing-environment">Deployment testing environment</h3>
+<p>Every service must have at least one environment that is as close to production&rsquo;s infrastructure and scale as feasible. This may contain a copy of production data and live in the preproduction account, or may contain synthetic data and live in the development account.</p>
+<p>It is not accessible by the public. It is deployed in the pipeline before production to test that the release can be deployed successfully.</p>
+<h3 id="demo-environment">Demo environment</h3>
+<p>This is used to test, demo and explore functionality against the currently deployed release. It is in the development account, does not contain production data and is not accessible by the public. It is deployed in the pipeline after production to ensure it reflects the latest releaase.</p>
+<p>It is connected to the demo environment of any dependencies, and is the target of the demo environemnt of any dependent services. This allows cross-service testing.</p>
+<p>It is be available at <code>demo.development.{production host}</code>.</p>
+<h3 id="local-environment">Local environment</h3>
+<p>All services must be available to stand-up on departmental laptops in some form for local development and testing. Local environments should not require any external connections to dependent services (though their build pipeline may require external connection to e.g. fetch code and packages).</p>
+<h3 id="automatic-pr-environments">Automatic PR environments</h3>
+<p>These are created automatically when a pull request is raised to use for testing and demo of changes before they are merged. They are in the development account and are not accessible by the public.</p>
+<p>These environments should be used to test against, rather than using local containerised environments on the CI runner, to provide a higher level of confidence.</p>
+<p>When the pull request is merged, the associated environment is automatically destroyed.</p>
+<p>They are available at <code>{automatically derived name}.development.{production host}</code></p>
+<h3 id="manual-pr-environments">Manual PR environments</h3>
+<p>In some services it may be impractical to automatically create environments for every pull request. In this case, it should be possible to manually create an environment based on the pull request. These environments should have a &ldquo;deletion date&rdquo; on creation and automatically be destroyed when that date is passed.</p>
+<p>They are available at <code>{manually or automatically derived name}.development.{production host}</code></p>
+<p>In all other regards, they are the same as automatic PR environments.</p>
+<h3 id="preproduction-environment">Preproduction environment</h3>
+<p>This has identical infrastructure and data to the production environment though is not connected to external services. It is in the preproduction account and is not accesible to the public.</p>
+<p>It is used to test against a real data set, where synthetic data is not reflective or large enough to provide confidence. It may the deployment testing environment and deployed to as part of the main pipeline, or be deployed to manually whe needed.</p>
+<p>It is be available at <code>preproduction.{production host}</code>.</p>
+<h3 id="other-persistent-environments">Other persistent environments</h3>
+<p>Some services may require other persistent environments. For example, for training or user research. These environments may be created automatically or manually, depending on the team&rsquo;s needs.</p>
+<p>These environments are in the development account and do not contain production data.</p>
+<h2 id="consequences">Consequences</h2>
+<p>Having more consistent environment practices will make developing and maintaining services across multiple teams more predictable and less prone to confusion. Having consistent demo environments will make cross-service testing easier and safer.</p>
+<p>This will be more challenging for services that make exceptions to this decision, as they might lead to incorrect assumptions. Service teams will need to clearly document their exceptions and explanations to avoid confusion.</p>
+<p>Where services connect to each other, teams must document which environments are connected and what type of data (production, pseudonymised etc.) each uses. This is essential to ensure that private data does not incorrectly cross tiers.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2025-03-14">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 14 March 2024.
+
+        It needs to be reviewed again on 14 March 2025
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 14 March 2025
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/adrs/adr-008.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27ADR-008+Deployment+environments%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fadrs%2Fadr-008.html%29&amp;labels=bug&amp;title=Re%3A+%27ADR-008+Deployment+environments%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

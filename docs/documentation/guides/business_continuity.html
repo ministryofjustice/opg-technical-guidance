@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Business Continuity and your Service - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/business_continuity.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="Business Continuity and your Service - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/business_continuity.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="Business Continuity and your Service" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/business_continuity.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#business-continuity-and-your-service"><span>Business Continuity and your Service</span></a>
+    <ul>
+      <li>
+        <a href="#what-to-look-at-during-the-discovery-alpha-stage"><span>What to look at during the Discovery / Alpha Stage</span></a>
+      </li>
+      <li>
+        <a href="#what-to-look-at-during-beta-stage"><span>What to look at during Beta Stage</span></a>
+      </li>
+      <li>
+        <a href="#during-beta-you-should"><span>During beta you should:</span></a>
+      </li>
+      <li>
+        <a href="#for-live-products"><span>For Live products</span></a>
+      </li>
+      <li>
+        <a href="#differences-between-internal-facing-and-external-facing-services"><span>Differences between internal-facing and external-facing services</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="business-continuity-and-your-service">Business Continuity and your Service</h1>
+<p>Business continuity planning makes your product prepared for worst case scenarios. That might be accidental data loss, intentional data destruction or system failure from suppliers like AWS. Essentially asking the question: what happens when things go catastrophically wrong? This relates to service standard point 14, <a href="https://www.gov.uk/service-manual/service-standard/point-14-operate-a-reliable-service">Operate a Reliable Service</a></p>
+<p>Your business continuity strategy should be:</p>
+
+<ul>
+<li>Appropriate and proportionate to the needs of the service and its users</li>
+<li>Supportable by the delivery team</li>
+<li>Agreed with the business</li>
+<li>Documented (usually as part of your service’s GitHub repo)</li>
+</ul>
+<p>Conversations around business continuity should include the Business, Product, Delivery, Developers, WebOps and Technical Architecture.</p>
+<h2 id="what-to-look-at-during-the-discovery-alpha-stage">What to look at during the Discovery / Alpha Stage</h2>
+<p>During alpha and discovery phases you should be experimenting and testing your hypothesis. Business continuity work will be light touch at this stage. You should identify and understand what is proportional and appropriate for your product’s business continuity.</p>
+<p>Good questions to ask include:</p>
+
+<ul>
+<li>What is the impact of this proposed service failing on users and the business?</li>
+<li>What risks exist that you need to find mitigations for?</li>
+<li>Which data will be key to your service functioning?</li>
+<li>Which data only exists in your service?</li>
+<li>What are the business and user expectations around response and recovery?</li>
+<li>What non-digital fallbacks are in place already?</li>
+</ul>
+<p>Answering these will help identify areas to build on in later phases.</p>
+<h2 id="what-to-look-at-during-beta-stage">What to look at during Beta Stage</h2>
+<p>During private and public beta stages you should focus on how your business continuity needs will impact the MVP build and how you can avoid issues in the future.</p>
+<h2 id="during-beta-you-should">During beta you should:</h2>
+
+<ul>
+<li>Identify how your service is likely to fail and which components are the greatest risk </li>
+<li>Identify how any disaster recovery will impact how you build your infrastructure</li>
+<li>Define recovery point objective and recovery time objective for your service</li>
+<li>Identify who owns any business continuity processes inside and outside the delivery team</li>
+<li>Document any disaster recovery in /docs/DISASTER_RECOVERY.md</li>
+<li>Ensure you have a backup and restore process for key data assets</li>
+<li>Build familiarity with the incident management tools</li>
+<li>Identify if your service is dependent on other systems and how much it can operate without them</li>
+<li>Identify defensive coding and architectural practices to avoid or reduce dependencies</li>
+</ul>
+<h2 id="for-live-products">For Live products</h2>
+<p>You should document your support practices, disaster recovery plan and approaches before live assessment. However, you may have inherited a live codebase and need to bring it up to current standards.</p>
+
+<ul>
+<li>Do you need to retrofit a business continuity strategy for the product?</li>
+<li>How regularly are you testing your Disaster Recovery plan?</li>
+<li>Is ownership of the Disaster Recovery plan clear?</li>
+<li>Are the team familiar with the incident management tools?</li>
+<li>Have any of the business needs, user needs or contacts changed?</li>
+</ul>
+<h2 id="differences-between-internal-facing-and-external-facing-services">Differences between internal-facing and external-facing services</h2>
+<p>Requirements for recovery time (how quickly things are working again) and recovery point (what data is brought back) are different across different products and service areas depending on who uses them and the impact, both internally and externally of any downtime.</p>
+<p><em>For example, downtime on a flagship service like Make An LPA has both impact to users and the business, but also reputational impact.</em></p>
+<p>Some products are the canonical source of truth for data in the OPG ecosystem. Others could be rebuilt from other sources. This will have a large impact on what a proportional plan is for your service.</p>
+<p>Some products are essential to the core work of the business and their failure has a large cost implication if staff aren’t able to work.</p>
+<p><em>For example, downtime to Sirius has an impact on connected digital services and on the ability of core business functions. Whereas downtime for Complete the Deputy Report is inconvenient, but can be managed through good communication with users and stakeholders.</em></p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-09-20">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 20 March 2024.
+
+        It needs to be reviewed again on 20 September 2024
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 20 September 2024
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/business_continuity.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Business+Continuity+and+your+Service%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fbusiness_continuity.html%29&amp;labels=bug&amp;title=Re%3A+%27Business+Continuity+and+your+Service%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>
