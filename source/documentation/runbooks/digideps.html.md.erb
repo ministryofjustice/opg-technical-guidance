@@ -1,7 +1,7 @@
 ---
 title: DigiDeps Run Book
-last_reviewed_on: 2020-10-25
-review_in: 6 weeks
+last_reviewed_on: 2024-04-02
+review_in: 8 weeks
 ---
 
 # <%= current_page.data.title %>
@@ -30,15 +30,15 @@ email: [digideps@digital.justice.gov.uk](digideps@digital.justice.gov.uk)
 
 ### Other URLs
 
-|Name                           |Address                                                                                |
-|-------------------------------|---------------------------------------------------------------------------------------|
-| Healthcheck ELB               |     https://complete-deputy-report.service.gov.uk/manage/elb                          |
-| Healthcheck Availability      |     https://complete-deputy-report.service.gov.uk/manage/availability                 |
-| Healthcheck Pingdom           |     https://complete-deputy-report.service.gov.uk/manage/availability/pingdom         |
-| Admin Healthcheck ELB         |     https://admin.complete-deputy-report.service.gov.uk/manage/elb                    |
-| Admin Healthcheck Availability|     https://admin.complete-deputy-report.service.gov.uk/manage/availability           |
-| Admin Healthcheck Pingdom     |     https://admin.complete-deputy-report.service.gov.uk/manage/availability/pingdom   |
-| GitHub Repository             |     https://github.com/ministryofjustice/opg-digideps                                 |
+|Name                                   |Address                                                                            |
+|---------------------------------------|-----------------------------------------------------------------------------------|
+| Healthcheck Front Container           |     https://complete-deputy-report.service.gov.uk/health-check                    |
+| Healthcheck Service                   |     https://complete-deputy-report.service.gov.uk/health-check/service            |
+| Healthcheck Dependencies              |     https://complete-deputy-report.service.gov.uk/health-check/dependencies       |
+| Admin Healthcheck Container           |     https://admin.complete-deputy-report.service.gov.uk/health-check              |
+| Admin Healthcheck Service             |     https://admin.complete-deputy-report.service.gov.uk/health-check/service      |
+| Admin Healthcheck Dependencies        |     https://admin.complete-deputy-report.service.gov.uk/health-check/dependencies |
+| GitHub Repository                     |     https://github.com/ministryofjustice/opg-digideps                             |
 
 
 ## Hosting environment
@@ -57,15 +57,18 @@ We operate a CI/CD model, releases will be continuously deployed as and when req
 
 ### Automatic alerts
 
-| Alert               | Source     | Application     | Description                                                                                |
-|---------------------|------------|-----------------|--------------------------------------------------------------------------------------------|
-| Site Availability   | Cloudwatch | Front and Admin | Alerts on the availability of Api, Redis, Notify, Sirius, ClamAV and wkHtmlToPDf           |
-| Critical PHP errors | Cloudwatch | Front and Admin | Alerts when we see critical PHP errors in logs                                             |
-| Other PHP errors    | Cloudwatch | Front and Admin | Alerts on any non critical PHP errors                                                      |
-| Response times      | Cloudwatch | Front and Admin | Alerts where we have continued above average response times based on anomoly detection     |
-| Queued documents    | Cloudwatch | Front           | Alerts if documents have failed to sync after an hour since submission                     |
-| 5xx errors in app   | Cloudwatch | Front and Admin | Alerts on when we have a status code of 5xx appear in the application logs                 |
-| 5xx from ALB        | Cloudwatch | Front and Admin | Alerts where the application load balancer receives a 5XX response                         |
+| Alert                 | Source     | Application     | Description                                                                                |
+|-----------------------|------------|-----------------|--------------------------------------------------------------------------------------------|
+| Site Availability     | Cloudwatch | Front and Admin | Alerts on the availability of Api, Redis, Notify, Sirius, ClamAV and wkHtmlToPDf           |
+| Critical PHP errors   | Cloudwatch | Front and Admin | Alerts when we see critical PHP errors in logs                                             |
+| Other PHP errors      | Cloudwatch | Front and Admin | Alerts on any non critical PHP errors                                                      |
+| Response times        | Cloudwatch | Front and Admin | Alerts where we have continued above average response times based on anomoly detection     |
+| Document Sync         | Cloudwatch | Front           | Alerts on documents that fail to sync in any way                                           |
+| 5xx errors in app     | Cloudwatch | Front and Admin | Alerts on when we have a status code of 5xx appear in the application logs                 |
+| 5xx from ALB          | Cloudwatch | Front and Admin | Alerts where the application load balancer receives a 5XX response                         |
+| Denial of Service     | Cloudwatch | Front and Admin | Alerts on possible denial of service (DDOS) attack                                         |
+| Overnight Jobs        | Cloudwatch | Front and Admin | Alerts on overnight job failures and where jobs have not run when expected                 |
+| Business Functionality| Cloudwatch | Front and Admin | Alerts on anomalies of business functionality that do not cause outright errors            |
 
 ### Consumers of this service
 
