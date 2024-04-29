@@ -17,19 +17,23 @@ With movement in teams, changes in team makeup and the ownership of components o
 
 ## Decision
 
-If the ownership of an opg code repository changes, the team who currently has ownership has a responsibility to conduct a handover meeting covering:
+If the ownership of an opg code repository changes, the team who currently has ownership has a responsibility to conduct a handover meeting. Before which they should check that:
 
-- An introduction to the code and what it does
-- Intro to the testing in the repo and its coverage
-- An introduction the the build pipeline and how it works
-- Discussion of any gotchas and how it might diverge from expectations
+- the readme gives a clear introduction to the code, its purpose, testing and deployment pipeline
+- all runbooks are up to date and correct
+- any other documentation including diagrams are up to date and correct
+
+Making sure all docs are up to date should make any future handover easier with each iteration.
+
+The handover meeting should then be a point of exchange of ownership, giving the new team a chance to ask questions. The agenda should cover:
+
+- An introduction to the repository
+- Discussion of any gotchas and how the repo might diverge from expectations
 - A questions and answers session for the new team
-
-The team handing over has responsibility to update all docs folders and runbooks before handover to ensure they are correct.
 
 WebOps will only change the repository code owners to the new team and update the ownership metadata once this meeting has taken place.
 
-Some repos may have been historically managed by teams who are no longer within the business. In which case it is the responsibility of the business area technical architect to prepare the handover meeting to the best of their ability and digital archaeology skills.
+Some repos may have been historically managed by teams who are no longer within the business. In which case it is the responsibility of the business area technical architect to prepare the handover meeting to the best of their ability and digital archaeology skills. In this case new teams should make checking the readme and documentation a priority.
 
 ## Consequences
 
