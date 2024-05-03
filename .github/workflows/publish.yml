@@ -23,7 +23,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: 'gh-pages'
       ############ 
       # Deprecated reports
       ############ 
@@ -94,6 +93,7 @@ jobs:
       - name: Build
         if: github.ref == 'refs/heads/main'
         run: |
+          git checkout gh-pages
           make build
           echo "${GITHUB_SHA}" > docs/version.txt
           cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
