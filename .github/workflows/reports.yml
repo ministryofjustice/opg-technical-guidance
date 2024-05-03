@@ -13,8 +13,8 @@ jobs:
         include: 
           - name: releases
             script: github_deployment_frequency.py
-            #args: --duration=6 --org-team="ministryofjustice:opg"
-            args: "--duration=6 --repo-branch-workflow='ministryofjustice/opg-digideps:main: live$'"
+            args: --duration=6 --org-team="ministryofjustice:opg"
+            # args: "--duration=6 --repo-branch-workflow='ministryofjustice/opg-digideps:main: live$'"
             output: outputs/github_deployment_frequency
     steps:
     ## always the same for each part
