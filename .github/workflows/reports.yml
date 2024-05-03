@@ -13,8 +13,7 @@ jobs:
         include: 
           - name: releases
             script: github_deployment_frequency.py
-            #args: --duration=6 --org-team="ministryofjustice:opg"
-            args: "--duration=6 --repo-branch-workflow='ministryofjustice/opg-digideps:main: live$'"
+            args: --duration=6 --org-team="ministryofjustice:opg"
             output: outputs/github_deployment_frequency
     steps:
     ## always the same for each part
@@ -35,7 +34,7 @@ jobs:
       working-directory: ${{ github.workspace }}/_reports
       env:      
         GITHUB_ACCESS_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
-        LOG_LEVEL: ${{ runner.debug == '1' && 'DEBUG' || 'WARN' }}
+        LOG_LEVEL: ${{ runner.debug == '1' && 'DEBUG' || 'INFO' }}
         SCRIPT: ${{ matrix.script }}
         ARGS: ${{ matrix.args }}
       run: |

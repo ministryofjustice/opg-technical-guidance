@@ -1,9 +1,6 @@
 name: Publish Docs
 
 on:
-  pull_request:
-    branches:
-      - "main"
   push:
     branches:
       - "main"
@@ -94,12 +91,14 @@ jobs:
       ############
       - name: Build
         run: |
+          git config --global user.email "tools@digital.justice.gov.uk"
+          git config --global user.name "Github Action"
+          
           git checkout -f gh-pages
+          git merge main --commit --no-edit
           make build
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
-          git config --global user.email "tools@digital.justice.gov.uk"
-          git config --global user.name "Github Action"
           git add docs
           git status
           git commit -m "Published at $(date)"
