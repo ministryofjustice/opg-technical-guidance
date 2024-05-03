@@ -1,56 +1,109 @@
 name: Publish Docs
 
 on:
+  pull_request:
+    branches:
+      - "main"
   push:
     branches:
       - "main"
     paths-ignore:
       - "docs/**"
   schedule:
-    - cron: '15 7 * * 2,5'
+    - cron: '0 4 * * 1'
   workflow_dispatch:
 
 jobs:
+    
     build_and_publish:
+      name: Build and Publish
       runs-on: ubuntu-latest
       steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      ############ 
+      # Deprecated reports
+      ############ 
       - name: Create artifact directory
-        run: mkdir -p ./artifacts/
+        env:
+          location: ${{ github.workspace }}/_deprecated
+        run: mkdir -p ${{ env.location }}
       - name: Download python report artifacts
-        uses: dawidd6/action-download-artifact@v2.14.0
+        uses: dawidd6/action-download-artifact@v3
         continue-on-error: true
         with:
-          workflow: python-reports.yml
+          workflow: deprecated-reports.yml
           workflow_conclusion: success
           branch: main
-          path: ./artifacts/
+          path: ${{ github.workspace }}/_deprecated
       - name: "List artifacts"
-        run: ls -lart ./artifacts/*
-      - name: Checkout to pages branch
-        run: git checkout -b gh-pages
+        env:
+          location: ${{ github.workspace }}/_deprecated
+        run: ls -lart ${{ env.location }}/*
       - name: Move report artifacts
+        env:
+          location: ${{ github.workspace }}/_deprecated
         run: |
-          for REPORT in releases software_packages stats team_metadata
+          for REPORT in software_packages stats team_metadata
           do
             echo "Moving report: ${REPORT}"
-            ls -lart ./artifacts/${REPORT}*
-            if [ -f ./artifacts/${REPORT}/report.html.md.erb ]; then
+            ls -lart ${{ env.location }}/${REPORT}*
+            if [ -f ${{ env.location }}/${REPORT}/report.html.md.erb ]; then
               echo "  [${REPORT}] Artifact found"
-              mv ./artifacts/${REPORT}/report.html.md.erb ./source/documentation/reports/${REPORT}.html.md.erb;
+              mv ${{ env.location }}/${REPORT}/report.html.md.erb ./source/documentation/deprecated-reports/${REPORT}.html.md.erb;
             fi
-            ls -lart ./source/documentation/reports/*
+            ls -lart ./source/documentation/deprecated-reports/*
             echo "---"
           done
-          
+          rm -Rf ${{ env.location }}
+      ############
+      # New Reports
+      ############
+      - name: Artifact directory
+        env:
+          LOCATION: ${{ github.workspace }}/_reports
+        run: mkdir -p ${{ env.LOCATION }}
+      - name: Download artifacts
+        uses: dawidd6/action-download-artifact@v3
+        continue-on-error: true
+        with:
+          workflow: reports.yml
+          workflow_conclusion: success
+          branch: main
+          path: ${{ github.workspace }}/_reports
+      - name: Add new reports
+        env:
+          ORIGIN: ${{ github.workspace }}/_reports
+          DESTINATION: ${{ github.workspace }}/source/documentation/reports
+          REPORTS: "releases"
+        run: |
+          echo "Source:"
+          ls -lart ${{ env.ORIGIN }}/
+          for REPORT in ${{ env.REPORTS }}
+          do
+            echo "Report: ${REPORT}"
+            mv ${{ env.ORIGIN }}/${REPORT} ${{ env.DESTINATION }}/
+          done
+          echo "Destination:"
+          ls -lart ${{ env.DESTINATION }}/*
+
+      ############
+      # Build
+      ############
       - name: Build
-        run: make build
-      - run: echo "${GITHUB_SHA}" > docs/version.txt
-      - run: cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
-      - run: git config --global user.email "tools@digital.justice.gov.uk"
-      - run: git config --global user.name "Github Action"
-      - run: git add docs
-      - run: git status
-      - run: git commit -m "Published at $(date)"
-      - run: git push origin gh-pages --force
+        run: |
+          git checkout -f gh-pages
+          make build
+          echo "${GITHUB_SHA}" > ./docs/version.txt
+          echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
+          git config --global user.email "tools@digital.justice.gov.uk"
+          git config --global user.name "Github Action"
+          git add docs
+          git status
+          git commit -m "Published at $(date)"
+      - name: Push
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git push origin gh-pages --force
