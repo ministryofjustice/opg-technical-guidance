@@ -57,6 +57,7 @@ jobs:
             ls -lart ./source/documentation/deprecated-reports/*
             echo "---"
           done
+          rm -Rf ${{ env.location }}
       ############
       # New Reports
       ############
@@ -92,15 +93,17 @@ jobs:
       # Build
       ############
       - name: Build
-        if: github.ref == 'refs/heads/main'
         run: |
-          git checkout gh-pages
+          git checkout -f gh-pages
           make build
-          echo "${GITHUB_SHA}" > docs/version.txt
-          cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
+          echo "${GITHUB_SHA}" > ./docs/version.txt
+          echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
           git config --global user.email "tools@digital.justice.gov.uk"
           git config --global user.name "Github Action"
           git add docs
           git status
           git commit -m "Published at $(date)"
+      - name: Push
+        if: github.ref == 'refs/heads/main'
+        run: |
           git push origin gh-pages --force
