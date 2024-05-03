@@ -10,7 +10,7 @@ on:
     paths-ignore:
       - "docs/**"
   schedule:
-    - cron: '15 7 * * 2,5'
+    - cron: '0 4 * * 1'
   workflow_dispatch:
 
 jobs:
