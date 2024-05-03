@@ -84,7 +84,7 @@ jobs:
             echo "Report: ${REPORT}"
             ls -lart ${{ env.ORIGIN }}/${REPORT}*
             mv ${{ env.ORIGIN }}/${REPORT} ${{ env.DESTINATION }}/
-          fi
+          done
           ls -lart ${{ env.DESTINATION }}/*
 
       ############
