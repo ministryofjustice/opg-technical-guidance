@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Create & Deploy Prototype Sites - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/create_and_deploy_prototype.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="Create &amp; Deploy Prototype Sites - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/create_and_deploy_prototype.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="Create &amp; Deploy Prototype Sites" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/create_and_deploy_prototype.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#create-amp-deploy-prototype-sites"><span>Create & Deploy Prototype Sites</span></a>
+    <ul>
+      <li>
+        <a href="#pre-requisites"><span>Pre-requisites</span></a>
+      </li>
+      <li>
+        <a href="#1-clone-the-opg-org-infra-repository"><span>1. Clone the opg-org-infra repository</span></a>
+      </li>
+      <li>
+        <a href="#2-create-your-prototype-kit-repository"><span>2. Create your prototype kit repository</span></a>
+      </li>
+      <li>
+        <a href="#3-raise-a-pr"><span>3. Raise a PR</span></a>
+      </li>
+      <li>
+        <a href="#4-clone-the-environments-repository"><span>4. Clone the environments repository</span></a>
+      </li>
+      <li>
+        <a href="#5-create-your-namespace-in-cloud-platform"><span>5. Create your namespace in Cloud Platform</span></a>
+      </li>
+      <li>
+        <a href="#6-raise-a-pr"><span>6. Raise a PR</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="create-amp-deploy-prototype-sites">Create &amp; Deploy Prototype Sites</h1>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>To complete the steps in this guide, you will need:</p>
+
+<ul>
+<li>To be a member of the OPG GitHub team in the <a href="https://github.com/ministryofjustice/">MoJ GitHub Organisation</a></li>
+<li>The <a href="https://user-guide.cloud-platform.service.justice.gov.uk/documentation/getting-started/cloud-platform-cli.html">Cloud Platform CLI</a> installed</li>
+<li>A local development environment including a terminal and a git client</li>
+</ul>
+<h2 id="1-clone-the-opg-org-infra-repository">1. Clone the <code>opg-org-infra</code> repository</h2>
+<p>To create a repository, you need to raise a pull request
+against the <a href="https://github.com/ministryofjustice/opg-org-infra">opg-org-infra</a> repository.</p>
+<p>Start by checking out a copy of the repository:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code>git clone git@github.com:ministryofjustice/opg-org-infra.git
+<span class="nb">cd </span>opg-org-infra
+</code></pre></div><h2 id="2-create-your-prototype-kit-repository">2. Create your prototype kit repository</h2>
+<p>Under <code>services/</code> find the team which you are working on and create a file called: <code>component_prototype.tf</code></p>
+<p>Open the <code>component_prototype.tf</code> file you just created and add the following Terraform code:</p>
+
+<blockquote>
+<p>Make sure you replace <code>&lt;TEAM_NAME&gt;</code> with your team name!</p>
+</blockquote>
+<div class="highlight"><pre class="highlight terraform" tabindex="0"><code><span class="k">module</span> <span class="s2">"opg-&lt;TEAM_NAME&gt;-prototypes"</span> <span class="p">{</span>
+  <span class="nx">source</span>                  <span class="p">=</span> <span class="s2">"../../modules/repository"</span>
+  <span class="nx">name</span>                    <span class="p">=</span> <span class="s2">"opg-&lt;TEAM_NAME&gt;-prototypes"</span>
+  <span class="nx">developer_team</span>          <span class="p">=</span> <span class="k">data</span><span class="p">.</span><span class="nx">github_team</span><span class="p">.</span><span class="nx">opg</span><span class="p">.</span><span class="nx">id</span>
+  <span class="nx">default_branch_name</span>     <span class="p">=</span> <span class="s2">"main"</span>
+  <span class="nx">delete_branch_on_merge</span>  <span class="p">=</span> <span class="kc">true</span>
+  <span class="nx">has_issues</span>              <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">has_projects</span>            <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">has_wiki</span>                <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">require_ci_pass</span>         <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">template_repository</span>     <span class="p">=</span> <span class="s2">"moj-prototype-template"</span>
+  <span class="nx">visibility</span>              <span class="p">=</span> <span class="s2">"public"</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="3-raise-a-pr">3. Raise a PR</h2>
+<p>After you have created that file and added the Terraform config, create a new branch,
+<code>git add</code> the new file and then raise a pull request.</p>
+<p>Once a member of the WebOps team has approved your PR, merge it.</p>
+<p>When you merge the PR, a GitHub Action will apply the Terraform.
+Your new prototype repository has a deployment workflow, implemented as a GitHub Action, which will
+continuously deploy any changes made to the <code>main</code> branch of the repository to the Cloud Platform.</p>
+<h2 id="4-clone-the-environments-repository">4. Clone the <code>environments</code> repository</h2>
+<p>To create resources on the Cloud Platform, you need to raise a pull request
+against the <a href="https://github.com/ministryofjustice/cloud-platform-environments">cloud-platform-environments</a> repository.</p>
+<p>Start by checking out a copy of the repository:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code>git clone git@github.com:ministryofjustice/cloud-platform-environments.git
+<span class="nb">cd </span>cloud-platform-environments
+</code></pre></div><h2 id="5-create-your-namespace-in-cloud-platform">5. Create your namespace in Cloud Platform</h2>
+<p>To create your namespace, run:</p>
+<div class="highlight"><pre class="highlight shell" tabindex="0"><code>cloud-platform environment prototype create
+</code></pre></div><p>You will be asked several questions, the most important of which is the name of
+your prototype kit project.</p>
+<p>This name will be used as:</p>
+
+<ul>
+<li>The name of the [namespace] which will be created on the cloud platform</li>
+<li>The name of the GitHub repository which will be created, and which will
+contain your prototype kit source code</li>
+<li>The hostname of your prototype kit website</li>
+</ul>
+
+<blockquote>
+<p>You must ensure that there is not already a namespace with this name</p>
+</blockquote>
+<p>For example, if you choose <code>my-prototype</code> as the name, you will create:</p>
+
+<ul>
+<li>A namespace on the Cloud Platform called <code>my-prototype</code></li>
+</ul>
+<p>&hellip;and your prototype kit website will be available at the URL:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>https://my-prototype.apps.live-1.cloud-platform.service.justice.gov.uk
+</code></pre></div><h2 id="6-raise-a-pr">6. Raise a PR</h2>
+<p>After you have answered all the questions, the cloud-platform CLI will create
+several files in a folder called:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>namespaces/live-1.cloud-platform.service.justice.gov.uk/[name you chose]
+</code></pre></div>
+<blockquote>
+<p>Inside this folder you&rsquo;ll find a <code>github.tf</code> folder, ensure that you delete this before raising pull request.</p>
+</blockquote>
+<p>Create a new branch, <code>git add</code> the new folder and then raise a pull request.</p>
+<p>Once a member of the Cloud Platform team has approved your PR, merge it.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-07-09">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 16 April 2024.
+
+        It needs to be reviewed again on 9 July 2024
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 9 July 2024
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/create_and_deploy_prototype.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Create+%26+Deploy+Prototype+Sites%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fcreate_and_deploy_prototype.html%29&amp;labels=bug&amp;title=Re%3A+%27Create+%26+Deploy+Prototype+Sites%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

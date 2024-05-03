@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>OPG Terraform Practices - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/terraform_practices.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="OPG Terraform Practices - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/terraform_practices.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="OPG Terraform Practices" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/terraform_practices.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#opg-terraform-practices"><span>OPG Terraform Practices</span></a>
+    <ul>
+      <li>
+        <a href="#general-principles"><span>General Principles</span></a>
+      </li>
+      <li>
+        <a href="#naming-conventions"><span>Naming Conventions</span></a>
+      </li>
+      <li>
+        <a href="#language"><span>Language</span></a>
+      </li>
+      <li>
+        <a href="#variables"><span>Variables</span></a>
+      </li>
+      <li>
+        <a href="#outputs"><span>Outputs</span></a>
+      </li>
+      <li>
+        <a href="#state"><span>State</span></a>
+      </li>
+      <li>
+        <a href="#module-design"><span>Module Design</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="opg-terraform-practices">OPG Terraform Practices</h1>
+<h2 id="general-principles">General Principles</h2>
+<p>Simple is better than Complex - Code for readability and inheritability</p>
+<p>Layers of loops, dynamic blocks, and ternaries obscure what it is you’re actually
+doing, making it difficult to work with for junior engineers, you in 12 months time
+or people trying to get an understanding of Terraform.</p>
+<p><a href="https://ministryofjustice.github.io/technical-guidance/documentation/principles/development-principles.html#2-code-should-be-correct-clear-concise-in-that-order">Code should be correct, clear and concise, in that order.</a></p>
+<h3 id="repo-organisation">Repo Organisation</h3>
+<p>As a general practice across OPG we have a separation of accounts for
+development, preproduction, and production; with a goal of multiple environments
+in development, with preproduction and production being identical and isolated
+to one environment per account.</p>
+<p>The high level folder structure should contain an account and environment
+folder, to separate out the resources. Each folder may have a sub folder for
+modules relevant to that layer. VPC resources should be accessed as data
+sources, and should be stored in vpc.tf within the environment directory.</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>/account
+/account/modules
+/environment
+/environment/modules
+/environment/vpc.tf
+</code></pre></div><h3 id="use-terraform-workspaces">Use Terraform Workspaces</h3>
+<p>We use Terraform workspaces to stop the duplication and customisation of code
+for each account or enviroment which increases maintainability and ease of promotion.
+Workspaces allow for environments to be consistent by default, but allow features
+and resources to be toggled to enable specificfunctionality.</p>
+<h3 id="usage-in-pipelines">Usage in Pipelines</h3>
+<p>Whenever running Terraform in a CI/CD pipeline always run a <code>terraform plan</code> stage, even
+if applying with an auto-approve.  This allows you to understand exactly what Terraform
+changed and why should there ever be an issue, and allows traceability of when specific
+changes were applied to an environment.</p>
+<h3 id="use-editorconfig-in-all-repos-for-consistent-whitespace">Use .editorconfig in all repos for consistent whitespace</h3>
+<p>Every mainstream IDE supports plugins for the .editorconfig standard to make
+it easier to enforce whitespace consistency.</p>
+<p>We recommend adopting the whitespace convention of a particular language or project.</p>
+<p>This is the standard <code>.editorconfig</code> that we use.</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code># Override for Makefile
+[{Makefile, makefile, GNUmakefile, Makefile.*}]
+indent_style = tab
+indent_size = 4
+
+[*.yaml]
+intent_style = space
+indent_size = 2
+
+[*.sh]
+indent_style = tab
+indent_size = 4
+
+[*.{tf,tfvars,tpl}]
+indent_size = 2
+indent_style = space
+</code></pre></div><h2 id="naming-conventions">Naming Conventions</h2>
+<h3 id="resource-names">Resource Names</h3>
+<p>Resource names should be descriptive to allow the usage of the resource to be
+easily understood.</p>
+<p>Resources defined in Terraform should be all lowercase with underscores as
+separators for consistency with Terraform resource object names, also known as
+<code>snake_case</code>. Filenames within the Terraform project should also follow this
+convention.</p>
+<p>Example:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>resource "aws_security_group" "api_ecs_task" { … }
+</code></pre></div><p>Resources that exist in AWS should be all lowercase separated by hyphens,
+they should all include the environment or account that they belong to in order
+to determine uniqueness and to be easily identifiable in the AWS Console. Using
+hyphens rather than underscores allows a resource to be easily identified as
+either a Terraform definition of a resource, or a “real” AWS resource.</p>
+<p>Example:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>resource "aws_security_group" "api_ecs" {
+  name = "api-ecs-${terraform.workspace}"
+}
+</code></pre></div><h2 id="language">Language</h2>
+<h3 id="version-pin-all-providers">Version pin all providers</h3>
+<p>Terraform’s providers are constantly in flux. To avoid unexpected instability
+we should ensure that all providers are pinned.</p>
+<h3 id="use-terraform-linting">Use Terraform Linting</h3>
+<p>Linting helps to ensure a consistent code formatting, improves code quality and
+catches common errors with syntax.</p>
+<p>Run <code>terraform fmt</code> before committing all code. Use a pre-commit hook to do this
+automatically.</p>
+<h3 id="do-not-use-heredoc-for-json-yaml-or-iam-policies">Do not use HEREDOC for JSON, YAML or IAM Policies</h3>
+<p>There are better ways to achieve the same outcome using Terraform interpolations
+or resources</p>
+<p>For JSON, use a combination of a local and the <code>jsonencode</code> function.</p>
+<p>For YAML, use a combination of a local and the <code>yamlencode</code> function.</p>
+<p>For IAM Policy Documents, use the native <code>iam_policy_document</code> resource.</p>
+<h3 id="use-proper-datatype">Use proper datatype</h3>
+<p>Using proper datatypes in Terraform makes it easier to validate inputs and
+document usage.</p>
+
+<ul>
+<li>Use null instead of empty strings (&ldquo;&rdquo;)</li>
+<li>Use bool instead of strings or integers for binary true/false</li>
+<li>Use string for freeform text</li>
+<li>Use object sparingly as it makes it harder to document and validate</li>
+</ul>
+<h3 id="use-locals-to-baptize-opaque-resource-ids">Use locals to baptize opaque resource IDs</h3>
+<p>Using <code>locals</code> makes code more descriptive and maintainable.
+Rather than using complex expressions as parameters to some Terraform resource,
+instead move that expression to a <code>local</code> and reference the <code>local</code> in the resource.</p>
+<h2 id="variables">Variables</h2>
+<h3 id="use-upstream-module-or-provider-variable-names-where-applicable">Use upstream module or provider variable names where applicable</h3>
+<p>When writing a module that accepts variable inputs, make sure to use the same
+names as the upstream to avoid confusion and ambiguity.</p>
+<h3 id="use-all-lowercase-with-underscores-as-separators">Use all lowercase with underscores as separators</h3>
+<p>Avoid introducing any other syntaxes commonly found in other languages such
+as CamelCase or pascalCase. For consistency we want all variables to look uniform.
+This is also inline with the <a href="https://www.terraform.io/docs/extend/best-practices/naming.html">HashiCorp naming conventions</a>.</p>
+<h3 id="use-positive-variable-names-to-avoid-double-negatives">Use positive variable names to avoid double negatives</h3>
+<p>All variable inputs that enable/disable a setting should be formatted
+<code>...._enabled</code> (e.g. <code>encryption_enabled</code>).</p>
+<p>It is acceptable for default values to be either <code>false</code> or <code>true</code>.</p>
+<h3 id="use-feature-flags-to-enable-disable-functionality">Use feature flags to enable/disable functionality</h3>
+<p>All modules should incorporate feature flags to enable or disable functionality.
+All feature flags should end in <code>_enabled</code> and should be of type <code>bool</code>.</p>
+<h3 id="use-description-field-for-all-inputs">Use description field for all inputs</h3>
+<p>All <code>variable</code> inputs need a <code>description</code> field. When the field is provided by an
+upstream provider (e.g. <code>terraform-aws-provider</code>), use same wording as the upstream docs.</p>
+<h3 id="use-sane-defaults-where-applicable">Use sane defaults where applicable</h3>
+<p>Modules should be as turnkey as possible. The <code>default</code> value should ensure
+the most secure configuration (E.g. with encryption enabled).</p>
+<h3 id="use-variables-for-all-secrets-with-no-default-value">Use variables for all secrets with no default value</h3>
+<p>All <code>variable</code> inputs for secrets must never define a <code>default</code> value.
+This ensures that <code>terraform</code> is able to validate user input. The exception to
+this is if the secret is optional and will be generated for the user
+automatically when left <code>null</code> or <code>&quot;&quot;</code> (empty).</p>
+<h2 id="outputs">Outputs</h2>
+<h3 id="use-description-field-for-all-outputs">Use description field for all outputs</h3>
+<p>All outputs must have a description set. The description should be based on
+(or adapted from) the upstream Terraform provider where applicable.
+Avoid simply repeating the variable name as the output description.</p>
+<h3 id="use-well-formatted-snake-case-output-names">Use well-formatted snake case output names</h3>
+<p>Avoid introducing any other syntaxes commonly found in other languages such
+as CamelCase or pascalCase. For consistency we want all variables to look uniform.
+It also makes code more consistent when using outputs together with Terraform
+remote_state to access those settings from across modules.</p>
+<h3 id="never-output-secrets">Never output secrets</h3>
+<p>Secrets should never be outputs of modules. Rather, they should be written to 
+secure storage such as AWS Secrets Manager, AWS SSM Parameter Store with KMS
+encryption, or S3 with KMS encryption at rest.</p>
+<p>Our preferred mechanism on AWS is using Secrets Manager.</p>
+<h3 id="use-symmetrical-names">Use symmetrical names</h3>
+<p>We prefer to keep Terraform outputs symmetrical as much as possible with the
+upstream resource or module, with exception of prefixes. This reduces the amount
+of entropy in the code or possible ambiguity, while increasing consistency.
+Below is an example of what *not to do. The expected output name is <code>user_secret_access_key</code>.
+This is because the other IAM user outputs in the upstream module are prefixed with <code>user_</code>,
+and then we should borrow the upstream’s output name of <code>secret_access_key</code> to become
+<code>user_secret_access_key</code> for consistency.</p>
+<h2 id="state">State</h2>
+<h3 id="use-remote-state">Use remote state</h3>
+<p>Use Terraform to create state bucket</p>
+<p>This requires a two-phased approach, whereby you first provision the bucket
+without the remote state enabled. Then enable remote state (e.g. s3 {}) and import
+remote state by simply rerunning <code>terraform init</code>. We recommend this strategy
+because it promotes using the best tool for the job and makes it easier to
+define requirements and use consistent tooling.</p>
+<h3 id="use-backend-with-support-for-state-locking">Use backend with support for state locking</h3>
+<p>We recommend using the S3 backend with DynamoDB for state locking.</p>
+<h3 id="use-encrypted-s3-bucket-with-versioning-encryption-and-strict-iam-policies">Use encrypted S3 bucket with versioning, encryption and strict IAM policies</h3>
+<p>We recommend not commingling state in the same bucket. This could cause the
+state to get overridden or compromised. Note, the state contains cached values
+of all outputs.</p>
+<h3 id="use-gitignore-to-exclude-terraform-state-files-state-directory-backups-and-core-dumps">Use .gitignore to exclude Terraform state files, state directory backups and core dumps</h3>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>.terraform
+.terraform.tfstate.lock.info
+*.tfstate
+*.tfstate.backup
+</code></pre></div><h2 id="module-design">Module Design</h2>
+<h3 id="small-opinionated-modules">Small Opinionated Modules</h3>
+<p>We believe that modules should do one thing very well. But in order to do that,
+it requires being opinionated on the design. Simply wrapping Terraform
+resources for the purposes of modularizing code is not that helpful.
+Implementing a specific use-case of those resource is more helpful.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-06-20">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 20 March 2024.
+
+        It needs to be reviewed again on 20 June 2024
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 20 June 2024
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/terraform_practices.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27OPG+Terraform+Practices%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fterraform_practices.html%29&amp;labels=bug&amp;title=Re%3A+%27OPG+Terraform+Practices%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Incident Response Process - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="Incident Response Process - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="Incident Response Process" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#incident-response-process"><span>Incident Response Process</span></a>
+    <ul>
+      <li>
+        <a href="#confirm-that-an-event-constitutes-an-incident"><span>Confirm that an event constitutes an incident</span></a>
+      </li>
+      <li>
+        <a href="#declare-an-incident"><span>Declare an incident</span></a>
+      </li>
+      <li>
+        <a href="#ensure-roles-have-been-assigned"><span>Ensure roles have been assigned</span></a>
+      </li>
+      <li>
+        <a href="#fixing-the-problem"><span>Fixing the problem</span></a>
+      </li>
+      <li>
+        <a href="#end-the-incident"><span>End the incident</span></a>
+      </li>
+      <li>
+        <a href="#post-incident"><span>Post Incident</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="incident-response-process">Incident Response Process</h1>
+<p>This document describes our incident handling process (inspired by work elsewhere in MOJ like the Cloud Platform).</p>
+<h2 id="confirm-that-an-event-constitutes-an-incident">Confirm that an event constitutes an incident</h2>
+<p>We define an incident as an event which:</p>
+
+<ul>
+<li>Requires immediate response to return normal service</li>
+<li>Severely degrades user experience of the service</li>
+<li>Compromises application security, resulting in a breach or potential breach</li>
+<li>Has the potential for loss or compromise of data</li>
+</ul>
+<p>Examples:</p>
+
+<ul>
+<li>Live service is unreachable due to denial of service</li>
+<li>Connectivity to a database is down and so services cannot be accessed</li>
+<li>A problem in one service means another is no longer functioning e.g. api gateway in Sirius causing issues in Use An LPA</li>
+<li>Misconfiguration means that secrets are exposed on a live service</li>
+<li>Unauthorized access to an API which can result in attackers accessing data</li>
+</ul>
+<h2 id="declare-an-incident">Declare an incident</h2>
+<p>From your teams channel you can use the OPG incidents Slack tool to declare an incident.</p>
+<p><code>/opg-incident Something&#39;s happened</code></p>
+<p>Slack will pop open a form to to fill in extra information. At this stage, you only need to select whether its a live incident or something that&rsquo;s already happened that you&rsquo;d like to report. All the other information can be filled in later.</p>
+<p>The Slack bot will automatically post a message into the <code>#opg-incident</code> channel and create an entry on <a href="https://incident.opg.service.justice.gov.uk/">the incident response site</a>. <strong>This marks the offical start of an incident</strong></p>
+<h3 id="immediate-first-steps">Immediate first steps</h3>
+<p>As soon as the tool has posted a message into <code>#opg-incident</code> you should do these steps immediatly</p>
+
+<ol>
+<li>Use the create communtications channel button in the message (only available for active incidents)</li>
+<li>Page the on-call incident lead</li>
+<li>If appropriate, start a conference call for further discussion</li>
+</ol>
+<h2 id="ensure-roles-have-been-assigned">Ensure roles have been assigned</h2>
+<p>There are two roles that <strong>must</strong> be filled for every incident. They are the <strong>Incident Lead</strong> and <strong>Incident Scribe</strong></p>
+
+<blockquote>
+<p>In rare cases, the same person might fill both roles but this is discouraged.</p>
+</blockquote>
+<h3 id="incident-reporter">Incident Reporter</h3>
+<p>This is whoever discovered the issue and declared the incident.</p>
+<h3 id="incident-lead">Incident Lead</h3>
+<p>The incident reporter should call in a designated incident lead, typically a Technical Architect, Lead or Senior WebOps or Lead Dev.</p>
+<p>The incident lead is the lead coordination role and should be someone who has experience running incidents in OPG. It is preferable if they are not in a team affected by the incident so that they can provide an unbiased view.</p>
+<h4 id="responsibilities">Responsibilities</h4>
+
+<ul>
+<li>Coordinate our response to the incident</li>
+<li>Decide on any additional roles required (e.g. a communications lead may be required)</li>
+<li>Ensure that all required roles are filled</li>
+<li>Ensure that all tasks which need to be handled are being done</li>
+<li>Make the final decision whenever we need to choose a course of action</li>
+<li>Set the schedule for any regular team check-ins, if those are deemed necessary</li>
+<li>Declare the incident closed, when appropriate</li>
+<li>Ensure that the <a href="#post-incident">post-incident process</a> is followed</li>
+</ul>
+
+<blockquote>
+<p>NB: The incident lead needs to ensure that things <strong>are being done</strong>, they do not need to do them</p>
+</blockquote>
+<p>Once appointed, the incident lead should update the following information using the Slack bot in the dedicated communications channel.</p>
+
+<ul>
+<li>incident summary <code>@opg-incident-response summary &lt;describe the incident&gt;</code></li>
+<li>incident severity <code>@opg-incident-response sev &lt;Critical, Major, Trivial&gt;</code></li>
+<li>incident impact <code>@opg-incident-response impact &lt;describe the impact&gt;</code></li>
+</ul>
+<h3 id="incident-scribe">Incident Scribe</h3>
+<p>The incident scribe can be someone in a team affected by the incident. Ask for volunteers verbally or via Slack.</p>
+<h4 id="incident-scribe-responsibilities">Responsibilities</h4>
+<p>The scribe is responsible for keeping a log of the incident, including:</p>
+
+<ul>
+<li>Important events</li>
+<li>Discussion topics</li>
+<li>Decisions</li>
+<li>Actions</li>
+<li>Results of actions/investigations</li>
+</ul>
+
+<blockquote>
+<p>NB: this log is not intended to be a verbatim transcript of discussions. Rather, things like &ldquo;xxx suggested the disk might be full.
+yyy to investigate and report back&rdquo;</p>
+</blockquote>
+<p>Once appointed, the scribe should update the incident header at the top of the channel with a link to the living document on <a href="https://incident.opg.service.justice.gov.uk/">the incident response site</a>.</p>
+<p>The scribe can pin important message in the incident channel and the Slack tool will automatically add those into the timeline summary. They can also add
+actions to the incident log using the command <code>@opg-incident-response action &lt;action_description&gt;</code></p>
+<p>When conversation happens verbally, it is the scribe&rsquo;s responsibility to ensure anything that needs to be logged is written up in the incident channel.</p>
+<h3 id="communications-lead">Communications Lead</h3>
+<p>Depending on the impact/duration of an incident, it <em>may</em> be desirable to appoint a communications lead.</p>
+<p>It is usually best if this is a member of the product profession to facilitate clear communications with the business.</p>
+<h4 id="communications-lead-responsibilities">Responsibilities</h4>
+
+<ul>
+<li>Communicate the incident out to those who are impacted</li>
+<li>Decide what, how and how often to issue updates</li>
+<li>Give updates at regular intervals</li>
+<li>Field enquiries so the team can focus on fixing the incident without interruptions</li>
+<li>Disseminate a post-incident report</li>
+</ul>
+<p>You can update the Statuspage via the following command in the dedicated incident channel</p>
+
+<ul>
+<li><code>@opg-incident-response statuspage</code></li>
+</ul>
+<h3 id="transferring-roles">Transferring roles</h3>
+<p>It may be necessary to transfer roles from one team member to another, e.g. during long-running incidents. In this case, it is the responsibility
+of whoever is in a role to ensure that someone else takes it over.</p>
+<p>Whoever assumes a role should announce it in the incident channel, so that the team is aware and updated</p>
+<h2 id="fixing-the-problem">Fixing the problem</h2>
+<p>Please bear in mind that not every incident requires the whole team to be involved.</p>
+<p>Things you may want to consider:</p>
+
+<ul>
+<li>Start a conference call to hold ongoing discussions</li>
+<li>Swarm on the problem</li>
+<li>Step back if you are not contributing and you don&rsquo;t have one of the key roles</li>
+<li>Bring in members of other teams with relevant knowledge</li>
+<li>Ask in #opg-all-team-digital, #opg-webops-community or #opg-developers for relevant experience from outside your team</li>
+</ul>
+<h2 id="end-the-incident">End the incident</h2>
+<p>When work on the problem has ceased, either because the problem has been resolved or because resolution is blocked until a later date,
+the <strong>incident lead</strong> should update the Slack tool to close the incident.</p>
+<p><code>@opg-incident-response close</code></p>
+<p>This marks the official end of the incident. If users were notified of the incident, the communications lead should send an appropriate message via the same channels to tell them it&rsquo;s over.</p>
+<h2 id="post-incident">Post Incident</h2>
+<p>After the incident is resolved:</p>
+
+<ul>
+<li>Schedule a root cause analysis (RCA) session to identify where we can improve</li>
+<li>Document the outcome of the RCA in <a href="https://opgtransform.atlassian.net/wiki/spaces/RCAS/pages/3396075523/RCAs">the OPG Security confluence space</a></li>
+<li>Share the RCA outcomes with the delivery team and wider OPG Digital so they can learn from it too</li>
+</ul>
+<h3 id="records-and-retention">Records and retention</h3>
+<p>The dedicated incident channel should be archived once the issue is fixed.</p>
+<p>The incident response site will keep an archive of the messages pinned by the incident scribe.</p>
+<p>Where appropriate, the root cause analysis may shared with the Amazon Technical Account Managers.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-04-15">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 18 March 2024.
+
+        It needs to be reviewed again on 15 April 2024
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 15 April 2024
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/incidents/process.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Incident+Response+Process%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fincidents%2Fprocess.html%29&amp;labels=bug&amp;title=Re%3A+%27Incident+Response+Process%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>

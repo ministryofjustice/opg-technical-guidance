@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>ADR-009 Log structure - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-009.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="ADR-009 Log structure - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-009.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="ADR-009 Log structure" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-009.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#adr-009-log-structure"><span>ADR-009 Log structure</span></a>
+    <ul>
+      <li>
+        <a href="#status"><span>Status</span></a>
+      </li>
+      <li>
+        <a href="#context"><span>Context</span></a>
+      </li>
+      <li>
+        <a href="#decision"><span>Decision</span></a>
+      </li>
+      <li>
+        <a href="#consequences"><span>Consequences</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="adr-009-log-structure">ADR-009 Log structure</h1>
+<p>Date: 14-02-2024</p>
+<h2 id="status">Status</h2>
+<p>🤔 Proposed</p>
+<h2 id="context">Context</h2>
+<p>Regardless of platform or language, our services write logging information to the output stream. However, this logging information is inconsitently structured. This leads to a few problems:</p>
+
+<ol>
+<li>It is hard to interpret logs under standard operation, as logs from different containers with different structures are interspersed</li>
+<li>During an incident, it is hard to find related logs as the inconsistent structures require separate queries</li>
+<li>Our log-based alarms are complex to write and update as they have to query several different structures</li>
+</ol>
+<h2 id="decision">Decision</h2>
+<p>We will define a standard logging structure that all teams will use. Teams are welcome to expand on the structure by adding extra fields, but must include all required fields in each log message and must ensure not to use reserved fields for anything other than their defined usage.</p>
+<p>All logs must be formatted as JSON objects.</p>
+<p>An example of a minimal log message:</p>
+<div class="highlight"><pre class="highlight json" tabindex="0"><code><span class="p">{</span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-14T12:34:23Z"</span><span class="p">,</span><span class="w"> </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRITICAL"</span><span class="p">,</span><span class="w"> </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Null pointer exception"</span><span class="p">,</span><span class="w"> </span><span class="nl">"service_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opg-example"</span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>An example of a more complex log message:</p>
+<div class="highlight"><pre class="highlight json" tabindex="0"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-14T13:39:01Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INFO"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User permissions updated"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opg-example"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"trace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-581cf771-a006649127e371903a2de979"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w"> </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/user/133/permissions"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pages/user/edit_permission.go"</span><span class="p">,</span><span class="w"> </span><span class="nl">"line"</span><span class="p">:</span><span class="w"> </span><span class="mi">156</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"actor_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>As well as the required and reserved fields below, log messages can include any other fields (such as &ldquo;location&rdquo; and &ldquo;actor_id&rdquo; above).</p>
+<h3 id="required-fields">Required fields</h3>
+<p><code>time</code> must be an RFC3339-formatted date/time.</p>
+<p><code>level</code> must be an RFC5424-defined log level in uppercase: <code>EMERGENCY</code>, <code>ALERT</code>, <code>CRITICAL</code>, <code>ERROR</code>, <code>WARNING</code>, <code>NOTICE</code>, <code>INFO</code>, <code>DEBUG</code>. Services don&rsquo;t need to use every log level, but alarms and stored queries should account for them all. Whilst all log levels can be used in code, the minimum logging level should be <code>INFO</code> in non-dev environments.</p>
+<p><code>msg</code> is the free form message.</p>
+<p><code>service_name</code> is the name of the container or lambda outputting the log.</p>
+<h3 id="reserved-fields">Reserved fields</h3>
+<p><code>request</code>, if provided, must be an object containing a <code>method</code> property of the request&rsquo;s HTTP method, and a <code>path</code> property of the requested path. Additional properties are permitted.</p>
+<p><code>trace_id</code>, if provided, must be a string containing the AWS X-Ray trace ID of the orgininating request.</p>
+<h2 id="consequences">Consequences</h2>
+<p>Reading logs interspersed between different services and containers will be easier as they all follow the same structure. We will be able to write common queries and alarms that work across all of our services.</p>
+<p>Each team will need to review their current logging instrumentation to ensure it matches this structure.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2025-02-09">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 9 February 2024.
+
+        It needs to be reviewed again on 9 February 2025
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 9 February 2025
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/adrs/adr-009.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27ADR-009+Log+structure%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fadrs%2Fadr-009.html%29&amp;labels=bug&amp;title=Re%3A+%27ADR-009+Log+structure%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>
