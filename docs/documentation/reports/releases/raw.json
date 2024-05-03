@@ -1,59 +1,963 @@
 {
   "by_month": {
     "2023-11": {
-      "average": 1.73,
+      "average": 30.01,
       "average_cancelled": 0.14,
-      "average_failure": 0.14,
-      "average_success": 1.45,
-      "total": 38,
+      "average_failure": 0.42000000000000004,
+      "average_success": 29.470000000000002,
+      "total": 659,
       "total_cancelled": 3,
-      "total_failure": 3,
-      "total_success": 32
+      "total_failure": 9,
+      "total_success": 647
     },
     "2023-12": {
-      "average": 0.57,
-      "average_success": 0.57,
-      "total": 12,
-      "total_success": 12
+      "average": 21.639999999999993,
+      "average_failure": 0.38,
+      "average_startup_failure": 0.1,
+      "average_success": 21.16999999999999,
+      "total": 454,
+      "total_failure": 8,
+      "total_startup_failure": 2,
+      "total_success": 444
     },
     "2024-01": {
-      "average": 1.04,
+      "average": 25.920000000000005,
       "average_cancelled": 0.04,
-      "average_failure": 0.17,
-      "average_success": 0.83,
-      "total": 24,
+      "average_failure": 0.73,
+      "average_startup_failure": 0.04,
+      "average_success": 25.110000000000007,
+      "total": 597,
       "total_cancelled": 1,
-      "total_failure": 4,
-      "total_success": 19
+      "total_failure": 17,
+      "total_startup_failure": 1,
+      "total_success": 578
     },
     "2024-02": {
-      "average": 1.29,
-      "average_failure": 0.1,
-      "average_success": 1.19,
-      "total": 27,
-      "total_failure": 2,
-      "total_success": 25
+      "average": 25.199999999999992,
+      "average_failure": 0.68,
+      "average_startup_failure": 0.05,
+      "average_success": 24.479999999999993,
+      "total": 529,
+      "total_failure": 14,
+      "total_startup_failure": 1,
+      "total_success": 514
     },
     "2024-03": {
-      "average": 0.48,
-      "average_success": 0.48,
-      "total": 10,
-      "total_success": 10
+      "average": 28.38,
+      "average_failure": 0.6200000000000001,
+      "average_success": 27.769999999999996,
+      "total": 595,
+      "total_failure": 13,
+      "total_success": 582
     },
     "2024-04": {
-      "average": 0.59,
-      "average_success": 0.59,
-      "total": 13,
-      "total_success": 13
+      "average": 27.360000000000003,
+      "average_cancelled": 0.05,
+      "average_failure": 0.51,
+      "average_success": 26.800000000000004,
+      "total": 601,
+      "total_cancelled": 1,
+      "total_failure": 11,
+      "total_success": 589
     },
     "2024-05": {
-      "average": 0.04,
-      "average_success": 0.04,
-      "total": 1,
-      "total_success": 1
+      "average": 2.67,
+      "average_success": 2.67,
+      "total": 62,
+      "total_success": 62
     }
   },
   "by_repository": {
+    "ministryofjustice/date-utils": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/digideps-infrastructure": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/homebrew-opg": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-academy": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-academy-infrastructure": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-alchemy": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-config-service": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-cost-notifier": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-03": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-health-notifier": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-03": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-key-rotation-scheduler-app": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-reporting": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-sandbox": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-secret-sync": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-aws-whitepaper": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-01": {
+        "average": 0.78,
+        "average_success": 0.78,
+        "total": 18,
+        "total_success": 18
+      },
+      "2024-02": {
+        "average": 2.52,
+        "average_success": 2.52,
+        "total": 53,
+        "total_success": 53
+      },
+      "2024-03": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-04": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-behat-test-statistics": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-circleci-orbs": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-data": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-data-casrec-migration": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-data-casrec-migration-mappings": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-data-deputy-reporting": {
+      "2023-11": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2023-12": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-01": {
+        "average": 0.3,
+        "average_success": 0.3,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-04": {
+        "average": 0.23,
+        "average_success": 0.23,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-05": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      }
+    },
+    "ministryofjustice/opg-data-dictionary": {
+      "2023-11": {
+        "average": 0.23,
+        "average_success": 0.23,
+        "total": 5,
+        "total_success": 5
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      }
+    },
+    "ministryofjustice/opg-data-lpa": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      }
+    },
+    "ministryofjustice/opg-data-lpa-codes": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.3,
+        "average_success": 0.3,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-02": {
+        "average": 0.19,
+        "average_success": 0.19,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-03": {
+        "average": 0.86,
+        "average_success": 0.86,
+        "total": 18,
+        "total_success": 18
+      },
+      "2024-04": {
+        "average": 0.5,
+        "average_failure": 0.05,
+        "average_success": 0.45,
+        "total": 11,
+        "total_failure": 1,
+        "total_success": 10
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-data-lpa-instructions-preferences": {
+      "2023-11": {
+        "average": 0.86,
+        "average_failure": 0.09,
+        "average_success": 0.77,
+        "total": 19,
+        "total_failure": 2,
+        "total_success": 17
+      },
+      "2023-12": {
+        "average": 0.52,
+        "average_failure": 0.14,
+        "average_success": 0.38,
+        "total": 11,
+        "total_failure": 3,
+        "total_success": 8
+      },
+      "2024-01": {
+        "average": 0.3,
+        "average_success": 0.3,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-02": {
+        "average": 0.52,
+        "average_failure": 0.14,
+        "average_success": 0.38,
+        "total": 11,
+        "total_failure": 3,
+        "total_success": 8
+      },
+      "2024-03": {
+        "average": 1.24,
+        "average_success": 1.24,
+        "total": 26,
+        "total_success": 26
+      },
+      "2024-04": {
+        "average": 0.64,
+        "average_success": 0.64,
+        "total": 14,
+        "total_success": 14
+      },
+      "2024-05": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      }
+    },
+    "ministryofjustice/opg-data-lpa-store": {
+      "2023-11": {
+        "average": 1.05,
+        "average_success": 1.05,
+        "total": 23,
+        "total_success": 23
+      },
+      "2023-12": {
+        "average": 0.95,
+        "average_success": 0.95,
+        "total": 20,
+        "total_success": 20
+      },
+      "2024-01": {
+        "average": 0.74,
+        "average_success": 0.74,
+        "total": 17,
+        "total_success": 17
+      },
+      "2024-02": {
+        "average": 0.95,
+        "average_success": 0.95,
+        "total": 20,
+        "total_success": 20
+      },
+      "2024-03": {
+        "average": 0.9,
+        "average_success": 0.9,
+        "total": 19,
+        "total_success": 19
+      },
+      "2024-04": {
+        "average": 1.95,
+        "average_success": 1.95,
+        "total": 43,
+        "total_success": 43
+      },
+      "2024-05": {
+        "average": 0.22,
+        "average_success": 0.22,
+        "total": 5,
+        "total_success": 5
+      }
+    },
+    "ministryofjustice/opg-data-lpa-uid": {
+      "2023-11": {
+        "average": 0.68,
+        "average_success": 0.68,
+        "total": 15,
+        "total_success": 15
+      },
+      "2023-12": {
+        "average": 0.43,
+        "average_success": 0.43,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-01": {
+        "average": 0.39,
+        "average_success": 0.39,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-02": {
+        "average": 0.43,
+        "average_success": 0.43,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-03": {
+        "average": 0.38,
+        "average_success": 0.38,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-04": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
     "ministryofjustice/opg-digideps": {
       "2023-11": {
         "average": 1.73,
@@ -106,6 +1010,3046 @@
         "average_success": 0.04,
         "total": 1,
         "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-digideps-prototype-v2": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-dockerise-go": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-doctrine-migration-version-checker": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-dora-metrics": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-ecs-helper": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-etl-test": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-event-store": {
+      "2023-11": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2023-12": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-01": {
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-02": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-03": {
+        "average": 0.62,
+        "average_success": 0.62,
+        "total": 13,
+        "total_success": 13
+      },
+      "2024-04": {
+        "average": 0.23,
+        "average_success": 0.23,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-feedback": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-file-service": {
+      "2023-11": {
+        "average": 0.68,
+        "average_success": 0.68,
+        "total": 15,
+        "total_success": 15
+      },
+      "2023-12": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-01": {
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-02": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-03": {
+        "average": 0.52,
+        "average_success": 0.52,
+        "total": 11,
+        "total_success": 11
+      },
+      "2024-04": {
+        "average": 0.5,
+        "average_success": 0.5,
+        "total": 11,
+        "total_success": 11
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-flask-apps": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-github-actions": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-01": {
+        "average": 1.04,
+        "average_success": 1.04,
+        "total": 24,
+        "total_success": 24
+      },
+      "2024-02": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-03": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-github-workflows": {
+      "2023-11": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2023-12": {
+        "average": 0.62,
+        "average_success": 0.62,
+        "total": 13,
+        "total_success": 13
+      },
+      "2024-01": {
+        "average": 0.22,
+        "average_success": 0.22,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-gitlab-infrastructure": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-go-common": {
+      "2023-11": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-03": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-04": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-go-healthcheck": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-heroku-redirect": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-incident-response": {
+      "2023-11": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.19,
+        "average_success": 0.19,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-03": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-04": {
+        "average": 0.27,
+        "average_success": 0.27,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-05": {
+        "average": 0.22,
+        "average_success": 0.22,
+        "total": 5,
+        "total_success": 5
+      }
+    },
+    "ministryofjustice/opg-infra-costs": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-infra-costs-action": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-jenkins": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-lpa": {
+      "2023-11": {
+        "average": 0.86,
+        "average_failure": 0.05,
+        "average_success": 0.82,
+        "total": 19,
+        "total_failure": 1,
+        "total_success": 18
+      },
+      "2023-12": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-01": {
+        "average": 1.26,
+        "average_failure": 0.04,
+        "average_success": 1.22,
+        "total": 29,
+        "total_failure": 1,
+        "total_success": 28
+      },
+      "2024-02": {
+        "average": 0.71,
+        "average_failure": 0.1,
+        "average_success": 0.62,
+        "total": 15,
+        "total_failure": 2,
+        "total_success": 13
+      },
+      "2024-03": {
+        "average": 1.38,
+        "average_failure": 0.19,
+        "average_success": 1.19,
+        "total": 29,
+        "total_failure": 4,
+        "total_success": 25
+      },
+      "2024-04": {
+        "average": 1.5,
+        "average_failure": 0.14,
+        "average_success": 1.36,
+        "total": 33,
+        "total_failure": 3,
+        "total_success": 30
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-lpa-api": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-lpa-datamodels": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-lpa-prototype-v2": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-maintenance": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-metadata": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-metrics": {
+      "2023-11": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-mock-onelogin": {
+      "2023-11": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2023-12": {
+        "average": 0.14,
+        "average_startup_failure": 0.05,
+        "average_success": 0.1,
+        "total": 3,
+        "total_startup_failure": 1,
+        "total_success": 2
+      },
+      "2024-01": {
+        "average": 0.17,
+        "average_startup_failure": 0.04,
+        "average_success": 0.13,
+        "total": 4,
+        "total_startup_failure": 1,
+        "total_success": 3
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-04": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-modernising-lpa": {
+      "2023-11": {
+        "average": 3.68,
+        "average_failure": 0.05,
+        "average_success": 3.64,
+        "total": 81,
+        "total_failure": 1,
+        "total_success": 80
+      },
+      "2023-12": {
+        "average": 2.14,
+        "average_failure": 0.1,
+        "average_success": 2.05,
+        "total": 45,
+        "total_failure": 2,
+        "total_success": 43
+      },
+      "2024-01": {
+        "average": 2.91,
+        "average_failure": 0.13,
+        "average_success": 2.78,
+        "total": 67,
+        "total_failure": 3,
+        "total_success": 64
+      },
+      "2024-02": {
+        "average": 3.1,
+        "average_failure": 0.1,
+        "average_startup_failure": 0.05,
+        "average_success": 2.95,
+        "total": 65,
+        "total_failure": 2,
+        "total_startup_failure": 1,
+        "total_success": 62
+      },
+      "2024-03": {
+        "average": 3.19,
+        "average_failure": 0.1,
+        "average_success": 3.1,
+        "total": 67,
+        "total_failure": 2,
+        "total_success": 65
+      },
+      "2024-04": {
+        "average": 2.05,
+        "average_failure": 0.05,
+        "average_success": 2.0,
+        "total": 45,
+        "total_failure": 1,
+        "total_success": 44
+      },
+      "2024-05": {
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
+      }
+    },
+    "ministryofjustice/opg-modernising-lpa-docs": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-notify-queue-consumer": {
+      "2023-11": {
+        "average": 0.64,
+        "average_success": 0.64,
+        "total": 14,
+        "total_success": 14
+      },
+      "2023-12": {
+        "average": 0.43,
+        "average_success": 0.43,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-01": {
+        "average": 0.3,
+        "average_success": 0.3,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-02": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-03": {
+        "average": 0.62,
+        "average_success": 0.62,
+        "total": 13,
+        "total_success": 13
+      },
+      "2024-04": {
+        "average": 0.59,
+        "average_success": 0.59,
+        "total": 13,
+        "total_success": 13
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-notify-status-poller": {
+      "2023-11": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2023-12": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-01": {
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-02": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-03": {
+        "average": 0.38,
+        "average_success": 0.38,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-04": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-org-infra": {
+      "2023-11": {
+        "average": 2.82,
+        "average_success": 2.82,
+        "total": 62,
+        "total_success": 62
+      },
+      "2023-12": {
+        "average": 4.05,
+        "average_success": 4.05,
+        "total": 85,
+        "total_success": 85
+      },
+      "2024-01": {
+        "average": 1.52,
+        "average_success": 1.52,
+        "total": 35,
+        "total_success": 35
+      },
+      "2024-02": {
+        "average": 1.9,
+        "average_success": 1.9,
+        "total": 40,
+        "total_success": 40
+      },
+      "2024-03": {
+        "average": 1.86,
+        "average_success": 1.86,
+        "total": 39,
+        "total_success": 39
+      },
+      "2024-04": {
+        "average": 1.45,
+        "average_success": 1.45,
+        "total": 32,
+        "total_success": 32
+      },
+      "2024-05": {
+        "average": 0.35,
+        "average_success": 0.35,
+        "total": 8,
+        "total_success": 8
+      }
+    },
+    "ministryofjustice/opg-packer-jenkins": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-pact-broker": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-01": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-paper-identity": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.48,
+        "average_success": 0.48,
+        "total": 10,
+        "total_success": 10
+      },
+      "2024-03": {
+        "average": 1.38,
+        "average_success": 1.38,
+        "total": 29,
+        "total_success": 29
+      },
+      "2024-04": {
+        "average": 0.82,
+        "average_success": 0.82,
+        "total": 18,
+        "total_success": 18
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-pdf-service": {
+      "2023-11": {
+        "average": 0.36,
+        "average_success": 0.36,
+        "total": 8,
+        "total_success": 8
+      },
+      "2023-12": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-01": {
+        "average": 0.57,
+        "average_success": 0.57,
+        "total": 13,
+        "total_success": 13
+      },
+      "2024-02": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-03": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-04": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-performance-analytics": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-performance-data": {
+      "2023-11": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2023-12": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-01": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-02": {
+        "average": 0.62,
+        "average_success": 0.62,
+        "total": 13,
+        "total_success": 13
+      },
+      "2024-03": {
+        "average": 0.76,
+        "average_success": 0.76,
+        "total": 16,
+        "total_success": 16
+      },
+      "2024-04": {
+        "average": 0.55,
+        "average_success": 0.55,
+        "total": 12,
+        "total_success": 12
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-php-fpm-stats-exporter": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-phpunit-memory-usage": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-pods-hackday": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-pre-commit-hooks": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-publish-ecr-scan-results-to-slack": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-refunds": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-repository-reporting": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.48,
+        "average_success": 0.48,
+        "total": 10,
+        "total_success": 10
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-repository-scanner": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-repository-scanner-amalgamation": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-s3-antivirus": {
+      "2023-11": {
+        "average": 0.64,
+        "average_success": 0.64,
+        "total": 14,
+        "total_success": 14
+      },
+      "2023-12": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-01": {
+        "average": 0.3,
+        "average_success": 0.3,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-02": {
+        "average": 0.38,
+        "average_success": 0.38,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-03": {
+        "average": 0.38,
+        "average_success": 0.38,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-04": {
+        "average": 0.45,
+        "average_success": 0.45,
+        "total": 10,
+        "total_success": 10
+      },
+      "2024-05": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      }
+    },
+    "ministryofjustice/opg-search-service": {
+      "2023-11": {
+        "average": 1.0,
+        "average_success": 1.0,
+        "total": 22,
+        "total_success": 22
+      },
+      "2023-12": {
+        "average": 0.38,
+        "average_success": 0.38,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-01": {
+        "average": 0.3,
+        "average_success": 0.3,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-02": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-03": {
+        "average": 0.43,
+        "average_success": 0.43,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-04": {
+        "average": 0.36,
+        "average_success": 0.36,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-shared-infrastructure": {
+      "2023-11": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-sirius": {
+      "2023-11": {
+        "average": 6.09,
+        "average_success": 6.09,
+        "total": 134,
+        "total_success": 134
+      },
+      "2023-12": {
+        "average": 3.57,
+        "average_success": 3.57,
+        "total": 75,
+        "total_success": 75
+      },
+      "2024-01": {
+        "average": 4.7,
+        "average_success": 4.7,
+        "total": 108,
+        "total_success": 108
+      },
+      "2024-02": {
+        "average": 3.33,
+        "average_success": 3.33,
+        "total": 70,
+        "total_success": 70
+      },
+      "2024-03": {
+        "average": 4.1,
+        "average_success": 4.1,
+        "total": 86,
+        "total_success": 86
+      },
+      "2024-04": {
+        "average": 4.73,
+        "average_success": 4.73,
+        "total": 104,
+        "total_success": 104
+      },
+      "2024-05": {
+        "average": 0.39,
+        "average_success": 0.39,
+        "total": 9,
+        "total_success": 9
+      }
+    },
+    "ministryofjustice/opg-sirius-api-gateway": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-data-sync": {
+      "2023-11": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2023-12": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-01": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-docs": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-01": {
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-04": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-end-to-end-tests": {
+      "2023-11": {
+        "average": 0.23,
+        "average_success": 0.23,
+        "total": 5,
+        "total_success": 5
+      },
+      "2023-12": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-01": {
+        "average": 0.43,
+        "average_success": 0.43,
+        "total": 10,
+        "total_success": 10
+      },
+      "2024-02": {
+        "average": 0.19,
+        "average_success": 0.19,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-03": {
+        "average": 0.19,
+        "average_success": 0.19,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-04": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-failover": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-header": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-infrastructure": {
+      "2023-11": {
+        "average": 1.77,
+        "average_success": 1.77,
+        "total": 39,
+        "total_success": 39
+      },
+      "2023-12": {
+        "average": 0.95,
+        "average_success": 0.95,
+        "total": 20,
+        "total_success": 20
+      },
+      "2024-01": {
+        "average": 1.57,
+        "average_success": 1.57,
+        "total": 36,
+        "total_success": 36
+      },
+      "2024-02": {
+        "average": 1.48,
+        "average_success": 1.48,
+        "total": 31,
+        "total_success": 31
+      },
+      "2024-03": {
+        "average": 2.43,
+        "average_success": 2.43,
+        "total": 51,
+        "total_success": 51
+      },
+      "2024-04": {
+        "average": 2.0,
+        "average_success": 2.0,
+        "total": 44,
+        "total_success": 44
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-lpa-dashboard": {
+      "2023-11": {
+        "average": 0.45,
+        "average_success": 0.45,
+        "total": 10,
+        "total_success": 10
+      },
+      "2023-12": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-01": {
+        "average": 0.35,
+        "average_success": 0.35,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-02": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-03": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-04": {
+        "average": 0.41,
+        "average_success": 0.41,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-sirius-lpa-frontend": {
+      "2023-11": {
+        "average": 0.73,
+        "average_success": 0.73,
+        "total": 16,
+        "total_success": 16
+      },
+      "2023-12": {
+        "average": 0.38,
+        "average_success": 0.38,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-01": {
+        "average": 1.35,
+        "average_success": 1.35,
+        "total": 31,
+        "total_success": 31
+      },
+      "2024-02": {
+        "average": 0.52,
+        "average_success": 0.52,
+        "total": 11,
+        "total_success": 11
+      },
+      "2024-03": {
+        "average": 0.57,
+        "average_success": 0.57,
+        "total": 12,
+        "total_success": 12
+      },
+      "2024-04": {
+        "average": 0.77,
+        "average_success": 0.77,
+        "total": 17,
+        "total_success": 17
+      },
+      "2024-05": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      }
+    },
+    "ministryofjustice/opg-sirius-maintenance": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-membrane": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-prototypes": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-search-ui": {
+      "2023-11": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2023-12": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-01": {
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-02": {
+        "average": 0.19,
+        "average_success": 0.19,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-03": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-04": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-supervision-deputy-hub": {
+      "2023-11": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2023-12": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-01": {
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-02": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-03": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-04": {
+        "average": 0.27,
+        "average_success": 0.27,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-supervision-finance-hub": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-02": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-03": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-04": {
+        "average": 0.82,
+        "average_success": 0.82,
+        "total": 18,
+        "total_success": 18
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-supervision-firm-deputy-hub": {
+      "2023-11": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2023-12": {
+        "average": 0.19,
+        "average_success": 0.19,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-03": {
+        "average": 0.43,
+        "average_success": 0.43,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-04": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-supervision-pro-deputy-hub": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-supervision-workflow": {
+      "2023-11": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2023-12": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-01": {
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-02": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-03": {
+        "average": 0.43,
+        "average_success": 0.43,
+        "total": 9,
+        "total_success": 9
+      },
+      "2024-04": {
+        "average": 0.45,
+        "average_success": 0.45,
+        "total": 10,
+        "total_success": 10
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-sirius-user-management": {
+      "2023-11": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2023-12": {
+        "average": 0.33,
+        "average_success": 0.33,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-01": {
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-02": {
+        "average": 0.38,
+        "average_success": 0.38,
+        "total": 8,
+        "total_success": 8
+      },
+      "2024-03": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-04": {
+        "average": 0.32,
+        "average_success": 0.32,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-05": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      }
+    },
+    "ministryofjustice/opg-technical-guidance": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-03": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-04": {
+        "average": 0.27,
+        "average_success": 0.27,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-template-repository": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-01": {
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-terraform-aws-account": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.24,
+        "average_success": 0.24,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-01": {
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
+      },
+      "2024-02": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-03": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-terraform-aws-firewalled-network": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-terraform-aws-moj-ip-allow-list": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-terraform-aws-network": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-terraform-github-repository": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-terraform-workspace-manager": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-use-an-lpa": {
+      "2023-11": {
+        "average": 1.77,
+        "average_failure": 0.09,
+        "average_success": 1.68,
+        "total": 39,
+        "total_failure": 2,
+        "total_success": 37
+      },
+      "2023-12": {
+        "average": 1.1,
+        "average_failure": 0.14,
+        "average_startup_failure": 0.05,
+        "average_success": 0.9,
+        "total": 23,
+        "total_failure": 3,
+        "total_startup_failure": 1,
+        "total_success": 19
+      },
+      "2024-01": {
+        "average": 1.61,
+        "average_failure": 0.39,
+        "average_success": 1.22,
+        "total": 37,
+        "total_failure": 9,
+        "total_success": 28
+      },
+      "2024-02": {
+        "average": 0.95,
+        "average_failure": 0.14,
+        "average_success": 0.81,
+        "total": 20,
+        "total_failure": 3,
+        "total_success": 17
+      },
+      "2024-03": {
+        "average": 1.19,
+        "average_failure": 0.33,
+        "average_success": 0.86,
+        "total": 25,
+        "total_failure": 7,
+        "total_success": 18
+      },
+      "2024-04": {
+        "average": 0.91,
+        "average_cancelled": 0.05,
+        "average_failure": 0.18,
+        "average_success": 0.68,
+        "total": 20,
+        "total_cancelled": 1,
+        "total_failure": 4,
+        "total_success": 15
+      },
+      "2024-05": {
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
+      }
+    },
+    "ministryofjustice/opg-weblate": {
+      "2023-11": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/opg-weblate-demo-translation-project": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.29,
+        "average_success": 0.29,
+        "total": 6,
+        "total_success": 6
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "ministryofjustice/serve-opg": {
+      "2023-11": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-02": {
+        "average": 0.24,
+        "average_failure": 0.1,
+        "average_success": 0.14,
+        "total": 5,
+        "total_failure": 2,
+        "total_success": 3
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 1.14,
+        "average_failure": 0.09,
+        "average_success": 1.05,
+        "total": 25,
+        "total_failure": 2,
+        "total_success": 23
+      },
+      "2024-05": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      }
+    },
+    "ministryofjustice/serve-opg-infrastructure": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
       }
     }
   },
@@ -164,58 +4108,466 @@
         "total_success": 1
       }
     },
-    "opg-webops": {
+    "opg-admin": {
       "2023-11": {
-        "average": 1.73,
-        "average_cancelled": 0.14,
-        "average_failure": 0.14,
-        "average_success": 1.45,
-        "total": 38,
-        "total_cancelled": 3,
-        "total_failure": 3,
-        "total_success": 32
+        "average": 0.0,
+        "total": 0
       },
       "2023-12": {
-        "average": 0.57,
-        "average_success": 0.57,
-        "total": 12,
-        "total_success": 12
+        "average": 0.0,
+        "total": 0
       },
       "2024-01": {
-        "average": 1.04,
-        "average_cancelled": 0.04,
-        "average_failure": 0.17,
-        "average_success": 0.83,
-        "total": 24,
-        "total_cancelled": 1,
-        "total_failure": 4,
-        "total_success": 19
+        "average": 0.0,
+        "total": 0
       },
       "2024-02": {
-        "average": 1.29,
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "opg-lpa-team": {
+      "2023-11": {
+        "average": 0.86,
+        "average_failure": 0.05,
+        "average_success": 0.82,
+        "total": 19,
+        "total_failure": 1,
+        "total_success": 18
+      },
+      "2023-12": {
+        "average": 0.14,
+        "average_success": 0.14,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-01": {
+        "average": 1.26,
+        "average_failure": 0.04,
+        "average_success": 1.22,
+        "total": 29,
+        "total_failure": 1,
+        "total_success": 28
+      },
+      "2024-02": {
+        "average": 0.71,
         "average_failure": 0.1,
-        "average_success": 1.19,
-        "total": 27,
+        "average_success": 0.62,
+        "total": 15,
         "total_failure": 2,
+        "total_success": 13
+      },
+      "2024-03": {
+        "average": 1.38,
+        "average_failure": 0.19,
+        "average_success": 1.19,
+        "total": 29,
+        "total_failure": 4,
+        "total_success": 25
+      },
+      "2024-04": {
+        "average": 1.5,
+        "average_failure": 0.14,
+        "average_success": 1.36,
+        "total": 33,
+        "total_failure": 3,
+        "total_success": 30
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "opg-metrics-team": {
+      "2023-11": {
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.05,
+        "average_success": 0.05,
+        "total": 1,
+        "total_success": 1
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "opg-modernising-lpa-team": {
+      "2023-11": {
+        "average": 3.68,
+        "average_failure": 0.05,
+        "average_success": 3.64,
+        "total": 81,
+        "total_failure": 1,
+        "total_success": 80
+      },
+      "2023-12": {
+        "average": 2.14,
+        "average_failure": 0.1,
+        "average_success": 2.05,
+        "total": 45,
+        "total_failure": 2,
+        "total_success": 43
+      },
+      "2024-01": {
+        "average": 2.91,
+        "average_failure": 0.13,
+        "average_success": 2.78,
+        "total": 67,
+        "total_failure": 3,
+        "total_success": 64
+      },
+      "2024-02": {
+        "average": 3.1,
+        "average_failure": 0.1,
+        "average_startup_failure": 0.05,
+        "average_success": 2.95,
+        "total": 65,
+        "total_failure": 2,
+        "total_startup_failure": 1,
+        "total_success": 62
+      },
+      "2024-03": {
+        "average": 3.19,
+        "average_failure": 0.1,
+        "average_success": 3.1,
+        "total": 67,
+        "total_failure": 2,
+        "total_success": 65
+      },
+      "2024-04": {
+        "average": 2.05,
+        "average_failure": 0.05,
+        "average_success": 2.0,
+        "total": 45,
+        "total_failure": 1,
+        "total_success": 44
+      },
+      "2024-05": {
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
+      }
+    },
+    "opg-refund": {
+      "2023-11": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-05": {
+        "average": 0.0,
+        "total": 0
+      }
+    },
+    "opg-use-a-lpa-team": {
+      "2023-11": {
+        "average": 2.63,
+        "average_failure": 0.18,
+        "average_success": 2.45,
+        "total": 58,
+        "total_failure": 4,
+        "total_success": 54
+      },
+      "2023-12": {
+        "average": 1.62,
+        "average_failure": 0.28,
+        "average_startup_failure": 0.05,
+        "average_success": 1.28,
+        "total": 34,
+        "total_failure": 6,
+        "total_startup_failure": 1,
+        "total_success": 27
+      },
+      "2024-01": {
+        "average": 1.9100000000000001,
+        "average_failure": 0.39,
+        "average_success": 1.52,
+        "total": 44,
+        "total_failure": 9,
+        "total_success": 35
+      },
+      "2024-02": {
+        "average": 1.47,
+        "average_failure": 0.28,
+        "average_success": 1.19,
+        "total": 31,
+        "total_failure": 6,
         "total_success": 25
       },
       "2024-03": {
-        "average": 0.48,
-        "average_success": 0.48,
-        "total": 10,
-        "total_success": 10
+        "average": 2.4299999999999997,
+        "average_failure": 0.33,
+        "average_success": 2.1,
+        "total": 51,
+        "total_failure": 7,
+        "total_success": 44
       },
       "2024-04": {
-        "average": 0.59,
-        "average_success": 0.59,
-        "total": 13,
-        "total_success": 13
+        "average": 1.55,
+        "average_cancelled": 0.05,
+        "average_failure": 0.18,
+        "average_success": 1.32,
+        "total": 34,
+        "total_cancelled": 1,
+        "total_failure": 4,
+        "total_success": 29
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.30000000000000004,
+        "average_success": 0.30000000000000004,
+        "total": 7,
+        "total_success": 7
+      }
+    },
+    "opg-webops": {
+      "2023-11": {
+        "average": 30.01,
+        "average_cancelled": 0.14,
+        "average_failure": 0.42000000000000004,
+        "average_success": 29.470000000000002,
+        "total": 659,
+        "total_cancelled": 3,
+        "total_failure": 9,
+        "total_success": 647
+      },
+      "2023-12": {
+        "average": 21.639999999999993,
+        "average_failure": 0.38,
+        "average_startup_failure": 0.1,
+        "average_success": 21.16999999999999,
+        "total": 454,
+        "total_failure": 8,
+        "total_startup_failure": 2,
+        "total_success": 444
+      },
+      "2024-01": {
+        "average": 25.920000000000005,
+        "average_cancelled": 0.04,
+        "average_failure": 0.73,
+        "average_startup_failure": 0.04,
+        "average_success": 25.110000000000007,
+        "total": 597,
+        "total_cancelled": 1,
+        "total_failure": 17,
+        "total_startup_failure": 1,
+        "total_success": 578
+      },
+      "2024-02": {
+        "average": 25.199999999999992,
+        "average_failure": 0.68,
+        "average_startup_failure": 0.05,
+        "average_success": 24.479999999999993,
+        "total": 529,
+        "total_failure": 14,
+        "total_startup_failure": 1,
+        "total_success": 514
+      },
+      "2024-03": {
+        "average": 28.38,
+        "average_failure": 0.6200000000000001,
+        "average_success": 27.769999999999996,
+        "total": 595,
+        "total_failure": 13,
+        "total_success": 582
+      },
+      "2024-04": {
+        "average": 27.360000000000003,
+        "average_cancelled": 0.05,
+        "average_failure": 0.51,
+        "average_success": 26.800000000000004,
+        "total": 601,
+        "total_cancelled": 1,
+        "total_failure": 11,
+        "total_success": 589
+      },
+      "2024-05": {
+        "average": 2.67,
+        "average_success": 2.67,
+        "total": 62,
+        "total_success": 62
+      }
+    },
+    "opg_integrations": {
+      "2023-11": {
+        "average": 0.37,
+        "average_success": 0.37,
+        "total": 8,
+        "total_success": 8
+      },
+      "2023-12": {
+        "average": 0.1,
+        "average_success": 0.1,
+        "total": 2,
+        "total_success": 2
+      },
+      "2024-01": {
+        "average": 0.3,
+        "average_success": 0.3,
+        "total": 7,
+        "total_success": 7
+      },
+      "2024-02": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-03": {
+        "average": 0.15000000000000002,
+        "average_success": 0.15000000000000002,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-04": {
+        "average": 0.23,
+        "average_success": 0.23,
+        "total": 5,
+        "total_success": 5
+      },
+      "2024-05": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      }
+    },
+    "serve-opg": {
+      "2023-11": {
+        "average": 0.18,
+        "average_success": 0.18,
+        "total": 4,
+        "total_success": 4
+      },
+      "2023-12": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-01": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      },
+      "2024-02": {
+        "average": 0.24,
+        "average_failure": 0.1,
+        "average_success": 0.14,
+        "total": 5,
+        "total_failure": 2,
+        "total_success": 3
+      },
+      "2024-03": {
+        "average": 0.0,
+        "total": 0
+      },
+      "2024-04": {
+        "average": 1.14,
+        "average_failure": 0.09,
+        "average_success": 1.05,
+        "total": 25,
+        "total_failure": 2,
+        "total_success": 23
+      },
+      "2024-05": {
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
+      }
+    },
+    "sirius": {
+      "2023-11": {
+        "average": 15.139999999999999,
+        "average_success": 15.139999999999999,
+        "total": 333,
+        "total_success": 333
+      },
+      "2023-12": {
+        "average": 9.909999999999998,
+        "average_success": 9.909999999999998,
+        "total": 208,
+        "total_success": 208
+      },
+      "2024-01": {
+        "average": 12.549999999999999,
+        "average_success": 12.549999999999999,
+        "total": 289,
+        "total_success": 289
+      },
+      "2024-02": {
+        "average": 10.67,
+        "average_success": 10.67,
+        "total": 224,
+        "total_success": 224
+      },
+      "2024-03": {
+        "average": 14.489999999999998,
+        "average_success": 14.489999999999998,
+        "total": 304,
+        "total_success": 304
+      },
+      "2024-04": {
+        "average": 16.04,
+        "average_success": 16.04,
+        "total": 353,
+        "total_success": 353
+      },
+      "2024-05": {
+        "average": 1.03,
+        "average_success": 1.03,
+        "total": 24,
+        "total_success": 24
       }
     }
   },
@@ -226,20 +4578,17 @@
         "end": "2024-05-03",
         "start": "2023-11-01"
       },
-      "org_team": null,
-      "repo_branch_workflow": [
-        {
-          "branch": "main",
-          "repo": "ministryofjustice/opg-digideps",
-          "workflow": " live$"
-        }
-      ],
+      "org_team": {
+        "org": "ministryofjustice",
+        "team": "opg"
+      },
+      "repo_branch_workflow": null,
       "team_parent": "opg"
     },
     "execution_time": {
-      "duration": "20 seconds",
-      "end": "2024-05-03T13:02:54.340590+00:00",
-      "start": "2024-05-03T13:02:33.920168+00:00"
+      "duration": "29 minutes 26 seconds",
+      "end": "2024-05-03T14:09:32.272296+00:00",
+      "start": "2024-05-03T13:40:05.824362+00:00"
     },
     "months": [
       "2023-11",
@@ -251,11 +4600,130 @@
       "2024-05"
     ],
     "repositories": [
-      "ministryofjustice/opg-digideps"
+      "ministryofjustice/date-utils",
+      "ministryofjustice/digideps-infrastructure",
+      "ministryofjustice/homebrew-opg",
+      "ministryofjustice/opg-academy",
+      "ministryofjustice/opg-academy-infrastructure",
+      "ministryofjustice/opg-alchemy",
+      "ministryofjustice/opg-aws-config-service",
+      "ministryofjustice/opg-aws-cost-notifier",
+      "ministryofjustice/opg-aws-health-notifier",
+      "ministryofjustice/opg-aws-key-rotation-scheduler-app",
+      "ministryofjustice/opg-aws-reporting",
+      "ministryofjustice/opg-aws-sandbox",
+      "ministryofjustice/opg-aws-secret-sync",
+      "ministryofjustice/opg-aws-whitepaper",
+      "ministryofjustice/opg-behat-test-statistics",
+      "ministryofjustice/opg-circleci-orbs",
+      "ministryofjustice/opg-data",
+      "ministryofjustice/opg-data-casrec-migration",
+      "ministryofjustice/opg-data-casrec-migration-mappings",
+      "ministryofjustice/opg-data-deputy-reporting",
+      "ministryofjustice/opg-data-dictionary",
+      "ministryofjustice/opg-data-lpa",
+      "ministryofjustice/opg-data-lpa-codes",
+      "ministryofjustice/opg-data-lpa-instructions-preferences",
+      "ministryofjustice/opg-data-lpa-store",
+      "ministryofjustice/opg-data-lpa-uid",
+      "ministryofjustice/opg-digideps",
+      "ministryofjustice/opg-digideps-prototype-v2",
+      "ministryofjustice/opg-dockerise-go",
+      "ministryofjustice/opg-doctrine-migration-version-checker",
+      "ministryofjustice/opg-dora-metrics",
+      "ministryofjustice/opg-ecs-helper",
+      "ministryofjustice/opg-etl-test",
+      "ministryofjustice/opg-event-store",
+      "ministryofjustice/opg-feedback",
+      "ministryofjustice/opg-file-service",
+      "ministryofjustice/opg-flask-apps",
+      "ministryofjustice/opg-github-actions",
+      "ministryofjustice/opg-github-workflows",
+      "ministryofjustice/opg-gitlab-infrastructure",
+      "ministryofjustice/opg-go-common",
+      "ministryofjustice/opg-go-healthcheck",
+      "ministryofjustice/opg-heroku-redirect",
+      "ministryofjustice/opg-incident-response",
+      "ministryofjustice/opg-infra-costs",
+      "ministryofjustice/opg-infra-costs-action",
+      "ministryofjustice/opg-jenkins",
+      "ministryofjustice/opg-lpa",
+      "ministryofjustice/opg-lpa-api",
+      "ministryofjustice/opg-lpa-datamodels",
+      "ministryofjustice/opg-lpa-prototype-v2",
+      "ministryofjustice/opg-maintenance",
+      "ministryofjustice/opg-metadata",
+      "ministryofjustice/opg-metrics",
+      "ministryofjustice/opg-mock-onelogin",
+      "ministryofjustice/opg-modernising-lpa",
+      "ministryofjustice/opg-modernising-lpa-docs",
+      "ministryofjustice/opg-notify-queue-consumer",
+      "ministryofjustice/opg-notify-status-poller",
+      "ministryofjustice/opg-org-infra",
+      "ministryofjustice/opg-packer-jenkins",
+      "ministryofjustice/opg-pact-broker",
+      "ministryofjustice/opg-paper-identity",
+      "ministryofjustice/opg-pdf-service",
+      "ministryofjustice/opg-performance-analytics",
+      "ministryofjustice/opg-performance-data",
+      "ministryofjustice/opg-php-fpm-stats-exporter",
+      "ministryofjustice/opg-phpunit-memory-usage",
+      "ministryofjustice/opg-pods-hackday",
+      "ministryofjustice/opg-pre-commit-hooks",
+      "ministryofjustice/opg-publish-ecr-scan-results-to-slack",
+      "ministryofjustice/opg-refunds",
+      "ministryofjustice/opg-repository-reporting",
+      "ministryofjustice/opg-repository-scanner",
+      "ministryofjustice/opg-repository-scanner-amalgamation",
+      "ministryofjustice/opg-s3-antivirus",
+      "ministryofjustice/opg-search-service",
+      "ministryofjustice/opg-shared-infrastructure",
+      "ministryofjustice/opg-sirius",
+      "ministryofjustice/opg-sirius-api-gateway",
+      "ministryofjustice/opg-sirius-data-sync",
+      "ministryofjustice/opg-sirius-docs",
+      "ministryofjustice/opg-sirius-end-to-end-tests",
+      "ministryofjustice/opg-sirius-failover",
+      "ministryofjustice/opg-sirius-header",
+      "ministryofjustice/opg-sirius-infrastructure",
+      "ministryofjustice/opg-sirius-lpa-dashboard",
+      "ministryofjustice/opg-sirius-lpa-frontend",
+      "ministryofjustice/opg-sirius-maintenance",
+      "ministryofjustice/opg-sirius-membrane",
+      "ministryofjustice/opg-sirius-prototypes",
+      "ministryofjustice/opg-sirius-search-ui",
+      "ministryofjustice/opg-sirius-supervision-deputy-hub",
+      "ministryofjustice/opg-sirius-supervision-finance-hub",
+      "ministryofjustice/opg-sirius-supervision-firm-deputy-hub",
+      "ministryofjustice/opg-sirius-supervision-pro-deputy-hub",
+      "ministryofjustice/opg-sirius-supervision-workflow",
+      "ministryofjustice/opg-sirius-user-management",
+      "ministryofjustice/opg-technical-guidance",
+      "ministryofjustice/opg-template-repository",
+      "ministryofjustice/opg-terraform-aws-account",
+      "ministryofjustice/opg-terraform-aws-firewalled-network",
+      "ministryofjustice/opg-terraform-aws-moj-ip-allow-list",
+      "ministryofjustice/opg-terraform-aws-network",
+      "ministryofjustice/opg-terraform-github-repository",
+      "ministryofjustice/opg-terraform-workspace-manager",
+      "ministryofjustice/opg-use-an-lpa",
+      "ministryofjustice/opg-weblate",
+      "ministryofjustice/opg-weblate-demo-translation-project",
+      "ministryofjustice/serve-opg",
+      "ministryofjustice/serve-opg-infrastructure"
     ],
     "teams": [
+      "opg-admin",
       "opg-webops",
-      "digideps"
+      "sirius",
+      "digideps",
+      "serve-opg",
+      "opg_integrations",
+      "opg-use-a-lpa-team",
+      "opg-lpa-team",
+      "opg-metrics-team",
+      "opg-modernising-lpa-team",
+      "opg-refund"
     ],
     "weekdays": {
       "2023-11": 22,
