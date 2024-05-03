@@ -1,10 +1,6 @@
-name: "[Python] Run repository reports"
+name: "[Deprecated] Reports"
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   schedule:
     - cron: '0 12 * * 1,4'
   workflow_dispatch:
@@ -14,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        report: ["releases", "software_packages", "stats", "team_metadata"]
+        report: ["software_packages", "stats", "team_metadata"]
     steps:
     - name: Checkout reporting repo
       uses: actions/checkout@v2

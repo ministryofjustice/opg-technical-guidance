@@ -11,9 +11,14 @@ on:
   workflow_dispatch:
 
 jobs:
+    
     build_and_publish:
+      name: Build and Publish
       runs-on: ubuntu-latest
       steps:
+      ############ 
+      # Deprecated reports
+      ############ 
       - name: checkout
         uses: actions/checkout@v2
       - name: Create artifact directory
@@ -22,7 +27,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2.14.0
         continue-on-error: true
         with:
-          workflow: python-reports.yml
+          workflow: deprecated-reports.yml
           workflow_conclusion: success
           branch: main
           path: ./artifacts/
@@ -38,12 +43,16 @@ jobs:
             ls -lart ./artifacts/${REPORT}*
             if [ -f ./artifacts/${REPORT}/report.html.md.erb ]; then
               echo "  [${REPORT}] Artifact found"
-              mv ./artifacts/${REPORT}/report.html.md.erb ./source/documentation/reports/${REPORT}.html.md.erb;
+              mv ./artifacts/${REPORT}/report.html.md.erb ./source/documentation/deprecated-reports/${REPORT}.html.md.erb;
             fi
-            ls -lart ./source/documentation/reports/*
+            ls -lart ./source/documentation/deprecated-reports/*
             echo "---"
           done
-          
+      ############
+
+      ############
+      # Build
+      ############
       - name: Build
         run: make build
       - run: echo "${GITHUB_SHA}" > docs/version.txt
