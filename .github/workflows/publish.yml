@@ -92,9 +92,8 @@ jobs:
       # Build
       ############
       - name: Build
-        if: github.ref == 'refs/heads/main'
         run: |
-          git checkout gh-pages
+          git checkout -f gh-pages
           make build
           echo "${GITHUB_SHA}" > docs/version.txt
           cd docs && echo 'docs.opg.service.justice.gov.uk' >CNAME
@@ -103,4 +102,7 @@ jobs:
           git add docs
           git status
           git commit -m "Published at $(date)"
+      - name: Push
+        if: github.ref == 'refs/heads/main'
+        run: |
           git push origin gh-pages --force
