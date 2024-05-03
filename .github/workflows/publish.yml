@@ -57,6 +57,7 @@ jobs:
             ls -lart ./source/documentation/deprecated-reports/*
             echo "---"
           done
+          rm -Rf ${{ env.location }}
       ############
       # New Reports
       ############
