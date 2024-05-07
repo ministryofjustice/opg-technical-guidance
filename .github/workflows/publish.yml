@@ -26,14 +26,14 @@ jobs:
       ############
       # Reports
       ############
-      - name: "Releases"
+      - name: "[Report] Releases"
         uses: './.github/actions/artifact-download'
         with:
           artifact_name: 'releases'
           workflow_name: 'reports-releases.yml'
           download_to: ${{ github.workspace }}/_reports_releases
           move_to: ${{ github.workspace }}/source/documentation/reports
-      - name: "Repository Standards"
+      - name: "[Report] Repository Standards"
         uses: './.github/actions/artifact-download'
         with:
           artifact_name: 'repository-standards'
@@ -55,16 +55,13 @@ jobs:
         run: |
           git merge origin/main --commit --no-edit
       - name: "Build"
-        if: always()
         run: make build
       - name: "Add version and CNAME file"
-        if: always()
         run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
           git status
       - name: "Git commit"
-        if: always()
         run: |
           git add .
           git status
