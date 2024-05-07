@@ -22,3 +22,4 @@ jobs:
           args: --org-team="ministryofjustice:opg"
           output: outputs/github_repository_standards
           workingdir: ${{ github.workspace }}/_reports_repository_standards
+          token: ${{ secrets.ORG_ACCESS_TOKEN }}
