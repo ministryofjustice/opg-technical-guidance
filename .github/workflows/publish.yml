@@ -50,12 +50,13 @@ jobs:
       - name: Git checkout gh-pages
         run: | 
           git stash
-          git checkout -f gh-pages          
-          git stash apply
+          git checkout -f gh-pages                    
           git status
       - name: "Merge main (can trigger errors)"
         run: |
           git merge origin/main --commit --no-edit
+          git stash apply
+          git status
       - name: "Build"
         run: make build
       - name: "Add version and CNAME file"
