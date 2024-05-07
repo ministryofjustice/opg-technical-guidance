@@ -16,24 +16,24 @@ jobs:
             script: github_deployment_frequency.py
             args: --duration=6 --org-team="ministryofjustice:opg"
             output: outputs/github_deployment_frequency
-            workingdir: ${{ github.workspace }}/_reports_releases
+            workingdir: _reports_releases
     steps:
     ## always the same for each part
     - uses: actions/checkout@v4
       with:
         repository: ministryofjustice/opg-dora-metrics
-        path: ${{ matrix.workingdir }}
+        path: ${{ github.workspace }}/${{ matrix.workingdir }}
     - uses: actions/setup-python@v5
       with:
         python-version: '3.12'
         cache: 'pip'
     - name: Install dependencies
-      working-directory: ${{ matrix.workingdir }}
+      working-directory: ${{ github.workspace }}/${{ matrix.workingdir }}
       run: |
         pip install -r requirements.txt
     ## Vary by strat
     - name: "[${{ matrix.name }}] Generate report"
-      working-directory: ${{ matrix.workingdir }}
+      working-directory: ${{ github.workspace }}/${{ matrix.workingdir }}
       env:      
         GITHUB_ACCESS_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
         LOG_LEVEL: ${{ runner.debug == '1' && 'DEBUG' || 'INFO' }}
@@ -50,4 +50,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.name }}
-        path: ${{ matrix.workingdir }}/${{ matrix.output }}/
+        path: ${{ github.workspace }}/${{ matrix.workingdir }}/${{ matrix.output }}/
