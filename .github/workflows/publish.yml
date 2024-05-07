@@ -60,19 +60,19 @@ jobs:
       ############
       - name: Artifact directory
         env:
-          LOCATION: ${{ github.workspace }}/_reports
+          LOCATION: ${{ github.workspace }}/_reports_releases
         run: mkdir -p ${{ env.LOCATION }}
       - name: Download artifacts
         uses: dawidd6/action-download-artifact@v3
         continue-on-error: true
         with:
-          workflow: reports.yml
+          workflow: reports-releases.yml
           workflow_conclusion: success
           branch: main
-          path: ${{ github.workspace }}/_reports
+          path: ${{ github.workspace }}/_reports_releases
       - name: Add new reports
         env:
-          ORIGIN: ${{ github.workspace }}/_reports
+          ORIGIN: ${{ github.workspace }}/_reports_releases
           DESTINATION: ${{ github.workspace }}/source/documentation/reports
           REPORTS: "releases"
         run: |
