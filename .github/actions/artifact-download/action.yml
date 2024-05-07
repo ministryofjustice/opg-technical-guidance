@@ -24,7 +24,7 @@ runs:
       uses: dawidd6/action-download-artifact@v3
       continue-on-error: true
       with:
-        workflow: ${{ inputs.workflow_name }}.yml
+        workflow: ${{ inputs.workflow_name }}
         workflow_conclusion: success
         branch: main
         path: ${{ inputs.download_to }}
