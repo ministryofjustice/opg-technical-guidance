@@ -1,0 +1,24 @@
+name: "[Reports] Repository Standards Compliance"
+
+on:
+  schedule:
+    - cron: '0 17 * * 6'
+  workflow_dispatch:
+  
+jobs:
+  report:
+    name: "Repository standards"
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: "Repository standards"
+        uses: './.github/actions/generate-report' 
+        with:
+          name: repository-standards
+          script: github_repository_standards.py
+          args: --org-team="ministryofjustice:opg"
+          output: outputs/github_repository_standards
+          workingdir: ${{ github.workspace }}/_reports_repository_standards

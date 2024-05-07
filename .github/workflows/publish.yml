@@ -46,7 +46,7 @@ jobs:
         env:
           location: ${{ github.workspace }}/_deprecated
         run: |
-          for REPORT in software_packages stats team_metadata
+          for REPORT in software_packages team_metadata
           do
             echo "Moving report: ${REPORT}"
             ls -lart ${{ env.location }}/${REPORT}*
@@ -67,6 +67,13 @@ jobs:
           artifact_name: 'releases'
           workflow_name: 'reports-releases.yml'
           download_to: ${{ github.workspace }}/_reports_releases
+          move_to: ${{ github.workspace }}/source/documentation/reports
+      - name: "Repository Standards"
+        uses: './.github/actions/artifact-download'
+        with:
+          artifact_name: 'repository-standards'
+          workflow_name: 'reports-repository-standards.yml'
+          download_to: ${{ github.workspace }}/_reports_repository_standards
           move_to: ${{ github.workspace }}/source/documentation/reports
       ############
       # Build
