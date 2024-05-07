@@ -53,7 +53,7 @@ jobs:
           git checkout -f gh-pages          
       - name: "Merge main (can trigger errors)"
         run: |
-          git merge origin/main --commit --no-edit --squash
+          git merge origin/main --commit --no-edit
       - name: "Build"
         if: always()
         run: make build
