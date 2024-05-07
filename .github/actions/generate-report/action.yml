@@ -1,0 +1,56 @@
+name: "Run a specified report"
+description: "Run a report (from opg-dora-metrics repo) and upload the artifact at the end to the workflow"
+
+inputs:
+  name:
+    description: "Report name and name that will be used for the artifact"
+  script:
+    description: "Filepath of the python script to run"
+  args:
+    description: "Arguments to pass into the python script"
+  output:
+    description: "Directory to place the generated reports"
+  workingdir:
+    description: "Working directory to use"
+
+runs:
+  using: "composite"
+  steps:
+    
+    - uses: actions/checkout@v4
+      with:
+        repository: ministryofjustice/opg-dora-metrics
+        path: ${{ inputs.workingdir }}
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+    - name: Install dependencies
+      shell: bash
+      working-directory: ${{ inputs.workingdir }}
+      run: |
+        pip install -r requirements.txt
+
+    - name: "[${{ inputs.name }}] Generate report"
+      shell: bash
+      working-directory: ${{ inputs.workingdir }}
+      env:      
+        GITHUB_ACCESS_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
+        LOG_LEVEL: ${{ runner.debug == '1' && 'DEBUG' || 'INFO' }}
+        SCRIPT: ${{ inputs.script }}
+        ARGS: ${{ inputs.args }}
+      run: |
+        python ./${{ env.SCRIPT }} ${{ env.ARGS }}
+        ls -lart ${{ inputs.output }}
+    ## check out self to reset the config, but into a sub dir
+    - uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository }}
+        path: opg_technical_guidance
+    - name: "[${{ inputs.name }}] Upload artifact"
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.name }}
+        path: ${{ inputs.workingdir }}/${{ inputs.output }}/
+
+      
