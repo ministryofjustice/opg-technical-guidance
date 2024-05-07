@@ -81,7 +81,7 @@ jobs:
           make build
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
-          git add docs
+          git add .
           git status
           git commit -m "Published at $(date)"
       - name: Push
