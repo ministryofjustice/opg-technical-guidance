@@ -77,7 +77,7 @@ jobs:
           git config --global user.name "Github Action"
           
           git checkout -f gh-pages
-          git merge main --commit --no-edit
+          git merge origin/main --commit --no-edit
           make build
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
