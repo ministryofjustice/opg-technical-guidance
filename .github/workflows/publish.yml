@@ -19,7 +19,7 @@ jobs:
       name: Build and Publish
       runs-on: ubuntu-latest
       steps:
-      - name: checkout
+      - name: "Checkout"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -51,10 +51,11 @@ jobs:
         run: |
           git status
           git checkout -f gh-pages          
-      - name: "Merge main (swallow errors)"
+      - name: "Merge main (can trigger errors)"
         run: |
-          git merge origin/main --commit --no-edit --squash 2>/dev/null
+          git merge origin/main --commit --no-edit --squash
       - name: "Build"
+        if: always()
         run: make build
       - name: "Add version and CNAME file"
         run: |
