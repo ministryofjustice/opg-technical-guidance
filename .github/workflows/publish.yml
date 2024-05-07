@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
       ############
-      # New Reports
+      # Reports
       ############
       - name: "Releases"
         uses: './.github/actions/artifact-download'
@@ -41,22 +41,32 @@ jobs:
           download_to: ${{ github.workspace }}/_reports_repository_standards
           move_to: ${{ github.workspace }}/source/documentation/reports
       ############
-      # Build
+      # Build steps
       ############
-      - name: Build
+      - name: "Git config"
         run: |
           git config --global user.email "tools@digital.justice.gov.uk"
           git config --global user.name "Github Action"
-          
-          git checkout -f gh-pages
-          git merge origin/main --commit --no-edit
-          make build
+      - name: Git checkout gh-pages
+        run: |
+          git status
+          git checkout -f gh-pages          
+      - name: "Merge main (swallow errors)"
+        run: |
+          git merge origin/main --commit --no-edit --squash 2>/dev/null
+      - name: "Build"
+        run: make build
+      - name: "Add version and CNAME file"
+        run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
+          git status
+      - name: "Git commit"
+        run: |
           git add .
           git status
-          git commit -m "Published at $(date)"
-      - name: Push
+          git commit --allow-empty -m "Published at $(date)"        
+      - name: "Push"
         if: github.ref == 'refs/heads/main'
         run: |
           git push origin gh-pages --force
