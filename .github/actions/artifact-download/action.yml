@@ -1,0 +1,44 @@
+name: "Download artifacts"
+description: "Download an artifact from a named, successful workflow to a set location and extract it"
+
+inputs:
+  artifact_name:
+    description: "Name of the artifact to download"
+  workflow_name:
+    description: "Name of the workflow to get the artifact from"
+  download_to:
+    description: "Folder path to download the artifacts into"
+  move_to:
+    description: "Move the downloaded artifact to this location"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "[${{ inputs.artifact_name }}] Create target directory"
+      env:
+        target_directory: ${{ inputs.download_to }}
+      shell: bash
+      run: |
+        mkdir -p ${{ env.target_directory }}
+    - name: "[${{ inputs.artifact_name }}] Download artifact"
+      uses: dawidd6/action-download-artifact@v3
+      continue-on-error: true
+      with:
+        workflow: ${{ inputs.workflow_name }}.yml
+        workflow_conclusion: success
+        branch: main
+        path: ${{ inputs.download_to }}
+    - name: "[${{ inputs.artifact_name }}] Move to new location"
+      shell: bash
+      env:
+        ORIGIN: ${{ inputs.download_to }}
+        DESTINATION: ${{ inputs.move_to }}
+        ARTIFACT: ${{ inputs.artifact_name }}
+      run: |
+        echo -e "Origin files: "
+        ls -lart ${{ env.origin }}/
+        mv ${{ env.ORIGIN }}/${ARTIFACT} ${{ env.DESTINATION }}/
+        echo "Destination:"
+          ls -lart ${{ env.DESTINATION }}/*
+
+      

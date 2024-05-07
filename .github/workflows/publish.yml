@@ -1,6 +1,9 @@
 name: Publish Docs
 
 on:
+  pull_request:
+    branches:
+      - "main"
   push:
     branches:
       - "main"
@@ -58,34 +61,13 @@ jobs:
       ############
       # New Reports
       ############
-      - name: Artifact directory
-        env:
-          LOCATION: ${{ github.workspace }}/_reports_releases
-        run: mkdir -p ${{ env.LOCATION }}
-      - name: Download artifacts
-        uses: dawidd6/action-download-artifact@v3
-        continue-on-error: true
+      - name: "Releases"
+        uses: './.github/actions/artifact-download'
         with:
-          workflow: reports-releases.yml
-          workflow_conclusion: success
-          branch: main
-          path: ${{ github.workspace }}/_reports_releases
-      - name: Add new reports
-        env:
-          ORIGIN: ${{ github.workspace }}/_reports_releases
-          DESTINATION: ${{ github.workspace }}/source/documentation/reports
-          REPORTS: "releases"
-        run: |
-          echo "Source:"
-          ls -lart ${{ env.ORIGIN }}/
-          for REPORT in ${{ env.REPORTS }}
-          do
-            echo "Report: ${REPORT}"
-            mv ${{ env.ORIGIN }}/${REPORT} ${{ env.DESTINATION }}/
-          done
-          echo "Destination:"
-          ls -lart ${{ env.DESTINATION }}/*
-
+          artifact_name: 'releases'
+          workflow_name: 'reports-releases.yml'
+          download_to: ${{ github.workspace }}/_reports_releases
+          move_to: ${{ github.workspace }}/source/documentation/reports
       ############
       # Build
       ############
