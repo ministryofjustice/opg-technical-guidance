@@ -48,9 +48,11 @@ jobs:
           git config --global user.email "tools@digital.justice.gov.uk"
           git config --global user.name "Github Action"
       - name: Git checkout gh-pages
-        run: |
-          git status
+        run: | 
+          git stash
           git checkout -f gh-pages          
+          git stash apply
+          git status
       - name: "Merge main (can trigger errors)"
         run: |
           git merge origin/main --commit --no-edit
