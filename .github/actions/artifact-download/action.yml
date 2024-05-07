@@ -36,9 +36,9 @@ runs:
         ARTIFACT: ${{ inputs.artifact_name }}
       run: |
         echo -e "Origin files: "
-        ls -lart ${{ env.origin }}/
+        ls -lart ${{ env.ORIGIN }}/
         mv ${{ env.ORIGIN }}/${ARTIFACT} ${{ env.DESTINATION }}/
         echo "Destination:"
-          ls -lart ${{ env.DESTINATION }}/*
+        ls -lart ${{ env.DESTINATION }}/*
 
       
