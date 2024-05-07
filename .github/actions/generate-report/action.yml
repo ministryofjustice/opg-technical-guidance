@@ -12,11 +12,13 @@ inputs:
     description: "Directory to place the generated reports"
   workingdir:
     description: "Working directory to use"
-
+  token:
+    description: "Github token"
+    
 runs:
   using: "composite"
   steps:
-    
+
     - uses: actions/checkout@v4
       with:
         repository: ministryofjustice/opg-dora-metrics
@@ -35,7 +37,7 @@ runs:
       shell: bash
       working-directory: ${{ inputs.workingdir }}
       env:      
-        GITHUB_ACCESS_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
+        GITHUB_ACCESS_TOKEN: ${{ inputs.token }}
         LOG_LEVEL: ${{ runner.debug == '1' && 'DEBUG' || 'INFO' }}
         SCRIPT: ${{ inputs.script }}
         ARGS: ${{ inputs.args }}

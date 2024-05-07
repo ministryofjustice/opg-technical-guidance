@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
+
       - name: "[PR] Releases"
         if: github.ref != 'refs/heads/main'
         uses: './.github/actions/generate-report' 
@@ -27,6 +27,7 @@ jobs:
           args: '--duration=6 --repo-branch-workflow="ministryofjustice/opg-digideps:main: live$"'
           output: outputs/github_deployment_frequency
           workingdir: ${{ github.workspace }}/_reports_releases
+          token: ${{ secrets.ORG_ACCESS_TOKEN }}
       
       - name: "[Main] Releases"
         if: github.ref == 'refs/heads/main'
@@ -37,4 +38,5 @@ jobs:
           args: --duration=6 --org-team="ministryofjustice:opg"
           output: outputs/github_deployment_frequency
           workingdir: ${{ github.workspace }}/_reports_releases
+          token: ${{ secrets.ORG_ACCESS_TOKEN }}
 
