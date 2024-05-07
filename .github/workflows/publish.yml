@@ -23,41 +23,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      ############ 
-      # Deprecated reports
-      ############ 
-      - name: Create artifact directory
-        env:
-          location: ${{ github.workspace }}/_deprecated
-        run: mkdir -p ${{ env.location }}
-      - name: Download python report artifacts
-        uses: dawidd6/action-download-artifact@v3
-        continue-on-error: true
-        with:
-          workflow: deprecated-reports.yml
-          workflow_conclusion: success
-          branch: main
-          path: ${{ github.workspace }}/_deprecated
-      - name: "List artifacts"
-        env:
-          location: ${{ github.workspace }}/_deprecated
-        run: ls -lart ${{ env.location }}/*
-      - name: Move report artifacts
-        env:
-          location: ${{ github.workspace }}/_deprecated
-        run: |
-          for REPORT in software_packages team_metadata
-          do
-            echo "Moving report: ${REPORT}"
-            ls -lart ${{ env.location }}/${REPORT}*
-            if [ -f ${{ env.location }}/${REPORT}/report.html.md.erb ]; then
-              echo "  [${REPORT}] Artifact found"
-              mv ${{ env.location }}/${REPORT}/report.html.md.erb ./source/documentation/deprecated-reports/${REPORT}.html.md.erb;
-            fi
-            ls -lart ./source/documentation/deprecated-reports/*
-            echo "---"
-          done
-          rm -Rf ${{ env.location }}
       ############
       # New Reports
       ############
