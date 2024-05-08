@@ -1,0 +1,32 @@
+name: "[Reports] Daily Service Uptime"
+
+on:
+  pull_request:
+    branches: 
+      - "main"
+  schedule:
+    - cron: '0 17 * * 6'
+  workflow_dispatch:
+  
+jobs:
+  report:
+    name: "Daily service uptime"
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: "[Sirius] Daily service uptime"
+        uses: './.github/actions/generate-report' 
+        with:
+          name: daily-uptime
+          script: service_uptime_daily.py
+          args: "--service=Sirius --role=arn:aws:iam::288342028542:role/cloudwatch-reporting-ci"
+          output: outputs/service_uptime_daily
+          workingdir: ${{ github.workspace }}/_reports_service_uptime_daily
+          token: ${{ secrets.ORG_ACCESS_TOKEN }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_ACTIONS }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ACTIONS }}
+          aws_region: "eu-west-1"
+
