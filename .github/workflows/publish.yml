@@ -54,7 +54,8 @@ jobs:
       - name: "Checkout to gh-pages and move built files back"
         run: |
           git checkout -f gh-pages
-          rm -Rf ./docs
+          rm -Rf ./source/
+          rm -Rf ./docs          
           mv ../docs ./
       - name: "Add version and CNAME file"
         run: |
@@ -63,7 +64,7 @@ jobs:
           git status
       - name: "Git commit"
         run: |
-          git add .
+          git add ./docs
           git status
           git commit --allow-empty -m "Published at $(date)"        
       - name: "Push"
