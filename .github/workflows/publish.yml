@@ -19,21 +19,21 @@ jobs:
       name: Build and Publish
       runs-on: ubuntu-latest
       steps:
-      - name: checkout
+      - name: "Checkout"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
       ############
-      # New Reports
+      # Reports
       ############
-      - name: "Releases"
+      - name: "[Report] Releases"
         uses: './.github/actions/artifact-download'
         with:
           artifact_name: 'releases'
           workflow_name: 'reports-releases.yml'
           download_to: ${{ github.workspace }}/_reports_releases
           move_to: ${{ github.workspace }}/source/documentation/reports
-      - name: "Repository Standards"
+      - name: "[Report] Repository Standards"
         uses: './.github/actions/artifact-download'
         with:
           artifact_name: 'repository-standards'
@@ -41,22 +41,33 @@ jobs:
           download_to: ${{ github.workspace }}/_reports_repository_standards
           move_to: ${{ github.workspace }}/source/documentation/reports
       ############
-      # Build
+      # Build steps
       ############
-      - name: Build
+      - name: "Git config"
         run: |
           git config --global user.email "tools@digital.justice.gov.uk"
           git config --global user.name "Github Action"
-          
-          git checkout -f gh-pages
-          git merge origin/main --commit --no-edit
+      - name: "Build and move output"
+        run: |
           make build
+          mv ./docs ../
+      - name: "Checkout to gh-pages and move built files back"
+        run: |
+          git checkout -f gh-pages
+          rm -Rf ./source/
+          rm -Rf ./docs          
+          mv ../docs ./
+      - name: "Add version and CNAME file"
+        run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
-          git add .
           git status
-          git commit -m "Published at $(date)"
-      - name: Push
+      - name: "Git commit"
+        run: |
+          git add ./docs
+          git status
+          git commit --allow-empty -m "Published at $(date)"        
+      - name: "Push"
         if: github.ref == 'refs/heads/main'
         run: |
           git push origin gh-pages --force
