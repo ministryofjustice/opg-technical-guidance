@@ -14,7 +14,14 @@ inputs:
     description: "Working directory to use"
   token:
     description: "Github token"
-    
+  # aws perms
+  aws_access_key_id:
+    description: "AWS access key id"
+  aws_secret_access_key: 
+    description: "AWS_SECRET_ACCESS_KEY"
+  aws_region:
+    description: "region"
+  
 runs:
   using: "composite"
   steps:
@@ -32,7 +39,14 @@ runs:
       working-directory: ${{ inputs.workingdir }}
       run: |
         pip install -r requirements.txt
-
+    - name: Configure AWS Credentials
+      if: inputs.aws_access_key_id != ''
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ inputs.aws_access_key_id }}
+        aws-secret-access-key: ${{ inputs.aws_secret_access_key }}
+        aws-region: ${{ inputs.aws_region }}
+        role-session-name: GitHubActionsTechDocs    
     - name: "[${{ inputs.name }}] Generate report"
       shell: bash
       working-directory: ${{ inputs.workingdir }}

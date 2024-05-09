@@ -1,0 +1,55 @@
+name: "[Reports] Daily Service Uptime"
+
+on:
+  pull_request:
+    branches: 
+      - "main"
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+  
+jobs:
+  report:
+    name: "Daily service uptime"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: digideps
+          - name: make
+          - name: modernlpa
+          - name: serve
+          - name: sirius
+          - name: use          
+    steps:
+      - name: "[${{ matrix.name }}] Checkout"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: "[${{ matrix.name }}] Get account"
+        id: get_account
+        env:
+          acc_digideps: ${{ secrets.DIGIDEPS_ACCOUNT_ID }}
+          acc_make: ${{ secrets.MAKE_ACCOUNT_ID }}
+          acc_modernlpa: ${{ secrets.MODERN_LPA_ACCOUNT_ID }}
+          acc_serve: ${{ secrets.SERVE_ACCOUNT_ID }}
+          acc_sirius: ${{ secrets.SIRIUS_ACCOUNT_ID }}
+          acc_use: ${{ secrets.USE_ACCOUNT_ID }}
+          to_use: "acc_${{ matrix.name }}"
+        shell: bash
+        run: |
+          secret_value="${!to_use}"
+          echo -e "ACCOUNT=${secret_value}" >> $GITHUB_OUTPUT        
+      - name: "[${{ matrix.name }}] Daily service uptime"
+        uses: './.github/actions/generate-report' 
+        with:
+          name: "${{ matrix.name }}-daily-uptime"
+          script: service_uptime_daily.py
+          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ steps.get_account.outputs.ACCOUNT }}:role/${{ secrets.REPORTING_ROLE }}"
+          output: outputs/service_uptime_daily
+          workingdir: ${{ github.workspace }}/_reports_service_uptime_daily
+          token: ${{ secrets.ORG_ACCESS_TOKEN }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_ACTIONS }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ACTIONS }}
+          aws_region: "eu-west-1"
