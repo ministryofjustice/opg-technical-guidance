@@ -21,8 +21,7 @@ jobs:
           - name: modernlpa
           - name: serve
           - name: sirius
-          - name: use
-          
+          - name: use          
     steps:
       - name: "[${{ matrix.name }}] Checkout"
         uses: actions/checkout@v4
@@ -41,7 +40,7 @@ jobs:
         shell: bash
         run: |
           secret_value="${!to_use}"
-          echo -e "ACCOUNT=${secret_value}" >> GITHUB_OUTPUT        
+          echo -e "ACCOUNT=${secret_value}" >> $GITHUB_OUTPUT        
       - name: "[${{ matrix.name }}] Daily service uptime"
         uses: './.github/actions/generate-report' 
         with:
