@@ -5,28 +5,44 @@ on:
     branches: 
       - "main"
   schedule:
-    - cron: '0 17 * * 6'
+    - cron: '0 3 * * *'
   workflow_dispatch:
   
 jobs:
   report:
     name: "Daily service uptime"
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: digideps
+            account: 515688267891
+          - name: make
+            account: 980242665824
+          - name: modern-lpa
+            account: 313879017102
+          - name: serve
+            account: 933639921819
+          - name: sirius
+            account: 288342028542
+          - name: use
+            account: 888228022356
+          
     steps:
       - name: checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: "[Sirius] Daily service uptime"
+      - name: "[${{ matrix.name }}] Daily service uptime"
         uses: './.github/actions/generate-report' 
         with:
           name: daily-uptime
           script: service_uptime_daily.py
-          args: "--service=Sirius --role=arn:aws:iam::288342028542:role/cloudwatch-reporting-ci"
+          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ matrix.account }}:role/cloudwatch-reporting-ci"
           output: outputs/service_uptime_daily
           workingdir: ${{ github.workspace }}/_reports_service_uptime_daily
           token: ${{ secrets.ORG_ACCESS_TOKEN }}
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_ACTIONS }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ACTIONS }}
           aws_region: "eu-west-1"
-
