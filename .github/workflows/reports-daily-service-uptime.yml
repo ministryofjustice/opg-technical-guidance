@@ -17,17 +17,17 @@ jobs:
       matrix:
         include:
           - name: digideps
-            account: 515688267891
+            account: ${{ secrets.digideps_account_id }}
           - name: make
-            account: 980242665824
+            account: ${{ secrets.make_account_id }}
           - name: modern-lpa
-            account: 313879017102
+            account: ${{ secrets.modern_lpa_account_id }}
           - name: serve
-            account: 933639921819
+            account: ${{ secrets.serve_account_id }}
           - name: sirius
-            account: 288342028542
+            account: ${{ secrets.sirius_account_id }}
           - name: use
-            account: 888228022356
+            account: ${{ secrets.use_account_id }}
           
     steps:
       - name: checkout
@@ -39,7 +39,7 @@ jobs:
         with:
           name: "${{ matrix.name }}-daily-uptime"
           script: service_uptime_daily.py
-          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ matrix.account }}:role/cloudwatch-reporting-ci"
+          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ matrix.account }}:role/${{ secrets.reporting_role }}"
           output: outputs/service_uptime_daily
           workingdir: ${{ github.workspace }}/_reports_service_uptime_daily
           token: ${{ secrets.ORG_ACCESS_TOKEN }}
