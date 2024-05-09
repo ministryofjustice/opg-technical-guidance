@@ -17,17 +17,17 @@ jobs:
       matrix:
         include:
           - name: digideps
-            account: ${{ secrets.digideps_account_id }}
+            account: ${{ secrets.DIGIDEPS_ACCOUNT_ID }}
           - name: make
-            account: ${{ secrets.make_account_id }}
+            account: ${{ secrets.MAKE_ACCOUNT_ID }}
           - name: modern-lpa
-            account: ${{ secrets.modern_lpa_account_id }}
+            account: ${{ secrets.MODERN_LPA_ACCOUNT_ID }}
           - name: serve
-            account: ${{ secrets.serve_account_id }}
+            account: ${{ secrets.SERVE_ACCOUNT_ID }}
           - name: sirius
-            account: ${{ secrets.sirius_account_id }}
+            account: ${{ secrets.SIRIUS_ACCOUNT_ID }}
           - name: use
-            account: ${{ secrets.use_account_id }}
+            account: ${{ secrets.USE_ACCOUNT_ID }}
           
     steps:
       - name: checkout
@@ -39,7 +39,7 @@ jobs:
         with:
           name: "${{ matrix.name }}-daily-uptime"
           script: service_uptime_daily.py
-          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ matrix.account }}:role/${{ secrets.reporting_role }}"
+          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ matrix.account }}:role/${{ secrets.REPORTING_ROLE }}"
           output: outputs/service_uptime_daily
           workingdir: ${{ github.workspace }}/_reports_service_uptime_daily
           token: ${{ secrets.ORG_ACCESS_TOKEN }}
