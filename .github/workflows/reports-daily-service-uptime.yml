@@ -37,7 +37,7 @@ jobs:
       - name: "[${{ matrix.name }}] Daily service uptime"
         uses: './.github/actions/generate-report' 
         with:
-          name: daily-uptime
+          name: "${{ matrix.name }}-daily-uptime"
           script: service_uptime_daily.py
           args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ matrix.account }}:role/cloudwatch-reporting-ci"
           output: outputs/service_uptime_daily
