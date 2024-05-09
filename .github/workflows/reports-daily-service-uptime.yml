@@ -17,29 +17,37 @@ jobs:
       matrix:
         include:
           - name: digideps
-            account: ${{ secrets.DIGIDEPS_ACCOUNT_ID }}
           - name: make
-            account: ${{ secrets.MAKE_ACCOUNT_ID }}
-          - name: modern-lpa
-            account: ${{ secrets.MODERN_LPA_ACCOUNT_ID }}
+          - name: modernlpa
           - name: serve
-            account: ${{ secrets.SERVE_ACCOUNT_ID }}
           - name: sirius
-            account: ${{ secrets.SIRIUS_ACCOUNT_ID }}
           - name: use
-            account: ${{ secrets.USE_ACCOUNT_ID }}
           
     steps:
-      - name: checkout
+      - name: "[${{ matrix.name }}] Checkout"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: "[${{ matrix.name }}] Get account"
+        id: get_account
+        env:
+          acc_digideps: ${{ secrets.DIGIDEPS_ACCOUNT_ID }}
+          acc_make: ${{ secrets.MAKE_ACCOUNT_ID }}
+          acc_modernlpa: ${{ secrets.MODERN_LPA_ACCOUNT_ID }}
+          acc_serve: ${{ secrets.SERVE_ACCOUNT_ID }}
+          acc_sirius: ${{ secrets.SIRIUS_ACCOUNT_ID }}
+          acc_use: ${{ secrets.USE_ACCOUNT_ID }}
+          to_use: "acc_${{ matrix.name }}"
+        shell: bash
+        run: |
+          secret_value="${!to_use}"
+          echo -e "ACCOUNT=${secret_value}" >> GITHUB_OUTPUT        
       - name: "[${{ matrix.name }}] Daily service uptime"
         uses: './.github/actions/generate-report' 
         with:
           name: "${{ matrix.name }}-daily-uptime"
           script: service_uptime_daily.py
-          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ matrix.account }}:role/${{ secrets.REPORTING_ROLE }}"
+          args: "--service=${{ matrix.name }} --role=arn:aws:iam::${{ steps.get_account.outputs.ACCOUNT }}:role/${{ secrets.REPORTING_ROLE }}"
           output: outputs/service_uptime_daily
           workingdir: ${{ github.workspace }}/_reports_service_uptime_daily
           token: ${{ secrets.ORG_ACCESS_TOKEN }}
