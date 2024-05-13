@@ -112,6 +112,7 @@ jobs:
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
           echo "" > ./docs/.gitkeep
+          rm -Rf ./.github
           git status
       - name: "Git commit"
         run: |
