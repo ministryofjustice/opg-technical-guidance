@@ -1,6 +1,9 @@
 name: Publish Docs
 
 on:
+  pull_request:
+    branches: 
+      - "main"
   push:
     branches:
       - "main"
@@ -13,6 +16,8 @@ on:
 jobs:
     
     build_and_publish:
+      env:
+        exclude_from_docs_delete: "./documention/reports/service-uptime"
       name: Build and Publish
       runs-on: ubuntu-latest
       steps:
@@ -37,6 +42,13 @@ jobs:
           workflow_name: 'reports-repository-standards.yml'
           download_to: ${{ github.workspace }}/_reports_repository_standards
           move_to: ${{ github.workspace }}/source/documentation/reports
+      - name: "[Report] Service Uptime"
+        uses: './.github/actions/artifact-download'
+        with:
+          artifact_name: 'service-uptime'
+          workflow_name: 'reports-service-uptime.yml'
+          download_to: ${{ github.workspace }}/_reports_service_uptime
+          move_to: ${{ github.workspace }}/source/documentation/reports
       ############
       # Build steps
       ############
@@ -51,9 +63,9 @@ jobs:
       - name: "Checkout to gh-pages and move built files back"
         run: |
           git checkout -f gh-pages
-          rm -Rf ./source/
-          rm -Rf ./docs          
-          mv ../docs ./
+          rm -Rf ./source/          
+          find ./docs -type d ! -name "${{ env.exclude_from_docs_delete }}" -delete
+          cp -RF ../docs/ ./          
       - name: "Add version and CNAME file"
         run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
