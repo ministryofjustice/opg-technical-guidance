@@ -1,9 +1,6 @@
 name: "[Reports] Daily Service Uptime"
 
 on:
-  pull_request:
-    branches: 
-      - "main"
   schedule:
     - cron: '0 3 * * *'
   workflow_dispatch:
