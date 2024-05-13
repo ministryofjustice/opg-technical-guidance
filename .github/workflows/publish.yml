@@ -108,10 +108,10 @@ jobs:
           ls -lart ./
           ls -lartR ./docs/
       - name: "Add version and CNAME file"
-        run: |          
+        run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
-          echo "" > ./docs/.gitkeep
+          touch ./docs/.gitkeep
           rm -Rf ./.github
           git status
       - name: "Git commit"
