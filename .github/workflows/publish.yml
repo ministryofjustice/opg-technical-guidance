@@ -62,25 +62,26 @@ jobs:
         run: git checkout -f gh-pages                    
       - name: "Remove ./source/"
         run: rm -Rf ./source/
-      - name: "Remove top level directories from ./docs"
-        working-directory: ${{ github.workspace }}/docs
-        run: |          
-          ls -lart
-          # delete all top level folders except for documentation
-          find . -type d -maxdepth 1 ! -path "." ! -path ".." ! -path "./documentation" | while read thisdir; do
-            echo -e "deleting dir: ${thisdir}"  
-            rm -Rf ${thisdir}          
-          done
-          ls -lart
-      - name: "Remove top level files from ./docs"
-        working-directory: ${{ github.workspace }}/docs
-        run: |
-          ls -lart
-          find . -type f -maxdepth 1 ! -path "." ! -path ".." ! -path "./documentation" | while read thisfile; do
-            echo -e "deleting file: ${thisfile}"  
-            # rm -Rf ${thisdir}          
-          done
-          ls -lart
+      - name: "Remove top level directories and files from ./docs"
+        uses: './.github/actions/find-delete'
+        with:
+          base_dir: ${{ github.workspace }}/docs
+          exclude: './documentation'
+          type: 'directory file'
+      
+      # - name: "Remove other directories from ./docs/documentation, leaving ./reports/ only"
+      #   working-directory: ${{ github.workspace }}/docs/documentation
+      #   run: | 
+      #     echo -e "Before:"         
+      #     ls -lart
+      #     # delete all top level folders except for documentation
+      #     find . -type d -maxdepth 1 ! -path "." ! -path ".." ! -path "./reports" | while read thisdir; do
+      #       echo -e "deleting dir: ${thisdir}"  
+      #       #rm -Rf ${thisdir}          
+      #     done
+      #     echo -e "After:"         
+      #     ls -lart
+      
       - name: "Move built files over"
         run : |          
           cp -RT ../docs/ ./          
