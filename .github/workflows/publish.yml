@@ -64,9 +64,15 @@ jobs:
           rm -Rf ./source/
           cd ./docs/
           ls -lart
-          # delete all top level folders that isn't reports 
+          # delete all top level folders except for documentation
           find . -type d -maxdepth 1 ! -path "." ! -path ".." ! -path "./documentation" | while read thisdir; do
-            echo -e "dir: ${thisdir}"            
+            echo -e "deleting dir: ${thisdir}"  
+            rm -Rf ${thisdir}          
+          done
+          # delete all top level files
+          find . -type f -maxdepth 1 ! -path "." ! -path ".." ! -path "./documentation" | while read thisfile; do
+            echo -e "deleting file: ${thisfile}"  
+            # rm -Rf ${thisdir}          
           done
           
           ls -lart
