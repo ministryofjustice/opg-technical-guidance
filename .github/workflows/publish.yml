@@ -67,8 +67,8 @@ jobs:
           cd ./docs/
           ls -lart
           # delete all top level folders that isn't reports 
-          find . -type d -maxdepth 1 ! -name "${{ env.reports_root }}" -not -path '.' | while read thisdir; do
-            echo -e "${thisdir}"
+          find . -type d -maxdepth 1 -not -path ./${{ env.reports_root }}/* | while read thisdir; do
+            echo -e "dir: ${thisdir}"
             rm -Rf ./${thisdir}
           done
           
