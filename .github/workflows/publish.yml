@@ -59,7 +59,6 @@ jobs:
           make build
           mv ./docs ../
       - name: "Checkout to gh-pages and move built files back"
-        env:
         run: |
           git checkout -f gh-pages                    
           rm -Rf ./source/
