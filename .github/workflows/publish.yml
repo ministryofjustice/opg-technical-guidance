@@ -54,10 +54,11 @@ jobs:
         run: |
           git config --global user.email "tools@digital.justice.gov.uk"
           git config --global user.name "Github Action"
-      - name: "Build and move output"
+      - name: "Build and move output and github directory"
         run: |
           make build
           mv ./docs ../
+          # move this because we use some local actions and the checkout removes that folder
           mv ./.github/ ../
       - name: "Checkout to gh-pages and clean untracked files"
         run: |
@@ -78,6 +79,7 @@ jobs:
           base_dir: ${{ github.workspace }}/docs/documentation
           exclude: './reports'
           type: 'directory file'
+          confirm_delete: true
 
       
       - name: "Move built files over"
