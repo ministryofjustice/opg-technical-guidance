@@ -60,16 +60,14 @@ jobs:
           mv ./docs ../
       - name: "Checkout to gh-pages and move built files back"
         env:
-          reports_root: "documention"
         run: |
           git checkout -f gh-pages                    
           rm -Rf ./source/
           cd ./docs/
           ls -lart
           # delete all top level folders that isn't reports 
-          find . -type d -maxdepth 1 -not -path ./${{ env.reports_root }}/* | while read thisdir; do
-            echo -e "dir: ${thisdir}"
-            
+          find . -type d -maxdepth 1 ! -path "." ! -path ".." ! -path "./documentation" | while read thisdir; do
+            echo -e "dir: ${thisdir}"            
           done
           
           ls -lart
