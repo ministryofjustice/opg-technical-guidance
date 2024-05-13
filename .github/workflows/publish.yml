@@ -81,14 +81,13 @@ jobs:
           type: 'directory file'
           confirm_delete: true
 
-      
       - name: "Move built files over"
         run : |  
           echo -e "Current:"        
           ls -lartR ./docs/
           cp -rf ../docs/* ./docs/
           echo -e "After:"
-          la -lart ./
+          ls -lart ./
           ls -lartR ./docs/
       - name: "Add version and CNAME file"
         run: |
