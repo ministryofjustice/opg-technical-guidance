@@ -65,11 +65,14 @@ jobs:
           git checkout -f gh-pages                    
           rm -Rf ./source/
           cd ./docs
-          pwd
-          ls -lart
-          find . -type d ! -name "${{ env.exclude_from_docs_delete }}" -exec rm -rf "{}" \;
-          ls -lart
+          find . -type d | while read -r i; do
+            echo -e "${i}";
+            if [ "${i}" != "${{ env.exclude_from_docs_delete}}" ]; then
+              echo -e "delete... "
+            fi
+          done
           cd ../
+
           cp -RT ../docs/ ./          
       - name: "Add version and CNAME file"
         run: |
