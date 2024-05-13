@@ -16,8 +16,6 @@ on:
 jobs:
     
     build_and_publish:
-      env:
-        exclude_from_docs_delete: "./documention/reports/service-uptime"
       name: Build and Publish
       runs-on: ubuntu-latest
       steps:
@@ -64,15 +62,13 @@ jobs:
         run: |
           git checkout -f gh-pages                    
           rm -Rf ./source/
-          cd ./docs
-          find . -type d | while read -r i; do
-            echo -e "${i}";
-            if [ "${i}" != "${{ env.exclude_from_docs_delete}}" ]; then
-              echo -e "delete... "
-            fi
-          done
-          cd ../
+          cd ./docs/
+          # delete all top level folders that isn't reports -exec rm -rf "{}" \;
+          find . -type d -maxdepth 1 ! -name "./documention/" -printf '%f\n'
+          
+          ls -lart
 
+          cd ../
           cp -RT ../docs/ ./          
       - name: "Add version and CNAME file"
         run: |
