@@ -83,9 +83,11 @@ jobs:
 
       
       - name: "Move built files over"
-        run : |          
+        run : |  
+          echo -e "Current:"        
           ls -lartR ./docs/
-          cp -RT ../docs/ ./          
+          cp -RT ../docs ./        
+          echo -e "After:"          
           ls -lartR ./docs/
       - name: "Add version and CNAME file"
         run: |
