@@ -1,0 +1,28 @@
+name: "[Reports] Service Uptime"
+
+on:
+  pull_request:
+    branches: 
+      - "main"
+  schedule:
+    - cron: '0 4 * * 0,2,4'
+  workflow_dispatch:
+  
+jobs:
+  report:
+    name: "Service uptime"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: "Service uptime generation"
+        uses: './.github/actions/generate-report' 
+        with:
+          name: "service-uptime"
+          script: service_uptime.py
+          args: "--duration=1"
+          output: outputs/service_uptime
+          workingdir: ${{ github.workspace }}/_reports_service_uptime
+          token: ${{ secrets.ORG_ACCESS_TOKEN }}          
