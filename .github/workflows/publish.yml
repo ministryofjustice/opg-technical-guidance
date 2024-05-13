@@ -84,7 +84,9 @@ jobs:
       
       - name: "Move built files over"
         run : |          
+          ls -lartR ./docs/
           cp -RT ../docs/ ./          
+          ls -lartR ./docs/
       - name: "Add version and CNAME file"
         run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
