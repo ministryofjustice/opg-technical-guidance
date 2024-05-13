@@ -65,7 +65,7 @@ jobs:
           git checkout -f gh-pages
           rm -Rf ./source/          
           find ./docs -type d ! -name "${{ env.exclude_from_docs_delete }}" -delete
-          cp -RF ../docs/ ./          
+          cp -RT ../docs/ ./          
       - name: "Add version and CNAME file"
         run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
