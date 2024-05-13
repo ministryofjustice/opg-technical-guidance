@@ -58,10 +58,13 @@ jobs:
         run: |
           make build
           mv ./docs ../
-      - name: "Checkout to gh-pages"
-        run: git checkout -f gh-pages                    
-      - name: "Remove ./source/"
-        run: rm -Rf ./source/
+          mv ./.github/ ../
+      - name: "Checkout to gh-pages and clean untracked files"
+        run: |
+          git checkout -f gh-pages                    
+          git clean -fd
+      - name: "Move gh folder back"
+        run: mv ../.github ./
       - name: "Remove top level directories and files from ./docs"
         uses: './.github/actions/find-delete'
         with:
