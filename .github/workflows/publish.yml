@@ -80,6 +80,13 @@ jobs:
           exclude: './reports'
           type: 'directory file'
           confirm_delete: true
+      - name: "Remove other directories from ./docs/documentation/reports, excluding ./service-uptime"
+        uses: './.github/actions/find-delete'
+        with:
+          base_dir: ${{ github.workspace }}/docs/documentation/reports
+          exclude: './service-uptime'
+          type: 'directory file'
+          confirm_delete: true
 
       - name: "Move built files over"
         run : |  
@@ -90,9 +97,10 @@ jobs:
           ls -lart ./
           ls -lartR ./docs/
       - name: "Add version and CNAME file"
-        run: |
+        run: |          
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
+          echo "" > ./docs/.gitkeep
           git status
       - name: "Git commit"
         run: |
