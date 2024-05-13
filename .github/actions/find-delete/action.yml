@@ -17,7 +17,9 @@ runs:
     - name: "Before"
       working-directory: ${{ inputs.base_dir}}
       shell: bash
-      run: ls -lart
+      run: |
+        echo -e "Before:"
+        ls -lart
     - name: "Deleting directories"
       if: ${{ contains(inputs.type, 'directory') }}
       working-directory: ${{ inputs.base_dir}}
@@ -47,6 +49,8 @@ runs:
     - name: "After"
       working-directory: ${{ inputs.base_dir}}
       shell: bash
-      run: ls -lart
+      run: |
+        echo -e "After:"
+        ls -lart
 
 

@@ -76,7 +76,7 @@ jobs:
         uses: './.github/actions/find-delete'
         with:
           base_dir: ${{ github.workspace }}/docs/documentation
-          exclude: './reports/'
+          exclude: './reports'
           type: 'directory file'
 
       
