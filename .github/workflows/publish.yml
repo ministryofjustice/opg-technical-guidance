@@ -86,8 +86,9 @@ jobs:
         run : |  
           echo -e "Current:"        
           ls -lartR ./docs/
-          cp -RT ../docs ./        
-          echo -e "After:"          
+          cp -rf ../docs/* ./docs/
+          echo -e "After:"
+          la -lart ./
           ls -lartR ./docs/
       - name: "Add version and CNAME file"
         run: |
