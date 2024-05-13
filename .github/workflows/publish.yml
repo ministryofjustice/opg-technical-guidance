@@ -66,6 +66,11 @@ jobs:
           git clean -fd
       - name: "Move gh folder back"
         run: mv ../.github ./
+      ############
+      # Remove existing folders from gh-pages expect service-uptime reports
+      # Uptime reports use artifacts and data from aws with limited lifetimes, 
+      # so instead of removing them from repo we'll keep the older data here
+      ############
       - name: "Remove top level directories and files from ./docs, excluding ./documentation"
         uses: './.github/actions/find-delete'
         with:
@@ -87,12 +92,18 @@ jobs:
           exclude: './service-uptime'
           type: 'directory file'
           confirm_delete: true
-
+      ############
+      # Copy over the generated ./docs folder 
+      ############
       - name: "Move built files over"
         run : |  
+          echo -e "===="
           echo -e "Current:"        
           ls -lartR ./docs/
+
           cp -rf ../docs/* ./docs/
+
+          echo -e "===="
           echo -e "After:"
           ls -lart ./
           ls -lartR ./docs/
