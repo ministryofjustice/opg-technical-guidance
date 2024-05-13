@@ -62,12 +62,14 @@ jobs:
           mv ./docs ../
       - name: "Checkout to gh-pages and move built files back"
         run: |
-          git checkout -f gh-pages          
-          ls -lart    
+          git checkout -f gh-pages                    
           rm -Rf ./source/
-          
-          find ./docs -type d ! -name "${{ env.exclude_from_docs_delete }}" -exec rm -rf "{}" \;
+          cd ./docs
+          pwd
           ls -lart
+          find . -type d ! -name "${{ env.exclude_from_docs_delete }}" -exec rm -rf "{}" \;
+          ls -lart
+          cd ../
           cp -RT ../docs/ ./          
       - name: "Add version and CNAME file"
         run: |
