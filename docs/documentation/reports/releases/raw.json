@@ -61,10 +61,12 @@
       "total_success": 589
     },
     "2024-05": {
-      "average": 4.17,
-      "average_success": 4.17,
-      "total": 97,
-      "total_success": 97
+      "average": 10.789999999999997,
+      "average_failure": 0.17,
+      "average_success": 10.619999999999997,
+      "total": 249,
+      "total_failure": 4,
+      "total_success": 245
     }
   },
   "by_repository": {
@@ -702,10 +704,10 @@
         "total_success": 5
       },
       "2024-05": {
-        "average": 0.09,
-        "average_success": 0.09,
-        "total": 2,
-        "total_success": 2
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
       }
     },
     "ministryofjustice/opg-data-dictionary": {
@@ -772,10 +774,10 @@
         "total": 0
       },
       "2024-05": {
-        "average": 0.09,
-        "average_success": 0.09,
-        "total": 2,
-        "total_success": 2
+        "average": 0.35,
+        "average_success": 0.35,
+        "total": 8,
+        "total_success": 8
       }
     },
     "ministryofjustice/opg-data-lpa-codes": {
@@ -816,8 +818,10 @@
         "total_success": 10
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
       }
     },
     "ministryofjustice/opg-data-lpa-instructions-preferences": {
@@ -908,10 +912,10 @@
         "total_success": 43
       },
       "2024-05": {
-        "average": 0.35,
-        "average_success": 0.35,
-        "total": 8,
-        "total_success": 8
+        "average": 0.52,
+        "average_success": 0.52,
+        "total": 12,
+        "total_success": 12
       }
     },
     "ministryofjustice/opg-data-lpa-uid": {
@@ -1006,10 +1010,12 @@
         "total_success": 13
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.3,
+        "average_failure": 0.04,
+        "average_success": 0.26,
+        "total": 7,
+        "total_failure": 1,
+        "total_success": 6
       }
     },
     "ministryofjustice/opg-digideps-prototype-v2": {
@@ -1130,10 +1136,10 @@
         "total": 0
       },
       "2024-05": {
-        "average": 0.17,
-        "average_success": 0.17,
-        "total": 4,
-        "total_success": 4
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
       }
     },
     "ministryofjustice/opg-ecs-helper": {
@@ -1312,10 +1318,10 @@
         "total_success": 11
       },
       "2024-05": {
-        "average": 0.09,
-        "average_success": 0.09,
-        "total": 2,
-        "total_success": 2
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
       }
     },
     "ministryofjustice/opg-flask-apps": {
@@ -1586,10 +1592,10 @@
         "total_success": 6
       },
       "2024-05": {
-        "average": 0.22,
-        "average_success": 0.22,
-        "total": 5,
-        "total_success": 5
+        "average": 0.57,
+        "average_success": 0.57,
+        "total": 13,
+        "total_success": 13
       }
     },
     "ministryofjustice/opg-infra-costs": {
@@ -1740,8 +1746,10 @@
         "total_success": 30
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.35,
+        "average_success": 0.35,
+        "total": 8,
+        "total_success": 8
       }
     },
     "ministryofjustice/opg-lpa-api": {
@@ -2026,10 +2034,12 @@
         "total_success": 44
       },
       "2024-05": {
-        "average": 0.3,
-        "average_success": 0.3,
-        "total": 7,
-        "total_success": 7
+        "average": 0.7,
+        "average_failure": 0.09,
+        "average_success": 0.61,
+        "total": 16,
+        "total_failure": 2,
+        "total_success": 14
       }
     },
     "ministryofjustice/opg-modernising-lpa-docs": {
@@ -2100,10 +2110,10 @@
         "total_success": 13
       },
       "2024-05": {
-        "average": 0.09,
-        "average_success": 0.09,
-        "total": 2,
-        "total_success": 2
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
       }
     },
     "ministryofjustice/opg-notify-status-poller": {
@@ -2186,10 +2196,10 @@
         "total_success": 32
       },
       "2024-05": {
-        "average": 0.43,
-        "average_success": 0.43,
-        "total": 10,
-        "total_success": 10
+        "average": 1.22,
+        "average_success": 1.22,
+        "total": 28,
+        "total_success": 28
       }
     },
     "ministryofjustice/opg-packer-jenkins": {
@@ -2298,10 +2308,10 @@
         "total_success": 18
       },
       "2024-05": {
-        "average": 0.09,
-        "average_success": 0.09,
-        "total": 2,
-        "total_success": 2
+        "average": 0.22,
+        "average_success": 0.22,
+        "total": 5,
+        "total_success": 5
       }
     },
     "ministryofjustice/opg-pdf-service": {
@@ -2414,10 +2424,10 @@
         "total_success": 12
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
       }
     },
     "ministryofjustice/opg-php-fpm-stats-exporter": {
@@ -2734,10 +2744,10 @@
         "total_success": 10
       },
       "2024-05": {
-        "average": 0.13,
-        "average_success": 0.13,
-        "total": 3,
-        "total_success": 3
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
       }
     },
     "ministryofjustice/opg-search-service": {
@@ -2778,10 +2788,10 @@
         "total_success": 8
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
       }
     },
     "ministryofjustice/opg-shared-infrastructure": {
@@ -2856,10 +2866,10 @@
         "total_success": 104
       },
       "2024-05": {
-        "average": 0.65,
-        "average_success": 0.65,
-        "total": 15,
-        "total_success": 15
+        "average": 1.78,
+        "average_success": 1.78,
+        "total": 41,
+        "total_success": 41
       }
     },
     "ministryofjustice/opg-sirius-api-gateway": {
@@ -3008,10 +3018,10 @@
         "total_success": 7
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.17,
+        "average_success": 0.17,
+        "total": 4,
+        "total_success": 4
       }
     },
     "ministryofjustice/opg-sirius-failover": {
@@ -3070,8 +3080,10 @@
         "total": 0
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
       }
     },
     "ministryofjustice/opg-sirius-infrastructure": {
@@ -3112,8 +3124,10 @@
         "total_success": 44
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.22,
+        "average_success": 0.22,
+        "total": 5,
+        "total_success": 5
       }
     },
     "ministryofjustice/opg-sirius-lpa-dashboard": {
@@ -3154,10 +3168,10 @@
         "total_success": 9
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
       }
     },
     "ministryofjustice/opg-sirius-lpa-frontend": {
@@ -3198,10 +3212,10 @@
         "total_success": 17
       },
       "2024-05": {
-        "average": 0.13,
-        "average_success": 0.13,
-        "total": 3,
-        "total_success": 3
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
       }
     },
     "ministryofjustice/opg-sirius-maintenance": {
@@ -3234,8 +3248,10 @@
         "total": 0
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
       }
     },
     "ministryofjustice/opg-sirius-membrane": {
@@ -3380,8 +3396,10 @@
         "total_success": 6
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.09,
+        "average_success": 0.09,
+        "total": 2,
+        "total_success": 2
       }
     },
     "ministryofjustice/opg-sirius-supervision-finance-hub": {
@@ -3418,10 +3436,10 @@
         "total_success": 18
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.13,
+        "average_success": 0.13,
+        "total": 3,
+        "total_success": 3
       }
     },
     "ministryofjustice/opg-sirius-supervision-firm-deputy-hub": {
@@ -3462,8 +3480,10 @@
         "total_success": 7
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.04,
+        "average_success": 0.04,
+        "total": 1,
+        "total_success": 1
       }
     },
     "ministryofjustice/opg-sirius-supervision-pro-deputy-hub": {
@@ -3620,10 +3640,10 @@
         "total_success": 6
       },
       "2024-05": {
-        "average": 0.3,
-        "average_success": 0.3,
-        "total": 7,
-        "total_success": 7
+        "average": 0.61,
+        "average_success": 0.61,
+        "total": 14,
+        "total_success": 14
       }
     },
     "ministryofjustice/opg-template-repository": {
@@ -3698,8 +3718,10 @@
         "total_success": 1
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.26,
+        "average_success": 0.26,
+        "total": 6,
+        "total_success": 6
       }
     },
     "ministryofjustice/opg-terraform-aws-firewalled-network": {
@@ -3920,10 +3942,12 @@
         "total_success": 15
       },
       "2024-05": {
-        "average": 0.17,
-        "average_success": 0.17,
-        "total": 4,
-        "total_success": 4
+        "average": 0.61,
+        "average_failure": 0.04,
+        "average_success": 0.57,
+        "total": 14,
+        "total_failure": 1,
+        "total_success": 13
       }
     },
     "ministryofjustice/opg-weblate": {
@@ -4028,10 +4052,10 @@
         "total_success": 23
       },
       "2024-05": {
-        "average": 0.13,
-        "average_success": 0.13,
-        "total": 3,
-        "total_success": 3
+        "average": 0.22,
+        "average_success": 0.22,
+        "total": 5,
+        "total_success": 5
       }
     },
     "ministryofjustice/serve-opg-infrastructure": {
@@ -4114,10 +4138,12 @@
         "total_success": 13
       },
       "2024-05": {
-        "average": 0.04,
-        "average_success": 0.04,
-        "total": 1,
-        "total_success": 1
+        "average": 0.3,
+        "average_failure": 0.04,
+        "average_success": 0.26,
+        "total": 7,
+        "total_failure": 1,
+        "total_success": 6
       }
     },
     "opg-admin": {
@@ -4198,8 +4224,10 @@
         "total_success": 30
       },
       "2024-05": {
-        "average": 0.0,
-        "total": 0
+        "average": 0.35,
+        "average_success": 0.35,
+        "total": 8,
+        "total_success": 8
       }
     },
     "opg-metrics-team": {
@@ -4288,10 +4316,12 @@
         "total_success": 44
       },
       "2024-05": {
-        "average": 0.3,
-        "average_success": 0.3,
-        "total": 7,
-        "total_success": 7
+        "average": 0.7,
+        "average_failure": 0.09,
+        "average_success": 0.61,
+        "total": 16,
+        "total_failure": 2,
+        "total_success": 14
       }
     },
     "opg-refund": {
@@ -4378,10 +4408,12 @@
         "total_success": 29
       },
       "2024-05": {
-        "average": 0.30000000000000004,
-        "average_success": 0.30000000000000004,
-        "total": 7,
-        "total_success": 7
+        "average": 0.74,
+        "average_failure": 0.04,
+        "average_success": 0.7,
+        "total": 17,
+        "total_failure": 1,
+        "total_success": 16
       }
     },
     "opg-webops": {
@@ -4446,10 +4478,12 @@
         "total_success": 589
       },
       "2024-05": {
-        "average": 4.17,
-        "average_success": 4.17,
-        "total": 97,
-        "total_success": 97
+        "average": 10.789999999999997,
+        "average_failure": 0.17,
+        "average_success": 10.619999999999997,
+        "total": 249,
+        "total_failure": 4,
+        "total_success": 245
       }
     },
     "opg_integrations": {
@@ -4488,10 +4522,10 @@
         "total_success": 5
       },
       "2024-05": {
-        "average": 0.18,
-        "average_success": 0.18,
-        "total": 4,
-        "total_success": 4
+        "average": 0.52,
+        "average_success": 0.52,
+        "total": 12,
+        "total_success": 12
       }
     },
     "serve-opg": {
@@ -4532,10 +4566,10 @@
         "total_success": 23
       },
       "2024-05": {
-        "average": 0.13,
-        "average_success": 0.13,
-        "total": 3,
-        "total_success": 3
+        "average": 0.22,
+        "average_success": 0.22,
+        "total": 5,
+        "total_success": 5
       }
     },
     "sirius": {
@@ -4576,10 +4610,10 @@
         "total_success": 353
       },
       "2024-05": {
-        "average": 1.73,
-        "average_success": 1.73,
-        "total": 40,
-        "total_success": 40
+        "average": 4.32,
+        "average_success": 4.32,
+        "total": 100,
+        "total_success": 100
       }
     }
   },
@@ -4587,7 +4621,8 @@
     "args": {
       "date_range": null,
       "duration": {
-        "end": "2024-05-07",
+        "duration": "6",
+        "end": "2024-05-13",
         "start": "2023-11-01"
       },
       "org_team": {
@@ -4598,9 +4633,9 @@
       "team_parent": "opg"
     },
     "execution_time": {
-      "duration": "31 minutes 12 seconds",
-      "end": "2024-05-07T16:10:15.003501+00:00",
-      "start": "2024-05-07T15:39:02.414753+00:00"
+      "duration": "31 minutes 41 seconds",
+      "end": "2024-05-13T16:01:30.078885+00:00",
+      "start": "2024-05-13T15:29:48.957466+00:00"
     },
     "months": [
       "2023-11",
