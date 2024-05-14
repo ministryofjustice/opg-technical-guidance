@@ -1,0 +1,56 @@
+name: "Find and Delete"
+description: "Delete using find"
+
+inputs:
+  base_dir:
+    description: "base directory"
+  exclude:
+    description: "exclude this path"
+  type:
+    description: "directory or file"
+  confirm_delete:
+    description: "really run the delete"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Before"
+      working-directory: ${{ inputs.base_dir}}
+      shell: bash
+      run: |
+        echo -e "Before:"
+        ls -lart
+    - name: "Deleting directories"
+      if: ${{ contains(inputs.type, 'directory') }}
+      working-directory: ${{ inputs.base_dir}}
+      shell: bash
+      env:
+        confirmed: ${{ inputs.confirm_delete }}
+      run: |
+        find . -type d -maxdepth 1 ! -path "." ! -path ".." ! -path "${{ inputs.exclude }}" | while read thisdir; do
+          echo -e "deleting dir: ${thisdir}"  
+          if [ "${{ env.confirmed }}" == "true" ]; then
+            rm -Rf ${thisdir}
+          fi          
+        done
+    - name: "Deleting files"
+      if: ${{ contains(inputs.type, 'file') }}
+      working-directory: ${{ inputs.base_dir}}
+      shell: bash
+      env:
+        confirmed: ${{ inputs.confirm_delete }}
+      run: |
+        find . -type f -maxdepth 1 ! -path "." ! -path ".." ! -path "${{ inputs.exclude }}" | while read thisfile; do
+          echo -e "deleting file: ${thisfile}"  
+          if [ "${{ env.confirmed }}" == "true" ]; then
+            rm -Rf ${thisfile}
+          fi          
+        done
+    - name: "After"
+      working-directory: ${{ inputs.base_dir}}
+      shell: bash
+      run: |
+        echo -e "After:"
+        ls -lart
+
+

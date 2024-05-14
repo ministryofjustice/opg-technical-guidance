@@ -1,6 +1,9 @@
 name: Publish Docs
 
 on:
+  pull_request:
+    branches: 
+      - "main"
   push:
     branches:
       - "main"
@@ -37,6 +40,13 @@ jobs:
           workflow_name: 'reports-repository-standards.yml'
           download_to: ${{ github.workspace }}/_reports_repository_standards
           move_to: ${{ github.workspace }}/source/documentation/reports
+      - name: "[Report] Service Uptime"
+        uses: './.github/actions/artifact-download'
+        with:
+          artifact_name: 'service-uptime'
+          workflow_name: 'reports-service-uptime.yml'
+          download_to: ${{ github.workspace }}/_reports_service_uptime
+          move_to: ${{ github.workspace }}/source/documentation/reports
       ############
       # Build steps
       ############
@@ -44,20 +54,65 @@ jobs:
         run: |
           git config --global user.email "tools@digital.justice.gov.uk"
           git config --global user.name "Github Action"
-      - name: "Build and move output"
+      - name: "Build and move output and github directory"
         run: |
           make build
           mv ./docs ../
-      - name: "Checkout to gh-pages and move built files back"
+          # move this because we use some local actions and the checkout removes that folder
+          mv ./.github/ ../
+      - name: "Checkout to gh-pages and clean untracked files"
         run: |
-          git checkout -f gh-pages
-          rm -Rf ./source/
-          rm -Rf ./docs          
-          mv ../docs ./
+          git checkout -f gh-pages                    
+          git clean -fd
+      - name: "Move gh folder back"
+        run: mv ../.github ./
+      ############
+      # Remove existing folders from gh-pages expect service-uptime reports
+      # Uptime reports use artifacts and data from aws with limited lifetimes, 
+      # so instead of removing them from repo we'll keep the older data here
+      ############
+      - name: "Remove top level directories and files from ./docs, excluding ./documentation"
+        uses: './.github/actions/find-delete'
+        with:
+          base_dir: ${{ github.workspace }}/docs
+          exclude: './documentation'
+          type: 'directory file'
+          confirm_delete: true
+      - name: "Remove other directories from ./docs/documentation, excluding ./reports"
+        uses: './.github/actions/find-delete'
+        with:
+          base_dir: ${{ github.workspace }}/docs/documentation
+          exclude: './reports'
+          type: 'directory file'
+          confirm_delete: true
+      - name: "Remove other directories from ./docs/documentation/reports, excluding ./service-uptime"
+        uses: './.github/actions/find-delete'
+        with:
+          base_dir: ${{ github.workspace }}/docs/documentation/reports
+          exclude: './service-uptime'
+          type: 'directory file'
+          confirm_delete: true
+      ############
+      # Copy over the generated ./docs folder 
+      ############
+      - name: "Move built files over"
+        run : |  
+          echo -e "===="
+          echo -e "Current:"        
+          ls -lartR ./docs/
+
+          cp -rf ../docs/* ./docs/
+
+          echo -e "===="
+          echo -e "After:"
+          ls -lart ./
+          ls -lartR ./docs/
       - name: "Add version and CNAME file"
         run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
+          touch ./docs/.gitkeep
+          rm -Rf ./.github
           git status
       - name: "Git commit"
         run: |
