@@ -19,7 +19,7 @@ jobs:
         with:
           name: "service-uptime"
           script: service_uptime.py
-          args: "--duration=1"
+          args: "--duration=3"
           output: outputs/service_uptime
           workingdir: ${{ github.workspace }}/_reports_service_uptime
           token: ${{ secrets.ORG_ACCESS_TOKEN }}          
