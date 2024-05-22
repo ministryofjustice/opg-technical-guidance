@@ -64,9 +64,8 @@ jobs:
       - name: "Move gh folder back"
         run: mv ../.github ./
       ############
-      # Remove existing folders from gh-pages expect service-uptime reports
-      # Uptime reports use artifacts and data from aws with limited lifetimes, 
-      # so instead of removing them from repo we'll keep the older data here
+      # Remove existing folders from ./docs, but leave the ./docs/reports as these are generated and 
+      # utilise dates within files where relevant
       ############
       - name: "Remove top level directories and files from ./docs, excluding ./documentation"
         uses: './.github/actions/find-delete'
@@ -80,13 +79,6 @@ jobs:
         with:
           base_dir: ${{ github.workspace }}/docs/documentation
           exclude: './reports'
-          type: 'directory file'
-          confirm_delete: true
-      - name: "Remove other directories from ./docs/documentation/reports, excluding ./service-uptime"
-        uses: './.github/actions/find-delete'
-        with:
-          base_dir: ${{ github.workspace }}/docs/documentation/reports
-          exclude: './service-uptime'
           type: 'directory file'
           confirm_delete: true
       ############
