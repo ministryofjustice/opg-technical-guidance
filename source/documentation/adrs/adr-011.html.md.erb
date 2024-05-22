@@ -1,0 +1,57 @@
+---
+title: ADR-011 Patching Expectations
+last_reviewed_on: 2024-04-21
+review_in: 12 months
+---
+# <%= current_page.data.title %>
+
+Date: 21-04-2024
+
+## Status
+
+🤔 Proposed
+
+## Context
+
+Historically some products were not kept up to date with the dependencies they used. This made it very hard to update to security patched versions of components where drift has got too far behind current maintained versions. To avoid this happening again we moved our repos to use tools like Dependabot and Renovate to ensure we had automation to inform us of new versions of dependencies so we could patch in a timely way.
+
+With these tools installed on a code repository teams have a way to automate keeping up to date. However teams can find themselves with many pull requests to manage. This can lead to time spent investigating updates or fixing builds, and some confusion about relative priority of the different patch/minor or major updates for a given project. 
+
+## Decision
+
+All teams have control of their Renovate configuration and should adjust the defaults to fit their service's cadence and ecosystem. A team should set how many updates Renovate produces at once according to how many the team can deal with at once. 
+
+As standard we have a 3 days stability wait on all PRs that udpate dependencies to reduce the chance of dependency poisoning attacks.
+
+Renovate groups patch and minor updates by default. Teams should configure Renovate to partition dependencies by type to avoid large PRs you cannot reason about when a build is broken. Common partitions are by dependency type (Docker, PHP, JS, etc) or by dependency type (dev, prod). 
+
+Avoid situations where a single patch and minor updates PR keeps getting more and more updates and becomes unwieldy. Remember you can alwyas manually update a set of dependencies via local tools and renvoate will pick up the changes and reduce a PRs size.
+
+Particularly chatty dependencies like the AWS SDK, which receive multiple updates a day, should be rate limited to avoid noise.
+
+Teams should prioritise PR updates as follows: 
+
+- If it is a security update then follow the [MOJ Security Patching Schedule](https://security-guidance.service.justice.gov.uk/patch-management-guide/#patching-schedule) which is 3-7 days for HIGH or CRITICAL vulnerabilities.
+- For any out of support or deprecated package work to update it should be scheduled within 1 month
+- If it is a patch or minor update is made available it should be merged within 3 weeks.
+- Major versions should be updated within 4 months, should be on actively supported versions and never be more than 2 major versions behind the current release of that dependency
+
+### Examples:
+
+PHP Unit 11 is the current major version. If your product is on PHPUnit 10.5.19, you should merge point and patch versions as they become available, so an update to 10.5.20 should be merged within 3 weeks of being released. When version 12 is released the team should update to version 11 or greater.
+
+### Note on Automerge
+
+It is not recommended to use auto-merge since it risks us moving away from the principle of "owning it out to production" for any given merge, if nobody is responsbile for the merge. Particularly if auto-merge schedules might kick in on bank holidays or out of hours.
+
+## Consequences
+
+Teams own their Renovate configuration and can adjust it to local needs and capacity.
+
+Teams should prioritise security patching over other forms of patching.
+
+Teams have leeway on major version updates as long as they are within supported versions and last 2 major versions. 
+
+Teams should be able to configure Renovate to avoid overloading them with busy-work from dependency churn.
+
+See also our general [dependencies guidelines](https://docs.opg.service.justice.gov.uk/documentation/guides/dependencies.html).
