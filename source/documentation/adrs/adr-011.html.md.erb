@@ -23,9 +23,9 @@ All teams have control of their Renovate configuration and should adjust the def
 
 As standard we have a 3 days stability wait on all PRs that udpate dependencies to reduce the chance of dependency poisoning attacks.
 
-Renovate groups patch and minor updates by default. Teams should configure Renovate to partition dependencies by type to avoid large PRs you cannot reason about when a build is broken. Common partitions are by dependency type (Docker, PHP, JS, etc) or by dependency type (dev, prod). 
+Renovate groups patch and minor updates by default. Teams should configure Renovate to partition dependencies by type to avoid large PRs you cannot reason about when a build is broken. Common partitions are by dependency type (Docker, PHP, JS, etc) or by dependency usage (dev, prod). [Make An LPA](https://github.com/ministryofjustice/opg-lpa/blob/main/renovate.json) has a good example of this kind of split.
 
-Avoid situations where a single patch and minor updates PR keeps getting more and more updates and becomes unwieldy. Remember you can alwyas manually update a set of dependencies via local tools and renvoate will pick up the changes and reduce a PRs size.
+Avoid situations where a single patch and minor updates PR keeps getting more and more updates and becomes unwieldy. Remember you can always manually update a set of dependencies via local tools and renvoate will pick up the changes and reduce a PRs size.
 
 Particularly chatty dependencies like the AWS SDK, which receive multiple updates a day, should be rate limited to avoid noise.
 
@@ -33,8 +33,8 @@ Teams should prioritise PR updates as follows:
 
 - If it is a security update then follow the [MOJ Security Patching Schedule](https://security-guidance.service.justice.gov.uk/patch-management-guide/#patching-schedule) which is 3-7 days for HIGH or CRITICAL vulnerabilities.
 - For any out of support or deprecated package work to update it should be scheduled within 1 month
-- If it is a patch or minor update is made available it should be merged within 3 weeks.
-- Major versions should ideally be updated within 4 months, should be on actively supported versions and never be more than 2 major versions behind the current release of that dependency
+- If it is a patch or minor update is made available it should be merged within 3-4 weeks.
+- Major versions should ideally be updated within 4-6 months, should be on actively supported versions and never be more than 2 major versions behind the current release of that dependency
 
 ### Examples:
 
@@ -42,7 +42,7 @@ PHP Unit 11 is the current major version. If your product is on PHPUnit 10.5.19,
 
 ### Note on Automerge
 
-It is not recommended to use auto-merge since it risks us moving away from the principle of "owning it out to production" for any given merge, if nobody is responsbile for the merge. Particularly if auto-merge schedules might kick in on bank holidays or out of hours.
+It is not recommended to use auto-merge since it risks us moving away from the principle of "owning it out to production" for any given merge if nobody is responsbile for the merge. Particularly if auto-merge schedules might kick in on bank holidays or out of hours.
 
 ## Consequences
 
