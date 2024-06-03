@@ -21,7 +21,7 @@ With these tools installed on a code repository teams have a way to automate kee
 
 All teams have control of their Renovate configuration and should adjust the defaults to fit their service's cadence and ecosystem. A team should set how many updates Renovate produces at once according to how many the team can deal with at once. 
 
-As standard we have a 3 days stability wait on all PRs that udpate dependencies to reduce the chance of dependency poisoning attacks.
+As standard we have a 3 days stability wait on all PRs that update dependencies to reduce the chance of dependency poisoning attacks.
 
 Renovate groups patch and minor updates by default. Teams should configure Renovate to partition dependencies by type to avoid large PRs you cannot reason about when a build is broken. Common partitions are by dependency type (Docker, PHP, JS, etc) or by dependency usage (dev, prod). [Make An LPA](https://github.com/ministryofjustice/opg-lpa/blob/main/renovate.json) has a good example of this kind of split.
 
