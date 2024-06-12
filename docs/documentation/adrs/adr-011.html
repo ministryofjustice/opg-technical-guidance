@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>Uptime per service, per month - OPG Technical Guidance</title>
+    <title>ADR-011 Patching Expectations - OPG Technical Guidance</title>
 
-    <link href="../../../../../stylesheets/manifest.css" rel="stylesheet" />
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
 
-    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/reports/service-uptime/by_month/2024-06/">
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-011.html">
 
       <meta name="robots" content="noindex" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
       <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
-      <meta name="twitter:title" content="Uptime per service, per month - OPG Technical Guidance" />
-      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/reports/service-uptime/by_month/2024-06/" />
+      <meta name="twitter:title" content="ADR-011 Patching Expectations - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-011.html" />
 
       <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
       <meta property="og:site_name" content="OPG Technical Guidance" />
-      <meta property="og:title" content="Uptime per service, per month" />
+      <meta property="og:title" content="ADR-011 Patching Expectations" />
       <meta property="og:type" content="object" />
-      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/reports/service-uptime/by_month/2024-06/" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-011.html" />
 
     
   </head>
@@ -49,7 +49,7 @@
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
         <ul id="navigation" class="govuk-header__navigation-list">
             <li class="govuk-header__navigation-item">
-              <a class="govuk-header__link" href="../../../../../">Home</a>
+              <a class="govuk-header__link" href="../../">Home</a>
             </li>
             <li class="govuk-header__navigation-item">
               <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
@@ -71,7 +71,7 @@
       <div class="app-pane__body" data-module="in-page-navigation">
           <div class="app-pane__toc">
             <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
-              <div class="search" data-module="search" data-path-to-site-root="../../../../../">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
   <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
     <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
     <label class="govuk-label search__label" for="search" aria-hidden="true">
@@ -91,7 +91,21 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
                       <ul>
   <li>
-    <a href="#uptime-per-service-per-month"><span>Uptime per service, per month</span></a>
+    <a href="#adr-011-patching-expectations"><span>ADR-011 Patching Expectations</span></a>
+    <ul>
+      <li>
+        <a href="#status"><span>Status</span></a>
+      </li>
+      <li>
+        <a href="#context"><span>Context</span></a>
+      </li>
+      <li>
+        <a href="#decision"><span>Decision</span></a>
+      </li>
+      <li>
+        <a href="#consequences"><span>Consequences</span></a>
+      </li>
+    </ul>
   </li>
 </ul>
 
@@ -102,70 +116,49 @@
 
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="uptime-per-service-per-month">Uptime per service, per month</h1>
-<p><em>Published on 2024-06-11 in 18 seconds</em></p>
+            <h1 id="adr-011-patching-expectations">ADR-011 Patching Expectations</h1>
+<p>Date: 21-04-2024</p>
+<h2 id="status">Status</h2>
+<p>🤔 Proposed</p>
+<h2 id="context">Context</h2>
+<p>Historically some products were not kept up to date with the dependencies they used. This made it very hard to update to security patched versions of components where drift has got too far behind current maintained versions. To avoid this happening again we moved our repos to use tools like Dependabot and Renovate to ensure we had automation to inform us of new versions of dependencies so we could patch in a timely way.</p>
+<p>With these tools installed on a code repository teams have a way to automate keeping up to date. However teams can find themselves with many pull requests to manage. This can lead to time spent investigating updates or fixing builds, and some confusion about relative priority of the different patch/minor or major updates for a given project.</p>
+<h2 id="decision">Decision</h2>
+<p>All teams have control of their Renovate configuration and should adjust the defaults to fit their service&rsquo;s cadence and ecosystem. A team should set how many updates Renovate produces at once according to how many the team can deal with at once.</p>
+<p>As standard we have a 3 days stability wait on all PRs that update dependencies to reduce the chance of dependency poisoning attacks.</p>
+<p>Renovate groups patch and minor updates by default. Teams should configure Renovate to partition dependencies by type to avoid large PRs you cannot reason about when a build is broken. Common partitions are by dependency type (Docker, PHP, JS, etc) or by dependency usage (dev, prod). <a href="https://github.com/ministryofjustice/opg-lpa/blob/main/renovate.json">Make An LPA</a> has a good example of this kind of split.</p>
+<p>Avoid situations where a single patch and minor updates PR keeps getting more and more updates and becomes unwieldy. Remember you can always manually update a set of dependencies via local tools and renvoate will pick up the changes and reduce a PRs size.</p>
+<p>Particularly chatty dependencies like the AWS SDK, which receive multiple updates a day, should be rate limited to avoid noise.</p>
+<p>Teams should prioritise PR updates as follows:</p>
 
-<table class='dataframe'>
-    <thead>
-        <tr>
-            <th style='text-align:left;'>Service</th>
-            <th style='text-align:right;'><a href='/documentation/reports/service-uptime/by_day/2024-06/index.html'>2024-06</a></th>
-            </tr>
-    </thead>
-    <tbody>
-    <tr>
-            <th style='text-align:left;'>digideps</th>
-            <td style='text-align:right;' title="Uptime % for 2024-06: (99.99174849659515)">
-                99.9917 %
-                </td>
-            </tr>
-    <tr>
-            <th style='text-align:left;'>make</th>
-            <td style='text-align:right;' title="Uptime % for 2024-06: (99.99793507996634)">
-                99.9979 %
-                </td>
-            </tr>
-    <tr>
-            <th style='text-align:left;'>modernlpa</th>
-            <td style='text-align:right;' title="Uptime % for 2024-06: (99.99528853348298)">
-                99.9953 %
-                </td>
-            </tr>
-    <tr>
-            <th style='text-align:left;'>serve</th>
-            <td style='text-align:right;' title="Uptime % for 2024-06: (99.99887068342895)">
-                99.9989 %
-                </td>
-            </tr>
-    <tr>
-            <th style='text-align:left;'>sirius</th>
-            <td style='text-align:right;' title="Uptime % for 2024-06: (99.95845750132493)">
-                99.9585 %
-                </td>
-            </tr>
-    <tr>
-            <th style='text-align:left;'>use</th>
-            <td style='text-align:right;' title="Uptime % for 2024-06: (99.99951774691358)">
-                99.9995 %
-                </td>
-            </tr>
-    
-    </tbody>
-</table>
-<p><em>Created by <a href="https://github.com/ministryofjustice/opg-dora-metrics">opg-dora-metrics</a></em></p>
-<p><em>Note: The uptime data is an amalgamation of daily AWS health check percentage checks</em></p>
+<ul>
+<li>If it is a security update then follow the <a href="https://security-guidance.service.justice.gov.uk/patch-management-guide/#patching-schedule">MOJ Security Patching Schedule</a> which is 3-7 days for HIGH or CRITICAL vulnerabilities.</li>
+<li>For any out of support or deprecated package work to update it should be scheduled within 1 month</li>
+<li>If it is a patch or minor update is made available it should be merged within 3-4 weeks.</li>
+<li>Major versions should ideally be updated within 4-6 months, should be on actively supported versions and never be more than 2 major versions behind the current release of that dependency</li>
+</ul>
+<h3 id="examples">Examples:</h3>
+<p>PHP Unit 11 is the current major version. If your product is on PHPUnit 10.5.19, you should merge point and patch versions as they become available, so an update to 10.5.20 should be merged within 3 weeks of being released. When version 12 is released the team should update to version 11 or greater.</p>
+<h3 id="note-on-automerge">Note on Automerge</h3>
+<p>It is not recommended to use auto-merge since it risks us moving away from the principle of &ldquo;owning it out to production&rdquo; for any given merge if nobody is responsbile for the merge. Particularly if auto-merge schedules might kick in on bank holidays or out of hours.</p>
+<h2 id="consequences">Consequences</h2>
+<p>Teams own their Renovate configuration and can adjust it to local needs and capacity.</p>
+<p>Teams should prioritise security patching over other forms of patching.</p>
+<p>Teams have leeway on major version updates as long as they are within supported versions and last 2 major versions.</p>
+<p>Teams should be able to configure Renovate to avoid overloading them with busy-work from dependency churn.</p>
+<p>See also our general <a href="https://docs.opg.service.justice.gov.uk/documentation/guides/dependencies.html">dependencies guidelines</a>.</p>
 
-              <div data-module='page-expiry' data-last-reviewed-on="2024-09-11">
+              <div data-module='page-expiry' data-last-reviewed-on="2025-04-21">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 11 June 2024.
+      This page was last reviewed on 21 April 2024.
 
-        It needs to be reviewed again on 11 September 2024
+        It needs to be reviewed again on 21 April 2025
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 11 September 2024
+      This page was set to be reviewed before 21 April 2025
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
@@ -175,8 +168,8 @@
 
           <aside>
               <ul class="contribution-banner">
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/reports/service-uptime/by_month/2024-06/index.html.md.erb">View source</a></li>
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Uptime+per+service%2C+per+month%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Freports%2Fservice-uptime%2Fby_month%2F2024-06%2F%29&amp;labels=bug&amp;title=Re%3A+%27Uptime+per+service%2C+per+month%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/adrs/adr-011.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27ADR-011+Patching+Expectations%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fadrs%2Fadr-011.html%29&amp;labels=bug&amp;title=Re%3A+%27ADR-011+Patching+Expectations%27">Report problem</a></li>
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
               </ul>
           </aside>
@@ -223,6 +216,6 @@
     </div>
 
     
-    <script src="../../../../../javascripts/application.js"></script>
+    <script src="../../javascripts/application.js"></script>
   </body>
 </html>
