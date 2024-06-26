@@ -1,8 +1,8 @@
 ---
 title: Golang Patterns and Approaches
 weight: 10
-last_reviewed_on: 2024-03-20
-review_in: 12 weeks
+last_reviewed_on: 2024-06-26
+review_in: 12 months
 owner_slack: "#opg-developers"
 ---
 
@@ -36,7 +36,7 @@ We chose to adopt golang as a secondary language within OPG Digital because:
 - [objx](https://github.com/stretchr/objx) - Useful tools for dealing with JSON and maps.
 - [go-spew](https://github.com/davecgh/go-spew) - A nicer pretty printer for development/debugging.
 
-Note we previously recommended [gorilla/mux](https://github.com/gorilla/mux), but those libraries are no longer maintained.
+Note we previously recommended [gorilla/mux](https://github.com/gorilla/mux), but that set of libraries had maintenence issues and since that time the core HTTP router has evolved to cover most uses cases. Use the internal HTTP router unless you have a very odd edge case, see the [golang 1.22](https://go.dev/blog/routing-enhancements) release notes.
 
 ## Preferred Patterns
 
