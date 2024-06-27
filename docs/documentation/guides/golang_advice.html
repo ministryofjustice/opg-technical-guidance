@@ -152,7 +152,7 @@
 <li><a href="https://github.com/stretchr/objx">objx</a> - Useful tools for dealing with JSON and maps.</li>
 <li><a href="https://github.com/davecgh/go-spew">go-spew</a> - A nicer pretty printer for development/debugging.</li>
 </ul>
-<p>Note we previously recommended <a href="https://github.com/gorilla/mux">gorilla/mux</a>, but those libraries are no longer maintained.</p>
+<p>Note we previously recommended <a href="https://github.com/gorilla/mux">gorilla/mux</a>, but that set of libraries had maintenence issues and since that time the core HTTP router has evolved to cover most uses cases. Use the internal HTTP router unless you have a very odd edge case, see the <a href="https://go.dev/blog/routing-enhancements">golang 1.22</a> release notes.</p>
 <h2 id="preferred-patterns">Preferred Patterns</h2>
 <p><a href="https://github.com/uber-go/guide/blob/master/style.md">Uber-go</a> - Go has a very good built-in formatter for writing correct Go. This Uber style README.md covers extra stylistic concerns not covered by Go&rsquo;s standard practices. For example the Verifying Interface Compliance</p>
 <p>Generally our golang services are microservices and micro-frontends. This allows us to build small, isolated components focused on a particular domain that can be deployed independently. One repo per service.</p>
@@ -180,17 +180,17 @@
 <li><a href="https://app.pluralsight.com/library/courses/go-delve-debugging-applications">https://app.pluralsight.com/library/courses/go-delve-debugging-applications</a> - A look at using the golang debugger with your code</li>
 </ul>
 
-              <div data-module='page-expiry' data-last-reviewed-on="2024-06-12">
+              <div data-module='page-expiry' data-last-reviewed-on="2025-06-26">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 20 March 2024.
+      This page was last reviewed on 26 June 2024.
 
-        It needs to be reviewed again on 12 June 2024
+        It needs to be reviewed again on 26 June 2025
         by the page owner <a href="https://mojdt.slack.com/messages/opg-developers">#opg-developers</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 12 June 2024
+      This page was set to be reviewed before 26 June 2025
        by the page owner <a href="https://mojdt.slack.com/messages/opg-developers">#opg-developers</a>.
       This might mean the content is out of date.
     </div>
