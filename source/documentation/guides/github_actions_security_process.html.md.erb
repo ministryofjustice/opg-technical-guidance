@@ -1,0 +1,304 @@
+---
+title: Github Actions Security
+last_reviewed_on: 2024-08-19
+review_in: 13 weeks
+---
+
+# <%= current_page.data.title %>
+
+Our aim is to make our products as secure as possible while maintaining usability for end users. This is in line with the [GDS service standard](https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service). You should be aware of the [MOJ Security Guidance](https://ministryofjustice.github.io/security-guidance/#cyber-and-technical-security-guidance), which will help with specific policy issues at an MOJ level and follow the [National Cyber Security Centre](https://www.ncsc.gov.uk/) for updates at a government level.
+
+## Guiding Principals
+
+To give us guidance in the reasons behind our pipeline security practices, we have a number of directives or guiding principles.
+The mitigations that we put in place are aimed at aligning with one or more guiding principles.
+
+* Protect Customer Data - Stop customer data from being viewed by anyone who is not allowed to see it under GDPR and make sure that it isn't changed by any person or process that is not part of expected business functionality.
+* Protect Service Uptime and Performance - Avoid negative impact on the amount of time that a service is up, functional and performant unless that impact is part of a reasoned business decision.
+* Protect MoJ Infrastructure - Ensure that no infratsructure resources are created, modified or deleted unintentionally, maliciously or without the correct checks and approvals.
+* Protect Staff Members and their Privacy - Ensure that staff members personal details are not put at risk or that malicious actions are not carried out in their name.
+* Protect Organisational Reputation - Stop activity that would put at risk the reputation of the MoJ (specifically by not protecting against some combination of the aforementioned points).
+
+
+## Specific Risks
+
+### Github App Compromise
+
+#### Description
+Some Github apps have the ability to open PRs on our repos. If the app was compromised in some way then when the webhook processed the request on our repo,
+it could open a pull request with anything in it unless the correct protections were put in place.
+
+As this opens the PR on our repo rather than a forked branch, then if the correct precautions aren't put in place then it could gain access to secrets or create infrastructure.
+
+#### Risks
+Access to secrets used in the pipeline or ability to do whatever a user could do in a pull request pipeline.
+
+#### Mitigations
+
+* branch protection - main branch should be protected against unapproved merge
+* oidc - use oidc roles that are branch limited so that pull requests or pushes to non main branches can't access non dev aws accounts
+* restricted management CI - development infra often requires access to management account for DNS. Lock down the management ci role to resources you need only
+* codeowners approval - to stop changes getting approved by someone outside the team, use codeowners file and set codeowner approval on repo. Add additional restrictions for github action files and codeowners file.
+* branch creation only - limit apps to branch creation only and have a separate job that triggers and creates the pull request. The job that creates the PR can do some checks to make sure only certain files are modified before raising it.
+
+----
+
+### Package Compromised (Malicious Code Run at Runtime)
+
+#### Description
+A poisoned package could be introduced either by a Github App (e.g., Renovate or Dependabot) suggesting compromised package versions, or by using a package manager that inadvertently fetches a malicious package.
+Additionally, a package could be independently poisoned without involvement from any package manager.
+
+During runtime, such a package could exfiltrate sensitive information, including secrets stored in environment variables or by accessing other secrets using credentials available in the Github Actions context.
+
+This could happen in a couple of places. During the running of any tests or once the code is deployed in a running app in the cloud.
+
+#### Risks
+
+Exfiltration of sensitive secrets stored in environment variables or a secrets manager.
+If running directly on the base Github Actions machine instead of a container, the package could access Github Actions environment variables, leading to broader exposure of secrets.
+Running untrusted or malicious code without isolation (e.g., directly executing unit tests on the machine) increases the risk of exposing CI secrets.
+If it runs once deployed then it could have access to data sources (DBs, Redis etc) as well as secrets that the container it's on has permissions to access and any env vars in the container.
+
+#### Mitigations
+
+* Stability Days: Introduce a delay (e.g., a few days) before updating to allow time for malicious packages to be identified and flagged.
+* No Untrusted Packages: Avoid using untrusted or unnecessary packages. Prefer easily maintainable internal solutions for simple functionalities.
+* Container Scanning: Regularly scan containers for known vulnerabilities and poisoned packages.
+* Container Hardening: Remove unneeded users, executables, and permissions within containers to minimize attack surfaces.
+* Run Code in Containers: Always isolate code execution within containers rather than on the base Github Actions machine to restrict access to environment variables and secrets.
+* Container Linting: Lint and validate container configurations to ensure security best practices are followed.
+* Use Trusted Sources: Restrict dependencies to trusted sources and audit critical packages before deployment. For essential functionalities, consider creating and maintaining an internal version of critical packages to reduce dependency risks.
+* Data Exfiltration Monitoring: Deploy tools that monitor unusual network activity, such as unexpected outbound traffic patterns, and set up alerts for anomalies.
+* Infrastructure Scanning: Regularly scan deployed infrastructure for vulnerabilities or misconfigurations that could allow data exfiltration (security hub, tfsec, trivy, cloudtrail alarms etc).
+
+Note - Haven't added the protections to GA creds in the example below in this issue as if we run the code in a container then it shouldn't have access to the GA actions secrets.
+
+----
+
+### Package Compromised (Malicious Code Run During Installation)
+
+#### Description
+
+A poisoned package may be introduced through a Github App (e.g., Renovate or Dependabot) suggesting malicious package versions, or by using a compromised package manager.
+
+Additionally, a package could be poisoned independently of the package manager.
+
+This is similar to the above except the malicious code would be run as part of the installation instead of at runtime. In one sense this makes it harder to notice without vulnerability being raised as the malicious code would be hidden in install files that don't end up in the vendor folders.
+
+During installation, such a package can exfiltrate sensitive information, including environment variables or other secrets accessed using credentials available in the Github Actions context.
+
+#### Risks
+
+Higher risk of it getting pipeline creds as the runtime version of this requires that we run the code in the pipeline for that to happen whereas this is simply if we install the code.
+If unfiltered CI AWS credentials or Github tokens are exposed, malicious code could destroy resources, create unauthorized infrastructure (e.g., fraud or cryptocurrency mining), or exfiltrate sensitive data.
+Secrets in the CI environment, such as access credentials or API tokens, may be stolen during package installation.
+
+#### Mitigations
+
+* OIDC Per Environment: Use branch-limited OIDC roles to restrict access to sensitive environments. Non-main branches or pull request branches should not access non-development AWS accounts.
+* AWS Management Restricted: Limit management account access to only essential resources, such as DNS or product-specific infrastructure, and differentiate dev and non-dev permissions.
+* Install in containers: Don't install packages directly in Github and mount them as this would give package access ot the environment variables. If installed in a docker container then it should only have access to docker env vars.
+* Credentials Order: Delay fetching AWS credentials or other secrets until after all dependencies have been installed and validated to minimize exposure during installation.
+* Strict Inheritance: Avoid blanket inheritance of secrets in sub-workflows; pass only the required secrets to limit their exposure.
+* No Untrusted Packages: Avoid using untrusted packages where possible. For simple functionalities, use internal solutions to reduce dependency on external sources.
+* Minimal AWS Credentials: Assign specific roles for each task (e.g., ECR push, scanning, fetching secrets) and avoid using overly broad permissions.
+* Stability Days: Implement a waiting period before updating packages to allow malicious packages to be identified and flagged.
+* Container Scanning: Scan containers for vulnerabilities to identify any poisoned or malicious packages.
+* Codeowners Approval: Use a codeowners file to enforce reviews by appropriate team members, and require additional protections for changes to sensitive files such as Github Actions workflows.
+* Artifact Security: Generate and validate artifact hashes to ensure that installed or released packages match the intended versions.
+
+----
+
+### Compromised Github Action
+
+#### Description
+
+A poisoned GitHub Action version or pipeline script pulled from an untrusted internet source could introduce malicious code into the CI/CD pipeline. When executed, this code could access and exploit any secrets or credentials available in the GitHub Actions context.
+
+Such an attack could lead to exfiltration of sensitive data, destruction of critical infrastructure, or the creation of fraudulent resources like cryptocurrency mining setups.
+
+#### Risks
+
+Exfiltration of AWS credentials, GitHub tokens, or other sensitive environment variables.
+Malicious activity such as fraudulent resource creation, data destruction, or unauthorized data access.
+Complete compromise of CI/CD pipeline security.
+
+#### Mitigations
+
+* OIDC Per Environment: Use OIDC roles restricted by branch to ensure that pipelines from non-main branches can only access development or test environments, limiting the impact of a compromise.
+* AWS Management Restricted: Restrict management account permissions to only the required resources, minimizing the damage potential in case of compromise.
+* Restrict Actions to Specified: In repo settings, only allow specified github actions. This prevents nested actions being changed to allow new insecure actions without our knowledge.
+* Use Trusted Actions Only: Restrict workflows to use only approved actions maintained by the organization or trusted third parties to avoid introducing malicious actions.
+* Creds Order: Only fetch and expose credentials after untrusted code has run, ensuring malicious scripts cannot access secrets. Unset credentials immediately after they are no longer needed.
+* Strict Inherit: Avoid blanket inheritance of secrets for sub-workflows. Explicitly define only the necessary permissions and secrets for each sub-workflow.
+* No Untrusted: Avoid using untrusted GitHub Actions or scripts from unknown sources. For simple, repeatable tasks, consider maintaining internal, vetted actions within an organizational repository.
+* Minimal AWS Credentials: Assign narrowly scoped AWS roles for specific tasks (e.g., pushing images to ECR or fetching secrets), ensuring malicious code cannot abuse broad permissions.
+* Stability Days: Enforce a delay period for new or updated GitHub Actions to identify potential security issues before they are executed in sensitive environments.
+* Codeowners Approval: Use a Codeowners file to ensure that only authorized personnel can approve changes to critical files such as workflow configurations.
+* Artifact Security: Validate artifacts created by CI/CD workflows using signed hashes to ensure their integrity before deployment.
+
+----
+
+### Compromised Developer Credentials
+
+#### Description
+
+A malicious developer or someone with developer credentials could modify CI/CD workflows to introduce malicious actions. These actions could exploit AWS credentials or GitHub tokens available in the pipeline to perform harmful operations, such as destroying infrastructure, creating fraudulent resources, or exfiltrating sensitive data.
+
+#### Risks
+
+Destruction of infrastructure and critical resources.
+Unauthorized creation of resources for malicious purposes, such as cryptocurrency mining.
+Exfiltration of sensitive data, leading to reputational damage and regulatory penalties.
+
+#### Mitigations
+
+* OIDC Per Environment: Use short-lived, branch-restricted OIDC credentials to limit the scope of AWS resources accessible by CI pipelines. This ensures that non-main branches cannot access production accounts.
+* AWS Management Restricted: Scope AWS management account permissions to only allow access to essential resources, such as DNS or deployment tools, reducing potential damage.
+* Codeowners Approval: Require Codeowners approval for any changes to sensitive files, including GitHub Actions workflows, to prevent unauthorized modifications.
+* Restrict CI Access to Customer Data: Ensure that CI roles are denied access to customer data in services like S3, DynamoDB, or RDS, minimizing the potential for data breaches.
+* Minimal AWS Credentials: Use narrowly scoped roles for specific tasks in the CI pipeline, such as ECR pushes or fetching secrets, reducing the permissions available to malicious modifications.
+* Turn Off Running Forked PRs: Require manual approval for external PRs to prevent unauthorized access to sensitive resources through malicious workflows.
+* Artifact Security: Validate the integrity of all generated artifacts to prevent malicious changes from propagating through the deployment process.
+* Commit Signing: Require signed commits to verify the authenticity of changes and prevent impersonation within the development process.
+* Permissions Per Workflow: Restrict permissions in GitHub workflows to the minimal level necessary for each job, ensuring that excessive privileges are not available.
+* Restrict Actions to Specified: In repo settings, only allow specified github actions. This prevents nested actions being changed to allow new insecure actions without our knowledge.
+* Use Trusted Actions Only: Restrict workflows to use only approved actions maintained by the organization or trusted third parties to avoid introducing malicious actions.
+
+----
+
+### Do not use pull_request_target
+
+#### Description
+
+Using the pull_request_target event in GitHub Actions can expose secrets to workflows triggered by pull requests from forked repositories. While OIDC credentials are generally restricted in such cases, other secrets (e.g., GitHub tokens) can still be accessed by malicious workflows. This opens up the potential for unauthorized actions to be performed using these secrets.
+
+#### Risks
+
+Unauthorized access to secrets available to the GitHub Action workflow, such as tokens or API keys.
+Execution of malicious workflows that perform unauthorized actions in the repository or connected systems.
+
+#### Mitigations
+
+* Turn Off Running Forked PRs: Disable workflows from automatically running for forked PRs, requiring manual approval to ensure the workflow is safe to execute.
+* Permissions Per Workflow: Minimize the permissions granted to workflows triggered by pull_request_target events, ensuring they only have access to what is absolutely necessary.
+* No Secrets in Forked PRs: Configure GitHub Actions secrets to not be accessible for workflows triggered by PRs from forks.
+* Codeowners Approval: Require code owner approval for workflow changes in PRs, preventing unauthorized modifications from being merged.
+* Restrict Actions to Specified: In repo settings, only allow specified github actions. This prevents nested actions being changed to allow new insecure actions without our knowledge.
+* Use Trusted Actions Only: Restrict workflows to use only approved actions maintained by the organization or trusted third parties to avoid introducing malicious actions.
+* Minimal App Permissions: Ensure the GitHub token used in workflows has the least privileges necessary to complete the required tasks, reducing the risk of abuse.
+* Artifact Security: Validate the integrity of any artifacts generated in forked PR workflows to ensure malicious code hasn’t been introduced.
+* Review Event Triggers: Use the pull_request event instead of pull_request_target where possible, as it limits the context to the fork's scope and prevents access to repository secrets.
+
+----
+
+### Misconfigured Forking Permissions
+
+#### Description
+
+If forking permissions are misconfigured, workflows can automatically run for PRs originating from forked repositories. This can expose secrets or allow unauthorized actions using the GitHub token or other sensitive credentials. Forked PRs should not be allowed to trigger workflows without careful review and approval to ensure security.
+
+#### Risks
+
+Exposure of secrets to potentially malicious workflows in forked repositories.
+Unauthorized actions performed using the GitHub token or other credentials.
+Execution of harmful workflows that compromise repository integrity or connected systems.
+
+#### Mitigations
+
+* Turn Off Running Forked PRs: Disable automatic workflow execution for PRs from forks. Require manual review and approval before running any workflows on forked PRs.
+* Permissions Per Workflow: Configure granular permissions for workflows to ensure only the minimum necessary access is provided, reducing the impact of any unauthorized actions.
+* No Secrets in Forked PRs: Ensure that secrets are not accessible in workflows triggered by PRs from forked repositories.
+* Codeowners Approval: Require code owner approval for all workflow changes to prevent unauthorized modifications from being merged.
+* Restrict Actions to Specified: In repo settings, only allow specified github actions. This prevents nested actions being changed to allow new insecure actions without our knowledge.
+* Use Trusted Actions Only: Restrict workflows to use only approved actions maintained by the organization or trusted third parties to avoid introducing malicious actions.
+* Minimal App Permissions: Restrict the permissions of the GitHub token to the bare minimum required for each workflow, reducing the risk of abuse.
+* Review Event Triggers: Use triggers like pull_request over pull_request_target for workflows to limit the access scope for workflows triggered by forks.
+
+----
+
+### Poorly defined version contraints
+
+#### Description
+
+Package management tools or GitHub workflows may unintentionally install a poisoned package due to poorly defined semantic version constraints. For example, using constraints like >=8.1 or shorthand such as 8.1 might install a compromised version, such as 8.1.2. Similarly, not specifying constraints may allow the latest, potentially malicious, version to be installed. This can introduce malicious code into the pipeline or production environment.
+
+#### Risks
+
+Exfiltration of sensitive credentials, secrets, or data.
+Destruction or creation of unauthorized resources in CI environments (e.g., fraud, cryptocurrency mining).
+Full compromise of CI pipelines or connected systems.
+
+#### Mitigations
+
+* Stability Days: Configure automatic update tools like Renovate to introduce a delay between updates and deployments. This provides time to detect malicious changes in new package versions.
+* Pin Package Versions: Use exact version pins (8.1.1) whenever possible to reduce the risk of accidental upgrades to poisoned versions.
+* Use SHA: As part of the version spec, where possible use the commit sha for the version constraint to avoid the issue where a tagged version being overwritten with different code.
+* Dependency Scanning: Use tools like Dependabot or renovate to identify vulnerabilities in dependencies proactively.
+
+----
+
+### Accidental Secret Printing in Actions
+
+#### Description
+
+Accidental action misconfigurations, such as improperly named environment variables or poorly managed logging mechanisms, may inadvertently expose sensitive data. For example, using echo or printenv statements in the wrong places can accidentally display secrets or environment variables that should not be visible, even to internal users. While external viewers (e.g., from forks or public repositories) would not see these secrets, they may still be accessible to internal actors with the right privileges or logs.
+
+#### Risks
+
+Exposure of sensitive secrets, credentials, or configuration details within internal logs.
+Potential unauthorized access to internal systems or data if secrets are exposed to developers or team members.
+Increased attack surface due to misconfigured logging or debugging outputs.
+
+#### Mitigations
+
+* Strict Inheritance: Limit inheritance of secrets between workflows. Ensure that only necessary secrets are passed down to sub-workflows to minimize risk of exposure.
+* Sensitive Variable Management: Make sure all secrets are passed between workflows as secrets and any generated in workflows are properly masked before being output anywhere.
+
+----
+
+### Pull Request Hijacking
+
+#### Description
+
+Committing to another person's PR allows users with write access to a repository to potentially make changes to a pull request that they did not originally submit. This can be abused by adding malicious changes (e.g., elevating their own access, modifying workflows, or injecting harmful code) to a PR and then approving it themselves. This becomes a significant risk if there are insufficient approval checks or a lack of separation of duties, especially in highly privileged environments.
+
+#### Risks
+
+Malicious code injected into production pipelines or codebase.
+Unauthorized access granted to sensitive environments or systems (e.g., elevated AWS or GitHub permissions).
+The potential for the PR to bypass intended review processes due to self-approval.
+Introduction of hidden backdoors or security vulnerabilities that may go unnoticed.
+
+#### Mitigations
+
+* Github app: Ultimately one method of dealing with this would be to have an app that does a second approval only if the first approver had not committed to the branch. This was we could have two approvals needed but only need 1 actual person to approve.
+* Approval Workflow Enforcement: Implement strict approval policies for sensitive repos that may require more than one approver (always minimum of 1).
+* OIDC Per Environment: Use short-lived, branch-restricted OIDC credentials to limit the scope of AWS resources accessible by CI pipelines. This ensures that non-main branches cannot access production accounts.
+* AWS Management Restricted: Scope AWS management account permissions to only allow access to essential resources, such as DNS or deployment tools, reducing potential damage.
+* Codeowners Approval: Require Codeowners approval for any changes to sensitive files, including GitHub Actions workflows, to prevent unauthorized modifications.
+* Restrict CI Access to Customer Data: Ensure that CI roles are denied access to customer data in services like S3, DynamoDB, or RDS, minimizing the potential for data breaches.
+* Minimal AWS Credentials: Use narrowly scoped roles for specific tasks in the CI pipeline, such as ECR pushes or fetching secrets, reducing the permissions available to malicious modifications.
+* Commit Signing: Require signed commits to verify the authenticity of changes and prevent impersonation within the development process.
+* Permissions Per Workflow: Restrict permissions in GitHub workflows to the minimal level necessary for each job, ensuring that excessive privileges are not available.
+* Restrict Actions to Specified: In repo settings, only allow specified github actions. This prevents nested actions being changed to allow new insecure actions without our knowledge.
+* Use Trusted Actions Only: Restrict workflows to use only approved actions maintained by the organization or trusted third parties to avoid introducing malicious actions.
+
+----
+
+### Overprivileged Worfflows
+
+#### Description
+
+When workflows are over-privileged, they are granted more permissions than necessary for the tasks they need to perform. This increases the risk of exploitation, as an attacker who compromises the workflow or the repository can use the excess privileges to perform unintended or harmful actions, such as deleting resources, accessing sensitive data, or altering critical infrastructure.
+
+#### Risks
+
+Exploitation of excessive permissions could lead to unauthorized access, modification, or deletion of resources.
+Compromise of credentials could allow attackers to escalate privileges and take control of environments.
+Malicious actors could access sensitive customer data or infrastructure components that are outside the intended scope of the workflow.
+
+#### Mitigations
+
+* Permissions Per Workflow: Carefully define the permissions for each individual workflow. This ensures that only the necessary permissions are granted for specific tasks and that workflows cannot escalate privileges unnecessarily.
