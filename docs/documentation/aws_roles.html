@@ -134,19 +134,19 @@
             <h1 id="opg-aws-roles">OPG AWS Roles</h1>
 <h2 id="modernising-lpa">Modernising LPA</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile modernising-lpa-development-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::653761790766:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile modernising-lpa-development-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::653761790766:role/viewer
 
-<span class="o">[</span>profile modernising-lpa-preproduction-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::792093328875:role/viewer
+[profile modernising-lpa-preproduction-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::792093328875:role/viewer
 
-<span class="o">[</span>profile modernising-lpa-production-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::313879017102:role/viewer
+[profile modernising-lpa-production-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::313879017102:role/viewer
 </code></pre></div><p>Operator Roles
-&ldquo;`bash
+&ldquo;`
 [profile modernising-lpa-development-operator]
 region=eu-west-1
 role_arn=arn:aws:iam::653761790766:role/operator</p>
@@ -159,199 +159,199 @@ role_arn=arn:aws:iam::313879017102:role/operator
 &rdquo;`</p>
 <h2 id="serve-opg">Serve OPG</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile serve-opg-development-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::705467933182:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile serve-opg-development-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::705467933182:role/viewer
 
-<span class="o">[</span>profile serve-opg-preproduction-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::540070264006:role/viewer
+[profile serve-opg-preproduction-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::540070264006:role/viewer
 
-<span class="o">[</span>profile serve-opg-production-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::933639921819:role/viewer
+[profile serve-opg-production-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::933639921819:role/viewer
 </code></pre></div><p>Operator Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile serve-opg-development-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::705467933182:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile serve-opg-development-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::705467933182:role/operator
 
-<span class="o">[</span>profile serve-opg-preproduction-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::540070264006:role/operator
+[profile serve-opg-preproduction-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::540070264006:role/operator
 
-<span class="o">[</span>profile serve-opg-production-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::933639921819:role/operator
+[profile serve-opg-production-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::933639921819:role/operator
 </code></pre></div><h2 id="digideps">Digideps</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile digideps-development-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::248804316466:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile digideps-development-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::248804316466:role/viewer
 
-<span class="o">[</span>profile digideps-preproduction-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::454262938596:role/viewer
+[profile digideps-preproduction-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::454262938596:role/viewer
 
-<span class="o">[</span>profile digideps-production-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::515688267891:role/viewer
+[profile digideps-production-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::515688267891:role/viewer
 </code></pre></div><p>Operator Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile digideps-development-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::248804316466:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile digideps-development-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::248804316466:role/operator
 
-<span class="o">[</span>profile digideps-preproduction-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::454262938596:role/operator
+[profile digideps-preproduction-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::454262938596:role/operator
 
-<span class="o">[</span>profile digideps-production-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::515688267891:role/operator
+[profile digideps-production-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::515688267891:role/operator
 </code></pre></div><h2 id="lpa">LPA</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile moj-lpa-dev]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::050256574573:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-lpa-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::050256574573:role/viewer
 
-<span class="o">[</span>profile moj-lpa-preprod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::987830934591:role/viewer
+[profile moj-lpa-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::987830934591:role/viewer
 
-<span class="o">[</span>profile moj-lpa-prod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::980242665824:role/viewer
+[profile moj-lpa-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::980242665824:role/viewer
 
 </code></pre></div><p>Operator Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile moj-lpa-dev]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::050256574573:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-lpa-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::050256574573:role/operator
 
-<span class="o">[</span>profile moj-lpa-preprod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::987830934591:role/operator
+[profile moj-lpa-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::987830934591:role/operator
 
-<span class="o">[</span>profile moj-lpa-prod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::980242665824:role/operator
+[profile moj-lpa-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::980242665824:role/operator
 
 </code></pre></div><h2 id="refunds">Refunds</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile moj-refunds-prod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::805626386523:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-refunds-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::805626386523:role/viewer
 
 </code></pre></div><p>Operator Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile moj-refunds-prod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::805626386523:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-refunds-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::805626386523:role/operator
 </code></pre></div><h2 id="use-an-lpa">Use an LPA</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile ual-dev]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::367815980639:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile ual-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::367815980639:role/viewer
 
-<span class="o">[</span>profile ual-preprod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::888228022356:role/viewer
+[profile ual-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::888228022356:role/viewer
 
-<span class="o">[</span>profile ual-prod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::690083044361:role/viewer
+[profile ual-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::690083044361:role/viewer
 </code></pre></div><p>Operator Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile ual-dev]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::367815980639:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile ual-dev]
+region=eu-west-1
+role_arn=arn:aws:iam::367815980639:role/operator
 
-<span class="o">[</span>profile ual-preprod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::888228022356:role/operator
+[profile ual-preprod]
+region=eu-west-1
+role_arn=arn:aws:iam::888228022356:role/operator
 
-<span class="o">[</span>profile ual-prod]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::690083044361:role/operator
+[profile ual-prod]
+region=eu-west-1
+role_arn=arn:aws:iam::690083044361:role/operator
 </code></pre></div><h2 id="sirius">Sirius</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile sirius-dev-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::288342028542:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile sirius-dev-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::288342028542:role/viewer
 
-<span class="o">[</span>profile sirius-preprod-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::492687888235:role/viewer
+[profile sirius-preprod-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::492687888235:role/viewer
 
-<span class="o">[</span>profile sirius-prod-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::649098267436:role/viewer
+[profile sirius-prod-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::649098267436:role/viewer
 </code></pre></div><p>Operator roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile sirius-dev-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::288342028542:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile sirius-dev-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::288342028542:role/operator
 
-<span class="o">[</span>profile sirius-preprod-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::492687888235:role/operator
+[profile sirius-preprod-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::492687888235:role/operator
 
-<span class="o">[</span>profile sirius-prod-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::649098267436:role/operator
+[profile sirius-prod-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::649098267436:role/operator
 </code></pre></div><h2 id="lpa-store">LPA Store</h2>
 <p>Viewer Roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile lpa-store-dev-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::493907465011:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile lpa-store-dev-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::493907465011:role/viewer
 
-<span class="o">[</span>profile lpa-store-preprod-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::936779158973:role/viewer
+[profile lpa-store-preprod-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::936779158973:role/viewer
 
-<span class="o">[</span>profile lpa-store-prod-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::764856231715:role/viewer
+[profile lpa-store-prod-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::764856231715:role/viewer
 </code></pre></div><p>Operator roles</p>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile lpa-store-dev-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::493907465011:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile lpa-store-dev-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::493907465011:role/operator
 
-<span class="o">[</span>profile lpa-store-preprod-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::936779158973:role/operator
+[profile lpa-store-preprod-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::936779158973:role/operator
 
-<span class="o">[</span>profile lpa-store-prod-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::764856231715:role/operator
+[profile lpa-store-prod-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::764856231715:role/operator
 </code></pre></div><h2 id="other-roles">Other Roles</h2>
 <h3 id="management">Management</h3>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile management-viewer]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::311462405659:role/viewer
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile management-viewer]
+region=eu-west-1
+role_arn=arn:aws:iam::311462405659:role/viewer
 
-<span class="o">[</span>profile management-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::311462405659:role/operator
+[profile management-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::311462405659:role/operator
 </code></pre></div><h3 id="shared">Shared</h3>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile shared-development]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::679638075911:role/account-write
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile shared-development]
+region=eu-west-1
+role_arn=arn:aws:iam::679638075911:role/account-write
 
-<span class="o">[</span>profile shared-production]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::997462338508:role/account-write
+[profile shared-production]
+region=eu-west-1
+role_arn=arn:aws:iam::997462338508:role/account-write
 </code></pre></div><h3 id="sandbox">Sandbox</h3>
-<div class="highlight"><pre class="highlight shell" tabindex="0"><code><span class="o">[</span>profile sandbox-operator]
-<span class="nv">region</span><span class="o">=</span>eu-west-1
-<span class="nv">role_arn</span><span class="o">=</span>arn:aws:iam::995199299616:role/operator
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile sandbox-operator]
+region=eu-west-1
+role_arn=arn:aws:iam::995199299616:role/operator
 </code></pre></div>
-              <div data-module='page-expiry' data-last-reviewed-on="2024-05-18">
+              <div data-module='page-expiry' data-last-reviewed-on="2025-01-15">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 18 March 2024.
+      This page was last reviewed on 15 October 2024.
 
-        It needs to be reviewed again on 18 May 2024
+        It needs to be reviewed again on 15 January 2025
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 18 May 2024
+      This page was set to be reviewed before 15 January 2025
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
