@@ -1,7 +1,7 @@
 ---
 title: Github Actions Security
-last_reviewed_on: 2024-08-19
-review_in: 13 weeks
+last_reviewed_on: 2024-11-18
+review_in: 52 weeks
 ---
 
 # <%= current_page.data.title %>
@@ -35,11 +35,11 @@ Access to secrets used in the pipeline or ability to do whatever a user could do
 
 #### Mitigations
 
+* OIDC Per Environment: Use branch-limited OIDC roles to restrict access to sensitive environments. Non-main branches or pull request branches should not access non-development AWS accounts.
 * branch protection - main branch should be protected against unapproved merge
-* oidc - use oidc roles that are branch limited so that pull requests or pushes to non main branches can't access non dev aws accounts
 * restricted management CI - development infra often requires access to management account for DNS. Lock down the management ci role to resources you need only
 * codeowners approval - to stop changes getting approved by someone outside the team, use codeowners file and set codeowner approval on repo. Add additional restrictions for github action files and codeowners file.
-* branch creation only - limit apps to branch creation only and have a separate job that triggers and creates the pull request. The job that creates the PR can do some checks to make sure only certain files are modified before raising it.
+* branch creation only - limit apps to branch creation only and have a separate job that triggers and creates the pull request. The job that creates the PR can do some checks to make sure only certain files are modified before raising it. We haven't currently got a system to do this so we would have to look into whether this is an effective solution.
 
 ----
 
@@ -64,12 +64,12 @@ If it runs once deployed then it could have access to data sources (DBs, Redis e
 
 * Stability Days: Introduce a delay (e.g., a few days) before updating to allow time for malicious packages to be identified and flagged.
 * No Untrusted Packages: Avoid using untrusted or unnecessary packages. Prefer easily maintainable internal solutions for simple functionalities.
-* Container Scanning: Regularly scan containers for known vulnerabilities and poisoned packages.
+* Container Scanning: Scan containers for vulnerabilities to identify any poisoned or malicious packages (trivy/ecr scanning).
 * Container Hardening: Remove unneeded users, executables, and permissions within containers to minimize attack surfaces.
 * Run Code in Containers: Always isolate code execution within containers rather than on the base Github Actions machine to restrict access to environment variables and secrets.
 * Container Linting: Lint and validate container configurations to ensure security best practices are followed.
 * Use Trusted Sources: Restrict dependencies to trusted sources and audit critical packages before deployment. For essential functionalities, consider creating and maintaining an internal version of critical packages to reduce dependency risks.
-* Data Exfiltration Monitoring: Deploy tools that monitor unusual network activity, such as unexpected outbound traffic patterns, and set up alerts for anomalies.
+* Data Exfiltration Monitoring: Use tools that monitor unusual activity (cloudtrail) and set up alerts for anomalies.
 * Infrastructure Scanning: Regularly scan deployed infrastructure for vulnerabilities or misconfigurations that could allow data exfiltration (security hub, tfsec, trivy, cloudtrail alarms etc).
 
 Note - Haven't added the protections to GA creds in the example below in this issue as if we run the code in a container then it shouldn't have access to the GA actions secrets.
@@ -104,7 +104,7 @@ Secrets in the CI environment, such as access credentials or API tokens, may be 
 * No Untrusted Packages: Avoid using untrusted packages where possible. For simple functionalities, use internal solutions to reduce dependency on external sources.
 * Minimal AWS Credentials: Assign specific roles for each task (e.g., ECR push, scanning, fetching secrets) and avoid using overly broad permissions.
 * Stability Days: Implement a waiting period before updating packages to allow malicious packages to be identified and flagged.
-* Container Scanning: Scan containers for vulnerabilities to identify any poisoned or malicious packages.
+* Container Scanning: Scan containers for vulnerabilities to identify any poisoned or malicious packages (trivy/ecr scanning).
 * Codeowners Approval: Use a codeowners file to enforce reviews by appropriate team members, and require additional protections for changes to sensitive files such as Github Actions workflows.
 * Artifact Security: Generate and validate artifact hashes to ensure that installed or released packages match the intended versions.
 
@@ -235,7 +235,7 @@ Full compromise of CI pipelines or connected systems.
 * Stability Days: Configure automatic update tools like Renovate to introduce a delay between updates and deployments. This provides time to detect malicious changes in new package versions.
 * Pin Package Versions: Use exact version pins (8.1.1) whenever possible to reduce the risk of accidental upgrades to poisoned versions.
 * Use SHA: As part of the version spec, where possible use the commit sha for the version constraint to avoid the issue where a tagged version being overwritten with different code.
-* Dependency Scanning: Use tools like Dependabot or renovate to identify vulnerabilities in dependencies proactively.
+* Dependency Scanning: Use tools like Trivy to identify vulnerabilities in dependencies proactively.
 
 ----
 
@@ -287,7 +287,7 @@ Introduction of hidden backdoors or security vulnerabilities that may go unnotic
 
 ----
 
-### Overprivileged Worfflows
+### Overprivileged Workflows
 
 #### Description
 
