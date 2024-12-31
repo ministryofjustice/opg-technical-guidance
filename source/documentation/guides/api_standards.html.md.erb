@@ -1,25 +1,23 @@
 ---
-title: API Standards (evolving)
-last_reviewed_on: 2024-03-19
-review_in: 6 months
-owner_slack: '#opg-developers'
+title: API Standards
+last_reviewed_on: 2024-01-02
+review_in: 12 months
+owner_slack: "#opg-developers"
 ---
 
 # <%= current_page.data.title %>
 
-<%= warning_text('These standards are evolving and may all change at any point') %>
+In OPG we primarily follow the [CDDO API technical and data standards][cddo-standards] when building new APIs. However, as these are designed to support all Government departments, they sometimes do not go into enough detail.
 
-Baseline API Standards for OPG teams to use when building new APIs.
+The OPG API Standards provide additional guidance for designing and building APIs. They intend to make the API build process easier by answering common questions about what best practices are.
 
-Adopt these standards if there is no reason not to, but you may break any of them if you have a compelling need.
-
-## Infrastructure
+You should adopt these standards if there is no reason not to, but you may break any of them if you have a contradicting need.
 
 ## Design
 
 1. **Use JSON** for request and response bodies
 1. **Use lowerCamelCase** for keys
-1. **Prefer flat structure**, we don't have a standard response format and should keep things as minimal as possible (e.g. don't use something like JSON:API, or have all responses like `{"data": ...}`)
+1. **Prefer flat structure**, we don't have a standard response format and should keep things as minimal as possible (e.g. don't use JSON:API, or have all responses like `{"data": ...}`)
 1. **Use [RFC3339](https://www.rfc-editor.org/rfc/rfc3339)** to format dates
 
     Examples of RFC3339 formatted dates:
@@ -27,37 +25,40 @@ Adopt these standards if there is no reason not to, but you may break any of the
      - 2023-06-16T09:04:38Z
      - 09:04:46Z
 
-## Naming
+## Resource naming
 
-**RE**presentational **S**tate **Transfer** (REST) is the defacto API architecture standard and the guidance below is on the assumption that REST will be used. The primary data representation in REST is a resource, which is a mapping to a set of entities. This dictates how REST APIs should be designed and the following princples should guide how the resources are addressed:
+As the [CDDO API standards][cddo-standards] outline, we **use a REST API architectural style**. Additionally:
 
-1. Resources are represented by nouns. Resource names can be "real" nouns or abstract collections e.g. `/users` or `/user-management`.
-1. A resource can be a singleton or a collection. Collections are pluralised and singletons are addressed by ID. e.g. `/users/1`, where `users` is a collection and `1` is the singleton.
-1. Resources are hierarchical, with resources containing other resources. These relationships are denoted with forward slashes. e.g. `/teams/1/users/2`.
-1. A URI addresses the resource, not the action. HTTP methods should be used to indicate the action being performed. e.g. `HTTP POST /users`, not `/users/create`.
-1. Use query parameters to filter a resource collection instead of creating a new URI. e.g. `/users?role=admin`.
-1. Use hyphens to improve readability. Avoid underscores and other separators. e.g. `/device-management/os-versions`.
+1. Resources are represented by nouns. Resource names can be "real" nouns or abstract collections e.g. `/users` or `/user-management`
+1. A resource can be a singleton or a collection. Collections are pluralised and singletons are addressed by ID
+   1. `/users` is a collection
+   1. `/users/1` is the singleton in that collection
+1. Resources are hierarchical, and resources may contain other resources. These relationships are denoted with forward slashes. e.g. `/teams/1/users`
+1. A URI addresses the resource, not the action. HTTP methods should be used to indicate the action being performed. e.g. `HTTP POST /users`, not `/users/create`
+1. Use query parameters to filter a resource collection instead of creating a new URI. e.g. `/users?role=admin`
+1. Use hyphens to improve readability. Avoid underscores and other separators. e.g. `/device-management/os-versions`
 1. Use lower case only. Case sensitivity is dependent on the browser, server, and host OS, so mixed-case should be avoided.
 1. Do not use file extensions in URIs. If this information needs to be communicated, use the `Content-Type` header.
 
-Although we should strive to follow the standard as best practice wherever possible, there are situations where this isn't possible, e.g. executing scripts via an API call. In these instances, it is necessary to provide adequate documentation so consumers are aware it is not addressing a resource.
+Sometimes it is impractical to follow a REST style absolutely, e.g. executing actions via an API call. In these instances, you must provide adequate documentation so consumers are aware it is not addressing a resource.
 
 ## Versioning
 
-1. **Avoid versioning until there is a definite requirement**
-1. Use SemVer to provide meaning and context to version changes
+1. **Avoid versioning** until there is a definite requirement
+1. Use [semantic versioning](https://semver.org/) to provide meaning and context to version changes
 1. Encode version in the header via Content Negotiation (`Accept` header) e.g. `Accept: application/vnd.opg-data.v1+json`
 1. Prefer additive changes over destructive ones
-1. Provide concrete deadlines and documentation to consumers
-1. Ensure APIs and network traffic is well-monitored
+1. Provide clear documentation
+1. Provide concrete deadlines to consumers when removing part of an API
+1. Ensure network traffic is well-monitored to detect abuse
 
 For further information, see the [OPG Data versioning strategy](https://github.com/ministryofjustice/opg-data/blob/main/docs/architecture/supporting-notes/versioning-strategy.md)
 
 ## Documentation
 
-1. Use the [OpenAPI Specification](https://swagger.io/specification/) for documenting APIs
-  - This may be used by your API's consumers to automatically generate mocks using tools like [Prism](https://docs.stoplight.io/docs/prism/674b27b261c3c-prism-overview)
-1. Store in the repo at `/docs/openapi/openapi.yml`
+1. **Use the [OpenAPI Specification](https://swagger.io/specification/)** for documenting APIs
+   - This may be used by your API's consumers to automatically generate mocks using tools like [Prism](https://docs.stoplight.io/docs/prism/674b27b261c3c-prism-overview) or [Imposter](https://docs.imposter.sh/)
+1. Store your OpenAPI Specification file in the repo at `/docs/openapi/openapi.yml`
 
 ## Authentication
 
@@ -72,10 +73,12 @@ For further information, see the [OPG Data versioning strategy](https://github.c
 
 ## Performance
 
-1. We have no departmental performance requirements, but you should discuss as a team if you can set any for yourselves.
+1. We have no explicit departmental performance requirements, but you should discuss as a team if you can set any for yourselves.
 1. **Monitor realtime performance** of your production services with the tools provided by AWS, such as [CloudWatch Metrics](https://aws.amazon.com/cloudwatch/) and [X-Ray](https://aws.amazon.com/xray/)
 1. Consider alternative techniques for slow-running transactions such as using asynchronous request/response patterns, or queuing onerous processes to execute after the response has been sent
 
 ## Useful links
 
 - [API Working Group](../cops/api.html)
+
+[cddo-standards]: https://www.gov.uk/guidance/gds-api-technical-and-data-standards
