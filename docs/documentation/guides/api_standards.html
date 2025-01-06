@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>API Standards (evolving) - OPG Technical Guidance</title>
+    <title>API Standards - OPG Technical Guidance</title>
 
     <link href="../../stylesheets/manifest.css" rel="stylesheet" />
 
@@ -15,12 +15,12 @@
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
       <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
-      <meta name="twitter:title" content="API Standards (evolving) - OPG Technical Guidance" />
+      <meta name="twitter:title" content="API Standards - OPG Technical Guidance" />
       <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/api_standards.html" />
 
       <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
       <meta property="og:site_name" content="OPG Technical Guidance" />
-      <meta property="og:title" content="API Standards (evolving)" />
+      <meta property="og:title" content="API Standards" />
       <meta property="og:type" content="object" />
       <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/api_standards.html" />
 
@@ -91,16 +91,13 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
                       <ul>
   <li>
-    <a href="#api-standards-evolving"><span>API Standards (evolving)</span></a>
+    <a href="#api-standards"><span>API Standards</span></a>
     <ul>
-      <li>
-        <a href="#infrastructure"><span>Infrastructure</span></a>
-      </li>
       <li>
         <a href="#design"><span>Design</span></a>
       </li>
       <li>
-        <a href="#naming"><span>Naming</span></a>
+        <a href="#resource-naming"><span>Resource naming</span></a>
       </li>
       <li>
         <a href="#versioning"><span>Versioning</span></a>
@@ -128,24 +125,16 @@
 
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="api-standards-evolving">API Standards (evolving)</h1>
-
-<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-warning-text__assistive">Warning</span>
-    These standards are evolving and may all change at any point
-  </strong>
-</div>
-<p>Baseline API Standards for OPG teams to use when building new APIs.</p>
-<p>Adopt these standards if there is no reason not to, but you may break any of them if you have a compelling need.</p>
-<h2 id="infrastructure">Infrastructure</h2>
+            <h1 id="api-standards">API Standards</h1>
+<p>In OPG we primarily follow the <a href="https://www.gov.uk/guidance/gds-api-technical-and-data-standards">CDDO API technical and data standards</a> when building new APIs. However, as these are designed to support all Government departments, they sometimes do not go into enough detail.</p>
+<p>The OPG API Standards provide additional guidance for designing and building APIs. They intend to make the API build process easier by answering common questions about what best practices are.</p>
+<p>You should adopt these standards if there is no reason not to, but you may break any of them if you have a contradicting need.</p>
 <h2 id="design">Design</h2>
 
 <ol>
 <li><strong>Use JSON</strong> for request and response bodies</li>
 <li><strong>Use lowerCamelCase</strong> for keys</li>
-<li><strong>Prefer flat structure</strong>, we don&rsquo;t have a standard response format and should keep things as minimal as possible (e.g. don&rsquo;t use something like JSON:API, or have all responses like <code>{&quot;data&quot;: ...}</code>)</li>
+<li><strong>Prefer flat structure</strong>, we don&rsquo;t have a standard response format and should keep things as minimal as possible (e.g. don&rsquo;t use JSON:API, or have all responses like <code>{&quot;data&quot;: ...}</code>)</li>
 <li><p><strong>Use <a href="https://www.rfc-editor.org/rfc/rfc3339">RFC3339</a></strong> to format dates</p>
 <p>Examples of RFC3339 formatted dates:</p>
 
@@ -155,40 +144,46 @@
 <li>09:04:46Z</li>
 </ul></li>
 </ol>
-<h2 id="naming">Naming</h2>
-<p><strong>RE</strong>presentational <strong>S</strong>tate <strong>Transfer</strong> (REST) is the defacto API architecture standard and the guidance below is on the assumption that REST will be used. The primary data representation in REST is a resource, which is a mapping to a set of entities. This dictates how REST APIs should be designed and the following princples should guide how the resources are addressed:</p>
+<h2 id="resource-naming">Resource naming</h2>
+<p>As the <a href="https://www.gov.uk/guidance/gds-api-technical-and-data-standards">CDDO API standards</a> outline, we <strong>use a REST API architectural style</strong>. Additionally:</p>
 
 <ol>
-<li>Resources are represented by nouns. Resource names can be &ldquo;real&rdquo; nouns or abstract collections e.g. <code>/users</code> or <code>/user-management</code>.</li>
-<li>A resource can be a singleton or a collection. Collections are pluralised and singletons are addressed by ID. e.g. <code>/users/1</code>, where <code>users</code> is a collection and <code>1</code> is the singleton.</li>
-<li>Resources are hierarchical, with resources containing other resources. These relationships are denoted with forward slashes. e.g. <code>/teams/1/users/2</code>.</li>
-<li>A URI addresses the resource, not the action. HTTP methods should be used to indicate the action being performed. e.g. <code>HTTP POST /users</code>, not <code>/users/create</code>.</li>
-<li>Use query parameters to filter a resource collection instead of creating a new URI. e.g. <code>/users?role=admin</code>.</li>
-<li>Use hyphens to improve readability. Avoid underscores and other separators. e.g. <code>/device-management/os-versions</code>.</li>
+<li>Resources are represented by nouns. Resource names can be &ldquo;real&rdquo; nouns or abstract collections e.g. <code>/users</code> or <code>/user-management</code></li>
+<li>A resource can be a singleton or a collection. Collections are pluralised and singletons are addressed by ID
+
+<ol>
+<li><code>/users</code> is a collection</li>
+<li><code>/users/1</code> is the singleton in that collection</li>
+</ol></li>
+<li>Resources are hierarchical, and resources may contain other resources. These relationships are denoted with forward slashes. e.g. <code>/teams/1/users</code></li>
+<li>A URI addresses the resource, not the action. HTTP methods should be used to indicate the action being performed. e.g. <code>HTTP POST /users</code>, not <code>/users/create</code></li>
+<li>Use query parameters to filter a resource collection instead of creating a new URI. e.g. <code>/users?role=admin</code></li>
+<li>Use hyphens to improve readability. Avoid underscores and other separators. e.g. <code>/device-management/os-versions</code></li>
 <li>Use lower case only. Case sensitivity is dependent on the browser, server, and host OS, so mixed-case should be avoided.</li>
 <li>Do not use file extensions in URIs. If this information needs to be communicated, use the <code>Content-Type</code> header.</li>
 </ol>
-<p>Although we should strive to follow the standard as best practice wherever possible, there are situations where this isn&rsquo;t possible, e.g. executing scripts via an API call. In these instances, it is necessary to provide adequate documentation so consumers are aware it is not addressing a resource.</p>
+<p>Sometimes it is impractical to follow a REST style absolutely, e.g. executing actions via an API call. In these instances, you must provide adequate documentation so consumers are aware it is not addressing a resource.</p>
 <h2 id="versioning">Versioning</h2>
 
 <ol>
-<li><strong>Avoid versioning until there is a definite requirement</strong></li>
-<li>Use SemVer to provide meaning and context to version changes</li>
+<li><strong>Avoid versioning</strong> until there is a definite requirement</li>
+<li>Use <a href="https://semver.org/">semantic versioning</a> to provide meaning and context to version changes</li>
 <li>Encode version in the header via Content Negotiation (<code>Accept</code> header) e.g. <code>Accept: application/vnd.opg-data.v1+json</code></li>
 <li>Prefer additive changes over destructive ones</li>
-<li>Provide concrete deadlines and documentation to consumers</li>
-<li>Ensure APIs and network traffic is well-monitored</li>
+<li>Provide clear documentation</li>
+<li>Provide concrete deadlines to consumers when removing part of an API</li>
+<li>Ensure network traffic is well-monitored to detect abuse</li>
 </ol>
 <p>For further information, see the <a href="https://github.com/ministryofjustice/opg-data/blob/main/docs/architecture/supporting-notes/versioning-strategy.md">OPG Data versioning strategy</a></p>
 <h2 id="documentation">Documentation</h2>
 
 <ol>
-<li>Use the <a href="https://swagger.io/specification/">OpenAPI Specification</a> for documenting APIs
+<li><strong>Use the <a href="https://swagger.io/specification/">OpenAPI Specification</a></strong> for documenting APIs
 
 <ul>
-<li>This may be used by your API&rsquo;s consumers to automatically generate mocks using tools like <a href="https://docs.stoplight.io/docs/prism/674b27b261c3c-prism-overview">Prism</a></li>
+<li>This may be used by your API&rsquo;s consumers to automatically generate mocks using tools like <a href="https://docs.stoplight.io/docs/prism/674b27b261c3c-prism-overview">Prism</a> or <a href="https://docs.imposter.sh/">Imposter</a></li>
 </ul></li>
-<li>Store in the repo at <code>/docs/openapi/openapi.yml</code></li>
+<li>Store your OpenAPI Specification file in the repo at <code>/docs/openapi/openapi.yml</code></li>
 </ol>
 <h2 id="authentication">Authentication</h2>
 
@@ -211,7 +206,7 @@
 <h2 id="performance">Performance</h2>
 
 <ol>
-<li>We have no departmental performance requirements, but you should discuss as a team if you can set any for yourselves.</li>
+<li>We have no explicit departmental performance requirements, but you should discuss as a team if you can set any for yourselves.</li>
 <li><strong>Monitor realtime performance</strong> of your production services with the tools provided by AWS, such as <a href="https://aws.amazon.com/cloudwatch/">CloudWatch Metrics</a> and <a href="https://aws.amazon.com/xray/">X-Ray</a></li>
 <li>Consider alternative techniques for slow-running transactions such as using asynchronous request/response patterns, or queuing onerous processes to execute after the response has been sent</li>
 </ol>
@@ -221,17 +216,17 @@
 <li><a href="../cops/api.html">API Working Group</a></li>
 </ul>
 
-              <div data-module='page-expiry' data-last-reviewed-on="2024-09-19">
+              <div data-module='page-expiry' data-last-reviewed-on="2025-01-02">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 19 March 2024.
+      This page was last reviewed on 2 January 2024.
 
-        It needs to be reviewed again on 19 September 2024
+        It needs to be reviewed again on 2 January 2025
         by the page owner <a href="https://mojdt.slack.com/messages/opg-developers">#opg-developers</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 19 September 2024
+      This page was set to be reviewed before 2 January 2025
        by the page owner <a href="https://mojdt.slack.com/messages/opg-developers">#opg-developers</a>.
       This might mean the content is out of date.
     </div>
@@ -242,7 +237,7 @@
           <aside>
               <ul class="contribution-banner">
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/api_standards.html.md.erb">View source</a></li>
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27API+Standards+%28evolving%29%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fapi_standards.html%29&amp;labels=bug&amp;title=Re%3A+%27API+Standards+%28evolving%29%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27API+Standards%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fapi_standards.html%29&amp;labels=bug&amp;title=Re%3A+%27API+Standards%27">Report problem</a></li>
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
               </ul>
           </aside>
