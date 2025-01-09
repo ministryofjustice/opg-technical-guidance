@@ -14,28 +14,41 @@ This will also move the system of record from being paper-based documents to a d
 
 ### Impact of an outage
 
+Service is not yet live
+
 ### Incident contact details
 
 email: [opgteam+modernising-lpa@digital.justice.gov.uk](mailto:opgteam+modernising-lpa@digital.justice.gov.uk)
+
+slack: [opg-mlpa-dev](https://moj.enterprise.slack.com/archives/C03RDLFC799) 
 
 ## URLs
 
 ### Service URLs:
 
+[https://app.modernising.opg.service.justice.gov.uk/start](https://app.modernising.opg.service.justice.gov.uk/start)
 
 ### Other URLs
 
 |Name                           |Address                                                                                |
 |-------------------------------|---------------------------------------------------------------------------------------|
+| Service Health-check          |     https://app.modernising.opg.service.justice.gov.uk/health-check/service           |
+| Dependency Health-check       |     https://app.modernising.opg.service.justice.gov.uk/health-check/dependency        |
 | GitHub Repository             |     https://github.com/ministryofjustice/opg-modernising-lpa                          |
 
 ## Hosting environment
 
+- AWS
+
 ## Service team contact
+
+See above
 
 ## Other Information
 
 ### Releases
+
+We operate a CI/CD model, releases will be continuously deployed as and when required.
 
 ### Automatic alerts
 
@@ -51,8 +64,14 @@ N/A
 
 ### Restrictions on access
 
+All environments are presently only accessible via VPN and MoJ networks
 
 ### How to resolve specific issues
+
+Specific re-occurring issues will be fixed as bug fixes. However in the event that we are alerted to an issue,
+then we should first check the cloudwatch logs for our production log group thoroughly to identify the extent of the issue.
+
+In the event that the issue is service affecting then we should follow the Incident process which can be found in this [document](https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html#incident-response-process).
 
 ### Environments
 
