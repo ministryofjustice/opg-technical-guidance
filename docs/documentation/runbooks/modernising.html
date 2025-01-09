@@ -124,10 +124,13 @@
 <p>MPLA is an upcoming service for members of the public to make and register Lasting Power of Attorney. The service will allow users to create and register their LPA online, replacing the current paper process.</p>
 <p>This will also move the system of record from being paper-based documents to a digital system of record.</p>
 <h3 id="impact-of-an-outage">Impact of an outage</h3>
+<p>Service is not yet live</p>
 <h3 id="incident-contact-details">Incident contact details</h3>
 <p>email: <a href="mailto:opgteam+modernising-lpa@digital.justice.gov.uk">opgteam+modernising-lpa@digital.justice.gov.uk</a></p>
+<p>slack: <a href="https://moj.enterprise.slack.com/archives/C03RDLFC799">opg-mlpa-dev</a></p>
 <h2 id="urls">URLs</h2>
 <h3 id="service-urls">Service URLs:</h3>
+<p><a href="https://app.modernising.opg.service.justice.gov.uk/start">https://app.modernising.opg.service.justice.gov.uk/start</a></p>
 <h3 id="other-urls">Other URLs</h3>
 <div class="table-container">
         <table>
@@ -135,14 +138,26 @@
 <th>Name</th>
 <th>Address</th>
 </tr><tr>
+<td>Service Health-check</td>
+<td>https://app.modernising.opg.service.justice.gov.uk/health-check/service</td>
+</tr><tr>
+<td>Dependency Health-check</td>
+<td>https://app.modernising.opg.service.justice.gov.uk/health-check/dependency</td>
+</tr><tr>
 <td>GitHub Repository</td>
 <td>https://github.com/ministryofjustice/opg-modernising-lpa</td>
 </tr>
         </table>
       </div><h2 id="hosting-environment">Hosting environment</h2>
+
+<ul>
+<li>AWS</li>
+</ul>
 <h2 id="service-team-contact">Service team contact</h2>
+<p>See above</p>
 <h2 id="other-information">Other Information</h2>
 <h3 id="releases">Releases</h3>
+<p>We operate a CI/CD model, releases will be continuously deployed as and when required.</p>
 <h3 id="automatic-alerts">Automatic alerts</h3>
 <h3 id="consumers-of-this-service">Consumers of this service</h3>
 <p>N/A</p>
@@ -154,7 +169,11 @@
 <li><a href="https://status.account.gov.uk/">GOV.UK One Login</a></li>
 </ul>
 <h3 id="restrictions-on-access">Restrictions on access</h3>
+<p>All environments are presently only accessible via VPN and MoJ networks</p>
 <h3 id="how-to-resolve-specific-issues">How to resolve specific issues</h3>
+<p>Specific re-occurring issues will be fixed as bug fixes. However in the event that we are alerted to an issue,
+then we should first check the cloudwatch logs for our production log group thoroughly to identify the extent of the issue.</p>
+<p>In the event that the issue is service affecting then we should follow the Incident process which can be found in this <a href="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html#incident-response-process">document</a>.</p>
 <h3 id="environments">Environments</h3>
 <p>See <a href="https://opgtransform.atlassian.net/wiki/spaces/POAS/pages/3696295939/Deployment+environments">POAS deployment environments</a> for list of environments and their relationship to other services.</p>
 
