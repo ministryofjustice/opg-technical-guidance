@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>Modernising (MLPA) Service Runbook - OPG Technical Guidance</title>
+    <title>Serve OPG Service Support - OPG Technical Guidance</title>
 
     <link href="../../stylesheets/manifest.css" rel="stylesheet" />
 
-    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/runbooks/modernising.html">
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/support/serve_opg.html">
 
       <meta name="robots" content="noindex" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
       <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
-      <meta name="twitter:title" content="Modernising (MLPA) Service Runbook - OPG Technical Guidance" />
-      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/modernising.html" />
+      <meta name="twitter:title" content="Serve OPG Service Support - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/support/serve_opg.html" />
 
       <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
       <meta property="og:site_name" content="OPG Technical Guidance" />
-      <meta property="og:title" content="Modernising (MLPA) Service Runbook" />
+      <meta property="og:title" content="Serve OPG Service Support" />
       <meta property="og:type" content="object" />
-      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/modernising.html" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/support/serve_opg.html" />
 
     
   </head>
@@ -91,10 +91,13 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
                       <ul>
   <li>
-    <a href="#modernising-mlpa-service-runbook"><span>Modernising (MLPA) Service Runbook</span></a>
+    <a href="#serve-opg-service-support"><span>Serve OPG Service Support</span></a>
     <ul>
       <li>
         <a href="#description"><span>Description</span></a>
+      </li>
+      <li>
+        <a href="#incident-contact-details"><span>Incident contact details</span></a>
       </li>
       <li>
         <a href="#urls"><span>URLs</span></a>
@@ -103,10 +106,7 @@
         <a href="#hosting-environment"><span>Hosting environment</span></a>
       </li>
       <li>
-        <a href="#service-team-contact"><span>Service team contact</span></a>
-      </li>
-      <li>
-        <a href="#other-information"><span>Other Information</span></a>
+        <a href="#service-team-non-urgent-issues"><span>Service Team (non-urgent issues)</span></a>
       </li>
     </ul>
   </li>
@@ -119,75 +119,37 @@
 
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="modernising-mlpa-service-runbook">Modernising (MLPA) Service Runbook</h1>
+            <h1 id="serve-opg-service-support">Serve OPG Service Support</h1>
 <h2 id="description">Description</h2>
-<p>MPLA is an upcoming service for members of the public to make and register Lasting Power of Attorney. The service will allow users to create and register their LPA online, replacing the current paper process.</p>
-<p>This will also move the system of record from being paper-based documents to a digital system of record.</p>
-<h3 id="impact-of-an-outage">Impact of an outage</h3>
-<p>Service is not yet live</p>
-<h3 id="incident-contact-details">Incident contact details</h3>
-<p>email: <a href="mailto:opgteam+modernising-lpa@digital.justice.gov.uk">opgteam+modernising-lpa@digital.justice.gov.uk</a></p>
-<p>slack: <a href="https://moj.enterprise.slack.com/archives/C03RDLFC799">opg-mlpa-dev</a></p>
-<h2 id="urls">URLs</h2>
-<h3 id="service-urls">Service URLs:</h3>
-<p><a href="https://app.modernising.opg.service.justice.gov.uk/start">https://app.modernising.opg.service.justice.gov.uk/start</a></p>
-<h3 id="other-urls">Other URLs</h3>
-<div class="table-container">
-        <table>
-          <tr>
-<th>Name</th>
-<th>Address</th>
-</tr><tr>
-<td>Service Health-check</td>
-<td>https://app.modernising.opg.service.justice.gov.uk/health-check/service</td>
-</tr><tr>
-<td>Dependency Health-check</td>
-<td>https://app.modernising.opg.service.justice.gov.uk/health-check/dependency</td>
-</tr><tr>
-<td>GitHub Repository</td>
-<td>https://github.com/ministryofjustice/opg-modernising-lpa</td>
-</tr>
-        </table>
-      </div><h2 id="hosting-environment">Hosting environment</h2>
-
-<ul>
-<li>AWS</li>
-</ul>
-<h2 id="service-team-contact">Service team contact</h2>
-<p>See above</p>
-<h2 id="other-information">Other Information</h2>
-<h3 id="releases">Releases</h3>
-<p>We operate a CI/CD model, releases will be continuously deployed as and when required.</p>
-<h3 id="automatic-alerts">Automatic alerts</h3>
-<h3 id="consumers-of-this-service">Consumers of this service</h3>
-<p>N/A</p>
-<h3 id="services-consumed-by-this">Services consumed by this</h3>
-
-<ul>
-<li><a href="https://status.notifications.service.gov.uk/">GOV.UK Notify</a></li>
-<li><a href="https://payments.statuspage.io/">GOV.UK Pay</a></li>
-<li><a href="https://status.account.gov.uk/">GOV.UK One Login</a></li>
-</ul>
-<h3 id="restrictions-on-access">Restrictions on access</h3>
-<p>All environments are presently only accessible via VPN and MoJ networks</p>
-<h3 id="how-to-resolve-specific-issues">How to resolve specific issues</h3>
-<p>Specific re-occurring issues will be fixed as bug fixes. However in the event that we are alerted to an issue,
-then we should first check the cloudwatch logs for our production log group thoroughly to identify the extent of the issue.</p>
-<p>In the event that the issue is service affecting then we should follow the Incident process which can be found in this <a href="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html#incident-response-process">document</a>.</p>
-<h3 id="environments">Environments</h3>
-<p>See <a href="https://opgtransform.atlassian.net/wiki/spaces/POAS/pages/3696295939/Deployment+environments">POAS deployment environments</a> for list of environments and their relationship to other services.</p>
-
-              <div data-module='page-expiry' data-last-reviewed-on="2024-09-10">
+<p>Serve OPG allows the Court of Protection to serve OPG deputyship orders directly into our case management system Sirius</p>
+<h2 id="incident-contact-details">Incident contact details</h2>
+<p>Incidents and issues can be raised through the following address:</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>serve-opg@moj-digital-tools.pagerduty.com
+</code></pre></div><h2 id="urls">URLs</h2>
+<h3 id="service-urls">Service URLs</h3>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>https://development.serve.opg.service.justice.gov.uk
+https://preproduction.serve.opg.service.justice.gov.uk
+https://serve.opg.service.justice.gov.uk
+</code></pre></div><h3 id="other-urls">Other URLs</h3>
+<h4 id="github">Github</h4>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>https://github.com/ministryofjustice/serve-opg
+</code></pre></div><h2 id="hosting-environment">Hosting environment</h2>
+<p>Currently Serve OPG is hosted in AWS using ECS, an architecture diagram can be found <a href="https://github.com/ministryofjustice/serve-opg/tree/main/docs/architecture">here</a></p>
+<h2 id="service-team-non-urgent-issues">Service Team (non-urgent issues)</h2>
+<p>For non-urgent issues you can raise an Issue on our GitHub repository and a member of the team will respond.</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>https://github.com/ministryofjustice/serve-opg/issues
+</code></pre></div>
+              <div data-module='page-expiry' data-last-reviewed-on="2024-09-20">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 13 August 2024.
+      This page was last reviewed on 20 March 2024.
 
-        It needs to be reviewed again on 10 September 2024
+        It needs to be reviewed again on 20 September 2024
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 10 September 2024
+      This page was set to be reviewed before 20 September 2024
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
@@ -197,8 +159,8 @@ then we should first check the cloudwatch logs for our production log group thor
 
           <aside>
               <ul class="contribution-banner">
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/runbooks/modernising.html.md.erb">View source</a></li>
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Modernising+%28MLPA%29+Service+Runbook%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Frunbooks%2Fmodernising.html%29&amp;labels=bug&amp;title=Re%3A+%27Modernising+%28MLPA%29+Service+Runbook%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/support/serve_opg.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Serve+OPG+Service+Support%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fsupport%2Fserve_opg.html%29&amp;labels=bug&amp;title=Re%3A+%27Serve+OPG+Service+Support%27">Report problem</a></li>
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
               </ul>
           </aside>

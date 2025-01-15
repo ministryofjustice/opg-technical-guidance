@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>Serve OPG Run Book - OPG Technical Guidance</title>
+    <title>Instructions and Preferences (I&P) Service Support - OPG Technical Guidance</title>
 
     <link href="../../stylesheets/manifest.css" rel="stylesheet" />
 
-    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/runbooks/serve_opg.html">
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/support/iap.html">
 
       <meta name="robots" content="noindex" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
       <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
-      <meta name="twitter:title" content="Serve OPG Run Book - OPG Technical Guidance" />
-      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/serve_opg.html" />
+      <meta name="twitter:title" content="Instructions and Preferences (I&amp;P) Service Support - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/support/iap.html" />
 
       <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
       <meta property="og:site_name" content="OPG Technical Guidance" />
-      <meta property="og:title" content="Serve OPG Run Book" />
+      <meta property="og:title" content="Instructions and Preferences (I&amp;P) Service Support" />
       <meta property="og:type" content="object" />
-      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/serve_opg.html" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/support/iap.html" />
 
     
   </head>
@@ -91,13 +91,10 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
                       <ul>
   <li>
-    <a href="#serve-opg-run-book"><span>Serve OPG Run Book</span></a>
+    <a href="#instructions-and-preferences-i-amp-p-service-support"><span>Instructions and Preferences (I&P) Service Support</span></a>
     <ul>
       <li>
         <a href="#description"><span>Description</span></a>
-      </li>
-      <li>
-        <a href="#incident-contact-details"><span>Incident contact details</span></a>
       </li>
       <li>
         <a href="#urls"><span>URLs</span></a>
@@ -106,7 +103,10 @@
         <a href="#hosting-environment"><span>Hosting environment</span></a>
       </li>
       <li>
-        <a href="#service-team-non-urgent-issues"><span>Service Team (non-urgent issues)</span></a>
+        <a href="#service-team-contact"><span>Service team contact</span></a>
+      </li>
+      <li>
+        <a href="#other-information"><span>Other Information</span></a>
       </li>
     </ul>
   </li>
@@ -119,38 +119,92 @@
 
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="serve-opg-run-book">Serve OPG Run Book</h1>
+            <h1 id="instructions-and-preferences-i-amp-p-service-support">Instructions and Preferences (I&amp;P) Service Support</h1>
 <h2 id="description">Description</h2>
-<p>Serve OPG allows the Court of Protection to serve OPG deputyship orders directly into our case management system Sirius</p>
-<h2 id="incident-contact-details">Incident contact details</h2>
-<p>Incidents and issues can be raised through the following address:</p>
-<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>serve-opg@moj-digital-tools.pagerduty.com
-</code></pre></div><h2 id="urls">URLs</h2>
-<h3 id="service-urls">Service URLs</h3>
-<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>https://development.serve.opg.service.justice.gov.uk
-https://preproduction.serve.opg.service.justice.gov.uk
-https://serve.opg.service.justice.gov.uk
-</code></pre></div><h3 id="other-urls">Other URLs</h3>
-<h4 id="github">Github</h4>
-<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>https://github.com/ministryofjustice/serve-opg
-https://github.com/ministryofjustice/serve-opg-infrastructure
-</code></pre></div><h2 id="hosting-environment">Hosting environment</h2>
-<p>Currently Serve OPG is hosted in AWS using ECS, an architecture diagram can be found <a href="https://github.com/ministryofjustice/serve-opg/tree/main/docs/architecture">here</a></p>
-<h2 id="service-team-non-urgent-issues">Service Team (non-urgent issues)</h2>
-<p>For non-urgent issues you can raise an Issue on our GitHub repository and a member of the team will respond.</p>
-<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>https://github.com/ministryofjustice/serve-opg/issues
-</code></pre></div>
-              <div data-module='page-expiry' data-last-reviewed-on="2024-09-20">
-    <div class='page-expiry--not-expired'>
-      This page was last reviewed on 20 March 2024.
+<p>A service used for storing and retrieving instructions and preferences for Lasting Power of Attorney (LPA) documents. This service is used by the <a href="use.html">Use a Lasting Power of Attorney (UAL)</a> service to display the instructions and preferences for an LPA.</p>
+<p>At its core, it is a Lambda function that is triggered by a user viewing an LPA in the UAL service. The Lambda function retrieves the instructions and preferences PDF from the Sirius datastore S3 bucket and then extracts the instructions, preferences and any I&amp;P continuation sheets as seperate images. These images are then stored in the I&amp;P S3 bucket and a list of URLs is returned to the UAL service.</p>
+<h3 id="impact-of-an-outage">Impact of an outage</h3>
+<p>Users will not be able to view the instructions and preferences for an LPA in the UAL service. Users will need to be sent a paper copy of the instructions and preferences by the actor.</p>
+<h3 id="incident-contact-details">Incident contact details</h3>
+<p>Slack: <a href="https://mojdt.slack.com/archives/C9PNCT2KS">#opg-lpa</a></p>
+<p>email: <a href="mailto:opg-lpa-live@digital.justice.gov.uk">opg-lpa-live@digital.justice.gov.uk</a></p>
+<h2 id="urls">URLs</h2>
+<h3 id="service-urls">Service URLs:</h3>
+<p><a href="https://lpa-iap.api.opg.service.justice.gov.uk">https://lpa-iap.api.opg.service.justice.gov.uk</a></p>
+<h3 id="other-urls">Other URLs</h3>
+<div class="table-container">
+        <table>
+          <tr>
+<th>Name</th>
+<th>Address</th>
+</tr><tr>
+<td>GitHub Repository</td>
+<td>https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences</td>
+</tr>
+        </table>
+      </div><h2 id="hosting-environment">Hosting environment</h2>
 
-        It needs to be reviewed again on 20 September 2024
+<ul>
+<li>AWS - We can log an emergency call with <a href="https://console.aws.amazon.com/support/home#/">aws support</a> and will get an immediate call back.</li>
+</ul>
+<h2 id="service-team-contact">Service team contact</h2>
+<p><a href="opg-lpa-live@digital.justice.gov.uk">opg-lpa-live@digital.justice.gov.uk</a></p>
+<h2 id="other-information">Other Information</h2>
+<h3 id="releases">Releases</h3>
+<p>We operate a CI/CD model, all commits to main are automatically deployed to production through Github Actions workflows.</p>
+<h3 id="automatic-alerts">Automatic alerts</h3>
+<div class="table-container">
+        <table>
+          <tr>
+<th>Alert</th>
+<th>Source</th>
+<th>Application</th>
+<th>Description</th>
+</tr><tr>
+<td>Errors in app</td>
+<td>Cloudwatch</td>
+<td>Image Processor</td>
+<td>Alerts when &gt;= 3 LPAs with Error within 5 minutes</td>
+</tr>
+        </table>
+      </div><h3 id="consumers-of-this-service">Consumers of this service</h3>
+
+<ul>
+<li><a href="use">Use a Lasting Power of Attorney (UAL)</a></li>
+</ul>
+<h3 id="services-consumed-by-this">Services consumed by this</h3>
+
+<ul>
+<li><a href="https://github.com/ministryofjustice/opg-sirius/">Sirius LPA</a></li>
+</ul>
+<h3 id="restrictions-on-access">Restrictions on access</h3>
+
+<ul>
+<li>The API can only be called by an authorised IAM role.</li>
+</ul>
+<h3 id="how-to-resolve-specific-issues">How to resolve specific issues</h3>
+<p>In the event that the issue is service affecting then we should follow the Incident process which can be found in this <a href="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html#incident-response-process">document</a>.</p>
+<p>As part of this process we may identify that we need to roll back to a previous version of the application in which case, use the redeploying services procedures in this <a href="https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences">folder</a>.</p>
+<h4 id="distorted-images-in-i-amp-p">Distorted images in I&amp;P</h4>
+<p>Sometimes, the images that are generated by the I&amp;P service are distorted. There are a number of reasons why this could happen:</p>
+
+<ul>
+<li>The PDF that is uploaded to Sirius is distorted</li>
+<li>Tesseract (the OCR library used by the I&amp;P service) is unable to process the PDF correctly</li>
+</ul>
+<p>To attempt to resolve this isssue, see the <a href="https://github.com/ministryofjustice/opg-data-lpa-instructions-preferences/blob/main/docs/runbooks/delete-an-lpa-scan.md">Deleting I&amp;P images</a> section of the I&amp;P runbook.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2024-05-13">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 18 March 2024.
+
+        It needs to be reviewed again on 13 May 2024
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 20 September 2024
+      This page was set to be reviewed before 13 May 2024
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
@@ -160,8 +214,8 @@ https://github.com/ministryofjustice/serve-opg-infrastructure
 
           <aside>
               <ul class="contribution-banner">
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/runbooks/serve_opg.html.md.erb">View source</a></li>
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Serve+OPG+Run+Book%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Frunbooks%2Fserve_opg.html%29&amp;labels=bug&amp;title=Re%3A+%27Serve+OPG+Run+Book%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/support/iap.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Instructions+and+Preferences+%28I%26P%29+Service+Support%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fsupport%2Fiap.html%29&amp;labels=bug&amp;title=Re%3A+%27Instructions+and+Preferences+%28I%26P%29+Service+Support%27">Report problem</a></li>
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
               </ul>
           </aside>

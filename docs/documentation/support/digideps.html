@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>Sirius Service Runbook - OPG Technical Guidance</title>
+    <title>DigiDeps Service Support - OPG Technical Guidance</title>
 
     <link href="../../stylesheets/manifest.css" rel="stylesheet" />
 
-    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/runbooks/sirius.html">
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/support/digideps.html">
 
       <meta name="robots" content="noindex" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
       <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
-      <meta name="twitter:title" content="Sirius Service Runbook - OPG Technical Guidance" />
-      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/sirius.html" />
+      <meta name="twitter:title" content="DigiDeps Service Support - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/support/digideps.html" />
 
       <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
       <meta property="og:site_name" content="OPG Technical Guidance" />
-      <meta property="og:title" content="Sirius Service Runbook" />
+      <meta property="og:title" content="DigiDeps Service Support" />
       <meta property="og:type" content="object" />
-      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/runbooks/sirius.html" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/support/digideps.html" />
 
     
   </head>
@@ -91,7 +91,7 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
                       <ul>
   <li>
-    <a href="#sirius-service-runbook"><span>Sirius Service Runbook</span></a>
+    <a href="#digideps-service-support"><span>DigiDeps Service Support</span></a>
     <ul>
       <li>
         <a href="#description"><span>Description</span></a>
@@ -119,20 +119,18 @@
 
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="sirius-service-runbook">Sirius Service Runbook</h1>
+            <h1 id="digideps-service-support">DigiDeps Service Support</h1>
 <h2 id="description">Description</h2>
-<p>Sirius is the case management system for the Office of Public Guardian (OPG). It is used by OPG staff to manage the registration of Lasting Power of Attorney (LPA) documents.</p>
-<p>All attorneys, donors and Lasting Power of Attorney (LPA) documents are stored in Sirius and have a unique Sirius ID (a 12 digit character beginning with 7000). This ID is used by other services to identity the resource.</p>
+<p>A service for court appointed professional and lay deputies to report to the Office of the Public Guardian (OPG) on clients who are unable to manage their own affairs under the mental capacity act and the supervision of the aforementioned reports.</p>
 <h3 id="impact-of-an-outage">Impact of an outage</h3>
-<p>If Sirius is down, OPG staff will not be able to access the system to manage the registration of LPA documents. Cases will not be able to be progressed and the registration of LPA documents will be delayed.</p>
+<p>Deputies will not be able to edit or submit their reports. OPG case management staff will not be able to view and review submitted reports. As a result there may be an increase in the number of calls from deputies to the OPG contact centre. Reputational impact to OPG if deputies can not submit reports. Potential for data loss with deputies who have started to fill information on a report and have not saved the data when the service goes down.</p>
 <h3 id="incident-contact-details">Incident contact details</h3>
-<p>email: <a href="mailto:opgteam+modernising-lpa@digital.justice.gov.uk">opgteam+modernising-lpa@digital.justice.gov.uk</a></p>
+<p>Slack: <a href="opg-digideps-team">https://mojdt.slack.com/messages/C7YH87C3A</a></p>
+<p>email: <a href="digideps@digital.justice.gov.uk">digideps@digital.justice.gov.uk</a></p>
 <h2 id="urls">URLs</h2>
 <h3 id="service-urls">Service URLs:</h3>
-
-<ul>
-<li><a href="https://sirius.opg.service.justice.gov.uk">https://sirius.opg.service.justice.gov.uk/</a></li>
-</ul>
+<p><a href="https://complete-deputy-report.service.gov.uk/">https://complete-deputy-report.service.gov.uk/</a></p>
+<p><a href="https://admin.complete-deputy-report.service.gov.uk/">https://admin.complete-deputy-report.service.gov.uk/</a></p>
 <h3 id="other-urls">Other URLs</h3>
 <div class="table-container">
         <table>
@@ -140,50 +138,123 @@
 <th>Name</th>
 <th>Address</th>
 </tr><tr>
-<td>GitHub Repository</td>
-<td>https://github.com/ministryofjustice/opg-sirius</td>
+<td>Healthcheck Front Container</td>
+<td>https://complete-deputy-report.service.gov.uk/health-check</td>
 </tr><tr>
-<td>Infrastructure Repository</td>
-<td>https://github.com/ministryofjustice/opg-sirius-infrastructure</td>
+<td>Healthcheck Service</td>
+<td>https://complete-deputy-report.service.gov.uk/health-check/service</td>
+</tr><tr>
+<td>Healthcheck Dependencies</td>
+<td>https://complete-deputy-report.service.gov.uk/health-check/dependencies</td>
+</tr><tr>
+<td>Admin Healthcheck Container</td>
+<td>https://admin.complete-deputy-report.service.gov.uk/health-check</td>
+</tr><tr>
+<td>Admin Healthcheck Service</td>
+<td>https://admin.complete-deputy-report.service.gov.uk/health-check/service</td>
+</tr><tr>
+<td>Admin Healthcheck Dependencies</td>
+<td>https://admin.complete-deputy-report.service.gov.uk/health-check/dependencies</td>
+</tr><tr>
+<td>GitHub Repository</td>
+<td>https://github.com/ministryofjustice/opg-digideps</td>
 </tr>
         </table>
       </div><h2 id="hosting-environment">Hosting environment</h2>
+
+<ul>
+<li>AWS - We can log an emergency call with <a href="https://console.aws.amazon.com/support/home#/">aws support</a> and will get an immediate call back.</li>
+<li>AWS Account IAM Roles can be found <a href="https://ministryofjustice.github.io/opg-new-starter/amazon.html#digideps">here</a></li>
+</ul>
 <h2 id="service-team-contact">Service team contact</h2>
+<p><a href="digideps@digital.justice.gov.uk">digideps@digital.justice.gov.uk</a></p>
 <h2 id="other-information">Other Information</h2>
 <h3 id="releases">Releases</h3>
+<p>We operate a CI/CD model, releases will be continuously deployed as and when required.</p>
 <h3 id="automatic-alerts">Automatic alerts</h3>
-<h3 id="consumers-of-this-service">Consumers of this service</h3>
-
-<ul>
-<li><a href="use.html">Use a Lasting Power of Attorney (UAL)</a></li>
-<li><a href="lpa.html">Make a Lasting Power of Attorney (LPA)</a></li>
-<li><a href="modernising.html">Modernising Lasting Power of Attorney (MLPA)</a></li>
-<li><a href="digideps.html">Digideps</a></li>
-<li><a href="serve_opg.html">Serve OPG</a></li>
-</ul>
+<div class="table-container">
+        <table>
+          <tr>
+<th>Alert</th>
+<th>Source</th>
+<th>Application</th>
+<th>Description</th>
+</tr><tr>
+<td>Site Availability</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts on the availability of Api, Redis, Notify, Sirius, ClamAV and wkHtmlToPDf</td>
+</tr><tr>
+<td>Critical PHP errors</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts when we see critical PHP errors in logs</td>
+</tr><tr>
+<td>Other PHP errors</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts on any non critical PHP errors</td>
+</tr><tr>
+<td>Response times</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts where we have continued above average response times based on anomoly detection</td>
+</tr><tr>
+<td>Document Sync</td>
+<td>Cloudwatch</td>
+<td>Front</td>
+<td>Alerts on documents that fail to sync in any way</td>
+</tr><tr>
+<td>5xx errors in app</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts on when we have a status code of 5xx appear in the application logs</td>
+</tr><tr>
+<td>5xx from ALB</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts where the application load balancer receives a 5XX response</td>
+</tr><tr>
+<td>Denial of Service</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts on possible denial of service (DDOS) attack</td>
+</tr><tr>
+<td>Overnight Jobs</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts on overnight job failures and where jobs have not run when expected</td>
+</tr><tr>
+<td>Business Functionality</td>
+<td>Cloudwatch</td>
+<td>Front and Admin</td>
+<td>Alerts on anomalies of business functionality that do not cause outright errors</td>
+</tr>
+        </table>
+      </div><h3 id="consumers-of-this-service">Consumers of this service</h3>
+<p>Sirius Supervision</p>
 <h3 id="services-consumed-by-this">Services consumed by this</h3>
-
-<ul>
-<li><a href="https://status.notifications.service.gov.uk/">GOV.UK Notify</a></li>
-<li><a href="https://payments.statuspage.io/">GOV.UK Pay</a></li>
-</ul>
+<p>GOV.UK Notify (call can be logged <a href="https://www.notifications.service.gov.uk/support">here</a>)</p>
 <h3 id="restrictions-on-access">Restrictions on access</h3>
-<p>This service is only accessible from the MOJ network. This includes MOJ offices and MOJ VPN.</p>
+<p>None for production, other environments and admin restricted to users on VPN, MOJ Networks, OPG Wifi</p>
 <h3 id="how-to-resolve-specific-issues">How to resolve specific issues</h3>
-<h3 id="environments">Environments</h3>
-<p>See <a href="https://opgtransform.atlassian.net/wiki/spaces/POAS/pages/3696295939/Deployment+environments">POAS deployment environments</a> for list of environments and their relationship to other Power of Attorney services.</p>
+<p>Specific re-occurring issues will be fixed as bug fixes. However in the event that we are alerted to an issue,
+then we should first check the cloudwatch logs for our production log group thoroughly to identify the extent of the issue.</p>
+<p>In the event that the issue is service affecting then we should follow the Incident process which can be found in this <a href="https://docs.opg.service.justice.gov.uk/documentation/incidents/process.html#incident-response-process">document</a>.</p>
+<p>As part of this process we may identify that we need to roll back to a previous version of the application in which case, use the rollback procedure in this <a href="https://github.com/ministryofjustice/opg-digideps/tree/main/docs/runbooks">folder</a>.</p>
+<p>In the event that a simple fix forward or a rollback to a previous version of the application can&rsquo;t be performed then please check against disaster recovery document for recovery options for your <a href="https://github.com/ministryofjustice/opg-digideps/blob/main/docs/DISASTER_RECOVERY.md">issue</a>.</p>
 
-              <div data-module='page-expiry' data-last-reviewed-on="2025-10-13">
+              <div data-module='page-expiry' data-last-reviewed-on="2025-12-10">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 14 October 2024.
+      This page was last reviewed on 10 December 2024.
 
-        It needs to be reviewed again on 13 October 2025
+        It needs to be reviewed again on 10 December 2025
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 13 October 2025
+      This page was set to be reviewed before 10 December 2025
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
@@ -193,8 +264,8 @@
 
           <aside>
               <ul class="contribution-banner">
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/runbooks/sirius.html.md.erb">View source</a></li>
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Sirius+Service+Runbook%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Frunbooks%2Fsirius.html%29&amp;labels=bug&amp;title=Re%3A+%27Sirius+Service+Runbook%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/support/digideps.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27DigiDeps+Service+Support%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fsupport%2Fdigideps.html%29&amp;labels=bug&amp;title=Re%3A+%27DigiDeps+Service+Support%27">Report problem</a></li>
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
               </ul>
           </aside>
