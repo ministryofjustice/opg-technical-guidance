@@ -1,0 +1,158 @@
+---
+title: Baseline Testing Standards
+last_reviewed_on: 2025-01-16
+review_in: 12 months
+owner_slack: "#opg-developers"
+---
+
+# <%= current_page.data.title %>
+
+The intent here is to document a baseline test strategy that we expect applications to adhere to in order to ensure a minimal level of quality assurance. This is not exhaustive and it is expected to change over time as we learn and grow. Different applications and teams will also have different needs so there should be room for local variance. However that should be a conscious choice and be able to be explained and preferably documented e.g. in an ADR.
+
+## Strategy
+
+Please refer to testing language section for a fuller explanation of terms.
+
+All applications should have the following automation:
+
+- Smoke tests
+- Integration tests
+- Unit tests
+- Regression should be built into automation at the unit and integration level
+
+While developing tickets teams are expected to:
+
+- Ensure there is adequate automation at all levels and we meet any criteria agreed in the team around our measurements
+- Incorporate testing into their ticket process e.g. with test charters, three amigos type sessions, etc.
+- Ensure every ticket receives some exploratory testing from the developers working on it before it goes to review. Some coaching of good test planning may be required e.g. also having a charter of steps completed available in the PR to review, do what makes sense locally however.
+
+## Test Suite - Definition of Good
+
+When running through an exercise to review what a test suite should achieve as a product we were able to identify that a test suite should provide the following the following:
+
+#### Confidence
+- Covers acceptance criteria and business need, each test provides value
+- Tests are maintained and are not in a broken state
+- Results are deterministic - the same input will create the result (not flaky)
+
+#### Documentation
+  - Provides living documentation that keeps pace with application development
+  - Has good naming to make it easy to read and follow
+
+#### Feedback
+  - Clear identification of what has broken and the business impact e.g. through good naming, structure of tests and structure of suite
+  - Good detail of how something has broken and the steps to reproduce e.g. relevant tracing, logging, etc.
+  - Tests are easy to setup and run
+  - Tests fail/success fast both individually and as a whole suite
+
+## Measurements
+
+Below are some measurements all teams should keep an eye on related to their test suites and their quality assurance processes. These have been derived as things that can measure our progress towards the goals of a good test suite.
+
+The expectation is for teams to measure these things and then to start deriving sensible goals about how to react to the measures e.g. what is acceptable locally.
+
+All suites must measure:
+
+- Test coverage ([Confidence][1] + [Documentation][2])
+
+  - As a whole
+  - As a delta introduced by each pull request
+
+- Time test suites take to execute ([Feedback][3])
+
+  - As a whole suite
+  - As a delta introduced by each pull request
+
+- Reliability. For example tracking how often particular tests fail to highlight flaky tests ([Confidence][1] + [Feedback][3])
+
+All teams should measure:
+
+- The time it takes for a ticket to move across the board from finished development to release (Is our strategy improving the team workflow)
+
+In a low coverage scenario:
+
+- Defect density and other measures to approach introducing coverage on a risk basis
+
+## Testing Language
+
+In order to make conversations clearer and aid our shared understanding we have undertaken an exercise in agreeing common testing terms and their meaning in the OPG context. In order to stay close to industry standards we have started with [ISTQB][11] as a reference and expanded when extra context is needed.
+
+#### Smoke
+
+Smoke testing is executed upon deployment of an application and it comprises the testing of two concerns:
+
+  - The core customer value works as expected. This is tackled with [Journey][4] tests.
+  - The application is configured correctly. This is tackled with [Dependency][5] tests.
+
+#### Journey
+
+Primarily in the context of smoke testing. This is a light touch covering the core functionality of the application to ensure core customer journeys are operating as intended on deployment. This is achieved through exercising these core customer journeys typically through [GUI][6] tests but may comprise other elements e.g. [API][7] tests.
+
+#### Dependency
+
+Only in the context of smoke testing. These tests ensure all application dependencies e.g. databases, third party APIs, Amazon services, etc. are configured in the target deployment environment correctly. This may be tackled with a variety of methods as long as all dependencies are exercised at least once e.g. some or all may be covered by [Journey][4] tests.
+
+#### Integration
+
+Focusing on a single application, typically an [API][7]. These tests exercise the running application as a whole, splitting functionality into vertical slices, ensuring the application behaves in accordance to acceptance criteria. The intent here is to test individual units or components coming together as a whole to deliver value. This includes how the application may call third parties.
+
+#### API
+
+Typically testing a HTTP API. These are a form of [Integration][8] test. Here the application under test is exercised through the use of HTTP calls and validated through a mixture of checking responses and inspecting other side effects e.g. database updates, items being posted to a queue, emails being sent, etc.
+
+#### End to End
+
+  - Interacting with UI
+  - Test user journeys through the application(s). Focus on the journey rather than thinking about app dependencies.
+
+#### GUI
+
+Typically testing  a web application. These tests exercise a frontend web application by interacting with the web page from the equivalent of a user perspective and validate based on what is visible. These are of the same style as [Journey][4] tests however they are not strung together to map to a whole customer journey.
+
+#### Component
+
+Typically used to test an Angular application. These tests are the equivalent of frontend Unit tests that exercise angular components and validate based on interactions with services through the use of mocked services.
+
+#### Unit
+
+Test a small piece of functionality or pure logic in isolation. We are a [Mockist][12] house that mocks out the behaviour of any dependencies.
+
+#### Exploratory
+
+<em>“An approach to testing whereby the testers dynamically design and execute tests based on their knowledge, exploration of the test item and the results of previous tests.“</em> - [ISTQB][11]
+
+In OPG we define a start point and leave the charter deliberately loose. This might be conducted on a risk based approach. See [Explore It!][13] and other resources.
+
+#### Regression
+
+Currently, where there is inadequate test coverage manual regression testing occurs to ensure previously working functionality remains in a good state. The desire here is to automate a lot of this work where it isn’t already automated.
+
+#### User acceptance
+
+Testing undertaken manually with actual users. This is conducted by OPG business and not the digital team. Not to be confused with user research.
+
+#### Release candidate
+
+This is more the embodiment of a current process step and will change as our processes do. Comprising of [Exploratory][9] and [Regression][10] testing performed on a specific version of an application which is nominated for the next release.
+
+#### Accessibility
+
+To be defined
+
+## Useful links
+
+- [Testing COP](../cops/testing.html)
+
+[1]: #confidence
+[2]: #documentation
+[3]: #feedback
+[4]: #journey
+[5]: #dependency
+[6]: #gui
+[7]: #api
+[8]: #integration
+[9]: #exploratory
+[10]: #regression
+[11]: <https://glossary.istqb.org/> "ISTQB"
+[12]: <https://martinfowler.com/articles/mocksArentStubs.html#ClassicalAndMockistTesting> "Mockist"
+[13]: <https://www.amazon.co.uk/Explore-Increase-Confidence-Exploratory-Testing/dp/1937785025> "Explore It!"

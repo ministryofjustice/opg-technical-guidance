@@ -19,7 +19,7 @@ build:
 # Use this to run a local instance of the documentation site, while editing
 .PHONY: preview
 preview:
-	docker run --rm \
+	docker run --rm --platform linux/amd64\
 		-v $$(pwd)/config.rb:/app/config.rb \
 		-v $$(pwd)/config:/app/config \
 		-v $$(pwd)/source:/app/source \
