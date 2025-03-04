@@ -178,12 +178,13 @@ To perform useful work, you will need to switch up to a role in another account.
 See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html">AWS docs for detailed information</a> on how to do this.</p>
 <p>Here is a small diagram that explains what each role is for:</p>
 <p><a href="../images/role-overview.png" rel="noopener noreferrer"><img src="../images/role-overview.png" alt="AWS Roles" /></a></p>
-<h3 id="extended-role-switch-plugin">Extended role switch plugin</h3>
-<p>By default the AWS console only stores a limited number of roles in its history,
-for convenience you may want to try using the
-<a href="https://chrome.google.com/webstore/detail/aws-extend-switch-roles/jpmkfafbacpgapdghgdpembnojdlgkdl?hl=en">aws-extend-switch-roles Chrome extension.</a></p>
-<p>You will be able to add the roles you require into the plugin. All the roles can
-be found <a href="https://docs.opg.service.justice.gov.uk/documentation/aws_roles">here</a></p>
+<h3 id="role-switching">Role switching</h3>
+<p>The AWS console now supports <a href="https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/multisession.html">signing into multiple accounts.</a></p>
+<p>Alternatively, you can use the
+<a href="https://chrome.google.com/webstore/detail/aws-extend-switch-roles/jpmkfafbacpgapdghgdpembnojdlgkdl?hl=en">aws-extend-switch-roles Chrome extension.</a> You will be able to add the roles you require into the plugin.</p>
+<p>If you intend to use the CLI then you will need to
+set up role profiles in your AWS config file.</p>
+<p>All the roles can be found <a href="https://docs.opg.service.justice.gov.uk/documentation/aws_roles">here</a></p>
 <h2 id="5-set-up-aws-vault">5. Set up AWS Vault</h2>
 <h3 id="install-aws-vault">Install AWS Vault</h3>
 <p>AWS Vault stores IAM credentials in your operating system&rsquo;s secure keystore
@@ -223,17 +224,17 @@ Make sure that when you are adding to this file you put all text underneath the 
 </ol>
 <div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>aws-vault exec identity -- aws sts get-caller-identity
 </code></pre></div>
-              <div data-module='page-expiry' data-last-reviewed-on="2024-09-09">
+              <div data-module='page-expiry' data-last-reviewed-on="2025-08-19">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 25 March 2024.
+      This page was last reviewed on 4 March 2025.
 
-        It needs to be reviewed again on 9 September 2024
+        It needs to be reviewed again on 19 August 2025
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 9 September 2024
+      This page was set to be reviewed before 19 August 2025
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
