@@ -1,7 +1,7 @@
 ---
 title: "Get started"
 weight: 30
-last_reviewed_on: 2024-03-25
+last_reviewed_on: 2025-03-04
 review_in: 24 weeks
 ---
 
@@ -88,14 +88,19 @@ Here is a small diagram that explains what each role is for:
 
 ![AWS Roles](/images/role-overview.png)
 
-### Extended role switch plugin
+### Role switching
 
-By default the AWS console only stores a limited number of roles in its history,
-for convenience you may want to try using the
-[aws-extend-switch-roles Chrome extension.][aws-extend-switch-roles]
+The AWS console now supports [signing into multiple accounts.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/multisession.html)
 
-You will be able to add the roles you require into the plugin. All the roles can
-be found [here][aws-roles-list]
+Alternatively, you can use the
+[aws-extend-switch-roles Chrome extension.][aws-extend-switch-roles] You will be able to add the roles you require into the plugin.
+
+If you intend to use the CLI then you will need to
+set up role profiles in your AWS config file.
+
+All the roles can be found [here][aws-roles-list]
+
+
 
 ## 5. Set up AWS Vault
 
