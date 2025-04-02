@@ -1,0 +1,26 @@
+---
+title: ADR-012 Repository Secrets
+last_reviewed_on: 2024-12-10
+review_in: 18 months
+---
+# <%= current_page.data.title %>
+
+Date: 10-12-2024
+
+## Status
+
+✅ Accepted
+
+## Context
+
+We use the opg-org-infra repository to store organisation level configuration for our estate. This includes the configuration of all GitHub repositories we use to store code and the access to those repositories. Individual component repositories sometimes need access to secrets for their GitHub Actions build process.
+
+## Decision
+
+Where secrets are needed for a build process and an alternative like an OIDC role is not available, then the secrets will be managed and pushed to the repository via the opg-org-infra build for that repository. No secrets will be manually added to any GitHub repository in the opg estate.
+
+## Consequences
+
+- We have a single location to track build secrets and their propogation. 
+- We can easily triggger replacement and rotation of any secrets.
+- Manual intervention is reduced
