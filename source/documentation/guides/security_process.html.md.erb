@@ -1,45 +1,96 @@
 ---
 title: Security in our Process
-last_reviewed_on: 2024-08-19
+last_reviewed_on: 2025-07-08
 review_in: 13 weeks
 ---
 
 # <%= current_page.data.title %>
 
-Our aim is to make our products as secure as possible while maintaining usability for end users. This is in line with the [GDS service standard](https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service). You should be aware of the [MOJ Security Guidance](https://ministryofjustice.github.io/security-guidance/#cyber-and-technical-security-guidance), which will help with specific policy issues at an MOJ level and follow the [National Cyber Security Centre](https://www.ncsc.gov.uk/) for updates at a government level. 
+## Secure By Design
+
+### Policy
+
+Our aim within OPG is to make our products as secure as possible while maintaining usability for end users.
+
+All central government departments and arm's length bodies (ALBs) must incorporate effective security practices and be moving towards meeting the [Secure by Design policy](https://www.security.gov.uk/policy-and-guidance/secure-by-design/policy/) when delivering and building digital services and technical infrastructure.
+
+As outlined in the [MOJ Security Guidance](https://security-guidance.service.justice.gov.uk/secure-by-design/#secure-by-design-summary), this policy requires that cyber security considerations are incorporated at every stage of the project lifecycle. From the development of business cases through to service design, development, deployment, and ongoing maintenance, security must be embedded as a core element. This ensures that potential vulnerabilities are proactively addressed, aligning with best practices to protect data, systems and services from evolving threats throughout their entire lifecycle.
+
+This proactive approach not only aligns with broader government cybersecurity mandates but also enhances trust and safety for users interacting with digital services. The requirements described in this policy will help government organisations achieve the required security outcomes in the [NCSC Cyber Assessment Framework (CAF)](https://www.ncsc.gov.uk/collection/cyber-assessment-framework).
+
+Secure by Design is a continuous assurance discussions that should complement the ongoing security work within a team. Adherence to the policy is checked by using the [Secure By Design Assessment Tracker](https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/tracking-secure-by-design-progress).
+Whilst technical team members (usually a technical architect) will lead with completing these assessments, delivery managers should integrate completion of the tracker into regular activities involving the relevant team members.
+
+Teams should also review the [GDS service standard](https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service), consult the MOJ Security Guidance for help with [specific policy issues](https://security-guidance.service.justice.gov.uk/#information-security-policies) at an MOJ level and follow the [National Cyber Security Centre](https://www.ncsc.gov.uk/) for updates at a government level.
+
+### How we will work
+
+#### General principles
+
+* We will automate as much as we can
+* We will build security into the process, rather than tag it on via external checks
+* We will actively fix, and where issues occur improve the process to prevent them happening again
+
+#### Development culture
 
 As part of our local development culture all our products should aim to have the following as a minimum in their process, build pipelines and GitHub setup:
 
 * Security to be considered as part of ticket prep and refinement, with reference to [OWASP Top 10](https://owasp.org/www-project-top-ten/).
 * Write automated tests to verify code and infrastructure security
-* Do Threat Modelling of your product every 6 months
-* Have an ITHC or Pen Test once a year or after a major change
+* Do Threat Modelling of your product every 6 months or after a major change.
+* Have an ITHC or Pen Test once a year or after a major change. Changes that could require a re-test include:
+  * Data variation (volume / nature / eg more PII?)
+  * Authentication / permission system
+  * Infrastructure technology
+  * Integration boundaries with internal or external services
+  * Significant dependency
 * Enable dependabot security updates on all repositories
 * Enable container vulnerability scanning (either ECS container scan or a tool like Trivy)
 * Require pull requests to be reviewed before changes are merged to the main branch
 * Enable [Pre-commit](https://pre-commit.com/) hooks to prevent secrets being added to version control
 * Static analysis of code run in IDEs, pre-commit and pipelines (using the appropriate tooling for the languages used). 
 * Maintain Architectural Decision Records of security related decisions
+* Follow the [github actions security processes](documentation/guides/github_actions_security_process) outlined in this guide.
 
 You may also want to look at:
 
 * Adding a pull request template with expectations for checks specific to your product
 
-## General principles
+### Responsibilities
 
-* We will automate as much as we can
-* We will build security into the process, rather than tag it on via external checks
-* We will actively fix, and where issues occur improve the process to prevent them happening again
+#### As a Developer or WebOps Engineer you should
+
+* Be aware of common vulnerabilities and how to code to prevent them
+* Pair with colleagues to be a 2nd pair of eyes for potential security issues
+* Raise security concerns if you identify a risk (chance that something might happen) or issue (something has happened).
+* Use the incident process for urgent issues
+* Actively build an understanding of the security posture of your product over time
+* Actively monitor your product for security issues
+* Regularly rotate secrets used within your service
+
+#### As a Technical Architect you should
+
+* Work with delivery managers to complete secure by design and CAF assessments as required
+* Organise regular threat modelling for your teams
+* Ensure security tickets are prioritised in backlogs
+* Coordinate incidents if they occur
+* Liase with stakeholders and security around security issues
+* Highlight potential risks on product and OPG Digital Risk registers
+
 
 ## Asking for help/Raising issues to security
 
 Sometimes you need to make a call between a security fix and a business or user requirement. Or you may not know the best way to handle or fix a security issue in your code base.
 
-Where you are unsure of how to proceed, you can get advice from the Security team. To contact them you can either
+Where you are unsure of how to proceed, you can get advice or raise a concern with the Security team.
 
-* Post a message in their slack channel [#security](https://mojdt.slack.com/archives/C52LPHPK8)
+As outlined on [the intranet](https://intranet.justice.gov.uk/guidance/security/report-a-security-incident/?agency=opg), all cybersecurity incidents should be reported by contacting the Service Desk on 0800 917 5148
+
+For advice or guidance you can either:
+
+* Post a message in their slack channel for [#security](https://mojdt.slack.com/archives/C52LPHPK8)
 * Email their inbox at [security@justice.gov.uk](mailto:security@justice.gov.uk)
-* Raise a security concern via [their google form](https://goo.gl/forms/frsB1h8AGv3Zefwq2)
+
 
 ### What to include
 
@@ -54,21 +105,3 @@ If possible, supply them with as much context in regard to the issue.
 
 If a security issue cannot be fixed, then Security will add it to their risk register with the details provided. This is to ensure MoJ have visibility of all threats and weaknesses across their estate.
 
-## Responsibilities
-
-### As a Developer or WebOps Engineer you should
-
-* Be aware of common vulnerabilities and how to code to prevent them
-* Pair with colleagues to be a 2nd pair of eyes for potential security issues
-* Raise security concerns if you identify a risk (chance that something might happen) or issue (something has happened).
-* Use the incident process for urgent issues
-* Actively build an understanding of the security posture of your product over time
-* Actively monitor your product for security issues
-
-### As a Technical Architect you should
-
-* Organise regular threat modelling for your teams
-* Ensure security tickets are prioritised in backlogs
-* Coordinate incidents if they occur
-* Liase with stakeholders and security around security issues
-* Highlight potential risks on product and OPG Digital Risk registers
