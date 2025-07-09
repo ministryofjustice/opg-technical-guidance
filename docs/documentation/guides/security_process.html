@@ -94,13 +94,10 @@
     <a href="#security-in-our-process"><span>Security in our Process</span></a>
     <ul>
       <li>
-        <a href="#general-principles"><span>General principles</span></a>
+        <a href="#secure-by-design"><span>Secure By Design</span></a>
       </li>
       <li>
         <a href="#asking-for-help-raising-issues-to-security"><span>Asking for help/Raising issues to security</span></a>
-      </li>
-      <li>
-        <a href="#responsibilities"><span>Responsibilities</span></a>
       </li>
     </ul>
   </li>
@@ -114,41 +111,84 @@
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
             <h1 id="security-in-our-process">Security in our Process</h1>
-<p>Our aim is to make our products as secure as possible while maintaining usability for end users. This is in line with the <a href="https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service">GDS service standard</a>. You should be aware of the <a href="https://ministryofjustice.github.io/security-guidance/#cyber-and-technical-security-guidance">MOJ Security Guidance</a>, which will help with specific policy issues at an MOJ level and follow the <a href="https://www.ncsc.gov.uk/">National Cyber Security Centre</a> for updates at a government level.</p>
-<p>As part of our local development culture all our products should aim to have the following as a minimum in their process, build pipelines and GitHub setup:</p>
-
-<ul>
-<li>Security to be considered as part of ticket prep and refinement, with reference to <a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>.</li>
-<li>Write automated tests to verify code and infrastructure security</li>
-<li>Do Threat Modelling of your product every 6 months</li>
-<li>Have an ITHC or Pen Test once a year or after a major change</li>
-<li>Enable dependabot security updates on all repositories</li>
-<li>Enable container vulnerability scanning (either ECS container scan or a tool like Trivy)</li>
-<li>Require pull requests to be reviewed before changes are merged to the main branch</li>
-<li>Enable <a href="https://pre-commit.com/">Pre-commit</a> hooks to prevent secrets being added to version control</li>
-<li>Static analysis of code run in IDEs, pre-commit and pipelines (using the appropriate tooling for the languages used). </li>
-<li>Maintain Architectural Decision Records of security related decisions</li>
-</ul>
-<p>You may also want to look at:</p>
-
-<ul>
-<li>Adding a pull request template with expectations for checks specific to your product</li>
-</ul>
-<h2 id="general-principles">General principles</h2>
+<h2 id="secure-by-design">Secure By Design</h2>
+<h3 id="policy">Policy</h3>
+<p>Our aim within OPG is to make our products as secure as possible while maintaining usability for end users.</p>
+<p>All central government departments and arm&rsquo;s length bodies (ALBs) must incorporate effective security practices and be moving towards meeting the <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/policy/">Secure by Design policy</a> when delivering and building digital services and technical infrastructure.</p>
+<p>Note that where products existed before this policy, we will attempt to bring them in line but there may be historical gaps (for example where it mandates security is part of an original business case).</p>
+<p>As outlined in the <a href="https://security-guidance.service.justice.gov.uk/secure-by-design/#secure-by-design-summary">MOJ Security Guidance</a>, this policy requires that cybersecurity considerations are incorporated at every stage of the project lifecycle. From the development of business cases through to service design, development, deployment, and ongoing maintenance, security must be embedded as a core element. This ensures that potential vulnerabilities are proactively addressed, aligning with best practices to protect data, systems and services from evolving threats throughout their entire lifecycle.</p>
+<p>This proactive approach not only aligns with broader government cybersecurity mandates but also enhances trust and safety for users interacting with digital services. The requirements described in this policy will help government organisations achieve the required security outcomes in the <a href="https://www.ncsc.gov.uk/collection/cyber-assessment-framework">NCSC Cyber Assessment Framework (CAF)</a>.</p>
+<p>Secure by Design is a continuous assurance discussions that should complement the ongoing security work within a team. Adherence to the policy is checked by using the <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/tracking-secure-by-design-progress">Secure By Design Assessment Tracker</a>.
+Whilst technical team members (usually a technical architect) will lead with completing these assessments, delivery managers should integrate completion of the tracker into regular activities involving the relevant team members.</p>
+<p>Teams should also review the <a href="https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service">GDS service standard</a>, consult the MOJ Security Guidance for help with <a href="https://security-guidance.service.justice.gov.uk/#information-security-policies">specific policy issues</a> at an MOJ level and follow the <a href="https://www.ncsc.gov.uk/">National Cyber Security Centre</a> for updates at a government level.</p>
+<h3 id="how-we-will-work">How we will work</h3>
+<h4 id="general-principles">General principles</h4>
 
 <ul>
 <li>We will automate as much as we can</li>
 <li>We will build security into the process, rather than tag it on via external checks</li>
 <li>We will actively fix, and where issues occur improve the process to prevent them happening again</li>
 </ul>
-<h2 id="asking-for-help-raising-issues-to-security">Asking for help/Raising issues to security</h2>
-<p>Sometimes you need to make a call between a security fix and a business or user requirement. Or you may not know the best way to handle or fix a security issue in your code base.</p>
-<p>Where you are unsure of how to proceed, you can get advice from the Security team. To contact them you can either</p>
+<h4 id="development-culture">Development culture</h4>
+<p>As part of our local development culture all our products should aim to have the following as a minimum in their process, build pipelines and GitHub setup:</p>
 
 <ul>
-<li>Post a message in their slack channel <a href="https://mojdt.slack.com/archives/C52LPHPK8">#security</a></li>
+<li>Security to be considered as part of ticket prep and refinement, with reference to <a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>.</li>
+<li>Write automated tests to verify code and infrastructure security</li>
+<li>Do Threat Modelling of your product every 6 months or after a major change.</li>
+<li>Have an ITHC or Pen Test once a year or after a major change. Changes that could require a re-test include:
+
+<ul>
+<li>A major change in the type of data held, volume of data or privacy of that data</li>
+<li>Authentication / permission system</li>
+<li>Infrastructure technology</li>
+<li>Integration boundaries with internal or external services</li>
+<li>Significant dependency</li>
+</ul></li>
+<li>Enable dependabot security updates on all repositories</li>
+<li>Enable container vulnerability scanning (either ECS container scan or a tool like Trivy)</li>
+<li>Require pull requests to be reviewed before changes are merged to the main branch</li>
+<li>Enable <a href="https://pre-commit.com/">Pre-commit</a> hooks to prevent secrets being added to version control</li>
+<li>Static analysis of code run in IDEs, pre-commit and pipelines (using the appropriate tooling for the languages used). </li>
+<li>Maintain Architectural Decision Records of security related decisions</li>
+<li>Follow the <a href="github_actions_security_process.html">github actions security processes</a> outlined in this guide.</li>
+</ul>
+<p>You may also want to look at:</p>
+
+<ul>
+<li>Adding a pull request template with expectations for checks specific to your product</li>
+</ul>
+<h3 id="responsibilities">Responsibilities</h3>
+<h4 id="as-a-developer-or-webops-engineer-you-should">As a Developer or WebOps Engineer you should</h4>
+
+<ul>
+<li>Be aware of common vulnerabilities and how to code to prevent them</li>
+<li>Pair with colleagues to be a 2nd pair of eyes for potential security issues</li>
+<li>Raise security concerns if you identify a risk (chance that something might happen) or issue (something has happened).</li>
+<li>Use the incident process for urgent issues</li>
+<li>Actively build an understanding of the security posture of your product over time</li>
+<li>Actively monitor your product for security issues</li>
+<li>Regularly rotate secrets used within your service</li>
+</ul>
+<h4 id="as-a-technical-architect-you-should">As a Technical Architect you should</h4>
+
+<ul>
+<li>Work with delivery managers to complete secure by design and CAF assessments as required</li>
+<li>Organise regular threat modelling for your teams</li>
+<li>Ensure security tickets are prioritised in backlogs</li>
+<li>Coordinate incidents if they occur</li>
+<li>Liase with stakeholders and security around security issues</li>
+<li>Highlight potential risks on product and OPG Digital Risk registers</li>
+</ul>
+<h2 id="asking-for-help-raising-issues-to-security">Asking for help/Raising issues to security</h2>
+<p>Sometimes you need to make a call between a security fix and a business or user requirement. Or you may not know the best way to handle or fix a security issue in your code base.</p>
+<p>Where you are unsure of how to proceed, you can get advice or raise a concern with the Security team.</p>
+<p>As outlined on <a href="https://intranet.justice.gov.uk/guidance/security/report-a-security-incident/?agency=opg">the intranet</a>, all cybersecurity incidents should be reported by contacting the Service Desk on 0800 917 5148</p>
+<p>For advice or guidance you can either:</p>
+
+<ul>
+<li>Post a message in their slack channel for <a href="https://mojdt.slack.com/archives/C52LPHPK8">#security</a></li>
 <li>Email their inbox at <a href="mailto:security@justice.gov.uk">security@justice.gov.uk</a></li>
-<li>Raise a security concern via <a href="https://goo.gl/forms/frsB1h8AGv3Zefwq2">their google form</a></li>
 </ul>
 <h3 id="what-to-include">What to include</h3>
 <p>If possible, supply them with as much context in regard to the issue.</p>
@@ -162,38 +202,18 @@
 <li>What data could be comprimised if attacked</li>
 </ul>
 <p>If a security issue cannot be fixed, then Security will add it to their risk register with the details provided. This is to ensure MoJ have visibility of all threats and weaknesses across their estate.</p>
-<h2 id="responsibilities">Responsibilities</h2>
-<h3 id="as-a-developer-or-webops-engineer-you-should">As a Developer or WebOps Engineer you should</h3>
 
-<ul>
-<li>Be aware of common vulnerabilities and how to code to prevent them</li>
-<li>Pair with colleagues to be a 2nd pair of eyes for potential security issues</li>
-<li>Raise security concerns if you identify a risk (chance that something might happen) or issue (something has happened).</li>
-<li>Use the incident process for urgent issues</li>
-<li>Actively build an understanding of the security posture of your product over time</li>
-<li>Actively monitor your product for security issues</li>
-</ul>
-<h3 id="as-a-technical-architect-you-should">As a Technical Architect you should</h3>
-
-<ul>
-<li>Organise regular threat modelling for your teams</li>
-<li>Ensure security tickets are prioritised in backlogs</li>
-<li>Coordinate incidents if they occur</li>
-<li>Liase with stakeholders and security around security issues</li>
-<li>Highlight potential risks on product and OPG Digital Risk registers</li>
-</ul>
-
-              <div data-module='page-expiry' data-last-reviewed-on="2024-11-18">
+              <div data-module='page-expiry' data-last-reviewed-on="2025-10-07">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 19 August 2024.
+      This page was last reviewed on 8 July 2025.
 
-        It needs to be reviewed again on 18 November 2024
+        It needs to be reviewed again on 7 October 2025
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 18 November 2024
+      This page was set to be reviewed before 7 October 2025
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
