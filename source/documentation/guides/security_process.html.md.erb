@@ -14,12 +14,16 @@ Our aim within OPG is to make our products as secure as possible while maintaini
 
 All central government departments and arm's length bodies (ALBs) must incorporate effective security practices and be moving towards meeting the [Secure by Design policy](https://www.security.gov.uk/policy-and-guidance/secure-by-design/policy/) when delivering and building digital services and technical infrastructure.
 
-As outlined in the [MOJ Security Guidance](https://security-guidance.service.justice.gov.uk/secure-by-design/#secure-by-design-summary), this policy requires that cyber security considerations are incorporated at every stage of the project lifecycle. From the development of business cases through to service design, development, deployment, and ongoing maintenance, security must be embedded as a core element. This ensures that potential vulnerabilities are proactively addressed, aligning with best practices to protect data, systems and services from evolving threats throughout their entire lifecycle.
+Note that where products existed before this policy, we will attempt to bring them in line but there may be historical gaps (for example where it mandates security is part of an original business case).
+
+As outlined in the [MOJ Security Guidance](https://security-guidance.service.justice.gov.uk/secure-by-design/#secure-by-design-summary), this policy requires that cybersecurity considerations are incorporated at every stage of the project lifecycle. From the development of business cases through to service design, development, deployment, and ongoing maintenance, security must be embedded as a core element. This ensures that potential vulnerabilities are proactively addressed, aligning with best practices to protect data, systems and services from evolving threats throughout their entire lifecycle.
 
 This proactive approach not only aligns with broader government cybersecurity mandates but also enhances trust and safety for users interacting with digital services. The requirements described in this policy will help government organisations achieve the required security outcomes in the [NCSC Cyber Assessment Framework (CAF)](https://www.ncsc.gov.uk/collection/cyber-assessment-framework).
 
 Secure by Design is a continuous assurance discussions that should complement the ongoing security work within a team. Adherence to the policy is checked by using the [Secure By Design Assessment Tracker](https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/tracking-secure-by-design-progress).
 Whilst technical team members (usually a technical architect) will lead with completing these assessments, delivery managers should integrate completion of the tracker into regular activities involving the relevant team members.
+
+
 
 Teams should also review the [GDS service standard](https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service), consult the MOJ Security Guidance for help with [specific policy issues](https://security-guidance.service.justice.gov.uk/#information-security-policies) at an MOJ level and follow the [National Cyber Security Centre](https://www.ncsc.gov.uk/) for updates at a government level.
 
@@ -39,7 +43,7 @@ As part of our local development culture all our products should aim to have the
 * Write automated tests to verify code and infrastructure security
 * Do Threat Modelling of your product every 6 months or after a major change.
 * Have an ITHC or Pen Test once a year or after a major change. Changes that could require a re-test include:
-  * Data variation (volume / nature / eg more PII?)
+  * A major change in the type of data held, volume of data or privacy of that data
   * Authentication / permission system
   * Infrastructure technology
   * Integration boundaries with internal or external services
