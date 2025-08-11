@@ -574,6 +574,26 @@
         ]
       },
       {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-04T13:57:57+00:00",
+        "date": "2025-08-04T13:57:57+00:00",
+        "head_branch": "main",
+        "id": 16725232886,
+        "name": "[Workflow] Path to Live",
+        "repository_full_name": "ministryofjustice/opg-data-deputy-reporting",
+        "repository_id": 234066033,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "opg_integrations",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
         "__class__": "PullRequest",
         "base": "main",
         "date": "2025-06-23T09:41:40+00:00",
@@ -2588,6 +2608,50 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-06T15:20:41+00:00",
+        "id": 2724758305,
+        "merged": null,
+        "merged_at": "2025-08-06T15:20:41+00:00",
+        "number": 371,
+        "repository_full_name": "ministryofjustice/opg-data-lpa-store",
+        "repository_id": 682163412,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "MLPAB-3147: Add schedule-runner to development allowed_wildcard_arns",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-data-lpa-store/pulls/371"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T11:14:40+00:00",
+        "id": 2723989825,
+        "merged": null,
+        "merged_at": "2025-08-06T11:14:40+00:00",
+        "number": 370,
+        "repository_full_name": "ministryofjustice/opg-data-lpa-store",
+        "repository_id": 682163412,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "MLPAB-3147: Add schedule runner to allowed arns",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-data-lpa-store/pulls/370"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-08-01T08:16:50+00:00",
         "id": 2711898894,
         "merged": null,
@@ -2606,6 +2670,28 @@
         ],
         "title": "Renovate Update Patch & Minor Updates",
         "url": "https://api.github.com/repos/ministryofjustice/opg-data-lpa-store/pulls/368"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T10:27:56+00:00",
+        "id": 2703676743,
+        "merged": null,
+        "merged_at": "2025-08-04T10:27:56+00:00",
+        "number": 367,
+        "repository_full_name": "ministryofjustice/opg-data-lpa-store",
+        "repository_id": 682163412,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3101: record Notes on LPA when donor's DOB is changed",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-data-lpa-store/pulls/367"
       },
       {
         "__class__": "PullRequest",
@@ -8710,6 +8796,66 @@
         "__class__": "WorkflowRun",
         "artifacts": [],
         "conclusion": "success",
+        "created_at": "2025-08-06T14:58:46+00:00",
+        "date": "2025-08-06T14:58:46+00:00",
+        "head_branch": "main",
+        "id": 16780621006,
+        "name": "[Workflow] Path to live",
+        "repository_full_name": "ministryofjustice/opg-digideps",
+        "repository_id": 200621714,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "digideps",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-06T12:58:15+00:00",
+        "date": "2025-08-06T12:58:15+00:00",
+        "head_branch": "main",
+        "id": 16777600778,
+        "name": "[Workflow] Path to live",
+        "repository_full_name": "ministryofjustice/opg-digideps",
+        "repository_id": 200621714,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "digideps",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-06T12:21:32+00:00",
+        "date": "2025-08-06T12:21:32+00:00",
+        "head_branch": "main",
+        "id": 16776756455,
+        "name": "[Workflow] Path to live",
+        "repository_full_name": "ministryofjustice/opg-digideps",
+        "repository_id": 200621714,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "digideps",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
         "created_at": "2025-08-01T12:15:15+00:00",
         "date": "2025-08-01T12:15:15+00:00",
         "head_branch": "main",
@@ -9847,6 +9993,63 @@
         "date": "2025-07-24T10:54:21+00:00",
         "head_branch": "main",
         "id": 16494942222,
+        "name": "[Workflow] Path to Live",
+        "repository_full_name": "ministryofjustice/opg-github-actions",
+        "repository_id": 731971691,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-07T09:23:40+00:00",
+        "date": "2025-08-07T09:23:40+00:00",
+        "head_branch": "main",
+        "id": 16800501034,
+        "name": "[Workflow] Path to Live",
+        "repository_full_name": "ministryofjustice/opg-github-actions",
+        "repository_id": 731971691,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-07T07:52:46+00:00",
+        "date": "2025-08-07T07:52:46+00:00",
+        "head_branch": "main",
+        "id": 16798507933,
+        "name": "[Workflow] Path to Live",
+        "repository_full_name": "ministryofjustice/opg-github-actions",
+        "repository_id": 731971691,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T14:14:37+00:00",
+        "date": "2025-08-05T14:14:37+00:00",
+        "head_branch": "main",
+        "id": 16752636811,
         "name": "[Workflow] Path to Live",
         "repository_full_name": "ministryofjustice/opg-github-actions",
         "repository_id": 731971691,
@@ -12435,6 +12638,26 @@
         "__class__": "WorkflowRun",
         "artifacts": [],
         "conclusion": "success",
+        "created_at": "2025-08-07T09:08:09+00:00",
+        "date": "2025-08-07T09:08:09+00:00",
+        "head_branch": "main",
+        "id": 16800147443,
+        "name": "[Workflow] Path to Live",
+        "repository_full_name": "ministryofjustice/opg-lpa",
+        "repository_id": 195432592,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "opg-lpa-team",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
         "created_at": "2025-08-01T14:03:40+00:00",
         "date": "2025-08-01T14:03:40+00:00",
         "head_branch": "main",
@@ -12678,6 +12901,26 @@
         "date": "2025-07-22T15:21:07+00:00",
         "head_branch": "main",
         "id": 16448567464,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-make-and-register-lpa-mainstream-content",
+        "repository_id": 884902782,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-07T13:46:22+00:00",
+        "date": "2025-08-07T13:46:22+00:00",
+        "head_branch": "main",
+        "id": 16806330702,
         "name": "Path To Live",
         "repository_full_name": "ministryofjustice/opg-make-and-register-lpa-mainstream-content",
         "repository_id": 884902782,
@@ -25503,6 +25746,384 @@
         ]
       },
       {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-08T14:01:17+00:00",
+        "date": "2025-08-08T14:01:17+00:00",
+        "head_branch": "main",
+        "id": 16832342230,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-08T13:43:05+00:00",
+        "date": "2025-08-08T13:43:05+00:00",
+        "head_branch": "main",
+        "id": 16831956038,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-08T10:18:45+00:00",
+        "date": "2025-08-08T10:18:45+00:00",
+        "head_branch": "main",
+        "id": 16827963752,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-08T09:59:33+00:00",
+        "date": "2025-08-08T09:59:33+00:00",
+        "head_branch": "main",
+        "id": 16827582905,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-07T08:57:44+00:00",
+        "date": "2025-08-07T08:57:44+00:00",
+        "head_branch": "main",
+        "id": 16799908209,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-07T08:39:04+00:00",
+        "date": "2025-08-07T08:39:04+00:00",
+        "head_branch": "main",
+        "id": 16799497371,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T15:14:59+00:00",
+        "date": "2025-08-05T15:14:59+00:00",
+        "head_branch": "main",
+        "id": 16754184465,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T14:56:05+00:00",
+        "date": "2025-08-05T14:56:05+00:00",
+        "head_branch": "main",
+        "id": 16753706084,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T13:38:22+00:00",
+        "date": "2025-08-05T13:38:22+00:00",
+        "head_branch": "main",
+        "id": 16751710189,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T13:19:58+00:00",
+        "date": "2025-08-05T13:19:58+00:00",
+        "head_branch": "main",
+        "id": 16751243240,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T11:08:44+00:00",
+        "date": "2025-08-05T11:08:44+00:00",
+        "head_branch": "main",
+        "id": 16748336161,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T10:48:17+00:00",
+        "date": "2025-08-05T10:48:17+00:00",
+        "head_branch": "main",
+        "id": 16747906254,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-04T14:58:26+00:00",
+        "date": "2025-08-04T14:58:26+00:00",
+        "head_branch": "main",
+        "id": 16726689521,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-04T14:37:21+00:00",
+        "date": "2025-08-04T14:37:21+00:00",
+        "head_branch": "main",
+        "id": 16726185153,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-04T13:36:44+00:00",
+        "date": "2025-08-04T13:36:44+00:00",
+        "head_branch": "main",
+        "id": 16724724139,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-04T13:16:44+00:00",
+        "date": "2025-08-04T13:16:44+00:00",
+        "head_branch": "main",
+        "id": 16724238539,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-04T11:26:00+00:00",
+        "date": "2025-08-04T11:26:00+00:00",
+        "head_branch": "main",
+        "id": 16721824026,
+        "name": "[Job] Slack Notification of Path to Live Workflow Failure",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-04T11:06:42+00:00",
+        "date": "2025-08-04T11:06:42+00:00",
+        "head_branch": "main",
+        "id": 16721412876,
+        "name": "Path To Live",
+        "repository_full_name": "ministryofjustice/opg-modernising-lpa",
+        "repository_id": 520025361,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "opg-modernising-lpa-weblate",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
         "__class__": "PullRequest",
         "base": "main",
         "date": "2025-08-01T08:56:34+00:00",
@@ -26429,6 +27050,153 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-06T15:08:39+00:00",
+        "id": 2724696211,
+        "merged": null,
+        "merged_at": "2025-08-06T15:08:39+00:00",
+        "number": 3342,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "MLPAB-3234 - upgrade account module to add resource tagging standard",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3342"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T15:55:09+00:00",
+        "id": 2724674881,
+        "merged": null,
+        "merged_at": "2025-08-06T15:55:09+00:00",
+        "number": 3341,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "add matty to webops gh team",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3341"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T08:08:30+00:00",
+        "id": 2723448685,
+        "merged": null,
+        "merged_at": "2025-08-06T08:08:30+00:00",
+        "number": 3340,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "fix pg users email address",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3340"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T14:51:41+00:00",
+        "id": 2721501665,
+        "merged": null,
+        "merged_at": "2025-08-06T14:51:41+00:00",
+        "number": 3339,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Archive the opg lpa data models repo as the code moved was moved into\u2026",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3339"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T14:36:32+00:00",
+        "id": 2720394376,
+        "merged": null,
+        "merged_at": "2025-08-06T14:36:32+00:00",
+        "number": 3338,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "create a smaller module for archived repositories",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3338"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T08:33:59+00:00",
+        "id": 2711675044,
+        "merged": null,
+        "merged_at": "2025-08-06T08:33:59+00:00",
+        "number": 3337,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate [Archived Repos Folder] Updates",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3337"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T08:17:06+00:00",
+        "id": 2711674518,
+        "merged": null,
+        "merged_at": "2025-08-06T08:17:06+00:00",
+        "number": 3336,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate [Access Management] Updates",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3336"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-31T08:23:09+00:00",
         "id": 2709290725,
         "merged": null,
@@ -26509,6 +27277,27 @@
         ],
         "title": "Adding myself to breakglass",
         "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3332"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T14:44:54+00:00",
+        "id": 2686034867,
+        "merged": null,
+        "merged_at": "2025-08-06T14:44:54+00:00",
+        "number": 3331,
+        "repository_full_name": "ministryofjustice/opg-org-infra",
+        "repository_id": 143435642,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "DDLS-771 branch rulesets digideps",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-org-infra/pulls/3331"
       },
       {
         "__class__": "PullRequest",
@@ -31259,6 +32048,113 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-08T12:05:43+00:00",
+        "id": 2730508111,
+        "merged": null,
+        "merged_at": "2025-08-08T12:05:43+00:00",
+        "number": 47,
+        "repository_full_name": "ministryofjustice/opg-pact-broker",
+        "repository_id": 243478812,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Use new auth secret for GitHub",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-pact-broker/pulls/47"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T10:51:14+00:00",
+        "id": 2730369992,
+        "merged": null,
+        "merged_at": "2025-08-08T10:51:14+00:00",
+        "number": 46,
+        "repository_full_name": "ministryofjustice/opg-pact-broker",
+        "repository_id": 243478812,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Use better secret name",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-pact-broker/pulls/46"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T10:44:11+00:00",
+        "id": 2730323016,
+        "merged": null,
+        "merged_at": "2025-08-08T10:44:11+00:00",
+        "number": 45,
+        "repository_full_name": "ministryofjustice/opg-pact-broker",
+        "repository_id": 243478812,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Add a dedicated secret for GitHub credentials",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-pact-broker/pulls/45"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T09:07:04+00:00",
+        "id": 2720301638,
+        "merged": null,
+        "merged_at": "2025-08-05T09:07:04+00:00",
+        "number": 519,
+        "repository_full_name": "ministryofjustice/opg-paper-identity",
+        "repository_id": 754073698,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Update Minor & Patch Updates #patch",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-paper-identity/pulls/519"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T14:55:15+00:00",
+        "id": 2697762615,
+        "merged": null,
+        "merged_at": "2025-08-04T14:55:15+00:00",
+        "number": 517,
+        "repository_full_name": "ministryofjustice/opg-paper-identity",
+        "repository_id": 754073698,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Update Minor & Patch Updates #patch",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-paper-identity/pulls/517"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-24T09:55:32+00:00",
         "id": 2691278395,
         "merged": null,
@@ -34317,6 +35213,69 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-06T16:47:31+00:00",
+        "id": 2724942359,
+        "merged": null,
+        "merged_at": "2025-08-06T16:47:31+00:00",
+        "number": 308,
+        "repository_full_name": "ministryofjustice/opg-performance-data",
+        "repository_id": 385600519,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Add July stats for Use/Make",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-performance-data/pulls/308"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T09:07:24+00:00",
+        "id": 2713014604,
+        "merged": null,
+        "merged_at": "2025-08-04T09:07:24+00:00",
+        "number": 306,
+        "repository_full_name": "ministryofjustice/opg-performance-data",
+        "repository_id": 385600519,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Performance Data for complete_the_deputy_report 25_07",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-performance-data/pulls/306"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T14:04:31+00:00",
+        "id": 2712377643,
+        "merged": null,
+        "merged_at": "2025-08-06T14:04:31+00:00",
+        "number": 305,
+        "repository_full_name": "ministryofjustice/opg-performance-data",
+        "repository_id": 385600519,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "UML-3985:June stats upload",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-performance-data/pulls/305"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-21T08:20:13+00:00",
         "id": 2675982878,
         "merged": null,
@@ -35115,6 +36074,28 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-07T13:45:20+00:00",
+        "id": 2727860711,
+        "merged": null,
+        "merged_at": "2025-08-07T13:45:20+00:00",
+        "number": 9,
+        "repository_full_name": "ministryofjustice/opg-register-lpa-prototype",
+        "repository_id": 866604888,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-modernising-lpa-team",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "MLPAB-3197: Drop duplicated h2",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-register-lpa-prototype/pulls/9"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-22T13:42:41+00:00",
         "id": 2685563467,
         "merged": null,
@@ -35284,6 +36265,28 @@
           "organisation-security-auditor-external",
           "organisation-security-auditor-architects"
         ]
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T13:36:07+00:00",
+        "id": 2730391617,
+        "merged": null,
+        "merged_at": "2025-08-08T13:36:07+00:00",
+        "number": 438,
+        "repository_full_name": "ministryofjustice/opg-s3-antivirus",
+        "repository_id": 457711955,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2980 - ignore lambda rie vuln #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-s3-antivirus/pulls/438"
       },
       {
         "__class__": "PullRequest",
@@ -35706,6 +36709,28 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-08T10:45:11+00:00",
+        "id": 2730172913,
+        "merged": null,
+        "merged_at": "2025-08-08T10:45:11+00:00",
+        "number": 156,
+        "repository_full_name": "ministryofjustice/opg-scanning",
+        "repository_id": 880190689,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Pass ctx to log, don't store logger in ctx",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-scanning/pulls/156"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-08-01T12:04:42+00:00",
         "id": 2712860942,
         "merged": null,
@@ -35746,6 +36771,28 @@
         ],
         "title": "SSM-155 Return CaseNo when document has previously been processed",
         "url": "https://api.github.com/repos/ministryofjustice/opg-scanning/pulls/153"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T14:04:05+00:00",
+        "id": 2679533002,
+        "merged": null,
+        "merged_at": "2025-08-04T14:04:05+00:00",
+        "number": 152,
+        "repository_full_name": "ministryofjustice/opg-scanning",
+        "repository_id": 880190689,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Update Minor & Patch Updates #patch",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-scanning/pulls/152"
       },
       {
         "__class__": "PullRequest",
@@ -38367,6 +39414,380 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-08T15:25:46+00:00",
+        "id": 2731014424,
+        "merged": null,
+        "merged_at": "2025-08-08T15:25:46+00:00",
+        "number": 11489,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Add AppointmentType to attorney in Pact fixtures",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11489"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T10:30:13+00:00",
+        "id": 2730121602,
+        "merged": null,
+        "merged_at": "2025-08-08T10:30:13+00:00",
+        "number": 11486,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Vega 3138 unlink cases stuck in loop",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11486"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T09:10:03+00:00",
+        "id": 2730017576,
+        "merged": null,
+        "merged_at": "2025-08-08T09:10:03+00:00",
+        "number": 11485,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Revert \"Sfs-92 stop sending letters to non active deputies (#11461)\"",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11485"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T14:10:49+00:00",
+        "id": 2728110094,
+        "merged": null,
+        "merged_at": "2025-08-08T14:10:49+00:00",
+        "number": 11483,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SFS-91 timestamp mismatch doc deletion",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11483"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T15:02:17+00:00",
+        "id": 2728057989,
+        "merged": null,
+        "merged_at": "2025-08-07T15:02:17+00:00",
+        "number": 11482,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Destroy authenticated session when receiving 401 from API",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11482"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T12:42:43+00:00",
+        "id": 2727105847,
+        "merged": null,
+        "merged_at": "2025-08-07T12:42:43+00:00",
+        "number": 11479,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SFS-142 - Extend allocate client test coverage",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11479"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T14:45:34+00:00",
+        "id": 2724560348,
+        "merged": null,
+        "merged_at": "2025-08-06T14:45:34+00:00",
+        "number": 11478,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3138 unlink new cases stuck in parent child loop",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11478"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T08:51:47+00:00",
+        "id": 2724281215,
+        "merged": null,
+        "merged_at": "2025-08-07T08:51:47+00:00",
+        "number": 11476,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3136 bulk change receipt date to match the payment date",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11476"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T08:19:23+00:00",
+        "id": 2723559596,
+        "merged": null,
+        "merged_at": "2025-08-07T08:19:23+00:00",
+        "number": 11475,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "vega-3157 adding in a flush to edit and create of a donor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11475"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T14:05:35+00:00",
+        "id": 2721222555,
+        "merged": null,
+        "merged_at": "2025-08-05T14:05:35+00:00",
+        "number": 11474,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Vega 3138 unlink cases stuck in parent child loop",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11474"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T14:22:58+00:00",
+        "id": 2721170744,
+        "merged": null,
+        "merged_at": "2025-08-05T14:22:58+00:00",
+        "number": 11473,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SFS-18 Add more cases into orderTest for orderStatus & status on case",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11473"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T10:46:18+00:00",
+        "id": 2720664248,
+        "merged": null,
+        "merged_at": "2025-08-05T10:46:18+00:00",
+        "number": 11471,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Handle missing roles in the frontend",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11471"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T10:49:00+00:00",
+        "id": 2720608066,
+        "merged": null,
+        "merged_at": "2025-08-05T10:49:00+00:00",
+        "number": 11470,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3119 : Remove the card payment check from payment search for online LPA #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11470"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T14:43:18+00:00",
+        "id": 2718122548,
+        "merged": null,
+        "merged_at": "2025-08-04T14:43:18+00:00",
+        "number": 11469,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3138 unlink cases stuck in parent child loop",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11469"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T12:24:02+00:00",
+        "id": 2713298026,
+        "merged": null,
+        "merged_at": "2025-08-04T12:24:02+00:00",
+        "number": 11466,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SFS-39: Behat tests - Generate pending reporting period",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11466"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T08:06:52+00:00",
+        "id": 2712336681,
+        "merged": null,
+        "merged_at": "2025-08-05T08:06:52+00:00",
+        "number": 11464,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Rewrite frontend controllers as handlers",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11464"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T08:52:10+00:00",
+        "id": 2712092075,
+        "merged": null,
+        "merged_at": "2025-08-05T08:52:10+00:00",
+        "number": 11463,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3072 : Adding a new anomaly for replacement attorney decision #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11463"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-31T14:46:41+00:00",
         "id": 2710281209,
         "merged": null,
@@ -38385,6 +39806,28 @@
         ],
         "title": "sfs-48: Updates file-service env vars to fix build",
         "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11462"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T13:47:36+00:00",
+        "id": 2709775342,
+        "merged": null,
+        "merged_at": "2025-08-07T13:47:36+00:00",
+        "number": 11461,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Sfs-92 stop sending letters to non active deputies",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11461"
       },
       {
         "__class__": "PullRequest",
@@ -38411,6 +39854,28 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-07T15:18:39+00:00",
+        "id": 2704415150,
+        "merged": null,
+        "merged_at": "2025-08-07T15:18:39+00:00",
+        "number": 11454,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3105 allow sys admin to delete locked/online payments",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11454"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-31T08:17:48+00:00",
         "id": 2704111617,
         "merged": null,
@@ -38429,6 +39894,50 @@
         ],
         "title": "sfs-12 renaming a task",
         "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11453"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T08:09:44+00:00",
+        "id": 2703748561,
+        "merged": null,
+        "merged_at": "2025-08-04T08:09:44+00:00",
+        "number": 11452,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Move logic out of Module.php",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11452"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T08:56:30+00:00",
+        "id": 2703744405,
+        "merged": null,
+        "merged_at": "2025-08-05T08:56:30+00:00",
+        "number": 11451,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SFS-18 Fix timeline report created event due date",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11451"
       },
       {
         "__class__": "PullRequest",
@@ -38473,6 +39982,50 @@
         ],
         "title": "sfs-58 adding route for accessibility audit",
         "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11449"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T09:27:26+00:00",
+        "id": 2700461158,
+        "merged": null,
+        "merged_at": "2025-08-08T09:27:26+00:00",
+        "number": 11448,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3053 Replacement attorneys Notice of Registration letter templates",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11448"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T10:51:47+00:00",
+        "id": 2700445551,
+        "merged": null,
+        "merged_at": "2025-08-07T10:51:47+00:00",
+        "number": 11447,
+        "repository_full_name": "ministryofjustice/opg-sirius",
+        "repository_id": 125928613,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "sfs-18 add failsafe so annual report logs are not linked to closed order when client has active order",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius/pulls/11447"
       },
       {
         "__class__": "PullRequest",
@@ -48531,6 +50084,28 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-05T09:34:11+00:00",
+        "id": 2717888308,
+        "merged": null,
+        "merged_at": "2025-08-05T09:34:11+00:00",
+        "number": 92,
+        "repository_full_name": "ministryofjustice/opg-sirius-data-sync",
+        "repository_id": 406339508,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2974 - Parallelise Database Tuning #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-data-sync/pulls/92"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-08-01T08:57:21+00:00",
         "id": 2711679636,
         "merged": null,
@@ -49781,6 +51356,182 @@
         ],
         "title": "pfs-81: Finance tab should only appear for users with Finance Report\u2026",
         "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-header/pulls/42"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T13:36:19+00:00",
+        "id": 2730454199,
+        "merged": null,
+        "merged_at": "2025-08-08T13:36:19+00:00",
+        "number": 2751,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2879 - add to goose vuln ignores #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2751"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T09:36:21+00:00",
+        "id": 2727337337,
+        "merged": null,
+        "merged_at": "2025-08-08T09:36:21+00:00",
+        "number": 2750,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Give operator access to scanning-documents DDB table",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2750"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T15:17:25+00:00",
+        "id": 2721564743,
+        "merged": null,
+        "merged_at": "2025-08-05T15:17:25+00:00",
+        "number": 2749,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2976 - Security Hub Quick Wins #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2749"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T12:38:07+00:00",
+        "id": 2721050128,
+        "merged": null,
+        "merged_at": "2025-08-05T12:38:07+00:00",
+        "number": 2748,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2975 - Switch to Inheriting Tags from ECS Services #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2748"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-05T09:34:02+00:00",
+        "id": 2720487749,
+        "merged": null,
+        "merged_at": "2025-08-05T09:34:02+00:00",
+        "number": 2747,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2974 - Allow Tuning to run in Parallel #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2747"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T14:23:27+00:00",
+        "id": 2718156343,
+        "merged": null,
+        "merged_at": "2025-08-04T14:23:27+00:00",
+        "number": 2746,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2965 - Use main tag for Network Module #patch",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2746"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T08:48:16+00:00",
+        "id": 2717025168,
+        "merged": null,
+        "merged_at": "2025-08-04T08:48:16+00:00",
+        "number": 2745,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2973 - Update trivyignore for August #patch",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2745"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T10:47:27+00:00",
+        "id": 2707523607,
+        "merged": null,
+        "merged_at": "2025-08-04T10:47:27+00:00",
+        "number": 2743,
+        "repository_full_name": "ministryofjustice/opg-sirius-infrastructure",
+        "repository_id": 156722936,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2964 - Move VPC/Subnet/etc Resources into the Network Module #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-infrastructure/pulls/2743"
       },
       {
         "__class__": "PullRequest",
@@ -54757,6 +56508,28 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-08T14:14:52+00:00",
+        "id": 2722888508,
+        "merged": null,
+        "merged_at": "2025-08-08T14:14:52+00:00",
+        "number": 469,
+        "repository_full_name": "ministryofjustice/opg-sirius-lpa-dashboard",
+        "repository_id": 368795697,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate Update actions/download-artifact action to v5",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-lpa-dashboard/pulls/469"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-30T09:14:52+00:00",
         "id": 2685493020,
         "merged": null,
@@ -55329,6 +57102,94 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-08T14:05:17+00:00",
+        "id": 2730795395,
+        "merged": null,
+        "merged_at": "2025-08-08T14:05:17+00:00",
+        "number": 717,
+        "repository_full_name": "ministryofjustice/opg-sirius-lpa-frontend",
+        "repository_id": 462667874,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Fix small apostrophe typo",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-lpa-frontend/pulls/717"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T13:14:43+00:00",
+        "id": 2730417674,
+        "merged": null,
+        "merged_at": "2025-08-08T13:14:43+00:00",
+        "number": 714,
+        "repository_full_name": "ministryofjustice/opg-sirius-lpa-frontend",
+        "repository_id": 462667874,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2981 - update go version to patch vuln #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-lpa-frontend/pulls/714"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T10:50:30+00:00",
+        "id": 2722512659,
+        "merged": null,
+        "merged_at": "2025-08-07T10:50:30+00:00",
+        "number": 713,
+        "repository_full_name": "ministryofjustice/opg-sirius-lpa-frontend",
+        "repository_id": 462667874,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate Update actions/download-artifact action to v5",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-lpa-frontend/pulls/713"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T11:47:10+00:00",
+        "id": 2712558578,
+        "merged": null,
+        "merged_at": "2025-08-06T11:47:10+00:00",
+        "number": 710,
+        "repository_full_name": "ministryofjustice/opg-sirius-lpa-frontend",
+        "repository_id": 462667874,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate Update dependency opg-sirius-search-ui to v1",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-lpa-frontend/pulls/710"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-08-01T09:16:42+00:00",
         "id": 2710641032,
         "merged": null,
@@ -55347,6 +57208,28 @@
         ],
         "title": "Renovate Update Patch & Minor Updates",
         "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-lpa-frontend/pulls/707"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T16:36:43+00:00",
+        "id": 2710539108,
+        "merged": null,
+        "merged_at": "2025-08-07T16:36:43+00:00",
+        "number": 706,
+        "repository_full_name": "ministryofjustice/opg-sirius-lpa-frontend",
+        "repository_id": 462667874,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "VEGA-3105 allow sys admin users to delete locked payments",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-lpa-frontend/pulls/706"
       },
       {
         "__class__": "PullRequest",
@@ -60213,6 +62096,50 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-08T13:36:15+00:00",
+        "id": 2730452150,
+        "merged": null,
+        "merged_at": "2025-08-08T13:36:15+00:00",
+        "number": 384,
+        "repository_full_name": "ministryofjustice/opg-sirius-supervision-finance-hub",
+        "repository_id": 745410009,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2982 - ignore goose vuln #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-supervision-finance-hub/pulls/384"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-07T13:39:12+00:00",
+        "id": 2724014736,
+        "merged": null,
+        "merged_at": "2025-08-07T13:39:12+00:00",
+        "number": 383,
+        "repository_full_name": "ministryofjustice/opg-sirius-supervision-finance-hub",
+        "repository_id": 745410009,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Fix reapply query counting non-confirmed ledgers",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-supervision-finance-hub/pulls/383"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-31T15:26:24+00:00",
         "id": 2706844284,
         "merged": null,
@@ -65075,6 +67002,50 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-08T12:30:47+00:00",
+        "id": 2730611090,
+        "merged": null,
+        "merged_at": "2025-08-08T12:30:47+00:00",
+        "number": 564,
+        "repository_full_name": "ministryofjustice/opg-sirius-user-management",
+        "repository_id": 287547178,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate Update Patch & Minor Updates",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-user-management/pulls/564"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-08T13:04:37+00:00",
+        "id": 2722534998,
+        "merged": null,
+        "merged_at": "2025-08-08T13:04:37+00:00",
+        "number": 562,
+        "repository_full_name": "ministryofjustice/opg-sirius-user-management",
+        "repository_id": 287547178,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "sirius",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate Update actions/download-artifact action to v5",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-sirius-user-management/pulls/562"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-31T15:26:30+00:00",
         "id": 2706982081,
         "merged": null,
@@ -65883,6 +67854,27 @@
       {
         "__class__": "PullRequest",
         "base": "main",
+        "date": "2025-08-06T14:35:03+00:00",
+        "id": 2723794780,
+        "merged": null,
+        "merged_at": "2025-08-06T14:35:03+00:00",
+        "number": 117,
+        "repository_full_name": "ministryofjustice/opg-terraform-aws-account",
+        "repository_id": 373789891,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "MLPAB-3234 - enable resource tagging standard",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-terraform-aws-account/pulls/117"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
         "date": "2025-07-29T12:53:41+00:00",
         "id": 2703989854,
         "merged": null,
@@ -65900,6 +67892,27 @@
         ],
         "title": "MLPAB-3214 - Do not auto resolve CIS alarms",
         "url": "https://api.github.com/repos/ministryofjustice/opg-terraform-aws-account/pulls/115"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-06T14:43:14+00:00",
+        "id": 2630467992,
+        "merged": null,
+        "merged_at": "2025-08-06T14:43:14+00:00",
+        "number": 114,
+        "repository_full_name": "ministryofjustice/opg-terraform-aws-account",
+        "repository_id": 373789891,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "Renovate Minor and Patch Updates",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-terraform-aws-account/pulls/114"
       },
       {
         "__class__": "PullRequest",
@@ -66433,6 +68446,27 @@
         ],
         "title": "Renovate ministryofjustice/opg-github-actions action to v3.1.4",
         "url": "https://api.github.com/repos/ministryofjustice/opg-terraform-aws-moj-ip-allow-list/pulls/40"
+      },
+      {
+        "__class__": "PullRequest",
+        "base": "main",
+        "date": "2025-08-04T14:13:59+00:00",
+        "id": 2707499031,
+        "merged": null,
+        "merged_at": "2025-08-04T14:13:59+00:00",
+        "number": 17,
+        "repository_full_name": "ministryofjustice/opg-terraform-aws-network",
+        "repository_id": 313631189,
+        "state": "closed",
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ],
+        "title": "SP-2965 - Update Outputs & Tagging #minor",
+        "url": "https://api.github.com/repos/ministryofjustice/opg-terraform-aws-network/pulls/17"
       },
       {
         "__class__": "PullRequest",
@@ -70526,6 +72560,86 @@
         "__class__": "WorkflowRun",
         "artifacts": [],
         "conclusion": "success",
+        "created_at": "2025-08-08T13:19:53+00:00",
+        "date": "2025-08-08T13:19:53+00:00",
+        "head_branch": "main",
+        "id": 16831459854,
+        "name": "[Workflow] Path to live",
+        "repository_full_name": "ministryofjustice/opg-use-an-lpa",
+        "repository_id": 172097026,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-use-a-lpa-team",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-06T16:20:47+00:00",
+        "date": "2025-08-06T16:20:47+00:00",
+        "head_branch": "main",
+        "id": 16782561157,
+        "name": "[Workflow] Path to live",
+        "repository_full_name": "ministryofjustice/opg-use-an-lpa",
+        "repository_id": 172097026,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-use-a-lpa-team",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-06T12:23:49+00:00",
+        "date": "2025-08-06T12:23:49+00:00",
+        "head_branch": "main",
+        "id": 16776807417,
+        "name": "[Workflow] Path to live",
+        "repository_full_name": "ministryofjustice/opg-use-an-lpa",
+        "repository_id": 172097026,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-use-a-lpa-team",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
+        "created_at": "2025-08-05T07:21:15+00:00",
+        "date": "2025-08-05T07:21:15+00:00",
+        "head_branch": "main",
+        "id": 16743382572,
+        "name": "[Workflow] Path to live",
+        "repository_full_name": "ministryofjustice/opg-use-an-lpa",
+        "repository_id": 172097026,
+        "teams": [
+          "opg-webops",
+          "opg",
+          "organisation-security-auditor",
+          "opg-use-a-lpa-team",
+          "organisation-security-auditor-external",
+          "organisation-security-auditor-architects"
+        ]
+      },
+      {
+        "__class__": "WorkflowRun",
+        "artifacts": [],
+        "conclusion": "success",
         "created_at": "2025-08-01T00:18:57+00:00",
         "date": "2025-08-01T00:18:57+00:00",
         "head_branch": "main",
@@ -71369,8 +73483,8 @@
         22.52173913043478
       ],
       "2025-08": [
-        22,
-        1.0476190476190477
+        121,
+        5.761904761904762
       ]
     },
     "per_repo_per_month": {
@@ -72000,8 +74114,8 @@
           0.08695652173913043
         ],
         "2025-08": [
-          0,
-          0.0
+          1,
+          0.047619047619047616
         ]
       },
       "ministryofjustice/opg-data-dictionary": {
@@ -72150,8 +74264,8 @@
           0.34782608695652173
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          4,
+          0.19047619047619047
         ]
       },
       "ministryofjustice/opg-data-lpa-uid": {
@@ -72210,8 +74324,8 @@
           1.6521739130434783
         ],
         "2025-08": [
-          2,
-          0.09523809523809523
+          5,
+          0.23809523809523808
         ]
       },
       "ministryofjustice/opg-digideps-prototype-v2": {
@@ -72540,8 +74654,8 @@
           0.13043478260869565
         ],
         "2025-08": [
-          0,
-          0.0
+          3,
+          0.14285714285714285
         ]
       },
       "ministryofjustice/opg-github-workflows": {
@@ -72840,8 +74954,8 @@
           0.6521739130434783
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          2,
+          0.09523809523809523
         ]
       },
       "ministryofjustice/opg-lpa-api": {
@@ -73020,8 +75134,8 @@
           0.043478260869565216
         ],
         "2025-08": [
-          0,
-          0.0
+          1,
+          0.047619047619047616
         ]
       },
       "ministryofjustice/opg-metadata": {
@@ -73140,8 +75254,8 @@
           4.3478260869565215
         ],
         "2025-08": [
-          0,
-          0.0
+          18,
+          0.8571428571428571
         ]
       },
       "ministryofjustice/opg-modernising-lpa-docs": {
@@ -73260,8 +75374,8 @@
           1.0
         ],
         "2025-08": [
-          0,
-          0.0
+          8,
+          0.38095238095238093
         ]
       },
       "ministryofjustice/opg-packer-jenkins": {
@@ -73320,8 +75434,8 @@
           0.0
         ],
         "2025-08": [
-          0,
-          0.0
+          3,
+          0.14285714285714285
         ]
       },
       "ministryofjustice/opg-paper-identity": {
@@ -73350,8 +75464,8 @@
           0.21739130434782608
         ],
         "2025-08": [
-          0,
-          0.0
+          2,
+          0.09523809523809523
         ]
       },
       "ministryofjustice/opg-pdf-service": {
@@ -73440,8 +75554,8 @@
           0.08695652173913043
         ],
         "2025-08": [
-          0,
-          0.0
+          3,
+          0.14285714285714285
         ]
       },
       "ministryofjustice/opg-php-fpm-stats-exporter": {
@@ -73650,8 +75764,8 @@
           0.08695652173913043
         ],
         "2025-08": [
-          0,
-          0.0
+          1,
+          0.047619047619047616
         ]
       },
       "ministryofjustice/opg-reports": {
@@ -73800,8 +75914,8 @@
           0.043478260869565216
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          2,
+          0.09523809523809523
         ]
       },
       "ministryofjustice/opg-scanning": {
@@ -73830,8 +75944,8 @@
           0.391304347826087
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          3,
+          0.14285714285714285
         ]
       },
       "ministryofjustice/opg-search-service": {
@@ -73920,8 +76034,8 @@
           3.217391304347826
         ],
         "2025-08": [
-          2,
-          0.09523809523809523
+          25,
+          1.1904761904761905
         ]
       },
       "ministryofjustice/opg-sirius-api-gateway": {
@@ -73980,8 +76094,8 @@
           0.13043478260869565
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          2,
+          0.09523809523809523
         ]
       },
       "ministryofjustice/opg-sirius-docs": {
@@ -74130,8 +76244,8 @@
           1.7826086956521738
         ],
         "2025-08": [
-          0,
-          0.0
+          8,
+          0.38095238095238093
         ]
       },
       "ministryofjustice/opg-sirius-lpa-dashboard": {
@@ -74160,8 +76274,8 @@
           0.13043478260869565
         ],
         "2025-08": [
-          0,
-          0.0
+          1,
+          0.047619047619047616
         ]
       },
       "ministryofjustice/opg-sirius-lpa-frontend": {
@@ -74190,8 +76304,8 @@
           0.7391304347826086
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          6,
+          0.2857142857142857
         ]
       },
       "ministryofjustice/opg-sirius-maintenance": {
@@ -74400,8 +76514,8 @@
           1.173913043478261
         ],
         "2025-08": [
-          0,
-          0.0
+          2,
+          0.09523809523809523
         ]
       },
       "ministryofjustice/opg-sirius-supervision-firm-deputy-hub": {
@@ -74520,8 +76634,8 @@
           0.21739130434782608
         ],
         "2025-08": [
-          0,
-          0.0
+          2,
+          0.09523809523809523
         ]
       },
       "ministryofjustice/opg-technical-guidance": {
@@ -74610,8 +76724,8 @@
           0.043478260869565216
         ],
         "2025-08": [
-          0,
-          0.0
+          2,
+          0.09523809523809523
         ]
       },
       "ministryofjustice/opg-terraform-aws-firewalled-network": {
@@ -74700,8 +76814,8 @@
           0.043478260869565216
         ],
         "2025-08": [
-          0,
-          0.0
+          1,
+          0.047619047619047616
         ]
       },
       "ministryofjustice/opg-terraform-github-repository": {
@@ -74820,8 +76934,8 @@
           1.4782608695652173
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          5,
+          0.23809523809523808
         ]
       },
       "ministryofjustice/opg-weblate": {
@@ -75002,8 +77116,8 @@
           1.6521739130434783
         ],
         "2025-08": [
-          2,
-          0.09523809523809523
+          5,
+          0.23809523809523808
         ]
       },
       "opg-admin": {
@@ -75062,8 +77176,8 @@
           0.6521739130434783
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          2,
+          0.09523809523809523
         ]
       },
       "opg-metrics-team": {
@@ -75122,8 +77236,8 @@
           4.478260869565218
         ],
         "2025-08": [
-          0,
-          0.0
+          20,
+          0.9523809523809523
         ]
       },
       "opg-refund": {
@@ -75182,8 +77296,8 @@
           1.608695652173913
         ],
         "2025-08": [
-          1,
-          0.047619047619047616
+          5,
+          0.23809523809523808
         ]
       },
       "opg-webops": {
@@ -75212,8 +77326,8 @@
           22.52173913043478
         ],
         "2025-08": [
-          22,
-          1.0476190476190477
+          121,
+          5.761904761904762
         ]
       },
       "opg_integrations": {
@@ -75242,8 +77356,8 @@
           0.17391304347826086
         ],
         "2025-08": [
-          0,
-          0.0
+          1,
+          0.047619047619047616
         ]
       },
       "serve-opg": {
@@ -75302,8 +77416,8 @@
           11.217391304347826
         ],
         "2025-08": [
-          15,
-          0.7142857142857143
+          65,
+          3.0952380952380953
         ]
       }
     }
@@ -75317,9 +77431,9 @@
       "team_parent": "opg"
     },
     "timings": {
-      "duration": "1 hour 19 minutes 49 seconds",
-      "end": "2025-08-03T19:22:58.688598+00:00",
-      "start": "2025-08-03T18:03:09.381026+00:00"
+      "duration": "1 hour 21 minutes 53 seconds",
+      "end": "2025-08-10T19:24:54.484535+00:00",
+      "start": "2025-08-10T18:03:00.486289+00:00"
     }
   },
   "months": [
@@ -75336,7 +77450,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 5,
+      "clone_traffic_count": 2,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -75374,7 +77488,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 0,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -75412,7 +77526,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 2,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -75450,7 +77564,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 1,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -75564,7 +77678,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 4,
+      "clone_traffic_count": 2,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -75602,7 +77716,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 2,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -75640,7 +77754,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 144,
+      "clone_traffic_count": 151,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -75678,7 +77792,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 144,
+      "clone_traffic_count": 170,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -75754,7 +77868,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 4,
+      "clone_traffic_count": 2,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -75906,7 +78020,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 5,
+      "clone_traffic_count": 2,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -75944,7 +78058,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 1,
+      "clone_traffic_count": 0,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -75982,7 +78096,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 16,
+      "clone_traffic_count": 8,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76020,7 +78134,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 2,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76058,7 +78172,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 1,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76096,7 +78210,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 107,
+      "clone_traffic_count": 211,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76115,7 +78229,7 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 234066033,
-      "last_commit_date": "2025-07-31T08:15:52+00:00",
+      "last_commit_date": "2025-08-04T13:57:54+00:00",
       "license_name": "MIT License",
       "name": "opg-data-deputy-reporting",
       "open_pull_request_count": 0,
@@ -76134,7 +78248,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 36,
+      "clone_traffic_count": 32,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76156,7 +78270,7 @@
       "last_commit_date": "2025-06-23T09:41:40+00:00",
       "license_name": "MIT License",
       "name": "opg-data-dictionary",
-      "open_pull_request_count": 15,
+      "open_pull_request_count": 20,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -76172,7 +78286,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 1434,
+      "clone_traffic_count": 1443,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76210,7 +78324,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 322,
+      "clone_traffic_count": 249,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76248,7 +78362,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 671,
+      "clone_traffic_count": 533,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76286,7 +78400,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 2177,
+      "clone_traffic_count": 3133,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76305,10 +78419,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 682163412,
-      "last_commit_date": "2025-08-01T08:16:49+00:00",
+      "last_commit_date": "2025-08-06T15:20:41+00:00",
       "license_name": "MIT License",
       "name": "opg-data-lpa-store",
-      "open_pull_request_count": 1,
+      "open_pull_request_count": 0,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -76324,7 +78438,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 305,
+      "clone_traffic_count": 363,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76362,7 +78476,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 7402,
+      "clone_traffic_count": 6514,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76381,15 +78495,15 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 200621714,
-      "last_commit_date": "2025-08-01T12:15:11+00:00",
+      "last_commit_date": "2025-08-06T14:58:42+00:00",
       "license_name": "MIT License",
       "name": "opg-digideps",
-      "open_pull_request_count": 8,
+      "open_pull_request_count": 11,
       "private": false,
       "pull_requests": [],
-      "requires_approval": true,
-      "requires_code_owner_approval": true,
-      "rules_enforced_for_admins": true,
+      "requires_approval": null,
+      "requires_code_owner_approval": null,
+      "rules_enforced_for_admins": null,
       "teams": [],
       "url": "https://api.github.com/repos/ministryofjustice/opg-digideps",
       "vulnerability_alerts_enabled": true,
@@ -76438,7 +78552,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 4,
+      "clone_traffic_count": 3,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76476,7 +78590,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 3,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -76514,7 +78628,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 10,
+      "clone_traffic_count": 12,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76552,7 +78666,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 7,
+      "clone_traffic_count": 6,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76628,7 +78742,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 30,
+      "clone_traffic_count": 55,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76704,7 +78818,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 257,
+      "clone_traffic_count": 150,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76726,7 +78840,7 @@
       "last_commit_date": "2025-08-01T08:57:28+00:00",
       "license_name": "MIT License",
       "name": "opg-file-service",
-      "open_pull_request_count": 0,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -76780,7 +78894,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 5577,
+      "clone_traffic_count": 4923,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76799,10 +78913,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 731971691,
-      "last_commit_date": "2025-07-31T08:28:56+00:00",
+      "last_commit_date": "2025-08-07T09:23:37+00:00",
       "license_name": "MIT License",
       "name": "opg-github-actions",
-      "open_pull_request_count": 3,
+      "open_pull_request_count": 2,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -76818,7 +78932,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 191,
+      "clone_traffic_count": 127,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76894,7 +79008,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 251,
+      "clone_traffic_count": 157,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -76932,7 +79046,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 53,
+      "clone_traffic_count": 14,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -76970,7 +79084,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 2,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77008,7 +79122,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 241,
+      "clone_traffic_count": 270,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77046,7 +79160,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 2,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77084,7 +79198,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 1,
+      "clone_traffic_count": 2,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77122,7 +79236,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 82,
+      "clone_traffic_count": 81,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77160,7 +79274,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 7404,
+      "clone_traffic_count": 3029,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77179,10 +79293,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 195432592,
-      "last_commit_date": "2025-08-01T14:03:36+00:00",
+      "last_commit_date": "2025-08-07T09:08:06+00:00",
       "license_name": "MIT License",
       "name": "opg-lpa",
-      "open_pull_request_count": 6,
+      "open_pull_request_count": 8,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -77198,7 +79312,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 2,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -77234,9 +79348,9 @@
     },
     {
       "__class__": "Repository",
-      "archived": false,
+      "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 8,
+      "clone_traffic_count": 5,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77266,7 +79380,7 @@
       "rules_enforced_for_admins": true,
       "teams": [],
       "url": "https://api.github.com/repos/ministryofjustice/opg-lpa-datamodels",
-      "vulnerability_alerts_enabled": true,
+      "vulnerability_alerts_enabled": false,
       "webhooks_count": 3,
       "workflow_runs": []
     },
@@ -77274,7 +79388,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 1,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -77350,7 +79464,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 615,
+      "clone_traffic_count": 616,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77388,7 +79502,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 368,
+      "clone_traffic_count": 346,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77464,7 +79578,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 193,
+      "clone_traffic_count": 252,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77502,7 +79616,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 94,
+      "clone_traffic_count": 77,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77540,7 +79654,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 4536,
+      "clone_traffic_count": 4067,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77559,10 +79673,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 520025361,
-      "last_commit_date": "2025-07-31T16:57:09+00:00",
+      "last_commit_date": "2025-08-08T13:43:02+00:00",
       "license_name": "MIT License",
       "name": "opg-modernising-lpa",
-      "open_pull_request_count": 2,
+      "open_pull_request_count": 5,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -77578,7 +79692,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 19,
+      "clone_traffic_count": 16,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77616,7 +79730,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 104,
+      "clone_traffic_count": 92,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77638,7 +79752,7 @@
       "last_commit_date": "2025-08-01T08:56:34+00:00",
       "license_name": "MIT License",
       "name": "opg-notify-queue-consumer",
-      "open_pull_request_count": 0,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -77654,7 +79768,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 104,
+      "clone_traffic_count": 92,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77676,7 +79790,7 @@
       "last_commit_date": "2025-08-01T08:57:35+00:00",
       "license_name": "MIT License",
       "name": "opg-notify-status-poller",
-      "open_pull_request_count": 0,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -77692,7 +79806,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 570,
+      "clone_traffic_count": 669,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77711,10 +79825,10 @@
       "has_readme": true,
       "has_wiki": true,
       "id": 143435642,
-      "last_commit_date": "2025-07-31T08:23:08+00:00",
+      "last_commit_date": "2025-08-06T15:55:09+00:00",
       "license_name": null,
       "name": "opg-org-infra",
-      "open_pull_request_count": 3,
+      "open_pull_request_count": 1,
       "private": true,
       "pull_requests": [],
       "requires_approval": true,
@@ -77768,7 +79882,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 0,
+      "clone_traffic_count": 22,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77787,7 +79901,7 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 243478812,
-      "last_commit_date": "2025-01-08T10:36:39+00:00",
+      "last_commit_date": "2025-08-08T12:05:42+00:00",
       "license_name": null,
       "name": "opg-pact-broker",
       "open_pull_request_count": 0,
@@ -77806,7 +79920,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 2994,
+      "clone_traffic_count": 2074,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77825,10 +79939,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 754073698,
-      "last_commit_date": "2025-07-24T09:55:32+00:00",
+      "last_commit_date": "2025-08-05T09:07:04+00:00",
       "license_name": "MIT License",
       "name": "opg-paper-identity",
-      "open_pull_request_count": 6,
+      "open_pull_request_count": 5,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -77844,7 +79958,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 474,
+      "clone_traffic_count": 364,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77920,7 +80034,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 100,
+      "clone_traffic_count": 381,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77939,10 +80053,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 385600519,
-      "last_commit_date": "2025-07-21T08:20:12+00:00",
+      "last_commit_date": "2025-08-06T16:47:31+00:00",
       "license_name": "MIT License",
       "name": "opg-performance-data",
-      "open_pull_request_count": 4,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -77958,7 +80072,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 69,
+      "clone_traffic_count": 80,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -77996,7 +80110,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 8,
+      "clone_traffic_count": 3,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78072,7 +80186,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 3,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78148,7 +80262,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 5,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -78186,7 +80300,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 14,
+      "clone_traffic_count": 9,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78205,7 +80319,7 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 866604888,
-      "last_commit_date": "2025-07-22T13:42:41+00:00",
+      "last_commit_date": "2025-08-07T13:45:19+00:00",
       "license_name": "MIT License",
       "name": "opg-register-lpa-prototype",
       "open_pull_request_count": 0,
@@ -78224,7 +80338,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 89,
+      "clone_traffic_count": 181,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78262,7 +80376,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 0,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78300,7 +80414,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 1,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78338,7 +80452,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 5,
+      "clone_traffic_count": 1,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78376,7 +80490,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 191,
+      "clone_traffic_count": 285,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78395,10 +80509,10 @@
       "has_readme": true,
       "has_wiki": true,
       "id": 457711955,
-      "last_commit_date": "2025-08-01T08:13:10+00:00",
+      "last_commit_date": "2025-08-08T13:36:06+00:00",
       "license_name": "MIT License",
       "name": "opg-s3-antivirus",
-      "open_pull_request_count": 0,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -78414,7 +80528,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 865,
+      "clone_traffic_count": 676,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78433,10 +80547,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 880190689,
-      "last_commit_date": "2025-08-01T12:04:42+00:00",
+      "last_commit_date": "2025-08-08T10:45:10+00:00",
       "license_name": "MIT License",
       "name": "opg-scanning",
-      "open_pull_request_count": 4,
+      "open_pull_request_count": 6,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -78452,7 +80566,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 220,
+      "clone_traffic_count": 236,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78474,7 +80588,7 @@
       "last_commit_date": "2025-08-01T08:56:43+00:00",
       "license_name": "MIT License",
       "name": "opg-search-service",
-      "open_pull_request_count": 7,
+      "open_pull_request_count": 8,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -78490,7 +80604,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 1,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78528,7 +80642,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 2243,
+      "clone_traffic_count": 2478,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78547,10 +80661,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 125928613,
-      "last_commit_date": "2025-08-01T09:42:39+00:00",
+      "last_commit_date": "2025-08-08T15:25:46+00:00",
       "license_name": null,
       "name": "opg-sirius",
-      "open_pull_request_count": 32,
+      "open_pull_request_count": 29,
       "private": true,
       "pull_requests": [],
       "requires_approval": true,
@@ -78566,7 +80680,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 5,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": true,
@@ -78604,7 +80718,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 65,
+      "clone_traffic_count": 102,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78623,10 +80737,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 406339508,
-      "last_commit_date": "2025-08-01T08:57:20+00:00",
+      "last_commit_date": "2025-08-05T09:34:10+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-data-sync",
-      "open_pull_request_count": 0,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -78642,7 +80756,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 5,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78664,7 +80778,7 @@
       "last_commit_date": "2025-07-14T14:33:51+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-docs",
-      "open_pull_request_count": 0,
+      "open_pull_request_count": 1,
       "private": true,
       "pull_requests": [],
       "requires_approval": true,
@@ -78680,7 +80794,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 105,
+      "clone_traffic_count": 72,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78702,7 +80816,7 @@
       "last_commit_date": "2025-08-01T08:57:07+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-end-to-end-tests",
-      "open_pull_request_count": 2,
+      "open_pull_request_count": 3,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -78756,7 +80870,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 188,
+      "clone_traffic_count": 137,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78778,7 +80892,7 @@
       "last_commit_date": "2025-07-09T15:14:00+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-header",
-      "open_pull_request_count": 7,
+      "open_pull_request_count": 6,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -78794,7 +80908,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 1455,
+      "clone_traffic_count": 1260,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78813,10 +80927,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 156722936,
-      "last_commit_date": "2025-07-30T14:51:40+00:00",
+      "last_commit_date": "2025-08-10T18:25:07+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-infrastructure",
-      "open_pull_request_count": 5,
+      "open_pull_request_count": 4,
       "private": true,
       "pull_requests": [],
       "requires_approval": true,
@@ -78832,7 +80946,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 428,
+      "clone_traffic_count": 276,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78851,7 +80965,7 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 368795697,
-      "last_commit_date": "2025-07-30T09:14:51+00:00",
+      "last_commit_date": "2025-08-08T14:14:52+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-lpa-dashboard",
       "open_pull_request_count": 0,
@@ -78870,7 +80984,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 1473,
+      "clone_traffic_count": 2217,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78889,10 +81003,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 462667874,
-      "last_commit_date": "2025-08-01T09:16:42+00:00",
+      "last_commit_date": "2025-08-08T14:05:16+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-lpa-frontend",
-      "open_pull_request_count": 6,
+      "open_pull_request_count": 8,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -78908,7 +81022,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 155,
+      "clone_traffic_count": 113,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -78984,7 +81098,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 13,
+      "clone_traffic_count": 15,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": false,
@@ -79022,7 +81136,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 289,
+      "clone_traffic_count": 356,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79060,7 +81174,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 804,
+      "clone_traffic_count": 464,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79082,7 +81196,7 @@
       "last_commit_date": "2025-07-31T15:26:12+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-supervision-deputy-hub",
-      "open_pull_request_count": 4,
+      "open_pull_request_count": 5,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79098,7 +81212,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 4181,
+      "clone_traffic_count": 3406,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79120,7 +81234,7 @@
       "last_commit_date": "2025-07-31T15:26:35+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-supervision-finance-admin",
-      "open_pull_request_count": 5,
+      "open_pull_request_count": 6,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79136,7 +81250,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 4509,
+      "clone_traffic_count": 5562,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79155,10 +81269,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 745410009,
-      "last_commit_date": "2025-07-31T15:26:24+00:00",
+      "last_commit_date": "2025-08-08T13:36:15+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-supervision-finance-hub",
-      "open_pull_request_count": 11,
+      "open_pull_request_count": 13,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79174,7 +81288,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 670,
+      "clone_traffic_count": 461,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79196,7 +81310,7 @@
       "last_commit_date": "2025-07-31T15:26:20+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-supervision-firm-deputy-hub",
-      "open_pull_request_count": 2,
+      "open_pull_request_count": 3,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79212,7 +81326,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 16,
+      "clone_traffic_count": 3,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79250,7 +81364,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 1081,
+      "clone_traffic_count": 1582,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79272,7 +81386,7 @@
       "last_commit_date": "2025-07-31T15:26:15+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-supervision-workflow",
-      "open_pull_request_count": 4,
+      "open_pull_request_count": 5,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79288,7 +81402,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 541,
+      "clone_traffic_count": 626,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79307,10 +81421,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 287547178,
-      "last_commit_date": "2025-07-31T15:26:30+00:00",
+      "last_commit_date": "2025-08-08T13:04:37+00:00",
       "license_name": "MIT License",
       "name": "opg-sirius-user-management",
-      "open_pull_request_count": 0,
+      "open_pull_request_count": 3,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79326,7 +81440,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 45,
+      "clone_traffic_count": 42,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79364,7 +81478,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 66,
+      "clone_traffic_count": 111,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79402,7 +81516,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 430,
+      "clone_traffic_count": 554,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79421,10 +81535,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 373789891,
-      "last_commit_date": "2025-07-29T12:53:41+00:00",
+      "last_commit_date": "2025-08-06T14:43:14+00:00",
       "license_name": "MIT License",
       "name": "opg-terraform-aws-account",
-      "open_pull_request_count": 2,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79440,7 +81554,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 766,
+      "clone_traffic_count": 768,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79478,7 +81592,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 5030,
+      "clone_traffic_count": 4326,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79516,7 +81630,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 189,
+      "clone_traffic_count": 392,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79535,10 +81649,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 313631189,
-      "last_commit_date": "2025-07-30T09:53:19+00:00",
+      "last_commit_date": "2025-08-04T14:13:59+00:00",
       "license_name": "MIT License",
       "name": "opg-terraform-aws-network",
-      "open_pull_request_count": 2,
+      "open_pull_request_count": 1,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79554,7 +81668,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 273,
+      "clone_traffic_count": 281,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79592,7 +81706,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 8,
+      "clone_traffic_count": 7,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79630,7 +81744,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 4,
+      "clone_traffic_count": 0,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79668,7 +81782,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 6661,
+      "clone_traffic_count": 4247,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79687,10 +81801,10 @@
       "has_readme": true,
       "has_wiki": false,
       "id": 172097026,
-      "last_commit_date": "2025-08-01T00:18:53+00:00",
+      "last_commit_date": "2025-08-08T13:19:50+00:00",
       "license_name": "MIT License",
       "name": "opg-use-an-lpa",
-      "open_pull_request_count": 8,
+      "open_pull_request_count": 7,
       "private": false,
       "pull_requests": [],
       "requires_approval": true,
@@ -79706,7 +81820,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 4,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79744,7 +81858,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 3,
+      "clone_traffic_count": 4,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79782,7 +81896,7 @@
       "__class__": "Repository",
       "archived": true,
       "artifacts": [],
-      "clone_traffic_count": 2,
+      "clone_traffic_count": 1,
       "default_branch": "master",
       "default_branch_is_main": false,
       "default_branch_is_protected": false,
@@ -79820,7 +81934,7 @@
       "__class__": "Repository",
       "archived": false,
       "artifacts": [],
-      "clone_traffic_count": 531,
+      "clone_traffic_count": 89,
       "default_branch": "main",
       "default_branch_is_main": true,
       "default_branch_is_protected": true,
@@ -79842,7 +81956,7 @@
       "last_commit_date": "2025-07-22T15:31:15+00:00",
       "license_name": "MIT License",
       "name": "serve-opg",
-      "open_pull_request_count": 1,
+      "open_pull_request_count": 2,
       "private": false,
       "pull_requests": [],
       "requires_approval": null,
