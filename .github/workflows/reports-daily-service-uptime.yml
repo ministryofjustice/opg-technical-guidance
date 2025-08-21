@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 3 * * *'
   workflow_dispatch:
-  
+
 jobs:
   report:
     name: "Daily service uptime"
@@ -18,10 +18,10 @@ jobs:
           - name: modernlpa
           - name: serve
           - name: sirius
-          - name: use          
+          - name: use
     steps:
       - name: "[${{ matrix.name }}] Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
       - name: "[${{ matrix.name }}] Get account"
@@ -37,9 +37,9 @@ jobs:
         shell: bash
         run: |
           secret_value="${!to_use}"
-          echo -e "ACCOUNT=${secret_value}" >> $GITHUB_OUTPUT        
+          echo -e "ACCOUNT=${secret_value}" >> $GITHUB_OUTPUT
       - name: "[${{ matrix.name }}] Daily service uptime"
-        uses: './.github/actions/generate-report' 
+        uses: './.github/actions/generate-report'
         with:
           name: "${{ matrix.name }}-daily-uptime"
           script: service_uptime_daily.py

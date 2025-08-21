@@ -11,13 +11,13 @@ on:
   workflow_dispatch:
 
 jobs:
-    
+
     build_and_publish:
       name: Build and Publish
       runs-on: ubuntu-latest
       steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
       ############
@@ -59,12 +59,12 @@ jobs:
           mv ./.github/ ../
       - name: "Checkout to gh-pages and clean untracked files"
         run: |
-          git checkout -f gh-pages                    
+          git checkout -f gh-pages
           git clean -fd
       - name: "Move gh folder back"
         run: mv ../.github ./
       ############
-      # Remove existing folders from ./docs, but leave the ./docs/reports as these are generated and 
+      # Remove existing folders from ./docs, but leave the ./docs/reports as these are generated and
       # utilise dates within files where relevant
       ############
       - name: "Remove top level directories and files from ./docs, excluding ./documentation"
@@ -82,12 +82,12 @@ jobs:
           type: 'directory file'
           confirm_delete: true
       ############
-      # Copy over the generated ./docs folder 
+      # Copy over the generated ./docs folder
       ############
       - name: "Move built files over"
-        run : |  
+        run : |
           echo -e "===="
-          echo -e "Current:"        
+          echo -e "Current:"
           ls -lartR ./docs/
 
           cp -rf ../docs/* ./docs/
@@ -107,7 +107,7 @@ jobs:
         run: |
           git add ./docs
           git status
-          git commit --allow-empty -m "Published at $(date)"        
+          git commit --allow-empty -m "Published at $(date)"
       - name: "Push"
         if: github.ref == 'refs/heads/main'
         run: |
