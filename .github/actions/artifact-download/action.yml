@@ -21,7 +21,7 @@ runs:
       run: |
         mkdir -p ${{ env.target_directory }}
     - name: "[${{ inputs.artifact_name }}] Download artifact"
-      uses: dawidd6/action-download-artifact@v3
+      uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe # v3
       continue-on-error: true
       with:
         workflow: ${{ inputs.workflow_name }}
@@ -41,4 +41,3 @@ runs:
         echo "Destination:"
         ls -lart ${{ env.DESTINATION }}/*
 
-      
