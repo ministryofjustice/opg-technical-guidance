@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>Architecture Decision Records - OPG Technical Guidance</title>
+    <title>ADR-013 Pinning Versions - OPG Technical Guidance</title>
 
-    <link href="../stylesheets/manifest.css" rel="stylesheet" />
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
 
-    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/adrs.html">
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-013.html">
 
       <meta name="robots" content="noindex" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
       <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
-      <meta name="twitter:title" content="Architecture Decision Records - OPG Technical Guidance" />
-      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs.html" />
+      <meta name="twitter:title" content="ADR-013 Pinning Versions - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-013.html" />
 
       <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
       <meta property="og:site_name" content="OPG Technical Guidance" />
-      <meta property="og:title" content="Architecture Decision Records" />
+      <meta property="og:title" content="ADR-013 Pinning Versions" />
       <meta property="og:type" content="object" />
-      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs.html" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/adrs/adr-013.html" />
 
     
   </head>
@@ -49,7 +49,7 @@
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
         <ul id="navigation" class="govuk-header__navigation-list">
             <li class="govuk-header__navigation-item">
-              <a class="govuk-header__link" href="../">Home</a>
+              <a class="govuk-header__link" href="../../">Home</a>
             </li>
             <li class="govuk-header__navigation-item">
               <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
@@ -71,7 +71,7 @@
       <div class="app-pane__body" data-module="in-page-navigation">
           <div class="app-pane__toc">
             <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
-              <div class="search" data-module="search" data-path-to-site-root="../">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
   <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
     <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
     <label class="govuk-label search__label" for="search" aria-hidden="true">
@@ -91,9 +91,19 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
                       <ul>
   <li>
-    <a href="#architecture-decision-records"><span>Architecture Decision Records</span></a>
+    <a href="#adr-013-pinning-versions"><span>ADR-013 Pinning Versions</span></a>
     <ul>
       <li>
+        <a href="#status"><span>Status</span></a>
+      </li>
+      <li>
+        <a href="#context"><span>Context</span></a>
+      </li>
+      <li>
+        <a href="#decision"><span>Decision</span></a>
+      </li>
+      <li>
+        <a href="#consequences"><span>Consequences</span></a>
       </li>
     </ul>
   </li>
@@ -106,93 +116,36 @@
 
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="architecture-decision-records">Architecture Decision Records</h1>
-<p>To understand why we are recording decisions and how we are doing it, please see ADR-000</p>
-<div class="table-container">
-        <table>
-          <tr>
-<th style="text-align: left">Status</th>
-<th style="text-align: left">ADR no.</th>
-<th style="text-align: left">Title</th>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-000</td>
-<td style="text-align: left"><a href="adrs/adr-000.html">Record Architecture Decisions</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-001</td>
-<td style="text-align: left"><a href="adrs/adr-001.html">Shared Library Organisation</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-002</td>
-<td style="text-align: left"><a href="adrs/adr-002.html">Application Domain Names</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-003</td>
-<td style="text-align: left"><a href="adrs/adr-003.html">Semantic Versioning</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-004</td>
-<td style="text-align: left"><a href="adrs/adr-004.html">No Hardware MFA</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-005</td>
-<td style="text-align: left"><a href="adrs/adr-005.html">Put Prototypes on MoJ Cloud Platform</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-006</td>
-<td style="text-align: left"><a href="adrs/adr-006.html">Migrate to Github Actions instead of CircleCI</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-007</td>
-<td style="text-align: left"><a href="adrs/adr-007.html">Healthcheck Definitions</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-008</td>
-<td style="text-align: left"><a href="adrs/adr-008.html">Deployment environments</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-009</td>
-<td style="text-align: left"><a href="adrs/adr-009.html">Log structure</a></td>
-</tr><tr>
-<td style="text-align: left">🤔</td>
-<td style="text-align: left">ADR-010</td>
-<td style="text-align: left"><a href="adrs/adr-010.html">Repository Handover</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-011</td>
-<td style="text-align: left"><a href="adrs/adr-011.html">Patching Expectations</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-012</td>
-<td style="text-align: left"><a href="adrs/adr-012.html">Repository Secrets</a></td>
-</tr><tr>
-<td style="text-align: left">✅</td>
-<td style="text-align: left">ADR-013</td>
-<td style="text-align: left"><a href="adrs/adr-013.html">Pinning Versions</a></td>
-</tr>
-        </table>
-      </div><h3 id="statuses">Statuses:</h3>
+            <h1 id="adr-013-pinning-versions">ADR-013 Pinning Versions</h1>
+<p>Date: 21-08-2025</p>
+<h2 id="status">Status</h2>
+<p>✅ Accepted</p>
+<h2 id="context">Context</h2>
+<p>Package management tools and similar marketplace ecosystems (<code>npm</code>, <code>github actions</code> etc) have seen an increase in the number of supply chain attacks. The recent successful exploitation of <code>tj-actions/changes-files</code> where all existing releases and tags where repointed to malicous code is a prime example of the direction attacks are taking.</p>
+<p>Similar supply chain attacks have happend to most of the common providers with popular libraries and base docker images being obvious targets due to their widespread use. These are happening more frequently and as they are generally part of our build steps there is significant security risks such as exfiltration of secrets and credentials.</p>
+<h2 id="decision">Decision</h2>
+<p>All github actions will be imported using the specific git sha / hash (example: <code>actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0</code>). Use renovate to aid in keeping this updated with its <code>helpers:pinGitHubActionDigests</code> configuration option.</p>
+<p>Where possible, docker images will be pinned to specific sha (example: <code>golang:1.24.4-alpine@sha256:68932fa6d4d4059845c8f40ad7e654e626f3ebd3706eef7846f319293ab5cb7a</code>). Renovate has a <code>docker:pinDigests</code> helper to keep these updated.</p>
+<p>Where possible, application code will pin to specific versions of dependancies with their respective package managers.</p>
+<h2 id="consequences">Consequences</h2>
 
 <ul>
-<li>🤔 Proposed</li>
-<li>✅ Accepted</li>
-<li>❌ Rejected</li>
-<li>⌛️ Superseded</li>
-<li>♻️  Amended</li>
+<li>Initial effort required to find and update current GitHub actions</li>
+<li>Additional overhead when creating and updating docker images to be be more exact</li>
+<li>Extra care when using third party tools</li>
 </ul>
 
-              <div data-module='page-expiry' data-last-reviewed-on="2024-06-14">
+              <div data-module='page-expiry' data-last-reviewed-on="2027-08-21">
     <div class='page-expiry--not-expired'>
-      This page was last reviewed on 14 March 2024.
+      This page was last reviewed on 21 August 2025.
 
-        It needs to be reviewed again on 14 June 2024
+        It needs to be reviewed again on 21 August 2027
         by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>
         .
     </div>
 
     <div class='page-expiry--expired'>
-      This page was set to be reviewed before 14 June 2024
+      This page was set to be reviewed before 21 August 2027
        by the page owner <a href="https://mojdt.slack.com/messages/opg-webops-community">#opg-webops-community</a>.
       This might mean the content is out of date.
     </div>
@@ -202,8 +155,8 @@
 
           <aside>
               <ul class="contribution-banner">
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/adrs.html.md.erb">View source</a></li>
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Architecture+Decision+Records%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fadrs.html%29&amp;labels=bug&amp;title=Re%3A+%27Architecture+Decision+Records%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/adrs/adr-013.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27ADR-013+Pinning+Versions%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fadrs%2Fadr-013.html%29&amp;labels=bug&amp;title=Re%3A+%27ADR-013+Pinning+Versions%27">Report problem</a></li>
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
               </ul>
           </aside>
@@ -250,6 +203,6 @@
     </div>
 
     
-    <script src="../javascripts/application.js"></script>
+    <script src="../../javascripts/application.js"></script>
   </body>
 </html>
