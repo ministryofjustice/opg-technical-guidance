@@ -1,0 +1,27 @@
+---
+title: Requesting GitHub Copilot access
+last_reviewed_on: 2025-11-01
+review_in: 12 months
+owner_slack: "#opg-developers"
+---
+
+# <%= current_page.data.title %>
+
+**Note: This is currently only available to Civil Servants**
+
+To gain access to GitHub Copilot you will need to create a pull request against the [opg-org-infra repository](https://github.com/ministryofjustice/opg-org-infra) adding you to the `opg-copilot-users` team with the following commit message.
+
+```text
+Allocate <your name> a GitHub Copilot licence
+
+In requesting a GitHub Copilot licence, I acknowledge my responsibility to personally understand the full functionality of any AI-assisted code I submit for peer review, and that it meets the same high standards and conventions of Justice Digital and OPG Digital.
+```
+
+## Step by step instructions
+
+This assumes you are already familiar with git, have created an appropriate branch, and are present in the users.tf.
+If you are not already in the users.tf then consult the relevant guide for being added to the organisation.
+
+1. Find yourself in the [users.tf](https://github.com/ministryofjustice/opg-org-infra/blob/main/access-management/users.tf)
+1. Add `module.gh_team_copilot_users.id` to your github_teams array
+![alt text](/images/copilot-team-tf.png "Example of a users configuration block with the github team added")
