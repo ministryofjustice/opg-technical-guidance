@@ -52,36 +52,45 @@ Supply chain attacks are becoming very common. By exploiting a popular library (
 ### Code Approvals
 The best line of defense against malicious code being added is a strong, human, review process backed with meaningful automated testing.
 
+### Secrets
+Secrets attached to repositories are generally used for high level access to other tooling (AWS or GitHub org etc) so need to be exposed as little as possible and rotated / replaced frequently to reduce risks.
 
 ## Consequences
 
 Defined via our terraform module and update all repositiories to move over.
 
-### Actions
+### Pending
 - All repositories must be created via terraform
-- `opg-terraform-github-repository` variable `pr_branch_ruleset_enabled` must be updated to be true by default
+- The `opg-terraform-github-repository` variables `main_branch_ruleset_enabled` and `pr_branch_ruleset_enabled` must be updated to be true by default
+    - Will need to set `branch_protection_enabled` to false by default as well
 - All repositories in `opg-org-infa` need to be updated to use latest module
+    - Archived repositories will need their definition to be updated to have `branch_protection_enabled` true and disable the new versions. Possibly move to new archive module?
+- All repositories require commit signing to be enabled
+    - Branch rules must be configured to require commit signing for all via new module
+- All repository pipelines must use OIDC authentication for AWS
+- All repository secrets must be controlled via terraform and should be rotated regularly
 
-### Outcome
+### Complete
 - All repositories must be public & visible
-    - Exceptions can be discussed and approved
-- All repositiories must have an accurate LICENSE file in the root
+    - Exceptions can be discussed / documented via WebOps CoP.
+- All repositiories must have an accurate LICENSE file in the root (generally MIT)
 - All repositories must have and `opg-` prefix in their names to signify the business unit
-- All repositories must be created withing the `ministryofjustice` organsiation
+    - This includes any forks or adopted repositories
+- All repositories must be created within the `ministryofjustice` organsiation
     - `opg` and the respective service teams are set as Maintainer
     - `opg-github-ci` & `opg-webops` are configured as Admin
 - All repositories require a CODEOWNERS file to be present
-- All repositories require commit signing to be enabled
-    - Branch rules must be configured to require commit signing for all
 - The main / default branch must NOT allow any direct commits
 - All PR branches must be kept up-to-date with the default branch
     - Can rebase within the PR
     - For significant concurrent PR volume, merge queues can be used to ease this process
-- All tests with PR branch must pass before merging
-- All PR must be approved by at least 1 other person relevant to the repository
+- All tests within a PR branch must pass before merging
+- All status checks must pass before merging
+- All PRs must be approved by at least 1 other person relevant to the repository
 - The author of the PR should complete the merge of the PR into the default branch
 - The live deployment must be watched and managed
-- Piplines must expose env variables / secrets to only the steps that require them
+- Pipelines must share env variables / secrets to only the steps that require them
+- Pipelines must use mimimal permissions for any action
 - Must utilise renovate or dependabot for library / package updates
     - Must have at least 3 days on any release before updating
 - All GitHub actions must be pinned to exact SHA and version
@@ -89,7 +98,6 @@ Defined via our terraform module and update all repositiories to move over.
 - All application code should be pinned exact version within its package manager
 - All repositories should limit what github actions are allowed to be used
 - Inactive code repositories must be set as archived only
-
 
 
 ## Related
