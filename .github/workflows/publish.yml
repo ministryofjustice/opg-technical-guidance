@@ -57,10 +57,12 @@ jobs:
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
           touch ./docs/.gitkeep
           git status
-      - name: "Git commit"
+      - name: "Git status"
         run: |
           git add ./docs
           git status
+      - name: "Git commit"
+        run: |
           git commit --allow-empty -m "Published at $(date)"
       - name: "Push"
         if: github.ref == 'refs/heads/main'
