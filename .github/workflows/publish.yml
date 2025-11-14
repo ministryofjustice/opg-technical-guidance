@@ -30,36 +30,14 @@ jobs:
         run: |
           git config --global user.email "tools@digital.justice.gov.uk"
           git config --global user.name "Github Action"
-      - name: "Build and move output and github directory"
+      - name: "Build and move output"
         run: |
           make build
           mv ./docs ../
-          # move this because we use some local actions and the checkout removes that folder
-          mv ./.github/ ../
       - name: "Checkout to gh-pages and clean untracked files"
         run: |
           git checkout -f gh-pages
           git clean -fd
-      - name: "Move gh folder back"
-        run: mv ../.github ./
-      ############
-      # Remove existing folders from ./docs, but leave the ./docs/reports as these are generated and
-      # utilise dates within files where relevant
-      ############
-      - name: "Remove top level directories and files from ./docs, excluding ./documentation"
-        uses: './.github/actions/find-delete'
-        with:
-          base_dir: ${{ github.workspace }}/docs
-          exclude: './documentation'
-          type: 'directory file'
-          confirm_delete: true
-      - name: "Remove other directories from ./docs/documentation, excluding ./reports"
-        uses: './.github/actions/find-delete'
-        with:
-          base_dir: ${{ github.workspace }}/docs/documentation
-          exclude: './reports'
-          type: 'directory file'
-          confirm_delete: true
       ############
       # Copy over the generated ./docs folder
       ############
@@ -80,7 +58,6 @@ jobs:
           echo "${GITHUB_SHA}" > ./docs/version.txt
           echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
           touch ./docs/.gitkeep
-          rm -Rf ./.github
           git status
       - name: "Git commit"
         run: |
