@@ -1,6 +1,9 @@
 name: Publish Docs
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - "main"
@@ -20,30 +23,6 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
-      ############
-      # Reports
-      ############
-      - name: "[Report] Releases"
-        uses: './.github/actions/artifact-download'
-        with:
-          artifact_name: 'releases'
-          workflow_name: 'reports-releases.yml'
-          download_to: ${{ github.workspace }}/_reports_releases
-          move_to: ${{ github.workspace }}/source/documentation/reports
-      - name: "[Report] Repository Standards"
-        uses: './.github/actions/artifact-download'
-        with:
-          artifact_name: 'repository-standards'
-          workflow_name: 'reports-repository-standards.yml'
-          download_to: ${{ github.workspace }}/_reports_repository_standards
-          move_to: ${{ github.workspace }}/source/documentation/reports
-      - name: "[Report] Service Uptime"
-        uses: './.github/actions/artifact-download'
-        with:
-          artifact_name: 'service-uptime'
-          workflow_name: 'reports-service-uptime.yml'
-          download_to: ${{ github.workspace }}/_reports_service_uptime
-          move_to: ${{ github.workspace }}/source/documentation/reports
       ############
       # Build steps
       ############
