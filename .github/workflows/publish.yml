@@ -41,18 +41,16 @@ jobs:
       ############
       # Copy over the generated ./docs folder
       ############
-      - name: "Move built files over"
+      - name: "Current content (./docs)"
+        run: ls -lartR ./docs/
+      - name: "Newly denerated ./docs content (../docs)"
+        run: ls -lartR ../docs/
+      # as we are no longer running reports, then all files can be replaced
+      # with the generated versions
+      - name: "Overwrite content"
         run : |
-          echo -e "===="
-          echo -e "Current:"
-          ls -lartR ./docs/
-
-          cp -rf ../docs/* ./docs/
-
-          echo -e "===="
-          echo -e "After:"
-          ls -lart ./
-          ls -lartR ./docs/
+          rm -Rf ./docs/
+          mv ../docs ./
       - name: "Add version and CNAME file"
         run: |
           echo "${GITHUB_SHA}" > ./docs/version.txt
