@@ -15,8 +15,6 @@ Date: 14-11-2025
 
 Visiblity of our approach to security and standards for our GitHub code repositories and how these work with wider organsiation controls and requirements.
 
-## Decisions
-
 ### Code in the Open
 By default, our code is open source (MIT license) and visible to the public. This encourages strong security practices and behaviour from the start and provides transpancy to our citizens. See [GDS guidance](https://www.gov.uk/guidance/be-open-and-use-open-source) for more detail.
 
@@ -55,22 +53,22 @@ The best line of defense against malicious code being added is a strong, human, 
 ### Secrets
 Secrets attached to repositories are generally used for high level access to other tooling (AWS or GitHub org etc) so need to be exposed as little as possible and rotated / replaced frequently to reduce risks.
 
+## Decisions
+
+All active repositories are defined via our terraform module within `opg-org-infra` and updated to the latest version to ensure compliance.
+
 ## Consequences
 
-Defined via our terraform module and update all repositiories to move over.
 
-### Pending
-- All repositories must be created via terraform
 - The `opg-terraform-github-repository` variables `main_branch_ruleset_enabled` and `pr_branch_ruleset_enabled` must be updated to be true by default
     - Will need to set `branch_protection_enabled` to false by default as well
-- All repositories in `opg-org-infa` need to be updated to use latest module
+- All repositories in `opg-org-infa` need to be updated to the updated latest module
     - Archived repositories will need their definition to be updated to have `branch_protection_enabled` true and disable the new versions. Possibly move to new archive module?
 - All repositories require commit signing to be enabled
     - Branch rules must be configured to require commit signing for all via new module
 - All repository pipelines must use OIDC authentication for AWS
 - All repository secrets must be controlled via terraform and should be rotated regularly
 
-### Complete
 - All repositories must be public & visible
     - Exceptions can be discussed / documented via WebOps CoP.
 - All repositiories must have an accurate LICENSE file in the root (generally MIT)
@@ -98,6 +96,8 @@ Defined via our terraform module and update all repositiories to move over.
 - All application code should be pinned exact version within its package manager
 - All repositories should limit what github actions are allowed to be used
 - Inactive code repositories must be set as archived only
+
+
 
 
 ## Related
