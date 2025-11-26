@@ -1,0 +1,116 @@
+---
+title: Baseline Logging Standards
+last_reviewed_on: 2025-11-25
+review_in: 12 months
+owner_slack: '#opg-security-cop'
+---
+
+# <%= current_page.data.title %>
+
+This baseline aims to document the types of logging teams must, should and could have in place to cover common security scenarios.
+
+## Principles
+
+This list is generalised. You can and should adjust to match the needs of your service, its data and its threat model.
+
+All containers should log JSON according to our ADR for format (including startup messages).
+
+## Logging Baseline
+
+### You MUST have
+
+These apply to all services.
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+|  # Log Type | # Sub Types | # Metrics enabled by logs | # Covered Scenarios |
+| Cloudtrail Logs / CloudTrail Events | <li> Breakglass or Data Access role assumption </li> <li> S3 bucket policy changes </li> <li> KMS key policy changes </li> <li> Change of deletion protection </li> <li> HIGH risk user activity </li> <li> New EC2 instances </li> <li> CI usage from unexpected origin   (Log session name based on internal uid/PR) </li> <li>  SSM/Cloud9 out of hours usage | <li>New infra creation </li> <li> Out of band change </li> <li> Unusual activity </li>| <li> A leaked infra admin account is downloading a database backup </li> <li> A leaked CI account is making infra changes </li> <li> A compromised dependency has installed a bitcoin miner </li> <li> An EC2 instance is spun up in an unusual location </li> <li> An infra admin account is compromised and is trying to encrypt your data. </li> <li> Your S3 bucket KMS key is being deleted </li> <li> An S3 bucket is deleted outside a pipeline </li> |
+| Container HTTP Traffic | <li> HTTP Request URLs </li> <li> HTTP Statuses (i.e. high 4xx, 5xx) (ALB metrics and app logs) </li> <li> HTTP Response times </li> <li> Unusual HTTP verbs (i.e. HEAD) </li> <li> Container log anomalies </li> | <li> HTTP Request volumes </li> <li> High error status volumes </li> <li> Slow requests </li> <li> High volume data downloads i.e. MI/reports | <li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li> <li> A user is downloading a larger number of records than normal  </li> <li> External software is being downloaded and installed on a container in your app </li>|
+| ALB logging (with Athena setup) |  | Standard ALB metrics | <li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li> <li> A user is downloading a larger number of records than normal </li> |
+| Authentication Audit | <li> Failed login attempts </li> <li> Account creation </li> <li> Account lockouts </li> <li> Admin activity </li> | <li> Unusual volume of account creation </li> <li> Unusual volume of failed logins </li> <li> Unusual number of account lockouts Super admin creation </li>| <li> A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> An admin users account is compromised and the threat actor creates a number of new accounts to hide this </li>|
+| Network related | <li> Nat Gateway logging </li> <li> Network Firewall Activity (firewalled network module default) </li> <li> VPC flow logs (standard network modules feature) </li>|  | <li> A container in your application is compromised and a remote shell installed </li> <li> A compromised dependency has installed a bitcoin miner </li> <li> External software is being downloaded and installed on a container in your app </li>|
+| Container CPU or memory (Cloudwatch Container Insights log group) | Baseline tier |  | <li> A compromised dependency has installed a bitcoin miner </li> <li> External software is being downloaded and installed on a container in your app </li>|
+| Application data activity event logs | <li> Data change types by user </li> <li> Admin activity by user </li> <li> Views of data by user </li> <li> Schema validation failures </li> <li> Data deletion by user id </li> <li> Data change by user id </li> | Special interest data/case access alerts | <li> A user is downloading a larger number of records than normal </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li>|
+| WAF traffic blocking anomalies | Blocked requests | Percentage above service specific baseline | <li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li>|
+| DNS Queries (route53 query logs) | Requested DNS |  | <li> A container in your application is compromised and a remote shell installed </li> <li> Data is being exfiltrated from your AWS account via DNS tunnelling from a container </li> <li> A data logging tool is attempted to phone home after a dependency was compromised </li>|
+
+### You SHOULD have
+
+These will apply to most services
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| # Log Type | # Sub Types | # Metrics enabled by logs | # Covered Scenarios |
+| External auth system telemetry (from a provider like Entra/OneLogin if you use them) | <li> New user creation </li> <li> Failed user creation </li> <li> Fraud indicators on accounts  </li> |  | <li> A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> A hostile actor is using a list of passwords from a known breach against your service </li> |
+| High DB volume changes alerts |  | <li> High data transfers </li> <li> High data egress </li> <li> High read units </li> <li> High write units </li>|  |
+| App-level user audit changes | <li> super admin creation </li> <li> App-level admin access </li>|  |  |
+| Activity for app-level users | <li> Access anomalies </li> <li> Lockout metrics </li> <li> access times </li>| Unusual number of logins from abnormal location or IP  Access outside normal usage hours | <li> A hostile actor is using a list of passwords from a known breach against your service </li> <li> An admin user accesses the application at an unusual time </li>|
+| Cost anomalies |  | Alert on increased resource based costs | <li>A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is attempting to DDOS the service </li>|
+
+### You COULD decide to have
+
+These may not apply to all services
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| # Log Type | # Sub Types | # Metrics enabled by logs | # Covered Scenarios |
+| <li> Data Store Activity Logs  </li> <li> PII issues, so log to specific group </li> <li> SQL activity or Cloudtrail Data plane activity logs so lots of data and may not be appropriate for all scenarios </li>| I.e. Data Read and Operator access for audit, not app level |  | <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li> <li> A compromised infra account is being used to access data </li>|
+| User/Account searches | People doing user search | High volume of user searched | A compromised user account is trying to get access to all other users information to compromise beyond original account (i.e. via user admin area in a back office app) |
+
+## Full List of scenarios
+
+These are the scenarios initial log baseline was created to cover.
+
+### Scanning and reconnaissance
+
+* A hostile actor is scanning your service for common vulnerabilities
+* A hostile actor is trying to brute force your login page will a million passwords (spray attack)
+* A hostile actor is using a list of passwords from a known breach against your service
+* A hostile actor is sending malformed payloads in an attempt to break processing rules
+
+### Exfiltration
+
+* A container in your application is compromised and a remote shell installed
+* Data in your account is being exfiltrated via HTTP from a running container
+* Data is being exfiltrated from your AWS account via DNS tunnelling from a container
+* Data is being exfiltrated via NTP tunneling from a container
+* A data logging tool is attempted to phone home after a dependency was compromised
+* A user is downloading a larger number of records than normal or records they would not normally access
+* A leaked infra admin account is downloading a database backup
+
+### Persistence
+
+* An admin users account is compromised and the threat actor creates a number of new accounts to hide this
+* A compromised dependency has installed a bitcoin miner
+* External software is being downloaded and installed on a container in your app
+* A compromised user account is trying to get access to all other users information to compromise beyond original account (i.e. via user admin area)
+* An EC2 instance is spun up in an unusual location
+* An admin user accesses the application at an unusual time
+
+### Ransomware
+
+* An infra admin account is compromised and is trying to encrypt your data.
+* Your S3 bucket KMS key is being deleted
+* An S3 bucket is deleted outside a pipeline
+
+## Other Notes
+
+AWS provides log anomaly detection, but this only really works on application logs. See [AWS Log Anomaly Detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/LogsAnomalyDetection.html#LogsAnomalyDetection-FAQ)
+
+We considered container process anomaly detection, checking only known processes should be running in containers. However that may be better handled by other tools like fixed file systems etc. Not included here for now, but we may revisit.
+
+When changing logging or updating types of logging, check what is logged out by the change in a development environment before you update. For example, check PII or credentials not leaking into logs due to changes in configuration. Particularly where you are trying to meet a security checklist.
+
+### Baseline for WAF anomalies
+
+When you are alerting for unusual WAF activity, the following is a good starting point (taken from Sirius and previous discussions with security colleagues)
+
+~ 20 blocked requests in ten minutes, not a significant threat.
+
+~ 100 blocked requests in ten minutes, investigate and see if it's actually breaching, and if it's from 1-2 IP's
+
+~ 500+ requests in ten minutes from multiple IP's investigate and escalate.
+
+### Baseline for failed Login Attempt alerting
+
+Dependent on service. TIme frame based on user cohort. I.e. X% of users within a window based on your known user behaviour.
