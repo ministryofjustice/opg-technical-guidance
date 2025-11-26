@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Baseline Logging Standards - OPG Technical Guidance</title>
+
+    <link href="../../stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/baseline_logging_standards.html">
+
+      <meta name="robots" content="noindex" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
+      <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta name="twitter:title" content="Baseline Logging Standards - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/baseline_logging_standards.html" />
+
+      <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="OPG Technical Guidance" />
+      <meta property="og:title" content="Baseline Logging Standards" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/baseline_logging_standards.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://docs.opg.service.justice.gov.uk" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__product-name">
+          OPG Technical Guidance
+        </span>
+      </a>
+        <strong class="govuk-tag">internal</strong>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="../../">Home</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1" aria-label="Table of contents" role="dialog">
+              <div class="search" data-module="search" data-path-to-site-root="../../">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="https://docs.opg.service.justice.gov.uk"/>
+    <label class="govuk-label search__label" for="search" aria-hidden="true">
+      Search (via Google)
+    </label>
+    <input
+      type="text"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
+                      <ul>
+  <li>
+    <a href="#baseline-logging-standards"><span>Baseline Logging Standards</span></a>
+    <ul>
+      <li>
+        <a href="#principles"><span>Principles</span></a>
+      </li>
+      <li>
+        <a href="#logging-baseline"><span>Logging Baseline</span></a>
+      </li>
+      <li>
+        <a href="#full-list-of-scenarios"><span>Full List of scenarios</span></a>
+      </li>
+      <li>
+        <a href="#other-notes"><span>Other Notes</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="baseline-logging-standards">Baseline Logging Standards</h1>
+<p>This baseline aims to document the types of logging teams must, should and could have in place to cover common security scenarios.</p>
+<h2 id="principles">Principles</h2>
+<p>This list is generalised. You can and should adjust to match the needs of your service, its data and its threat model.</p>
+<p>All containers should log JSON according to our ADR for format (including startup messages).</p>
+<h2 id="logging-baseline">Logging Baseline</h2>
+<h3 id="you-must-have">You MUST have</h3>
+<p>These apply to all services.</p>
+<div class="table-container">
+        <table>
+          <tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr><tr>
+<th scope="row">Log Type</th>
+<th scope="row">Sub Types</th>
+<th scope="row">Metrics enabled by logs</th>
+<th scope="row">Covered Scenarios</th>
+</tr><tr>
+<td>Cloudtrail Logs / CloudTrail Events</td>
+<td>
+<li> Breakglass or Data Access role assumption </li> <li> S3 bucket policy changes </li> <li> KMS key policy changes </li> <li> Change of deletion protection </li> <li> HIGH risk user activity </li> <li> New EC2 instances </li> <li> CI usage from unexpected origin   (Log session name based on internal uid/PR) </li> <li>  SSM/Cloud9 out of hours usage</li>
+</td>
+<td>
+<li>New infra creation </li> <li> Out of band change </li> <li> Unusual activity </li>
+</td>
+<td>
+<li> A leaked infra admin account is downloading a database backup </li> <li> A leaked CI account is making infra changes </li> <li> A compromised dependency has installed a bitcoin miner </li> <li> An EC2 instance is spun up in an unusual location </li> <li> An infra admin account is compromised and is trying to encrypt your data. </li> <li> Your S3 bucket KMS key is being deleted </li> <li> An S3 bucket is deleted outside a pipeline </li>
+</td>
+</tr><tr>
+<td>Container HTTP Traffic</td>
+<td>
+<li> HTTP Request URLs </li> <li> HTTP Statuses (i.e. high 4xx, 5xx) (ALB metrics and app logs) </li> <li> HTTP Response times </li> <li> Unusual HTTP verbs (i.e. HEAD) </li> <li> Container log anomalies </li>
+</td>
+<td>
+<li> HTTP Request volumes </li> <li> High error status volumes </li> <li> Slow requests </li> <li> High volume data downloads i.e. MI/reports</li>
+</td>
+<td>
+<li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li> <li> A user is downloading a larger number of records than normal  </li> <li> External software is being downloaded and installed on a container in your app </li>
+</td>
+</tr><tr>
+<td>ALB logging (with Athena setup)</td>
+<td></td>
+<td>Standard ALB metrics</td>
+<td>
+<li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li> <li> A user is downloading a larger number of records than normal </li>
+</td>
+</tr><tr>
+<td>Authentication Audit</td>
+<td>
+<li> Failed login attempts </li> <li> Account creation </li> <li> Account lockouts </li> <li> Admin activity </li>
+</td>
+<td>
+<li> Unusual volume of account creation </li> <li> Unusual volume of failed logins </li> <li> Unusual number of account lockouts Super admin creation </li>
+</td>
+<td>
+<li> A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> An admin users account is compromised and the threat actor creates a number of new accounts to hide this </li>
+</td>
+</tr><tr>
+<td>Network related</td>
+<td>
+<li> Nat Gateway logging </li> <li> Network Firewall Activity (firewalled network module default) </li> <li> VPC flow logs (standard network modules feature) </li>
+</td>
+<td></td>
+<td>
+<li> A container in your application is compromised and a remote shell installed </li> <li> A compromised dependency has installed a bitcoin miner </li> <li> External software is being downloaded and installed on a container in your app </li>
+</td>
+</tr><tr>
+<td>Container CPU or memory (Cloudwatch Container Insights log group)</td>
+<td>Baseline tier</td>
+<td></td>
+<td>
+<li> A compromised dependency has installed a bitcoin miner </li> <li> External software is being downloaded and installed on a container in your app </li>
+</td>
+</tr><tr>
+<td>Application data activity event logs</td>
+<td>
+<li> Data change types by user </li> <li> Admin activity by user </li> <li> Views of data by user </li> <li> Schema validation failures </li> <li> Data deletion by user id </li> <li> Data change by user id </li>
+</td>
+<td>Special interest data/case access alerts</td>
+<td>
+<li> A user is downloading a larger number of records than normal </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li>
+</td>
+</tr><tr>
+<td>WAF traffic blocking anomalies</td>
+<td>Blocked requests</td>
+<td>Percentage above service specific baseline</td>
+<td>
+<li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li>
+</td>
+</tr><tr>
+<td>DNS Queries (route53 query logs)</td>
+<td>Requested DNS</td>
+<td></td>
+<td>
+<li> A container in your application is compromised and a remote shell installed </li> <li> Data is being exfiltrated from your AWS account via DNS tunnelling from a container </li> <li> A data logging tool is attempted to phone home after a dependency was compromised </li>
+</td>
+</tr>
+        </table>
+      </div><h3 id="you-should-have">You SHOULD have</h3>
+<p>These will apply to most services</p>
+<div class="table-container">
+        <table>
+          <tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr><tr>
+<th scope="row">Log Type</th>
+<th scope="row">Sub Types</th>
+<th scope="row">Metrics enabled by logs</th>
+<th scope="row">Covered Scenarios</th>
+</tr><tr>
+<td>External auth system telemetry (from a provider like Entra/OneLogin if you use them)</td>
+<td>
+<li> New user creation </li> <li> Failed user creation </li> <li> Fraud indicators on accounts  </li>
+</td>
+<td></td>
+<td>
+<li> A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> A hostile actor is using a list of passwords from a known breach against your service </li>
+</td>
+</tr><tr>
+<td>High DB volume changes alerts</td>
+<td></td>
+<td>
+<li> High data transfers </li> <li> High data egress </li> <li> High read units </li> <li> High write units </li>
+</td>
+<td></td>
+</tr><tr>
+<td>App-level user audit changes</td>
+<td>
+<li> super admin creation </li> <li> App-level admin access </li>
+</td>
+<td></td>
+<td></td>
+</tr><tr>
+<td>Activity for app-level users</td>
+<td>
+<li> Access anomalies </li> <li> Lockout metrics </li> <li> access times </li>
+</td>
+<td>Unusual number of logins from abnormal location or IP  Access outside normal usage hours</td>
+<td>
+<li> A hostile actor is using a list of passwords from a known breach against your service </li> <li> An admin user accesses the application at an unusual time </li>
+</td>
+</tr><tr>
+<td>Cost anomalies</td>
+<td></td>
+<td>Alert on increased resource based costs</td>
+<td>
+<li>A hostile actor is trying to brute force your login page will a million passwords (spray attack) </li> <li> A hostile actor is scanning your service for common vulnerabilities </li> <li> A hostile actor is attempting to DDOS the service </li>
+</td>
+</tr>
+        </table>
+      </div><h3 id="you-could-decide-to-have">You COULD decide to have</h3>
+<p>These may not apply to all services</p>
+<div class="table-container">
+        <table>
+          <tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr><tr>
+<th scope="row">Log Type</th>
+<th scope="row">Sub Types</th>
+<th scope="row">Metrics enabled by logs</th>
+<th scope="row">Covered Scenarios</th>
+</tr><tr>
+<td>
+<li> Data Store Activity Logs  </li> <li> PII issues, so log to specific group </li> <li> SQL activity or Cloudtrail Data plane activity logs so lots of data and may not be appropriate for all scenarios </li>
+</td>
+<td>I.e. Data Read and Operator access for audit, not app level</td>
+<td></td>
+<td>
+<li> A hostile actor is sending malformed payloads in an attempt to break processing rules </li> <li> A compromised infra account is being used to access data </li>
+</td>
+</tr><tr>
+<td>User/Account searches</td>
+<td>People doing user search</td>
+<td>High volume of user searched</td>
+<td>A compromised user account is trying to get access to all other users information to compromise beyond original account (i.e. via user admin area in a back office app)</td>
+</tr>
+        </table>
+      </div><h2 id="full-list-of-scenarios">Full List of scenarios</h2>
+<p>These are the scenarios initial log baseline was created to cover.</p>
+<h3 id="scanning-and-reconnaissance">Scanning and reconnaissance</h3>
+
+<ul>
+<li>A hostile actor is scanning your service for common vulnerabilities</li>
+<li>A hostile actor is trying to brute force your login page will a million passwords (spray attack)</li>
+<li>A hostile actor is using a list of passwords from a known breach against your service</li>
+<li>A hostile actor is sending malformed payloads in an attempt to break processing rules</li>
+</ul>
+<h3 id="exfiltration">Exfiltration</h3>
+
+<ul>
+<li>A container in your application is compromised and a remote shell installed</li>
+<li>Data in your account is being exfiltrated via HTTP from a running container</li>
+<li>Data is being exfiltrated from your AWS account via DNS tunnelling from a container</li>
+<li>Data is being exfiltrated via NTP tunneling from a container</li>
+<li>A data logging tool is attempted to phone home after a dependency was compromised</li>
+<li>A user is downloading a larger number of records than normal or records they would not normally access</li>
+<li>A leaked infra admin account is downloading a database backup</li>
+</ul>
+<h3 id="persistence">Persistence</h3>
+
+<ul>
+<li>An admin users account is compromised and the threat actor creates a number of new accounts to hide this</li>
+<li>A compromised dependency has installed a bitcoin miner</li>
+<li>External software is being downloaded and installed on a container in your app</li>
+<li>A compromised user account is trying to get access to all other users information to compromise beyond original account (i.e. via user admin area)</li>
+<li>An EC2 instance is spun up in an unusual location</li>
+<li>An admin user accesses the application at an unusual time</li>
+</ul>
+<h3 id="ransomware">Ransomware</h3>
+
+<ul>
+<li>An infra admin account is compromised and is trying to encrypt your data.</li>
+<li>Your S3 bucket KMS key is being deleted</li>
+<li>An S3 bucket is deleted outside a pipeline</li>
+</ul>
+<h2 id="other-notes">Other Notes</h2>
+<p>AWS provides log anomaly detection, but this only really works on application logs. See <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/LogsAnomalyDetection.html#LogsAnomalyDetection-FAQ">AWS Log Anomaly Detection</a></p>
+<p>We considered container process anomaly detection, checking only known processes should be running in containers. However that may be better handled by other tools like fixed file systems etc. Not included here for now, but we may revisit.</p>
+<p>When changing logging or updating types of logging, check what is logged out by the change in a development environment before you update. For example, check PII or credentials not leaking into logs due to changes in configuration. Particularly where you are trying to meet a security checklist.</p>
+<h3 id="baseline-for-waf-anomalies">Baseline for WAF anomalies</h3>
+<p>When you are alerting for unusual WAF activity, the following is a good starting point (taken from Sirius and previous discussions with security colleagues)</p>
+<p>~ 20 blocked requests in ten minutes, not a significant threat.</p>
+<p>~ 100 blocked requests in ten minutes, investigate and see if it&rsquo;s actually breaching, and if it&rsquo;s from 1-2 IP&rsquo;s</p>
+<p>~ 500+ requests in ten minutes from multiple IP&rsquo;s investigate and escalate.</p>
+<h3 id="baseline-for-failed-login-attempt-alerting">Baseline for failed Login Attempt alerting</h3>
+<p>Dependent on service. TIme frame based on user cohort. I.e. X% of users within a window based on your known user behaviour.</p>
+
+              <div data-module='page-expiry' data-last-reviewed-on="2026-11-25">
+    <div class='page-expiry--not-expired'>
+      This page was last reviewed on 25 November 2025.
+
+        It needs to be reviewed again on 25 November 2026
+        by the page owner <a href="https://mojdt.slack.com/messages/opg-security-cop">#opg-security-cop</a>
+        .
+    </div>
+
+    <div class='page-expiry--expired'>
+      This page was set to be reviewed before 25 November 2026
+       by the page owner <a href="https://mojdt.slack.com/messages/opg-security-cop">#opg-security-cop</a>.
+      This might mean the content is out of date.
+    </div>
+  </div>
+
+          </main>
+
+          <aside>
+              <ul class="contribution-banner">
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/baseline_logging_standards.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Baseline+Logging+Standards%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fbaseline_logging_standards.html%29&amp;labels=bug&amp;title=Re%3A+%27Baseline+Logging+Standards%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
+              </ul>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="../../javascripts/application.js"></script>
+  </body>
+</html>
