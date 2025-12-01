@@ -1,0 +1,107 @@
+---
+title: ADR-014 GitHub Repositories
+last_reviewed_on: 2025-11-14
+review_in: 36 months
+---
+# <%= current_page.data.title %>
+
+Date: 14-11-2025
+
+## Status
+
+✅ Accepted
+
+## Context
+
+Visiblity of our approach to security and standards for our GitHub code repositories and how these work with wider organisation controls and requirements.
+
+### Code in the Open
+By default, our code is open source (MIT license) and visible to the public. This encourages strong security practices and behaviour from the start and provides transpancy to our citizens. See [GDS guidance](https://www.gov.uk/guidance/be-open-and-use-open-source) for more detail.
+
+Any request to limit code visibliity is by exception and should be discussed with the wider team for approval.
+
+### Naming
+Due the scale of the MoJ GitHub organisations we require a simple way to see what repositories are owned by which team at a glance.
+
+Required code repositories to be named clearly and aligned to its function ([see naming principles](https://technical-guidance.service.justice.gov.uk/documentation/standards/naming-things.html#principles))
+
+### Ownership
+We require all code to have clear ownership to deal with code changes and any general issues / concerns with the most appropriate people possible being involved.
+
+Being able to respond to automated notifications from Github secret scanning, our internal security teams and external entities like [NCSC](https://www.ncsc.gov.uk/) - we are driven from ownership details.
+
+Require a defined split in access levels for compliance controls; seperating administrative access from day-to-day commits. Having this speration reduces risk of significant changes (rename / deletion) being triggered accidently.
+
+### Identity
+By default, the MoJ organisation requires users to have work email verified and MFA enabled to be part of the GitHub organisation.
+
+After a data breach exposed GitHub details there is an increased risk of attackers impersonating staff members by falsifying GitHub creditenials / git config. Therefore we must prove the users identity via cryptopgrahic means to provide auditiable / high confidence envidence of the comitter.
+
+### Source of Truth
+The HEAD of main (or default branch in general) is considered the source of truth for our code. In disaster recovery scenarios the main branch is used to restore the service from any failure state; this includes out of hours support and restoration efforts from people outside of the team.
+
+In order to ensure this is possible we need to apply protections to main - so only fully tested, up-to-date and peer reviewed code that has been through the pull prequest process can be committed. Any deployment of main must be managed out by the committer to ensure it deploys correctly (or issues fixed-forward).
+
+### Dependencies
+We cannot feasbily replace external dependencies with internally managed equilivants. We should take care when selecting a dependency and place controls around what that dependency can access.
+
+Supply chain attacks are becoming very common. By exploiting a popular library (in particular anything that operates within pipelines) attackers can exfiltrate sensitive information / auth details and worse.
+
+### Code Approvals
+The best line of defense against malicious code being added is a strong, human, review process backed with meaningful automated testing.
+
+### Secrets
+Secrets attached to repositories are generally used for high level access to other tooling (AWS or GitHub org etc) so need to be exposed as little as possible and rotated / replaced frequently to reduce risks.
+
+## Decisions
+
+All active repositories are defined via our terraform module within `opg-org-infra` and updated to the latest version to ensure compliance.
+
+## Consequences
+
+
+- The `opg-terraform-github-repository` variables `main_branch_ruleset_enabled` and `pr_branch_ruleset_enabled` must be updated to be true by default
+    - Will need to set `branch_protection_enabled` to false by default as well
+- All repositories in `opg-org-infa` need to be updated to the updated latest module
+    - Archived repositories will need their definition to be updated to have `branch_protection_enabled` true and disable the new versions. Possibly move to new archive module?
+- All repositories require commit signing to be enabled
+    - Branch rules must be configured to require commit signing for all via new module
+- All repository pipelines must use OIDC authentication for AWS
+- All repository secrets must be controlled via terraform and should be rotated regularly
+
+- All repositories must be public & visible
+    - Exceptions can be discussed / documented via WebOps CoP.
+- All repositiories must have an accurate LICENSE file in the root (generally MIT)
+- All repositories must have and `opg-` prefix in their names to signify the business unit
+    - This includes any forks or adopted repositories
+- All repositories must be created within the `ministryofjustice` organisation
+    - `opg` and the respective service teams are set as Maintainer
+    - `opg-github-ci` & `opg-webops` are configured as Admin
+- All repositories require a CODEOWNERS file to be present
+- The main / default branch must NOT allow any direct commits
+- All PR branches must be kept up-to-date with the default branch
+    - Can rebase within the PR
+    - For significant concurrent PR volume, merge queues can be used to ease this process
+- All tests within a PR branch must pass before merging
+- All status checks must pass before merging
+- All PRs must be approved by at least 1 other person relevant to the repository
+- The author of the PR should complete the merge of the PR into the default branch
+- The live deployment must be watched and managed
+- Pipelines must share env variables / secrets to only the steps that require them
+- Pipelines must use mimimal permissions for any action
+- Must utilise renovate or dependabot for library / package updates
+    - Must have at least 3 days on any release before updating
+- All GitHub actions must be pinned to exact SHA and version
+- All Docker images should be pinned to exact SHA and version
+- All application code should be pinned exact version within its package manager
+- All repositories should limit what github actions are allowed to be used
+- Inactive code repositories must be set as archived only
+
+
+
+
+## Related
+
+- [Dependencies in your code](/documentation/guides/dependencies.html)
+- [Security in our Process](/documentation/guides/security_process.html)
+- [Github Actions Security Guide](/documentation/guides/github_actions_security_process.html)
