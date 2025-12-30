@@ -17,13 +17,12 @@ We are cautioned against overlapping IP ranges while using a shared network fire
 
 ## Decisions
 
-We will use the CIDR block starting 10.0.0.0/8 for our VPCs, allocating specific /16 ranges to each product account and region.
+OPG Digital Services will use the CIDR block starting 10.0.0.0/8 for our VPCs, allocating specific /16 ranges to each product account and region.
 
 Ranges have been allocated as follows:
 
 | Product         | Second Octet Ranges Assigned |
 |-----------------|------------------------------|
-| Shared Firewall | 0-9                          |
 | Make a LPA      | 10-29                        |
 | Use a LPA       | 30-49                        |
 | Sirius          | 50-69                        |
@@ -39,6 +38,8 @@ We also want to allow space to expand into additional regions in future, so we w
 | Development     | x0-x4                        | 10.10.0.0/16 |
 | Preproduction   | x5-x9                        | 10.15.0.0/16 |
 | Production      | x+10-x+14                    | 10.20.0.0/16 |
+
+The shared network firewall will use the unique range 172.0.0.0/16.
 
 ## Consequences
 
