@@ -1,0 +1,103 @@
+---
+title: ADR-015 Non-Overlapping VPC CIDRs
+last_reviewed_on: 2025-12-30
+review_in: 36 months
+---
+# <%= current_page.data.title %>
+
+Date: 30-12-2025
+
+## Status
+
+🤔 Proposed
+
+## Context
+
+We are cautioned against overlapping IP ranges while using a shared network firewall for all OPG digital products. We will use non-overlapping CIDR ranges for our network firewalled VPCs in different AWS accounts and regions for each product. This change helps to avoid potential IP address conflicts and improves network segmentation.
+
+## Decisions
+
+OPG Digital Services will use the CIDR block starting 10.0.0.0/8 for our VPCs, allocating specific /16 ranges to each product account and region.
+
+Ranges have been allocated as follows:
+
+| Product         | Second Octet Ranges Assigned |
+|-----------------|------------------------------|
+| Make a LPA      | 10-29                        |
+| Use a LPA       | 30-49                        |
+| Sirius          | 50-69                        |
+| Digideps        | 70-89                        |
+| Serve OPG       | 90-109                       |
+| MRLPA           | 110-129                      |
+| LPA Store       | 130-149                      |
+
+We also want to allow space to expand into additional regions in future, so we will distribute the range allocated across accounts as follows:
+
+| Account         | Second Octet Ranges Assigned | Example      |
+|-----------------|------------------------------|--------------|
+| Development     | x0-x4                        | 10.10.0.0/16 |
+| Preproduction   | x5-x9                        | 10.15.0.0/16 |
+| Production      | x+10-x+14                    | 10.20.0.0/16 |
+
+The shared network firewall will use the unique range 172.0.0.0/16.
+
+## Consequences
+
+Product will as best as possible use the following CIDR ranges for their network firewalled VPCs
+
+| Product         | Account       | Region     | CIDR Range     |
+|-----------------|---------------|------------|----------------|
+| Shared Firewall | development   | eu-west-1  | 172.0.0.0/16   |
+| Shared Firewall | development   | eu-west-2  | 172.1.0.0/16   |
+| Shared Firewall | production    | eu-west-1  | 172.10.0.0/16  |
+| Shared Firewall | production    | eu-west-2  | 172.11.0.0/16  |
+|-----------------|---------------|------------|----------------|
+| Make a LPA      | development   | eu-west-1  | 10.10.0.0/16   |
+| Make a LPA      | development   | eu-west-2  | 10.11.0.0/16   |
+| Make a LPA      | preproduction | eu-west-1  | 10.15.0.0/16   |
+| Make a LPA      | preproduction | eu-west-2  | 10.16.0.0/16   |
+| Make a LPA      | production    | eu-west-1  | 10.20.0.0/16   |
+| Make a LPA      | production    | eu-west-2  | 10.21.0.0/16   |
+|-----------------|---------------|------------|----------------|
+| Use a LPA       | development   | eu-west-1  | 10.30.0.0/16   |
+| Use a LPA       | development   | eu-west-2  | 10.31.0.0/16   |
+| Use a LPA       | preproduction | eu-west-1  | 10.35.0.0/16   |
+| Use a LPA       | preproduction | eu-west-2  | 10.36.0.0/16   |
+| Use a LPA       | production    | eu-west-1  | 10.40.0.0/16   |
+| Use a LPA       | production    | eu-west-2  | 10.41.0.0/16   |
+|-----------------|---------------|------------|----------------|
+| Sirius          | development   | eu-west-1  | 10.50.0.0/16   |
+| Sirius          | development   | eu-west-2  | 10.51.0.0/16   |
+| Sirius          | preproduction | eu-west-1  | 10.55.0.0/16   |
+| Sirius          | preproduction | eu-west-2  | 10.56.0.0/16   |
+| Sirius          | production    | eu-west-1  | 10.60.0.0/16   |
+| Sirius          | production    | eu-west-2  | 10.61.0.0/16   |
+|-----------------|---------------|------------|----------------|
+| Digideps        | development   | eu-west-1  | 10.70.0.0/16   |
+| Digideps        | development   | eu-west-2  | 10.71.0.0/16   |
+| Digideps        | preproduction | eu-west-1  | 10.75.0.0/16   |
+| Digideps        | preproduction | eu-west-2  | 10.76.0.0/16   |
+| Digideps        | production    | eu-west-1  | 10.80.0.0/16   |
+| Digideps        | production    | eu-west-2  | 10.81.0.0/16   |
+|-----------------|---------------|------------|----------------|
+| Serve OPG       | development   | eu-west-1  | 10.90.0.0/16   |
+| Serve OPG       | development   | eu-west-2  | 10.91.0.0/16   |
+| Serve OPG       | preproduction | eu-west-1  | 10.95.0.0/16   |
+| Serve OPG       | preproduction | eu-west-2  | 10.96.0.0/16   |
+| Serve OPG       | production    | eu-west-1  | 10.100.0.0/16  |
+| Serve OPG       | production    | eu-west-2  | 10.101.0.0/16  |
+|-----------------|---------------|------------|----------------|
+| MRLPA           | development   | eu-west-1  | 10.110.0.0/16  |
+| MRLPA           | development   | eu-west-2  | 10.111.0.0/16  |
+| MRLPA           | preproduction | eu-west-1  | 10.115.0.0/16  |
+| MRLPA           | preproduction | eu-west-2  | 10.116.0.0/16  |
+| MRLPA           | production    | eu-west-1  | 10.120.0.0/16  |
+| MRLPA           | production    | eu-west-2  | 10.121.0.0/16  |
+|-----------------|---------------|------------|----------------|
+| LPA Store       | development   | eu-west-1  | 10.130.0.0/16  |
+| LPA Store       | development   | eu-west-2  | 10.131.0.0/16  |
+| LPA Store       | preproduction | eu-west-1  | 10.135.0.0/16  |
+| LPA Store       | preproduction | eu-west-2  | 10.136.0.0/16  |
+| LPA Store       | production    | eu-west-1  | 10.140.0.0/16  |
+| LPA Store       | production    | eu-west-2  | 10.141.0.0/16  |
+|-----------------|---------------|------------|----------------|
