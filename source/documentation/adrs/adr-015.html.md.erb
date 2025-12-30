@@ -24,13 +24,21 @@ Ranges have been allocated as follows:
 | Product         | Second Octet Ranges Assigned |
 |-----------------|------------------------------|
 | Shared Firewall | 0-9                          |
-| LPA             | 10-29                        |
+| Make a LPA      | 10-29                        |
 | Use a LPA       | 30-49                        |
 | Sirius          | 50-69                        |
 | Digideps        | 70-89                        |
 | Serve OPG       | 90-109                       |
 | MRLPA           | 110-129                      |
 | LPA Store       | 130-149                      |
+
+The split from there between accounts are:
+
+| Account         | Second Octet Ranges Assigned |
+|-----------------|------------------------------|
+| Development     | x0-x4                        |
+| Preproduction   | x5-x9                        |
+| Production      | x+10-x+14                    |
 
 ## Consequences
 
@@ -45,50 +53,50 @@ Product will as best as possible use the following CIDR ranges for their network
 |-----------------|---------------|------------|----------------|
 | Make a LPA      | development   | eu-west-1  | 10.10.0.0/16   |
 | Make a LPA      | development   | eu-west-2  | 10.11.0.0/16   |
-| Make a LPA      | preproduction | eu-west-1  | 10.12.0.0/16   |
-| Make a LPA      | preproduction | eu-west-2  | 10.13.0.0/16   |
-| Make a LPA      | production    | eu-west-1  | 10.14.0.0/16   |
-| Make a LPA      | production    | eu-west-2  | 10.15.0.0/16   |
+| Make a LPA      | preproduction | eu-west-1  | 10.15.0.0/16   |
+| Make a LPA      | preproduction | eu-west-2  | 10.16.0.0/16   |
+| Make a LPA      | production    | eu-west-1  | 10.20.0.0/16   |
+| Make a LPA      | production    | eu-west-2  | 10.21.0.0/16   |
 |-----------------|---------------|------------|----------------|
 | Use a LPA       | development   | eu-west-1  | 10.30.0.0/16   |
 | Use a LPA       | development   | eu-west-2  | 10.31.0.0/16   |
-| Use a LPA       | preproduction | eu-west-1  | 10.32.0.0/16   |
-| Use a LPA       | preproduction | eu-west-2  | 10.33.0.0/16   |
-| Use a LPA       | production    | eu-west-1  | 10.34.0.0/16   |
-| Use a LPA       | production    | eu-west-2  | 10.35.0.0/16   |
+| Use a LPA       | preproduction | eu-west-1  | 10.35.0.0/16   |
+| Use a LPA       | preproduction | eu-west-2  | 10.36.0.0/16   |
+| Use a LPA       | production    | eu-west-1  | 10.40.0.0/16   |
+| Use a LPA       | production    | eu-west-2  | 10.41.0.0/16   |
 |-----------------|---------------|------------|----------------|
 | Sirius          | development   | eu-west-1  | 10.50.0.0/16   |
 | Sirius          | development   | eu-west-2  | 10.51.0.0/16   |
-| Sirius          | preproduction | eu-west-1  | 10.52.0.0/16   |
-| Sirius          | preproduction | eu-west-2  | 10.53.0.0/16   |
-| Sirius          | production    | eu-west-1  | 10.54.0.0/16   |
-| Sirius          | production    | eu-west-2  | 10.55.0.0/16   |
+| Sirius          | preproduction | eu-west-1  | 10.55.0.0/16   |
+| Sirius          | preproduction | eu-west-2  | 10.56.0.0/16   |
+| Sirius          | production    | eu-west-1  | 10.60.0.0/16   |
+| Sirius          | production    | eu-west-2  | 10.61.0.0/16   |
 |-----------------|---------------|------------|----------------|
 | Digideps        | development   | eu-west-1  | 10.70.0.0/16   |
 | Digideps        | development   | eu-west-2  | 10.71.0.0/16   |
-| Digideps        | preproduction | eu-west-1  | 10.72.0.0/16   |
-| Digideps        | preproduction | eu-west-2  | 10.73.0.0/16   |
-| Digideps        | production    | eu-west-1  | 10.74.0.0/16   |
-| Digideps        | production    | eu-west-2  | 10.75.0.0/16   |
+| Digideps        | preproduction | eu-west-1  | 10.75.0.0/16   |
+| Digideps        | preproduction | eu-west-2  | 10.76.0.0/16   |
+| Digideps        | production    | eu-west-1  | 10.80.0.0/16   |
+| Digideps        | production    | eu-west-2  | 10.81.0.0/16   |
 |-----------------|---------------|------------|----------------|
 | Serve OPG       | development   | eu-west-1  | 10.90.0.0/16   |
 | Serve OPG       | development   | eu-west-2  | 10.91.0.0/16   |
-| Serve OPG       | preproduction | eu-west-1  | 10.92.0.0/16   |
-| Serve OPG       | preproduction | eu-west-2  | 10.93.0.0/16   |
-| Serve OPG       | production    | eu-west-1  | 10.94.0.0/16   |
-| Serve OPG       | production    | eu-west-2  | 10.95.0.0/16   |
+| Serve OPG       | preproduction | eu-west-1  | 10.95.0.0/16   |
+| Serve OPG       | preproduction | eu-west-2  | 10.96.0.0/16   |
+| Serve OPG       | production    | eu-west-1  | 10.100.0.0/16  |
+| Serve OPG       | production    | eu-west-2  | 10.101.0.0/16  |
 |-----------------|---------------|------------|----------------|
 | MRLPA           | development   | eu-west-1  | 10.110.0.0/16  |
 | MRLPA           | development   | eu-west-2  | 10.111.0.0/16  |
-| MRLPA           | preproduction | eu-west-1  | 10.112.0.0/16  |
-| MRLPA           | preproduction | eu-west-2  | 10.113.0.0/16  |
-| MRLPA           | production    | eu-west-1  | 10.114.0.0/16  |
-| MRLPA           | production    | eu-west-2  | 10.115.0.0/16  |
+| MRLPA           | preproduction | eu-west-1  | 10.115.0.0/16  |
+| MRLPA           | preproduction | eu-west-2  | 10.116.0.0/16  |
+| MRLPA           | production    | eu-west-1  | 10.120.0.0/16  |
+| MRLPA           | production    | eu-west-2  | 10.121.0.0/16  |
 |-----------------|---------------|------------|----------------|
 | LPA Store       | development   | eu-west-1  | 10.130.0.0/16  |
 | LPA Store       | development   | eu-west-2  | 10.131.0.0/16  |
-| LPA Store       | preproduction | eu-west-1  | 10.132.0.0/16  |
-| LPA Store       | preproduction | eu-west-2  | 10.133.0.0/16  |
-| LPA Store       | production    | eu-west-1  | 10.134.0.0/16  |
-| LPA Store       | production    | eu-west-2  | 10.135.0.0/16  |
+| LPA Store       | preproduction | eu-west-1  | 10.135.0.0/16  |
+| LPA Store       | preproduction | eu-west-2  | 10.136.0.0/16  |
+| LPA Store       | production    | eu-west-1  | 10.140.0.0/16  |
+| LPA Store       | production    | eu-west-2  | 10.141.0.0/16  |
 |-----------------|---------------|------------|----------------|
