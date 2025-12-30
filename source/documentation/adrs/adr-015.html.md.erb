@@ -32,13 +32,13 @@ Ranges have been allocated as follows:
 | MRLPA           | 110-129                      |
 | LPA Store       | 130-149                      |
 
-The split from there between accounts are:
+We also want to allow space to expand into additional regions in future, so we will distribute the range allocated across accounts as follows:
 
-| Account         | Second Octet Ranges Assigned |
-|-----------------|------------------------------|
-| Development     | x0-x4                        |
-| Preproduction   | x5-x9                        |
-| Production      | x+10-x+14                    |
+| Account         | Second Octet Ranges Assigned | Example      |
+|-----------------|------------------------------|--------------|
+| Development     | x0-x4                        | 10.10.0.0/16 |
+| Preproduction   | x5-x9                        | 10.15.0.0/16 |
+| Production      | x+10-x+14                    | 10.20.0.0/16 |
 
 ## Consequences
 
