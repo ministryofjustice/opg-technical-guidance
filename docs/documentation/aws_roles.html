@@ -103,7 +103,7 @@
         <a href="#digideps"><span>Digideps</span></a>
       </li>
       <li>
-        <a href="#lpa"><span>LPA</span></a>
+        <a href="#make-an-lpa"><span>Make an LPA</span></a>
       </li>
       <li>
         <a href="#refunds"><span>Refunds</span></a>
@@ -145,19 +145,19 @@ role_arn=arn:aws:iam::792093328875:role/viewer
 [profile modernising-lpa-production-viewer]
 region=eu-west-1
 role_arn=arn:aws:iam::313879017102:role/viewer
-</code></pre></div><p>Operator Roles
-&ldquo;`
-[profile modernising-lpa-development-operator]
+</code></pre></div><p>Operator Roles</p>
+<div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile modernising-lpa-development-operator]
 region=eu-west-1
-role_arn=arn:aws:iam::653761790766:role/operator</p>
-<p>[profile modernising-lpa-preproduction-operator]
+role_arn=arn:aws:iam::653761790766:role/operator
+
+[profile modernising-lpa-preproduction-operator]
 region=eu-west-1
-role_arn=arn:aws:iam::792093328875:role/operator</p>
-<p>[profile modernising-lpa-production-operator]
+role_arn=arn:aws:iam::792093328875:role/operator
+
+[profile modernising-lpa-production-operator]
 region=eu-west-1
 role_arn=arn:aws:iam::313879017102:role/operator
-&rdquo;`</p>
-<h2 id="serve-opg">Serve OPG</h2>
+</code></pre></div><h2 id="serve-opg">Serve OPG</h2>
 <p>Viewer Roles</p>
 <div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile serve-opg-development-viewer]
 region=eu-west-1
@@ -207,7 +207,7 @@ role_arn=arn:aws:iam::454262938596:role/operator
 [profile digideps-production-operator]
 region=eu-west-1
 role_arn=arn:aws:iam::515688267891:role/operator
-</code></pre></div><h2 id="lpa">LPA</h2>
+</code></pre></div><h2 id="make-an-lpa">Make an LPA</h2>
 <p>Viewer Roles</p>
 <div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-lpa-dev]
 region=eu-west-1
@@ -220,7 +220,6 @@ role_arn=arn:aws:iam::987830934591:role/viewer
 [profile moj-lpa-prod]
 region=eu-west-1
 role_arn=arn:aws:iam::980242665824:role/viewer
-
 </code></pre></div><p>Operator Roles</p>
 <div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-lpa-dev]
 region=eu-west-1
@@ -233,13 +232,11 @@ role_arn=arn:aws:iam::987830934591:role/operator
 [profile moj-lpa-prod]
 region=eu-west-1
 role_arn=arn:aws:iam::980242665824:role/operator
-
 </code></pre></div><h2 id="refunds">Refunds</h2>
 <p>Viewer Roles</p>
 <div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-refunds-prod]
 region=eu-west-1
 role_arn=arn:aws:iam::805626386523:role/viewer
-
 </code></pre></div><p>Operator Roles</p>
 <div class="highlight"><pre class="highlight plaintext" tabindex="0"><code>[profile moj-refunds-prod]
 region=eu-west-1
