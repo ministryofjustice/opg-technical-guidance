@@ -1,0 +1,39 @@
+---
+title: ADR-016 Service Specific Ops Management Roles
+last_reviewed_on: 11-03-2026
+review_in: 36 months
+---
+# <%= current_page.data.title %>
+
+Date: 11-03-2026
+
+## Status
+
+🤔 Proposed
+
+## Context
+
+For practicality purposes we currently allow various write level permissions on our management account as well as access to various management secrets.
+
+As all developers have access to the operator role this poses an increased security risk of mistake or malicious activity against management.
+
+Some examples of possible issues could include exfiltration of secrets, modification of dns records or modification of ECR images so that the live service runs a malicious image.
+
+## Decisions
+
+The suggestion is to
+
+- Downgrade operator role in the management account to be read only except for s3 where it needs further permissions currently for state writes (that we can modify at a future date)
+- Provide service level roles in management which we could use in our terraform instead of breakglass when we would otherwise be modifying resources in management.
+- Update terraform service providers and/or envrc files to use the new role instead of breakglass for management provider
+
+The suggested name for the new role would be: {service_name}-operations
+The suggested trusted user for the role would be: WebOps
+
+We could set up separate team based groups if we felt that were needed.
+
+## Consequences
+
+- Could make the operator role less impactful if it were compromised.
+- Developers would have to use CI pipeline to spin up their development environments. However, they could still modify non management resources using terraform.
+- WebOps would be able to carry out large bits of infrastructure work from the cli still without needing to trigger breakglass alarms.
