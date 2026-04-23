@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.2.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -11,13 +11,6 @@ repos:
     hooks:
     - id: git-secrets
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.8.4
+    rev: 2ca41cc1372d1e939a6a879f18cdc19fc1cac1ce  # frozen: v8.30.0
     hooks:
     -   id: gitleaks
-  - repo: local
-    hooks:
-    - id: structurizr
-      name: "structurizr"
-      entry: pre-commit-hooks/structurizr/pre-commit
-      language: script
-      args: ['/dsl/poas']
