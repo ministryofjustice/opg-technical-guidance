@@ -24,7 +24,6 @@ We chose to adopt golang as a secondary language within OPG Digital because:
 
 - [golangci-lint](https://github.com/golangci/golangci-lint) - Fast golang linter for checking code style in CI or locally. This bundles lots of the other linters in the golang ecosystem including gosec to check for potential security issues. Install it to your local machine with brew install golangci-lint
 - [testify](https://github.com/stretchr/testify) - Testing tools, including more readable assertions and mocking tools.
-- [opg-go-healthcheck](https://github.com/ministryofjustice/opg-go-healthcheck) - Adds a healthcheck to your go service for use with ECS and other container orchestration systems.
 - [aws-sdk-go-v2](https://github.com/aws/aws-sdk-go-v2) - AWS SDK for golang. Because we use lots of AWS. Make sure you move to v2.
 - [air](https://github.com/cosmtrek/air) - Allows hot reloading during development so you don’t need to manually recompile on changes.
 - [zap](go.uber.org/zap) - A nice structured logging library for JSON output
@@ -48,9 +47,9 @@ Our normal coding standards and repo principles still apply.
 
 [go:embed](https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/) annotations are useful for bundling templates
 
-Our micro-frontends use [cypress](https://www.cypress.io/) for end-to-end testing.
+Our micro-frontends currently use [cypress](https://www.cypress.io/) for end-to-end testing. We are begining the move to PlayWright to replace Cypress.
 
-We recommend you add in pre-commit hooks to your repo.
+We recommend you add in pre-commit hooks to your repo. Precommits shoudl be pinned to a known good hash.
 
 ## Learning Resources
 

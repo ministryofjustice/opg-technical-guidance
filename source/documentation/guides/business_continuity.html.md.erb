@@ -15,7 +15,7 @@ Your business continuity strategy should be:
 - Agreed with the business
 - Documented (usually as part of your service’s GitHub repo)
 
-Conversations around business continuity should include the Business, Product, Delivery, Developers, WebOps and Technical Architecture. 
+Conversations around business continuity should include the Business, Product, Delivery, Developers, WebOps and Technical Architects. 
 
 ## What to look at during the Discovery / Alpha Stage
 
@@ -27,6 +27,7 @@ Good questions to ask include:
 - What risks exist that you need to find mitigations for?
 - Which data will be key to your service functioning?
 - Which data only exists in your service?
+- WHat is the impact if that data is lost or stolen?
 - What are the business and user expectations around response and recovery?
 - What non-digital fallbacks are in place already?
 
@@ -43,6 +44,7 @@ During private and public beta stages you should focus on how your business cont
 - Define recovery point objective and recovery time objective for your service
 - Identify who owns any business continuity processes inside and outside the delivery team
 - Document any disaster recovery in /docs/DISASTER_RECOVERY.md
+- Document a broad summary of service continuity in /docs/SERVICE_CONTINUITY.md (you may wish to keep some detail out of this to avoid scouting attempts by threat actors)
 - Ensure you have a backup and restore process for key data assets
 - Build familiarity with the incident management tools
 - Identify if your service is dependent on other systems and how much it can operate without them
@@ -55,7 +57,7 @@ You should document your support practices, disaster recovery plan and approache
 - Do you need to retrofit a business continuity strategy for the product?
 - How regularly are you testing your Disaster Recovery plan?
 - Is ownership of the Disaster Recovery plan clear?
-- Are the team familiar with the incident management tools?
+- Are the team familiar with the incident management tools and processes in OPG and wider MOJ?
 - Have any of the business needs, user needs or contacts changed?
 
 ## Differences between internal-facing and external-facing services

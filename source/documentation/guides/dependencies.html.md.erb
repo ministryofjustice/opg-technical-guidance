@@ -80,6 +80,8 @@ It's always best to pin a given dependency to a specific version. So using 1.0.4
 
 While lock files will pin to known good versions, you might inadvertantly pull in a malicious version 1.0.5 as it becomes available as part of development changes when updating packages if you aren't pinned. 
 
+When using GitHub actions or Docker containers you should pin to a specific SHA. This reduces the risk of supply chain poisoning attacks. See [actions security process](github_actions_security_process)
+
 We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems (NPM/Node) it is best to wait a 3 days before merging PRs for non-security related updates to allow time for malicious activity to be detected. 
 
 Some teams have experimented with automerging patch updates. If you do this it's worth automating the 3 day wait, particularly if your app is node based. Critical security updates are worth considering in isolation, as it may be that you are at greater risk leaving it unpatched for 3 days than the patch itself being bad. A check of the upstream commits for tampering can help make decisions on this.

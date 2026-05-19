@@ -23,8 +23,6 @@ This proactive approach not only aligns with broader government cybersecurity ma
 Secure by Design is a continuous assurance discussions that should complement the ongoing security work within a team. Adherence to the policy is checked by using the [Secure By Design Assessment Tracker](https://www.security.gov.uk/policy-and-guidance/secure-by-design/activities/tracking-secure-by-design-progress).
 Whilst technical team members (usually a technical architect) will lead with completing these assessments, delivery managers should integrate completion of the tracker into regular activities involving the relevant team members.
 
-
-
 Teams should also review the [GDS service standard](https://www.gov.uk/service-manual/service-standard/point-9-create-a-secure-service), consult the MOJ Security Guidance for help with [specific policy issues](https://security-guidance.service.justice.gov.uk/#information-security-policies) at an MOJ level and follow the [National Cyber Security Centre](https://www.ncsc.gov.uk/) for updates at a government level.
 
 ### How we will work
@@ -41,15 +39,15 @@ As part of our local development culture all our products should aim to have the
 
 * Security to be considered as part of ticket prep and refinement, with reference to [OWASP Top 10](https://owasp.org/www-project-top-ten/).
 * Write automated tests to verify code and infrastructure security
-* Do Threat Modelling of your product every 6 months or after a major change.
-* Have an ITHC or Pen Test once a year or after a major change. Changes that could require a re-test include:
+* Do Threat Modelling of your product every 12 months or before a major change.
+* Have an ITHC or Pen Test after a major change. Changes that could require a re-test include:
   * A major change in the type of data held, volume of data or privacy of that data
   * Authentication / permission system
   * Infrastructure technology
   * Integration boundaries with internal or external services
   * Significant dependency
 * Enable dependabot security updates on all repositories
-* Enable container vulnerability scanning (either ECS container scan or a tool like Trivy)
+* Enable container vulnerability scanning (either ECS container scan or via out prefered tool, Snyk)
 * Require pull requests to be reviewed before changes are merged to the main branch
 * Enable [Pre-commit](https://pre-commit.com/) hooks to prevent secrets being added to version control
 * Static analysis of code run in IDEs, pre-commit and pipelines (using the appropriate tooling for the languages used). 
@@ -64,21 +62,23 @@ You may also want to look at:
 
 #### As a Developer or WebOps Engineer you should
 
-* Be aware of common vulnerabilities and how to code to prevent them
+* Be aware of common vulnerabilities and how to code to prevent them (know the OWASP top 10 at minimum)
 * Pair with colleagues to be a 2nd pair of eyes for potential security issues
 * Raise security concerns if you identify a risk (chance that something might happen) or issue (something has happened).
 * Use the incident process for urgent issues
 * Actively build an understanding of the security posture of your product over time
 * Actively monitor your product for security issues
 * Regularly rotate secrets used within your service
+* Handle any personal data you come into contact with according to MOJ Policy
+* Ensure no application data is moved between or out of cloud hosting environments without a ticket and appropriate data movement forms.
 
 #### As a Technical Architect you should
 
-* Work with delivery managers to complete secure by design and CAF assessments as required
+* Work with delivery teams to complete Secure by Design and CAF assessments as required
 * Organise regular threat modelling for your teams
 * Ensure security tickets are prioritised in backlogs
 * Coordinate incidents if they occur
-* Liase with stakeholders and security around security issues
+* Liase with stakeholders and security teams around security issues
 * Highlight potential risks on product and OPG Digital Risk registers
 
 
@@ -93,6 +93,7 @@ As outlined on [the intranet](https://intranet.justice.gov.uk/guidance/security/
 For advice or guidance you can either:
 
 * Post a message in their slack channel for [#security](https://mojdt.slack.com/archives/C52LPHPK8)
+* Post a message in the [OPG Security Community](https://moj.enterprise.slack.com/archives/C068VUSKWQ2)
 * Email their inbox at [security@justice.gov.uk](mailto:security@justice.gov.uk)
 
 

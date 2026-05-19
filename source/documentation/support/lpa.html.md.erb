@@ -59,6 +59,8 @@ We operate a CI/CD model, all commits to main are automatically deployed to prod
 |---------------------|------------|-----------------|--------------------------------------------------------------------------------------------|
 | 5xx errors in app   | Cloudwatch | Front           | Alerts on when we have a status code of 5xx appear in the application logs                 |
 | 5xx from ALB        | Cloudwatch | Front           | Alerts where the application load balancer receives a 5XX response                         |
+| 4xx from ALB        | Cloudwatch | Front           | Alerts where the application load balancer receives a high volume of 4XX responses in a 5 minute window. |                       |
+
 
 ### Consumers of this service
 
