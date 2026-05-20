@@ -1,8 +1,8 @@
 ---
 title: OPG Terraform Modules
 weight: 10
-last_reviewed_on: 2024-11-12
-review_in: 6 months
+last_reviewed_on: 2026-05-19
+review_in: 12 months
 ---
 
 # <%= current_page.data.title %>
@@ -28,6 +28,8 @@ Where possible, we must use modules from the Terraform registry.
 We must pin modules from the [Terraform registry](registry.terraform.io) to major versions.
 
 If you are writing a Terraform module aim to publish it as a public module with its own test pipeline and repository, an exemplar repository is the [Terraform AWS VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc).
+
+You should use the release information area of GitHub to update users of a MAJOR update to a shared module with any contract changes. This will help when Dependabot, Renovate or simialr tools create an update for users of your module.
 
 ### When to write a Local Module
 

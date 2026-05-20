@@ -23,7 +23,7 @@ All applications should have the following automation:
 While developing tickets teams are expected to:
 
 - Ensure there is adequate automation at all levels and we meet any criteria agreed in the team around our measurements
-- Incorporate testing into their ticket process e.g. with test charters, three amigos type sessions, etc.
+- Incorporate testing into their ticket process e.g. at refinement sessions.
 - Ensure every ticket receives some exploratory testing from the developers working on it before it goes to review. Some coaching of good test planning may be required e.g. also having a charter of steps completed available in the PR to review, do what makes sense locally however.
 
 ## Test Suite - Definition of Good
@@ -111,7 +111,7 @@ Typically testing  a web application. These tests exercise a frontend web applic
 
 #### Component
 
-Typically used to test an Angular application. These tests are the equivalent of frontend Unit tests that exercise angular components and validate based on interactions with services through the use of mocked services.
+Typically used to test a front end application. These tests are the equivalent of frontend Unit tests that exercise individual components and validate based on interactions with services through the use of mocked services.
 
 #### Unit
 
@@ -125,15 +125,11 @@ In OPG we define a start point and leave the charter deliberately loose. This mi
 
 #### Regression
 
-Currently, where there is inadequate test coverage manual regression testing occurs to ensure previously working functionality remains in a good state. The desire here is to automate a lot of this work where it isn’t already automated.
+Currently, where there is inadequate test coverage manual regression testing occurs to ensure previously working functionality remains in a good state. The desire here is to automate a lot of this work where it isn’t already automated. An automated regression test should be added whenever you find a bug.
 
 #### User acceptance
 
 Testing undertaken manually with actual users. This is conducted by OPG business and not the digital team. Not to be confused with user research.
-
-#### Release candidate
-
-This is more the embodiment of a current process step and will change as our processes do. Comprising of [Exploratory][9] and [Regression][10] testing performed on a specific version of an application which is nominated for the next release.
 
 #### Accessibility
 
