@@ -135,7 +135,7 @@
 
 <ul>
 <li>Ensure there is adequate automation at all levels and we meet any criteria agreed in the team around our measurements</li>
-<li>Incorporate testing into their ticket process e.g. with test charters, three amigos type sessions, etc.</li>
+<li>Incorporate testing into their ticket process e.g. at refinement sessions.</li>
 <li>Ensure every ticket receives some exploratory testing from the developers working on it before it goes to review. Some coaching of good test planning may be required e.g. also having a charter of steps completed available in the PR to review, do what makes sense locally however.</li>
 </ul>
 <h2 id="test-suite-definition-of-good">Test Suite - Definition of Good</h2>
@@ -217,18 +217,16 @@
 <h4 id="gui">GUI</h4>
 <p>Typically testing  a web application. These tests exercise a frontend web application by interacting with the web page from the equivalent of a user perspective and validate based on what is visible. These are of the same style as <a href="#journey">Journey</a> tests however they are not strung together to map to a whole customer journey.</p>
 <h4 id="component">Component</h4>
-<p>Typically used to test an Angular application. These tests are the equivalent of frontend Unit tests that exercise angular components and validate based on interactions with services through the use of mocked services.</p>
+<p>Typically used to test a front end application. These tests are the equivalent of frontend Unit tests that exercise individual components and validate based on interactions with services through the use of mocked services.</p>
 <h4 id="unit">Unit</h4>
 <p>Test a small piece of functionality or pure logic in isolation. We are a <a href="https://martinfowler.com/articles/mocksArentStubs.html#ClassicalAndMockistTesting" title="Mockist">Mockist</a> house that mocks out the behaviour of any dependencies.</p>
 <h4 id="exploratory">Exploratory</h4>
 <p><em>“An approach to testing whereby the testers dynamically design and execute tests based on their knowledge, exploration of the test item and the results of previous tests.“</em> - <a href="https://glossary.istqb.org/" title="ISTQB">ISTQB</a></p>
 <p>In OPG we define a start point and leave the charter deliberately loose. This might be conducted on a risk based approach. See <a href="https://www.amazon.co.uk/Explore-Increase-Confidence-Exploratory-Testing/dp/1937785025" title="Explore It!">Explore It!</a> and other resources.</p>
 <h4 id="regression">Regression</h4>
-<p>Currently, where there is inadequate test coverage manual regression testing occurs to ensure previously working functionality remains in a good state. The desire here is to automate a lot of this work where it isn’t already automated.</p>
+<p>Currently, where there is inadequate test coverage manual regression testing occurs to ensure previously working functionality remains in a good state. The desire here is to automate a lot of this work where it isn’t already automated. An automated regression test should be added whenever you find a bug.</p>
 <h4 id="user-acceptance">User acceptance</h4>
 <p>Testing undertaken manually with actual users. This is conducted by OPG business and not the digital team. Not to be confused with user research.</p>
-<h4 id="release-candidate">Release candidate</h4>
-<p>This is more the embodiment of a current process step and will change as our processes do. Comprising of <a href="#exploratory">Exploratory</a> and <a href="#regression">Regression</a> testing performed on a specific version of an application which is nominated for the next release.</p>
 <h4 id="accessibility">Accessibility</h4>
 <p>To be defined</p>
 <h2 id="useful-links">Useful links</h2>

@@ -139,7 +139,6 @@
 <ul>
 <li><a href="https://github.com/golangci/golangci-lint">golangci-lint</a> - Fast golang linter for checking code style in CI or locally. This bundles lots of the other linters in the golang ecosystem including gosec to check for potential security issues. Install it to your local machine with brew install golangci-lint</li>
 <li><a href="https://github.com/stretchr/testify">testify</a> - Testing tools, including more readable assertions and mocking tools.</li>
-<li><a href="https://github.com/ministryofjustice/opg-go-healthcheck">opg-go-healthcheck</a> - Adds a healthcheck to your go service for use with ECS and other container orchestration systems.</li>
 <li><a href="https://github.com/aws/aws-sdk-go-v2">aws-sdk-go-v2</a> - AWS SDK for golang. Because we use lots of AWS. Make sure you move to v2.</li>
 <li><a href="https://github.com/cosmtrek/air">air</a> - Allows hot reloading during development so you don’t need to manually recompile on changes.</li>
 <li><a href="go.uber.org/zap">zap</a> - A nice structured logging library for JSON output</li>
@@ -158,8 +157,8 @@
 <p>Generally our golang services are microservices and micro-frontends. This allows us to build small, isolated components focused on a particular domain that can be deployed independently. One repo per service.</p>
 <p>Our normal coding standards and repo principles still apply.</p>
 <p><a href="https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/">go:embed</a> annotations are useful for bundling templates</p>
-<p>Our micro-frontends use <a href="https://www.cypress.io/">cypress</a> for end-to-end testing.</p>
-<p>We recommend you add in pre-commit hooks to your repo.</p>
+<p>Our micro-frontends currently use <a href="https://www.cypress.io/">cypress</a> for end-to-end testing. We are begining the move to PlayWright to replace Cypress.</p>
+<p>We recommend you add in pre-commit hooks to your repo. Precommits should be pinned to a known good SHA.</p>
 <h2 id="learning-resources">Learning Resources</h2>
 
 <ul>

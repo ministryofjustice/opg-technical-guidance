@@ -135,8 +135,8 @@ Whilst technical team members (usually a technical architect) will lead with com
 <ul>
 <li>Security to be considered as part of ticket prep and refinement, with reference to <a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>.</li>
 <li>Write automated tests to verify code and infrastructure security</li>
-<li>Do Threat Modelling of your product every 6 months or after a major change.</li>
-<li>Have an ITHC or Pen Test once a year or after a major change. Changes that could require a re-test include:
+<li>Do Threat Modelling of your product every 12 months or before a major change.</li>
+<li>Have an ITHC or Pen Test after a major change. Changes that could require a re-test include:
 
 <ul>
 <li>A major change in the type of data held, volume of data or privacy of that data</li>
@@ -146,7 +146,7 @@ Whilst technical team members (usually a technical architect) will lead with com
 <li>Significant dependency</li>
 </ul></li>
 <li>Enable dependabot security updates on all repositories</li>
-<li>Enable container vulnerability scanning (either ECS container scan or a tool like Trivy)</li>
+<li>Enable container vulnerability scanning (either ECS container scan or via out prefered tool, Snyk)</li>
 <li>Require pull requests to be reviewed before changes are merged to the main branch</li>
 <li>Enable <a href="https://pre-commit.com/">Pre-commit</a> hooks to prevent secrets being added to version control</li>
 <li>Static analysis of code run in IDEs, pre-commit and pipelines (using the appropriate tooling for the languages used). </li>
@@ -162,22 +162,24 @@ Whilst technical team members (usually a technical architect) will lead with com
 <h4 id="as-a-developer-or-webops-engineer-you-should">As a Developer or WebOps Engineer you should</h4>
 
 <ul>
-<li>Be aware of common vulnerabilities and how to code to prevent them</li>
+<li>Be aware of common vulnerabilities and how to code to prevent them (know the OWASP top 10 at minimum)</li>
 <li>Pair with colleagues to be a 2nd pair of eyes for potential security issues</li>
 <li>Raise security concerns if you identify a risk (chance that something might happen) or issue (something has happened).</li>
 <li>Use the incident process for urgent issues</li>
 <li>Actively build an understanding of the security posture of your product over time</li>
 <li>Actively monitor your product for security issues</li>
 <li>Regularly rotate secrets used within your service</li>
+<li>Handle any personal data you come into contact with according to MOJ Policy</li>
+<li>Ensure no application data is moved between or out of cloud hosting environments without a ticket and appropriate data movement forms.</li>
 </ul>
 <h4 id="as-a-technical-architect-you-should">As a Technical Architect you should</h4>
 
 <ul>
-<li>Work with delivery managers to complete secure by design and CAF assessments as required</li>
+<li>Work with delivery teams to complete Secure by Design and CAF assessments as required</li>
 <li>Organise regular threat modelling for your teams</li>
 <li>Ensure security tickets are prioritised in backlogs</li>
 <li>Coordinate incidents if they occur</li>
-<li>Liase with stakeholders and security around security issues</li>
+<li>Liase with stakeholders and security teams around security issues</li>
 <li>Highlight potential risks on product and OPG Digital Risk registers</li>
 </ul>
 <h2 id="asking-for-help-raising-issues-to-security">Asking for help/Raising issues to security</h2>
@@ -188,6 +190,7 @@ Whilst technical team members (usually a technical architect) will lead with com
 
 <ul>
 <li>Post a message in their slack channel for <a href="https://mojdt.slack.com/archives/C52LPHPK8">#security</a></li>
+<li>Post a message in the <a href="https://moj.enterprise.slack.com/archives/C068VUSKWQ2">OPG Security Community</a></li>
 <li>Email their inbox at <a href="mailto:security@justice.gov.uk">security@justice.gov.uk</a></li>
 </ul>
 <h3 id="what-to-include">What to include</h3>

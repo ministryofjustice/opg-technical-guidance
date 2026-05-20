@@ -144,6 +144,7 @@
 <h3 id="9-pin-to-a-specific-version">9. Pin to a specific version</h3>
 <p>It&rsquo;s always best to pin a given dependency to a specific version. So using 1.0.4 rather than a less specific ^1.0.</p>
 <p>While lock files will pin to known good versions, you might inadvertantly pull in a malicious version 1.0.5 as it becomes available as part of development changes when updating packages if you aren&rsquo;t pinned.</p>
+<p>When using GitHub actions or Docker containers you should pin to a specific SHA. This reduces the risk of supply chain poisoning attacks. See <a href="github_actions_security_process">actions security process</a></p>
 <p>We have dependabot to pull in point-version updates when they become available. For particularly volatile ecosystems (NPM/Node) it is best to wait a 3 days before merging PRs for non-security related updates to allow time for malicious activity to be detected.</p>
 <p>Some teams have experimented with automerging patch updates. If you do this it&rsquo;s worth automating the 3 day wait, particularly if your app is node based. Critical security updates are worth considering in isolation, as it may be that you are at greater risk leaving it unpatched for 3 days than the patch itself being bad. A check of the upstream commits for tampering can help make decisions on this.</p>
 <h3 id="10-look-for-opportunities-to-refactor-out-dependencies">10. Look for opportunities to refactor out dependencies</h3>

@@ -129,7 +129,7 @@
 <li>Agreed with the business</li>
 <li>Documented (usually as part of your service’s GitHub repo)</li>
 </ul>
-<p>Conversations around business continuity should include the Business, Product, Delivery, Developers, WebOps and Technical Architecture.</p>
+<p>Conversations around business continuity should include the Business, Product, Delivery, Developers, WebOps and Technical Architects.</p>
 <h2 id="what-to-look-at-during-the-discovery-alpha-stage">What to look at during the Discovery / Alpha Stage</h2>
 <p>During alpha and discovery phases you should be experimenting and testing your hypothesis. Business continuity work will be light touch at this stage. You should identify and understand what is proportional and appropriate for your product’s business continuity.</p>
 <p>Good questions to ask include:</p>
@@ -139,6 +139,7 @@
 <li>What risks exist that you need to find mitigations for?</li>
 <li>Which data will be key to your service functioning?</li>
 <li>Which data only exists in your service?</li>
+<li>WHat is the impact if that data is lost or stolen?</li>
 <li>What are the business and user expectations around response and recovery?</li>
 <li>What non-digital fallbacks are in place already?</li>
 </ul>
@@ -153,6 +154,7 @@
 <li>Define recovery point objective and recovery time objective for your service</li>
 <li>Identify who owns any business continuity processes inside and outside the delivery team</li>
 <li>Document any disaster recovery in /docs/DISASTER_RECOVERY.md</li>
+<li>Document a broad summary of service continuity in /docs/SERVICE_CONTINUITY.md (you may wish to keep some detail out of this to avoid scouting attempts by threat actors)</li>
 <li>Ensure you have a backup and restore process for key data assets</li>
 <li>Build familiarity with the incident management tools</li>
 <li>Identify if your service is dependent on other systems and how much it can operate without them</li>
@@ -165,7 +167,7 @@
 <li>Do you need to retrofit a business continuity strategy for the product?</li>
 <li>How regularly are you testing your Disaster Recovery plan?</li>
 <li>Is ownership of the Disaster Recovery plan clear?</li>
-<li>Are the team familiar with the incident management tools?</li>
+<li>Are the team familiar with the incident management tools and processes in OPG and wider MOJ?</li>
 <li>Have any of the business needs, user needs or contacts changed?</li>
 </ul>
 <h2 id="differences-between-internal-facing-and-external-facing-services">Differences between internal-facing and external-facing services</h2>

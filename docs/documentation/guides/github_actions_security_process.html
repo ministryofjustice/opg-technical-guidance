@@ -156,15 +156,15 @@ If it runs once deployed then it could have access to data sources (DBs, Redis e
 <h4 id="package-compromised-malicious-code-run-at-runtime-mitigations">Mitigations</h4>
 
 <ul>
-<li>Stability Days: Introduce a delay (e.g., a few days) before updating to allow time for malicious packages to be identified and flagged.</li>
+<li>Stability Days: Introduce a delay (our standard is 7days) before updating to allow time for malicious packages to be identified and flagged.</li>
 <li>No Untrusted Packages: Avoid using untrusted or unnecessary packages. Prefer easily maintainable internal solutions for simple functionalities.</li>
 <li>Container Scanning: Scan containers for vulnerabilities to identify any poisoned or malicious packages (trivy/ecr scanning).</li>
 <li>Container Hardening: Remove unneeded users, executables, and permissions within containers to minimize attack surfaces.</li>
-<li>Run Code in Containers: Always isolate code execution within containers rather than on the base Github Actions machine to restrict access to environment variables and secrets.</li>
+<li>Run Code in Containers: Always isolate code execution within containers rather than on the base Github Actions machine to restrict access to environment variables and secrets. Node and Python based code have had particular issues with this in the recent Shai Hulud events.</li>
 <li>Container Linting: Lint and validate container configurations to ensure security best practices are followed.</li>
 <li>Use Trusted Sources: Restrict dependencies to trusted sources and audit critical packages before deployment. For essential functionalities, consider creating and maintaining an internal version of critical packages to reduce dependency risks.</li>
-<li>Data Exfiltration Monitoring: Use tools that monitor unusual activity (cloudtrail) and set up alerts for anomalies.</li>
-<li>Infrastructure Scanning: Regularly scan deployed infrastructure for vulnerabilities or misconfigurations that could allow data exfiltration (security hub, tfsec, trivy, cloudtrail alarms etc).</li>
+<li>Data Exfiltration Monitoring: Use tools that monitor unusual activity (cloudtrail, Network firewall, DNS logs) and set up alerts for anomalies.</li>
+<li>Infrastructure Scanning: Regularly scan deployed infrastructure for vulnerabilities or misconfigurations that could allow data exfiltration (security hub, Snyk, cloudtrail alarms, GuardDuty etc).</li>
 </ul>
 <p>Note - Haven&rsquo;t added the protections to GA creds in the example below in this issue as if we run the code in a container then it shouldn&rsquo;t have access to the GA actions secrets.</p>
 
@@ -247,7 +247,7 @@ Exfiltration of sensitive data, leading to reputational damage and regulatory pe
 <hr>
 <h3 id="do-not-use-pull-request-target">Do not use pull_request_target</h3>
 <h4 id="do-not-use-pull-request-target-description">Description</h4>
-<p>Using the pull_request_target event in GitHub Actions can expose secrets to workflows triggered by pull requests from forked repositories. While OIDC credentials are generally restricted in such cases, other secrets (e.g., GitHub tokens) can still be accessed by malicious workflows. This opens up the potential for unauthorized actions to be performed using these secrets.</p>
+<p>Using the <code>pull_request_target</code> event in GitHub Actions can expose secrets to workflows triggered by pull requests from forked repositories. While OIDC credentials are generally restricted in such cases, other secrets (e.g., GitHub tokens) can still be accessed by malicious workflows. This opens up the potential for unauthorized actions to be performed using these secrets.</p>
 <h4 id="do-not-use-pull-request-target-risks">Risks</h4>
 <p>Unauthorized access to secrets available to the GitHub Action workflow, such as tokens or API keys.
 Execution of malicious workflows that perform unauthorized actions in the repository or connected systems.</p>
