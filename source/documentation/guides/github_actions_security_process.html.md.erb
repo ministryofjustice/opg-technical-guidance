@@ -137,6 +137,10 @@ Complete compromise of CI/CD pipeline security.
 * Stability Days: Enforce a delay period for new or updated GitHub Actions to identify potential security issues before they are executed in sensitive environments.
 * Codeowners Approval: Use a Codeowners file to ensure that only authorized personnel can approve changes to critical files such as workflow configurations.
 * Artifact Security: Validate artifacts created by CI/CD workflows using signed hashes to ensure their integrity before deployment.
+* Github actions should adhere to our standard dependencies guidelines.
+* Check 3rd party actions for downloads or dependency installs that are not locked and sha checked. 
+* Pin all 3rd party actions to a known good SHA: This reduces liklihood of an upstream compromise affecting you. Use Renovate to update and manage pinned versions.
+* Prefer OPG digital actions: Use the internally created GitHub actions as a prefence to 3rd parties. Create shared actions for common problems.
 
 ----
 
