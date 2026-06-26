@@ -1,57 +1,39 @@
 ---
-title: Golang Patterns and Approaches
+title: Go Language
 weight: 10
-last_reviewed_on: 2024-06-26
+last_reviewed_on: 2026-06-26
 review_in: 12 months
 owner_slack: "#opg-developers"
 ---
 
 # <%= current_page.data.title %>
 
-We initially trialled golang on a number of smaller services and tools (Sirius User Admin, ECS stabiliser). We've since started rolling it out in other services (Supervision Workflow, Search Service). Now we have a bit more experience working with the language. It's worth documenting our preferred approaches, tools and libraries for doing so. This will help future developers get up to speed on our services more easily and set some expectations for team members to reference when starting new work.
+We use Go (Golang) in a variety of services in OPG Digital and it is typically our first choice for new development due to its efficency and strong type safety.
 
-## Why Golang?
+We do not have any preferred frameworks for Go applications: instead we mostly rely on the standard library wherever possible to reduce our dependency graph and keep code simple and consistent.
 
-We chose to adopt golang as a secondary language within OPG Digital because:
+## Example OPG Go repositories
 
-- Modern language
-- Small ecosystem
-- Web features as first class citizens
-- Performant and produces small containers
-- Aligned to infrastructure tooling languages
+We have many services built with Go, but here are a few repositories that provide a good range of examples of our usage.
 
-## Prefered Tools & Libraries
+- [opg-sirius-supervision-workflow](https://github.com/ministryofjustice/opg-sirius-supervision-workflow) is a front-end service to provide Sirius users with a bespoke interface for managing Supervision cases
+- [opg-modernising-lpa](https://github.com/ministryofjustice/opg-modernising-lpa) is the new Make and Register service built entirely in Go
+- [opg-data-lpa-store](https://github.com/ministryofjustice/opg-data-lpa-store) is a API for storing and accessing Digital LPAs built with Go-based Lambdas
 
-- [golangci-lint](https://github.com/golangci/golangci-lint) - Fast golang linter for checking code style in CI or locally. This bundles lots of the other linters in the golang ecosystem including gosec to check for potential security issues. Install it to your local machine with brew install golangci-lint
-- [testify](https://github.com/stretchr/testify) - Testing tools, including more readable assertions and mocking tools.
-- [aws-sdk-go-v2](https://github.com/aws/aws-sdk-go-v2) - AWS SDK for golang. Because we use lots of AWS. Make sure you move to v2.
-- [air](https://github.com/cosmtrek/air) - Allows hot reloading during development so you don’t need to manually recompile on changes.
-- [zap](go.uber.org/zap) - A nice structured logging library for JSON output
+[All OPG repos using Go](https://github.com/orgs/ministryofjustice/repositories?q=language%3AGo+opg)
 
-## Tools useful in services
+## Standard tools
 
-- [aws-secretsmanager-caching-go](https://github.com/aws/aws-secretsmanager-caching-go) - Caching secrets in memory and calling for new ones if they fail rather than using environment vars.
-- [jwt-go](https://github.com/dgrijalva/jwt-go) - JWT implementation for go, useful for talking to Sirius APIs.
-- [objx](https://github.com/stretchr/objx) - Useful tools for dealing with JSON and maps.
-- [go-spew](https://github.com/davecgh/go-spew) - A nicer pretty printer for development/debugging.
+We often use these libraries in our Go applications:
 
-Note we previously recommended [gorilla/mux](https://github.com/gorilla/mux), but that set of libraries had maintenence issues and since that time the core HTTP router has evolved to cover most uses cases. Use the internal HTTP router unless you have a very odd edge case, see the [golang 1.22](https://go.dev/blog/routing-enhancements) release notes.
-
-## Preferred Patterns
-
-[Uber-go](https://github.com/uber-go/guide/blob/master/style.md) - Go has a very good built-in formatter for writing correct Go. This Uber style README.md covers extra stylistic concerns not covered by Go's standard practices. For example the Verifying Interface Compliance
-
-Generally our golang services are microservices and micro-frontends. This allows us to build small, isolated components focused on a particular domain that can be deployed independently. One repo per service.
-
-Our normal coding standards and repo principles still apply.
-
-[go:embed](https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/) annotations are useful for bundling templates
-
-Our micro-frontends currently use [cypress](https://www.cypress.io/) for end-to-end testing. We are begining the move to PlayWright to replace Cypress.
-
-We recommend you add in pre-commit hooks to your repo. Precommits should be pinned to a known good SHA.
+- [golangci-lint](https://github.com/golangci/golangci-lint) - Go linter that bundles multiple other linting tools
+- [testify](https://github.com/stretchr/testify) - Unit testing toolkit providing mock and assertion functions
+- [mockery](https://github.com/vektra/mockery) - Generates mocks for testing
+- [air](https://github.com/cosmtrek/air) - CLI package that automatically rebuilds and reloads Go apps with local changes
 
 ## Learning Resources
+
+These are resources we've found useful in OPG for learning and mastering Go.
 
 - <https://tour.golang.org/> - The official Golang tour for learning Go. Very informative
 - <https://gobyexample.com> - Introductory site that explains with clear examples.
@@ -61,7 +43,7 @@ We recommend you add in pre-commit hooks to your repo. Precommits should be pinn
 - <https://medium.com/wesionary-team/pointers-and-passby-value-reference-in-golang-a00c8c59b7f1> - understanding Pointers and Values
 - <https://github.com/dariubs/GoBooks> - GitHub repo with a list of a bunch of books which you may find useful
 
-## Video Courses
+### Video Courses
 
 Ask your line manager about a Pluralsight license.
 
