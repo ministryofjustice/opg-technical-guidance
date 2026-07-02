@@ -8,7 +8,7 @@ owner_slack: "#opg-developers"
 
 # <%= current_page.data.title %>
 
-We use Go (Golang) in a variety of services in OPG Digital and it is typically our first choice for new development due to its efficency and strong type safety.
+We use Go (Golang) in a variety of services in OPG Digital and it is typically our first choice for new development due to its efficiency and strong type safety.
 
 We do not have any preferred frameworks for Go applications: instead we mostly rely on the standard library wherever possible to reduce our dependency graph and keep code simple and consistent.
 
@@ -16,7 +16,7 @@ We do not have any preferred frameworks for Go applications: instead we mostly r
 
 We have many services built with Go, but here are a few repositories that provide a good range of examples of our usage.
 
-- [opg-sirius-supervision-workflow](https://github.com/ministryofjustice/opg-sirius-supervision-workflow) is a front-end service to provide Sirius users with a bespoke interface for managing Supervision cases
+- [opg-sirius-supervision-finance-hub](https://github.com/ministryofjustice/opg-sirius-supervision-finance-hub) is a full-stack service built with Go to process payments and allow Supervision Billing to manage accounts for clients
 - [opg-modernising-lpa](https://github.com/ministryofjustice/opg-modernising-lpa) is the new Make and Register service built entirely in Go
 - [opg-data-lpa-store](https://github.com/ministryofjustice/opg-data-lpa-store) is a API for storing and accessing Digital LPAs built with Go-based Lambdas
 
@@ -30,6 +30,14 @@ We often use these libraries in our Go applications:
 - [testify](https://github.com/stretchr/testify) - Unit testing toolkit providing mock and assertion functions
 - [mockery](https://github.com/vektra/mockery) - Generates mocks for testing
 - [air](https://github.com/cosmtrek/air) - CLI package that automatically rebuilds and reloads Go apps with local changes
+- [delve](https://github.com/go-delve/delve) - Debugger for Go applications
+- [validator](github.com/go-playground/validator/v10) - Struct and field validation for Go applications
+- [sqlc](https://github.com/sqlc-dev/sqlc) - Generates type-safe Go code from SQL queries
+- [goose](https://github.com/pressly/goose) - Database migration tool for Go applications
+
+## UI
+
+Our Go applications typically use Go [templates](https://pkg.go.dev/html/template) for rendering HTML, with small JS scripts for interactivity. For conditional rendering of the DOM, we have had success with [HTMX](https://htmx.org/) (see finance-hub for examples).
 
 ## Learning Resources
 
