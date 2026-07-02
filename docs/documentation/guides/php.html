@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <title>Go Language - OPG Technical Guidance</title>
+    <title>PHP Language - OPG Technical Guidance</title>
 
     <link href="../../stylesheets/manifest.css" rel="stylesheet" />
 
-    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/golang_advice.html">
+    <link rel="canonical" href="https://docs.opg.service.justice.gov.uk/documentation/guides/php.html">
 
       <meta name="robots" content="noindex" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="docs.opg.service.justice.gov.uk" />
       <meta name="twitter:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
-      <meta name="twitter:title" content="Go Language - OPG Technical Guidance" />
-      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/golang_advice.html" />
+      <meta name="twitter:title" content="PHP Language - OPG Technical Guidance" />
+      <meta name="twitter:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/php.html" />
 
       <meta property="og:image" content="https://docs.opg.service.justice.gov.uk/images/govuk-large.png" />
       <meta property="og:site_name" content="OPG Technical Guidance" />
-      <meta property="og:title" content="Go Language" />
+      <meta property="og:title" content="PHP Language" />
       <meta property="og:type" content="object" />
-      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/golang_advice.html" />
+      <meta property="og:url" content="https://docs.opg.service.justice.gov.uk/documentation/guides/php.html" />
 
     
   </head>
@@ -91,19 +91,10 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
                       <ul>
   <li>
-    <a href="#go-language"><span>Go Language</span></a>
+    <a href="#php-language"><span>PHP Language</span></a>
     <ul>
       <li>
-        <a href="#example-opg-go-repositories"><span>Example OPG Go repositories</span></a>
-      </li>
-      <li>
-        <a href="#standard-tools"><span>Standard tools</span></a>
-      </li>
-      <li>
-        <a href="#ui"><span>UI</span></a>
-      </li>
-      <li>
-        <a href="#learning-resources"><span>Learning Resources</span></a>
+        <a href="#example-opg-php-repositories"><span>Example OPG PHP repositories</span></a>
       </li>
     </ul>
   </li>
@@ -116,53 +107,19 @@
 
         <div class="app-pane__content toc-open-disabled" aria-label="Content" tabindex="0">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="go-language">Go Language</h1>
-<p>We use Go (Golang) in a variety of services in OPG Digital and it is typically our first choice for new development due to its efficiency and strong type safety.</p>
-<p>We do not have any preferred frameworks for Go applications: instead we mostly rely on the standard library wherever possible to reduce our dependency graph and keep code simple and consistent.</p>
-<h2 id="example-opg-go-repositories">Example OPG Go repositories</h2>
-<p>We have many services built with Go, but here are a few repositories that provide a good range of examples of our usage.</p>
+            <h1 id="php-language">PHP Language</h1>
+<p>We use PHP in OPG services for many years, and it forms the backbone of many of our core services. We favour PHP for its flexibility, long-term support and rich ecosystem.</p>
+<p>We have used a variety of PHP frameworks, but most services now predominantly use <a href="https://docs.mezzio.dev/">Mezzio</a>.</p>
+<h2 id="example-opg-php-repositories">Example OPG PHP repositories</h2>
+<p>Most of our larger applications use PHP:</p>
 
 <ul>
-<li><a href="https://github.com/ministryofjustice/opg-sirius-supervision-finance-hub">opg-sirius-supervision-finance-hub</a> is a full-stack service built with Go to process payments and allow Supervision Billing to manage accounts for clients</li>
-<li><a href="https://github.com/ministryofjustice/opg-modernising-lpa">opg-modernising-lpa</a> is the new Make and Register service built entirely in Go</li>
-<li><a href="https://github.com/ministryofjustice/opg-data-lpa-store">opg-data-lpa-store</a> is a API for storing and accessing Digital LPAs built with Go-based Lambdas</li>
+<li><a href="https://github.com/ministryofjustice/opg-lpa">opg-lpa</a>,  Make a lasting power of attorney</li>
+<li><a href="https://github.com/ministryofjustice/opg-use-an-lpa">opg-use-an-lpa</a>,  Use a lasting power of attorney</li>
+<li><a href="https://github.com/ministryofjustice/opg-digideps">opg-digideps</a>, Complete the deputy report — uses <a href="https://symfony.com/">Symfony</a> as a framework</li>
+<li><a href="https://github.com/ministryofjustice/opg-sirius">opg-sirius</a>, Sirius</li>
 </ul>
-<p><a href="https://github.com/orgs/ministryofjustice/repositories?q=language%3AGo+opg">All OPG repos using Go</a></p>
-<h2 id="standard-tools">Standard tools</h2>
-<p>We often use these libraries in our Go applications:</p>
-
-<ul>
-<li><a href="https://github.com/golangci/golangci-lint">golangci-lint</a> - Go linter that bundles multiple other linting tools</li>
-<li><a href="https://github.com/stretchr/testify">testify</a> - Unit testing toolkit providing mock and assertion functions</li>
-<li><a href="https://github.com/vektra/mockery">mockery</a> - Generates mocks for testing</li>
-<li><a href="https://github.com/cosmtrek/air">air</a> - CLI package that automatically rebuilds and reloads Go apps with local changes</li>
-<li><a href="https://github.com/go-delve/delve">delve</a> - Debugger for Go applications</li>
-<li><a href="https://github.com/go-playground/validator">validator</a> - Struct and field validation for Go applications</li>
-<li><a href="https://github.com/sqlc-dev/sqlc">sqlc</a> - Generates type-safe Go code from SQL queries</li>
-<li><a href="https://github.com/pressly/goose">goose</a> - Database migration tool for Go applications</li>
-</ul>
-<h2 id="ui">UI</h2>
-<p>Our Go applications typically use Go <a href="https://pkg.go.dev/html/template">templates</a> for rendering HTML, with small JS scripts for interactivity. For conditional rendering of the DOM, we have had success with <a href="https://htmx.org/">HTMX</a> (see finance-hub for examples).</p>
-<h2 id="learning-resources">Learning Resources</h2>
-<p>These are resources we&rsquo;ve found useful in OPG for learning and mastering Go.</p>
-
-<ul>
-<li><a href="https://tour.golang.org/">https://tour.golang.org/</a> - The official Golang tour for learning Go. Very informative</li>
-<li><a href="https://gobyexample.com">https://gobyexample.com</a> - Introductory site that explains with clear examples.</li>
-<li><a href="https://github.com/tmrts/go-patterns">https://github.com/tmrts/go-patterns</a> - A whole GitHub repo full of READMEs on different design patterns you can use when building out a application</li>
-<li><a href="https://lets-go.alexedwards.net/#packages">https://lets-go.alexedwards.net/#packages</a> - Build a Go web application. <a href="https://www.alexedwards.net/">Alex Edwards</a> is a very well known Go engineer who’s written a very informative book on building a whole web application in Go. (Might have to ask line manager about getting the money to buy the book) His main blog also has some very good free resources on different topics in Go</li>
-<li><a href="https://github.com/golang/go/wiki/CodeReviewComments">https://github.com/golang/go/wiki/CodeReviewComments</a> - Resources you can use when reviewing a PR to try and make sure the Go code is following Go&rsquo;s best practices.</li>
-<li><a href="https://medium.com/wesionary-team/pointers-and-passby-value-reference-in-golang-a00c8c59b7f1">https://medium.com/wesionary-team/pointers-and-passby-value-reference-in-golang-a00c8c59b7f1</a> - understanding Pointers and Values</li>
-<li><a href="https://github.com/dariubs/GoBooks">https://github.com/dariubs/GoBooks</a> - GitHub repo with a list of a bunch of books which you may find useful</li>
-</ul>
-<h3 id="video-courses">Video Courses</h3>
-<p>Ask your line manager about a Pluralsight license.</p>
-
-<ul>
-<li><a href="https://www.pluralsight.com/courses/creating-web-applications-go-update">https://www.pluralsight.com/courses/creating-web-applications-go-update</a> - Creating Web Applications with Go, quick and simple intro course focusing on web applications.</li>
-<li><a href="https://app.pluralsight.com/library/courses/go-create-test-applications">https://app.pluralsight.com/library/courses/go-create-test-applications</a> - Testing Go Applications, look at golang test tools, including its benchmarking library</li>
-<li><a href="https://app.pluralsight.com/library/courses/go-delve-debugging-applications">https://app.pluralsight.com/library/courses/go-delve-debugging-applications</a> - A look at using the golang debugger with your code</li>
-</ul>
+<p><a href="https://github.com/orgs/ministryofjustice/repositories?q=language%3APHP+opg">All Ministry of Justice repos using PHP</a></p>
 
               <div data-module='page-expiry' data-last-reviewed-on="2027-06-26">
     <div class='page-expiry--not-expired'>
@@ -184,8 +141,8 @@
 
           <aside>
               <ul class="contribution-banner">
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/golang_advice.html.md.erb">View source</a></li>
-                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27Go+Language%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fgolang_advice.html%29&amp;labels=bug&amp;title=Re%3A+%27Go+Language%27">Report problem</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/blob/main/source/documentation/guides/php.html.md.erb">View source</a></li>
+                <li><a href="https://github.com/ministryofjustice/opg-technical-guidance/issues/new?body=Problem+with+%27PHP+Language%27+%28https%3A%2F%2Fdocs.opg.service.justice.gov.uk%2Fdocumentation%2Fguides%2Fphp.html%29&amp;labels=bug&amp;title=Re%3A+%27PHP+Language%27">Report problem</a></li>
                 <li><a href="https://github.com/ministryofjustice/opg-technical-guidance">GitHub Repo</a></li>
               </ul>
           </aside>
