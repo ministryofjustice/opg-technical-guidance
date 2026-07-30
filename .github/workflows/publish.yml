@@ -7,64 +7,34 @@ on:
   push:
     branches:
       - "main"
-    paths-ignore:
-      - "docs/**"
   schedule:
     - cron: '0 4 * * 1'
   workflow_dispatch:
 
 jobs:
-
     build_and_publish:
       name: Build and Publish
       runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        pages: write
+        id-token: write
       steps:
-      - name: "Checkout"
+      - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
-      ############
-      # Build steps
-      ############
-      - name: "Git config"
-        run: |
-          git config --global user.email "tools@digital.justice.gov.uk"
-          git config --global user.name "Github Action"
-      - name: "Build and move output"
-        run: |
-          make build
-          mv ./docs ../
-      - name: "Checkout to gh-pages and clean untracked files"
-        run: |
-          git checkout -f gh-pages
-          git clean -fd
-      ############
-      # Copy over the generated ./docs folder
-      ############
-      - name: "Current content (./docs)"
-        run: ls -lartR ./docs/
-      - name: "Newly denerated ./docs content (../docs)"
-        run: ls -lartR ../docs/
-      # as we are no longer running reports, then all files can be replaced
-      # with the generated versions
-      - name: "Overwrite content"
-        run : |
-          rm -Rf ./docs/
-          mv ../docs ./
-      - name: "Add version and CNAME file"
-        run: |
-          echo "${GITHUB_SHA}" > ./docs/version.txt
-          echo 'docs.opg.service.justice.gov.uk' > ./docs/CNAME
-          touch ./docs/.gitkeep
-          git status
-      - name: "Git status"
-        run: |
-          git add ./docs
-          git status
-      - name: "Git commit"
-        run: |
-          git commit --allow-empty -m "Published at $(date)"
-      - name: "Push"
-        if: github.ref == 'refs/heads/main'
-        run: |
-          git push origin gh-pages --force
+      - name: Build
+        run: make build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
