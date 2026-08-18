@@ -1,0 +1,119 @@
+---
+title: Python Dependencies with uv
+weight: 10
+last_reviewed_on: 2026-08-18
+review_in: 12 months
+---
+
+# <%= current_page.data.title %>
+
+We use uv lockfiles (`uv.lock`) instead of `requirements.txt` for Python projects following recent supply chain attacks. `uv.lock` tracks the full resolved dependency graph (including transitive dependencies), giving us full visibility into what's running.
+
+## How we use uv
+
+**Commit `uv.lock` and `pyproject.toml` to version control.** Edit `pyproject.toml` and use `uv lock` to generate the `uv.lock` file.
+
+**Use `uv sync --locked` in CI and deployments** The `--locked` flag validates that the lockfile matches `pyproject.toml` and fails rather than updating it.
+
+**Pin uv, Python base images, and dependencies by digest or specific version** Use `UV_MALWARE_CHECK=1` to catch known malicious packages.
+
+## Common Use Cases
+
+### Local Development
+
+```sh
+uv sync  # Creates .venv and installs from uv.lock
+uv add package-name  # Adds a dependency and updates uv.lock
+```
+
+### GitHub Actions
+
+```yaml
+- uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
+  with:
+    version: "0.11.24"
+- run: uv sync --locked
+- run: uv run pytest
+```
+
+In CI, always use `uv sync --locked` to validate the lockfile matches `pyproject.toml` and prevent accidental changes.
+
+### Docker
+
+Use system Python with pinned digests:
+
+```dockerfile
+FROM python:3.14.6-slim@sha256:b877e50bd90de10af8d82c57a022fc2e0dc731c5320d762a27986facfc3355c1
+
+COPY --from=ghcr.io/astral-sh/uv@sha256:b46b03ddfcfbf8f547af7e9eaefdf8a39c8cebcba7c98858d3162bd28cf536f6 /uv /bin/
+ENV UV_MALWARE_CHECK=1
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_SYSTEM_PYTHON=1
+
+COPY pyproject.toml uv.lock .
+RUN uv sync --frozen --no-dev
+
+COPY . .
+CMD ["python", "-m", "my_app"]
+```
+
+### AWS Lambda
+
+Lambda expects the app code and dependencies in a single output directory. Use `uv export` with `--frozen` instead of uv sync as recommended in [UV docs for AWS Lambda](https://docs.astral.sh/uv/guides/integration/aws-lambda/#deploying-a-docker-image). This is a multi-stage build example to keep the final image is as small and cache-friendly as possible:
+
+```dockerfile
+FROM ghcr.io/astral-sh/uv@sha256:b46b03ddfcfbf8f547af7e9eaefdf8a39c8cebcba7c98858d3162bd28cf536f6 AS uv
+
+FROM python:3.14.6-slim@sha256:b877e50bd90de10af8d82c57a022fc2e0dc731c5320d762a27986facfc3355c1 AS builder
+
+ENV UV_MALWARE_CHECK=1
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_NO_INSTALLER_METADATA=1
+ENV UV_LINK_MODE=copy
+
+# Bundle the dependencies into the Lambda task root via `uv pip install --target`.
+#
+# Omit any local packages (`--no-emit-workspace`) and development dependencies (`--no-dev`).
+# This ensures that the Docker layer cache is only invalidated when the `pyproject.toml` or `uv.lock`
+# files change, but remains robust to changes in the application code.
+RUN --mount=from=uv,source=/uv,target=/bin/uv \
+    --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv export --frozen --no-emit-workspace --no-dev --no-editable -o requirements.txt && \
+    uv pip install -r requirements.txt --target "/app"
+
+
+FROM python:3.14.6-slim@sha256:b877e50bd90de10af8d82c57a022fc2e0dc731c5320d762a27986facfc3355c1
+
+WORKDIR /app
+
+# Copy the runtime dependencies from the builder stage.
+COPY --from=builder /app/ .
+
+# Copy the application code.
+COPY app/upload_statistics.py ./
+
+ENTRYPOINT ["python", "-m", "awslambdaric"]
+CMD ["upload_statistics.lambda_handler"]
+```
+
+See [uv Docker patterns](https://docs.astral.sh/uv/guides/integration/docker/) for more details.
+
+## Lockfile Flags
+
+- `--locked`: Validate lockfile matches `pyproject.toml`; fail if not. **Use in CI**
+- `--frozen`: Trust the lockfile without validation. **Use in Docker**
+- (none): Sync or create the lockfile- allows updates. **Use locally.**
+
+## Useful Environment Variables
+
+- `UV_MALWARE_CHECK=1`: Check for known malicious packages using OSV advisories.
+- `UV_COMPILE_BYTECODE=1`: Pre-compile Python files for faster startup.
+- `UV_NO_INSTALLER_METADATA=1`: Reduce image size by skipping installer metadata.
+- `UV_LINK_MODE=copy`: Copy packages when using BuildKit cache mounts.
+
+## Further Reading
+
+- [uv Docker guide](https://docs.astral.sh/uv/guides/integration/docker/)
+- [uv sync documentation](https://docs.astral.sh/uv/concepts/projects/sync/)
