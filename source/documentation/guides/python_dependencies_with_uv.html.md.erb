@@ -20,12 +20,14 @@ We use uv lockfiles (`uv.lock`) instead of `requirements.txt` for Python project
 ## Common Use Cases
 
 ### Local Development
+
 ```sh
 uv sync  # Creates .venv and installs from uv.lock
 uv add package-name  # Adds a dependency and updates uv.lock
 ```
 
 ### GitHub Actions
+
 ```yaml
 - uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
   with:
@@ -37,6 +39,7 @@ uv add package-name  # Adds a dependency and updates uv.lock
 In CI, always use `uv sync --locked` to validate the lockfile matches `pyproject.toml` and prevent accidental changes.
 
 ### Docker
+
 Use system Python with pinned digests:
 
 ```dockerfile
@@ -55,6 +58,7 @@ CMD ["python", "-m", "my_app"]
 ```
 
 ### AWS Lambda
+
 Lambda expects the app code and dependencies in a single output directory. Use `uv export` with `--frozen` instead of uv sync as recommended in [UV docs for AWS Lambda](https://docs.astral.sh/uv/guides/integration/aws-lambda/#deploying-a-docker-image). This is a multi-stage build example to keep the final image is as small and cache-friendly as possible:
 
 ```dockerfile
