@@ -1,0 +1,20 @@
+<%
+wrap_layout :layout do
+  banner = <<~EOF
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <span class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </span>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          This content has been migrated to the <a href="https://digital-docs.opg.service.justice.gov.uk/">OPG Documentation Hub</a>.
+        </p>
+      </div>
+    </div>
+  EOF
+
+  "#{banner}#{yield}"
+end
+%>
