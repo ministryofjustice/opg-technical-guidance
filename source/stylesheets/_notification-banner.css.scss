@@ -1,0 +1,158 @@
+.govuk-notification-banner {
+  --_govuk-notification-banner-colour: var(--govuk-brand-colour, #1d70b8);
+  --_govuk-notification-banner-title-text-colour: var(
+    --govuk-inverse-text-colour,
+    #ffffff
+  );
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media print {
+  .govuk-notification-banner {
+    font-family: sans-serif;
+  }
+}
+.govuk-notification-banner {
+  font-weight: 400;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+}
+@media print {
+  .govuk-notification-banner {
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}
+.govuk-notification-banner {
+  margin-top: 20px;
+}
+@media (min-width: 40.0625em) {
+  .govuk-notification-banner {
+    margin-top: 30px;
+  }
+}
+.govuk-notification-banner {
+  border: 5px solid;
+  border-color: var(--_govuk-notification-banner-colour);
+}
+.govuk-notification-banner:focus {
+  outline: 3px solid;
+  outline-color: var(--govuk-focus-colour, #ffdd00);
+}
+.govuk-notification-banner__header {
+  padding: 2px 15px 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  color: var(--_govuk-notification-banner-title-text-colour);
+  background-color: var(--_govuk-notification-banner-colour);
+}
+@media (min-width: 40.0625em) {
+  .govuk-notification-banner__header {
+    padding: 2px 20px 5px;
+  }
+}
+.govuk-notification-banner__title {
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+}
+@media print {
+  .govuk-notification-banner__title {
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}
+.govuk-notification-banner__title {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+.govuk-notification-banner__content {
+  padding: 15px;
+  color: var(--govuk-text-colour, #0b0c0c);
+  background-color: var(--govuk-body-background-colour, #ffffff);
+}
+@media (min-width: 40.0625em) {
+  .govuk-notification-banner__content {
+    padding: 20px;
+  }
+}
+.govuk-notification-banner__content > * {
+  box-sizing: border-box;
+  max-width: 605px;
+}
+.govuk-notification-banner__content > :last-child {
+  margin-bottom: 0;
+}
+.govuk-notification-banner__heading {
+  font-size: 1.3125rem;
+  line-height: 1.1904761905;
+}
+@media (min-width: 40.0625em) {
+  .govuk-notification-banner__heading {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+}
+@media print {
+  .govuk-notification-banner__heading {
+    font-size: 18pt;
+    line-height: 1.15;
+  }
+}
+.govuk-notification-banner__heading {
+  font-weight: 700;
+  margin: 0 0 15px;
+  padding: 0;
+}
+.govuk-notification-banner__link {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media print {
+  .govuk-notification-banner__link {
+    font-family: sans-serif;
+  }
+}
+.govuk-notification-banner__link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.1578em;
+}
+.govuk-notification-banner__link:hover {
+  text-decoration-thickness: 3px;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
+  -webkit-text-decoration-skip: none;
+  text-decoration-skip: none;
+}
+.govuk-notification-banner__link:focus {
+  outline: 3px solid rgba(0, 0, 0, 0);
+  color: var(--govuk-focus-text-colour, #0b0c0c);
+  background-color: var(--govuk-focus-colour, #ffdd00);
+  box-shadow:
+    0 -2px var(--govuk-focus-colour, #ffdd00),
+    0 4px var(--govuk-focus-text-colour, #0b0c0c);
+  text-decoration: none;
+}
+@supports not (text-wrap: balance) {
+  .govuk-notification-banner__link:focus {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+.govuk-notification-banner__link:link {
+  color: var(--govuk-link-colour, #1a65a6);
+}
+.govuk-notification-banner__link:visited {
+  color: var(--govuk-link-colour, #1a65a6);
+}
+.govuk-notification-banner__link:hover {
+  color: var(--govuk-link-hover-colour, #0f385c);
+}
+.govuk-notification-banner__link:active {
+  color: var(--govuk-link-active-colour, #0b0c0c);
+}
+.govuk-notification-banner__link:focus {
+  color: var(--govuk-focus-text-colour, #0b0c0c);
+}
